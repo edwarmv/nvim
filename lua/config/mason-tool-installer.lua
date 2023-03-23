@@ -19,5 +19,6 @@ require("mason-tool-installer").setup({
     "prettierd",
     "stylua",
     "autopep8",
+    "eslint-lsp",
   }
 })

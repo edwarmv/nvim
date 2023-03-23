@@ -11,6 +11,7 @@ null_ls.setup({
     -- null_ls.builtins.formatting.prettierd,
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.autopep8,
+    null_ls.builtins.code_actions.eslint,
   },
   -- on_attach = function(client, bufnr)
   --   local opts = {
@@ -24,11 +25,11 @@ null_ls.setup({
 })
 
 vim.api.nvim_create_user_command("NullLsStart", function()
-    -- you can also create commands to disable or enable sources
-    require("null-ls").enable({})
+  -- you can also create commands to disable or enable sources
+  require("null-ls").enable({})
 end, {})
 
 vim.api.nvim_create_user_command("NullLsStop", function()
-    -- you can also create commands to disable or enable sources
-    require("null-ls").disable({})
+  -- you can also create commands to disable or enable sources
+  require("null-ls").disable({})
 end, {})
