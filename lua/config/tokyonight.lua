@@ -1,0 +1,176 @@
+local colors = require("tokyonight.colors").setup()
+local utils = require("tokyonight.util")
+
+-- vim.g.tokyonight_style = "storm"
+-- vim.g.tokyonight_italic_functions = true
+-- vim.g.tokyonight_sidebars = {}
+-- -- vim.g.tokyonight_transparent_sidebar = true
+-- vim.g.tokyonight_dark_float = false
+-- vim.g.tokyonight_lualine_bold = true
+-- vim.g.tokyonight_dark_sidebar = false
+-- vim.g.tokyonight_colors = { terminal_black = "#565f89" }
+require("tokyonight").setup({
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  light_style = "day", -- The theme is used when the background is set to light
+  transparent = false, -- Enable this to disable setting the background color
+  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+  styles = {
+    -- Style to be applied to different syntax groups
+    -- Value is any valid attr-list value for `:help nvim_set_hl`
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+    -- Background styles. Can be "dark", "transparent" or "normal"
+    sidebars = "dark", -- style for sidebars, see below
+    floats = "normal", -- style for floating windows
+  },
+  sidebars = { }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  -- day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+  dim_inactive = false, -- dims inactive windows
+  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+
+  --- You can override specific color groups to use other groups or a hex color
+  --- function will be called with a ColorScheme table
+  on_colors = function(colors) end,
+
+  --- You can override specific highlights to use other groups or a hex color
+  --- function will be called with a Highlights and ColorScheme table
+  on_highlights = function(hl, c)
+    hl.TabLineFill = {
+      bg = c.bg_dark,
+    }
+    hl.NormalFloat = {
+      fg = c.fg,
+      bg = c.bg,
+    }
+    hl.WhichKeyFloat = {
+      fg = c.fg,
+      bg = c.bg,
+    }
+    hl.ExtraWhitespace = {
+      fg = c.red,
+      bg = utils.blend(c.red, c.bg, 0.15),
+    }
+    hl.CmpBorder = {
+      fg = c.fg,
+      bg = c.bg_float,
+    }
+    hl.CmpFloat = {
+      fg = c.fg,
+      bg = c.bg_float,
+    }
+    hl.CmpItemAbbr = {
+      fg = c.comment,
+      bg = c.none,
+    }
+    hl.TelescopeNormal = { fg = c.comment, bg = c.bg_float }
+    hl.TelescopeSelection = { link = "CursorLine" }
+  end,
+})
+
+vim.api.nvim_set_hl(0, 'MasonHighlightBlock', { fg = colors.bg_dark, bg = colors.blue })
+vim.api.nvim_set_hl(0, 'MasonLink', { fg = colors.blue })
+vim.api.nvim_set_hl(0, 'MasonHighlight', { fg = colors.blue })
+vim.api.nvim_set_hl(0, 'MasonHighlightBlockBold', { fg = colors.bg_dark, bg = colors.blue, bold = true })
+vim.api.nvim_set_hl(0, 'MasonHighlightBlockBoldSecondary', { fg = colors.bg_dark, bg = colors.orange, bold = true })
+vim.api.nvim_set_hl(0, 'MasonHighlightBlockSecondary', { fg = colors.bg_dark, bg = colors.orange })
+vim.api.nvim_set_hl(0, 'MasonHighlightSecondary', { fg = colors.orange })
+vim.api.nvim_set_hl(0, 'MasonHeader', { fg = colors.bg_dark, bg = colors.orange, bold = true })
+vim.api.nvim_set_hl(0, 'MasonHeaderSecondary', { fg = colors.bg_dark, bg = colors.blue, bold = true })
+vim.api.nvim_set_hl(0, 'MasonError', { fg = colors.red })
+vim.api.nvim_set_hl(0, 'MasonMuted', { fg = colors.comment })
+vim.api.nvim_set_hl(0, 'MasonHeading', { fg = colors.fg, bold = true })
+vim.api.nvim_set_hl(0, 'MasonMutedBlock', { fg = colors.bg_dark, bg = colors.comment })
+vim.api.nvim_set_hl(0, 'MasonMutedBlockBold', { fg = colors.bg_dark, bg = colors.comment, bold = true })
+vim.api.nvim_set_hl(0, 'MasonNormal', { fg = colors.fg })
+ -- dark5 = "#737aa2",
+ --  blue0 = "#3d59a1",
+ --  blue = "#7aa2f7",
+ --  cyan = "#7dcfff",
+ --  blue1 = "#2ac3de",
+ --  blue2 = "#0db9d7",
+ --  blue5 = "#89ddff",
+ --  blue6 = "#b4f9f8",
+ --  blue7 = "#394b70",
+ --  magenta = "#bb9af7",
+ --  magenta2 = "#ff007c",
+ --  purple = "#9d7cd8",
+ --  orange = "#ff9e64",
+ --  yellow = "#e0af68",
+ --  green = "#9ece6a",
+ --  green1 = "#73daca",
+ --  green2 = "#41a6b5",
+ --  teal = "#1abc9c",
+ --  red = "#f7768e",
+ --  red1 = "#db4b4b",
+
+vim.api.nvim_set_hl(0, 'LeapMatch', { fg = colors.green, nocombine = true, underline = true, bold = true })
+vim.api.nvim_set_hl(0, 'LeapLabelPrimary', { fg = colors.bg_dark, bg = colors.green, nocombine = true, bold = true })
+vim.api.nvim_set_hl(0, 'LeapLabelSecondary', { fg = colors.bg_dark, bg = colors.blue, nocombine = true, bold = true })
+vim.api.nvim_set_hl(0, 'LeapLabelSelected', { fg = colors.bg_dark, bg = colors.purple, nocombine = true, bold = true })
+vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = colors.comment })
+
+vim.api.nvim_set_hl(0, 'HopNextKey', { fg = colors.green, bg = colors.bg, bold = true })
+vim.api.nvim_set_hl(0, 'HopNextKey1', { fg = colors.green, bg = colors.bg, bold = true })
+vim.api.nvim_set_hl(0, 'HopNextKey2', { fg = colors.green, bg = colors.bg, bold = true })
+vim.api.nvim_set_hl(0, 'HopPreview', { fg = colors.green, bg = colors.bg, bold = true })
+
+vim.api.nvim_set_hl(0, "NeoTreeMessage", { link = "Comment" })
+vim.api.nvim_set_hl(0, "NeoTreeDimText", { link = "Comment" })
+vim.api.nvim_set_hl(0, "NeoTreeDotfile", { link = "Comment" })
+vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { link = "FloatBorder" })
+vim.api.nvim_set_hl(0, "NeoTreeFloatTitle", { link = "FloatTitle" })
+vim.api.nvim_set_hl(0, "NeoTreeModified", { link = "Normal" })
+vim.api.nvim_set_hl(0, "NeoTreeGitAdded", { link = "diffAdded" })
+vim.api.nvim_set_hl(0, "NeoTreeGitConflict", { fg = colors.orange })
+vim.api.nvim_set_hl(0, "NeoTreeGitDeleted", { link = "diffRemoved" })
+vim.api.nvim_set_hl(0, "NeoTreeGitIgnored", { link = "Comment" })
+vim.api.nvim_set_hl(0, "NeoTreeGitModified", { link = "Normal" })
+vim.api.nvim_set_hl(0, "NeoTreeGitUnstaged", { link = "Normal" })
+vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { link = "Comment" })
+vim.api.nvim_set_hl(0, "NeoTreeGitStaged", { link = "Normal" })
+vim.api.nvim_set_hl(0, "NeoTreeNormal", { link = "Normal" })
+vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { link = "Normal" })
+
+vim.api.nvim_set_hl(0, "HydraRed", { fg = colors.red })
+vim.api.nvim_set_hl(0, "HydraBlue", { fg = colors.blue })
+vim.api.nvim_set_hl(0, "HydraAmaranth", { fg = colors.magenta })
+vim.api.nvim_set_hl(0, "HydraTeal", { fg = colors.teal })
+vim.api.nvim_set_hl(0, "HydraPink", { fg = colors.purple })
+
+
+-- vim.api.nvim_set_hl(0, "ModesCopy", { bg = utils.blend(colors.yellow, colors.bg, 0.15) })
+-- vim.api.nvim_set_hl(0, "ModesDelete", { bg = utils.blend(colors.red, colors.bg, 0.15) })
+-- vim.api.nvim_set_hl(0, "ModesInsert", { bg = utils.blend(colors.blue, colors.bg, 0.15) })
+-- vim.api.nvim_set_hl(0, "ModesVisual", { bg = utils.blend(colors.purple, colors.bg, 0.15) })
+
+-- vim.highlight.create("InfoFloat", { guifg = colors.blue2 }, false)
+-- vim.highlight.create("WarningFloat", { guifg = colors.yellow }, false)
+-- vim.highlight.create("ErrorFloat", { guifg = colors.red1 }, false)
+-- vim.highlight.create("HintFloat", { guifg = colors.teal }, false)
+
+-- vim.highlight.create("Green", { guifg = colors.green }, false)
+-- vim.highlight.create("CmpItemAbbr", { guifg = colors.comment }, false)
+-- vim.api.nvim_command("hi link LightBulbVirtualText DiagnosticHint")
+
+ vim.g.VM_Mono_hl   = 'Cursor'
+ vim.g.VM_Extend_hl = 'Visual'
+ vim.g.VM_Cursor_hl = 'Cursor'
+ vim.g.VM_Insert_hl = 'Cursor'
+
+-- vim.g.choosewin_color_other = {
+--   gui = { "#1f2335" },
+-- }
+-- vim.g.choosewin_color_label_current = {
+--   gui = { "#73daca", "#1d202f", "bold" },
+-- }
+-- vim.g.choosewin_color_label = {
+--   gui = { "#3b4261", "#7aa2f7", "bold" },
+-- }
+
+vim.cmd([[colorscheme tokyonight]])
+

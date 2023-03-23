@@ -1,0 +1,62 @@
+-- require("onedark").setup({
+--   dark_float = false,
+--   dark_sidebar = false,
+--   lualine_bold = true,
+--   overrides = function(c)
+--     return {
+--       NonText = { fg = c.fg_dark, bg = c.none },
+--       illuminatedCurWord = { fg = c.none, bg = c.none, style = "underline" },
+--       illuminatedWord = { fg = c.none, bg = c.none, style = "underline" },
+--     }
+--   end,
+-- })
+--
+-- local c = require("onedark.colors").setup(require("onedark.config"))
+-- -- -- local colors = require("onedark.colors")
+-- local util = require("onedark.util")
+--
+-- vim.defer_fn(function()
+-- -- --   util.syntax({ NonText = { fg = c.syntax.comment, bg = c.none } })
+-- -- --   util.syntax({ IndentBlanklineChar = { fg = c.syntax.comment, bg = c.none } })
+-- -- --   util.syntax({ HopUnmatched = { fg = c.syntax.comment, bg = c.none } })
+--
+-- --   util.syntax({ NvimTreeNormal = { fg = c.syntax.comment, bg = c.none } })
+-- --   util.syntax({ NvimTreeRootFolder = { fg = c.blue, bg = c.none } })
+-- --   util.syntax({ NvimTreeFolderName = { fg = c.green, bg = c.none } })
+-- --   util.syntax({ NvimTreeOpenedFolderName = { fg = c.green, bg = c.none } })
+-- --   util.syntax({ NvimTreeEmptyFolderName = { fg = c.green, bg = c.none } })
+-- --   util.syntax({ InfoFloat = { fg = c.info, bg = c.none } })
+-- --   util.syntax({ WarningFloat = { fg = c.warning, bg = c.none } })
+-- --   util.syntax({ ErrorFloat = { fg = c.error, bg = c.none } })
+-- --   util.syntax({ HintFloat = { fg = c.hint, bg = c.none } })
+-- --   util.syntax({ DiagnosticUnderlineError = { fg = c.hint, bg = c.none } })
+--
+-- --   util.syntax({ Cursor = { fg = c.bg, bg = c.cursor } })
+--
+-- --   util.syntax({ LightspeedLabel = { fg = c.green, bg = c.none, style = 'underline,bold' } })
+-- --   util.syntax({ LightspeedLabelOverlapped = { fg = c.green, bg = c.none, style = 'underline' } })
+-- --   util.syntax({ LightspeedLabelDistant = { fg = c.blue, bg = c.none, style = 'underline,bold' } })
+-- --   util.syntax({ LightspeedLabelDistantOverlapped = { fg = c.blue, bg = c.none, style = 'underline' } })
+-- --   util.syntax({ LightspeedShortcut = { fg = c.bg, bg = c.green, style = 'underline,bold' } })
+-- --   util.syntax({ LightspeedMaskedChar = { fg = c.purple, bg = c.none, style = 'bold' } })
+-- --   util.syntax({ LightspeedShortcutOverlapped = { fg = c.bg, bg = c.green, style = 'bold' } })
+-- --   util.syntax({ LightspeedUnlabeledMatch = { fg = c.fg, bg = c.none, style = 'bold' } })
+-- --   util.syntax({ LightspeedOneCharMatch = { fg = c.bg, bg = c.orange, style = 'bold' } })
+-- --   util.syntax({ LightspeedPendingOpArea = { fg = c.bg, bg = c.orange } })
+-- --   util.syntax({ LightspeedGreyWash = { fg = c.syntax.comment, bg = c.none } })
+-- --   util.syntax({ LightspeedCursor = { fg = c.bg, bg = c.cursor } })
+-- end, 101) -- 101 is the important part here
+-- util.syntax({ Green = { fg = c.green0, bg = c.none } })
+--
+-- vim.g.choosewin_color_other = { gui = { "#21252b" } }
+-- vim.g.choosewin_color_label = {
+--   gui = { "#82A56B", "#21252b", "bold" },
+-- }
+-- vim.g.choosewin_color_label_current = {
+--   gui = { "#5c6370", "#21252b", "bold" },
+-- }
+--
+-- vim.g.VM_Mono_hl = "Cursor"
+-- vim.g.VM_Insert_hl = "lCursor"
+-- -- vim.cmd([[hi illuminatedCurWord ctermbg=242 guibg=#393f4a]])
+-- -- vim.cmd([[hi illuminatedWord ctermbg=242 guibg=#393f4a]])

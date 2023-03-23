@@ -1,0 +1,9 @@
+# System files
+.DS_Store
+Thumbs.db
+Session.vim
+
+# Packer
+plugin/packer_compiled.lua
+
+.luarc.json

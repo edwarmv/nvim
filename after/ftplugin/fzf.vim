@@ -1,0 +1,3 @@
+setlocal signcolumn=no
+setlocal nocursorcolumn
+setlocal nocursorline

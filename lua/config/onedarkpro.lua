@@ -1,0 +1,46 @@
+require("onedarkpro").setup({
+  dark_theme = "onedark", -- The default dark theme
+  light_theme = "onelight", -- The default light theme
+  caching = true, -- Use caching for the theme?
+  cache_path = vim.fn.expand(vim.fn.stdpath("cache") .. "/onedarkpro/"), -- The path to the cache directory
+  colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
+  highlights = {
+    CursorColumn = { link = "CursorLine" }
+  }, -- Override default highlight and/or filetype groups
+  filetypes = { -- Override which filetype highlight groups are loaded
+    javascript = true,
+    markdown = true,
+    python = true,
+    ruby = true,
+    rust = true,
+    toml = true,
+    yaml = true,
+  },
+  plugins = { -- Override which plugin highlight groups are loaded
+    -- See the Supported Plugins section for a list of available plugins
+  },
+  styles = { -- Choose from "bold,italic,underline"
+    types = "NONE", -- Style that is applied to types
+    numbers = "NONE", -- Style that is applied to numbers
+    strings = "NONE", -- Style that is applied to strings
+    comments = "NONE", -- Style that is applied to comments
+    keywords = "NONE", -- Style that is applied to keywords
+    constants = "NONE", -- Style that is applied to constants
+    functions = "NONE", -- Style that is applied to functions
+    operators = "NONE", -- Style that is applied to operators
+    variables = "NONE", -- Style that is applied to variables
+    conditionals = "NONE", -- Style that is applied to conditionals
+    virtual_text = "NONE", -- Style that is applied to virtual text
+  },
+  options = {
+    bold = true, -- Use the colorscheme's opinionated bold styles?
+    italic = true, -- Use the colorscheme's opinionated italic styles?
+    underline = true, -- Use the colorscheme's opinionated underline styles?
+    undercurl = true, -- Use the colorscheme's opinionated undercurl styles?
+    cursorline = true, -- Use cursorline highlighting?
+    transparency = false, -- Use a transparent background?
+    terminal_colors = true, -- Use the colorscheme's colors for Neovim's :terminal?
+    window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+  },
+})
+vim.cmd("colorscheme onedarkpro")

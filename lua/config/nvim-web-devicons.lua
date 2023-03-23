@@ -1,0 +1,23 @@
+-- require("nvim-web-devicons").setup({
+--   -- your personnal icons can go here (to override)
+--   -- DevIcon will be appended to `name`
+--   override = {
+--     svg = {
+--       icon = "",
+--       color = "#FFB13B",
+--       cterm_color = "215",
+--       name = "Svg",
+--     },
+--   },
+--   -- globally enable default icons (default to false)
+--   -- will get overriden by `get_icons` option
+--   default = true,
+-- })
+-- require("nvim-web-devicons").set_icon({
+--   svg = {
+--     icon = "",
+--     color = "#FFB13B",
+--     cterm_color = "215",
+--     name = "Svg",
+--   },
+-- })
