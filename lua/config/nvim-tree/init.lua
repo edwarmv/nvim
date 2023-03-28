@@ -32,6 +32,9 @@ require("nvim-tree").setup({
     relativenumber = false,
     signcolumn = "no",
   },
+  hijack_directories = {
+    enable = false
+  },
   renderer = {
     indent_markers = {
       enable = true,

@@ -1,14 +1,13 @@
--- Enable true color
-vim.opt.termguicolors = true
-
 local ccc = require("ccc")
 local mapping = ccc.mapping
 ccc.setup({
-  -- Your favorite settings
+  filetypes = {},
+  excludes = { "dirbuf" },
   highlighter = {
     auto_enable = true,
+    lsp = true,
   },
   win_opts = {
     border = "single",
-  }
+  },
 })
