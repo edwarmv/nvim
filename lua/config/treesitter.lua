@@ -28,6 +28,7 @@ require("nvim-treesitter.configs").setup({
     "gitignore",
     "git_rebase",
     "gitattributes",
+    "dockerfile",
     -- "norg",
     -- "norg_meta",
     -- "norg_table",

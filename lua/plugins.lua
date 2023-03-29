@@ -528,7 +528,7 @@ return require("packer").startup(function(use)
     "fladson/vim-kitty",
   })
 
-  use("sheerun/vim-polyglot")
+  -- use("sheerun/vim-polyglot")
 
   -- use("MaxMEllon/vim-jsx-pretty")
   --}}}
