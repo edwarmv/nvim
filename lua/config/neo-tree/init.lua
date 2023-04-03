@@ -91,6 +91,7 @@ require("neo-tree").setup({
       ["zM"] = fold_commands.neotree_zM,
       ["zr"] = fold_commands.neotree_zr,
       ["zR"] = fold_commands.neotree_zR,
+      ["P"] = { "toggle_preview", config = { use_float = false } },
     },
   },
   filesystem = {
