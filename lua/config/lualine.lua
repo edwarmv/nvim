@@ -179,7 +179,14 @@ require("lualine").setup({
       -- "filename",
       -- "require('nvim-lightbulb').get_status_text()",
       -- "lsp_progress",
-      { navic.get_location, cond = navic.is_available },
+      {
+        function()
+          return navic.get_location()
+        end,
+        cond = function()
+          return navic.is_available()
+        end,
+      },
     },
     lualine_x = {
       {
