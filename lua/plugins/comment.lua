@@ -1,6 +1,6 @@
 return {
   "numToStr/Comment.nvim",
-  depedencies = { "Shougo/context_filetype.vim", "JoosepAlviste/nvim-ts-context-commentstring" },
+  dependencies = { "Shougo/context_filetype.vim", "JoosepAlviste/nvim-ts-context-commentstring" },
   event = "VimEnter",
   config = function()
     require("Comment").setup({

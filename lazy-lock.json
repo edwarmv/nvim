@@ -11,6 +11,7 @@
   "cmp-nvim-lsp-document-symbol": { "branch": "main", "commit": "f0f53f704c08ea501f9d222b23491b0d354644b0" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
+  "context_filetype.vim": { "branch": "master", "commit": "e276626e441eee2c624b9192113f1484bc2bc0f3" },
   "csv.vim": { "branch": "master", "commit": "0f6900bf1d0f2ccdbe59ed246db4a82e5cc16e78" },
   "cutlass.nvim": { "branch": "main", "commit": "31a2099627cd1ef8898f442ee6a58c7400111395" },
   "diffview.nvim": { "branch": "main", "commit": "6bebefbc4c90e6d2b8c65e65b055d284475d89f8" },

@@ -33,7 +33,7 @@ local function modified(bufnr, sel)
   return table.concat({
     not sel and " " or "",
     sel and "%#TabLineModifiedSel#" or "%#TabLineModified#",
-    require("const.ICON").STATE.MODIFIED,
+    "[+]",
   })
 end
 
