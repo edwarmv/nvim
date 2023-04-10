@@ -1,0 +1,44 @@
+local utils = require("utils.init")
+
+local plugins = {
+  "winresizer.vim",
+  "vim-visual-multi.vim",
+  "emmet-vim.vim",
+  "vim-markdown.vim",
+  "vim-matchup.vim",
+  "vim-zoom.vim",
+}
+
+for _, v in ipairs(plugins) do
+  utils.sourceVim(v)
+end
+
+return {
+  "b0o/SchemaStore.nvim",
+  { "chrisbra/csv.vim", ft = "csv" },
+  {
+    "preservim/vim-markdown",
+    dependencies = {
+      "godlygeek/tabular",
+      {
+        "iamcco/markdown-preview.nvim",
+        build = "cd app && yarn install",
+      },
+    },
+  },
+  "tpope/vim-fugitive",
+  {
+    "weirongxu/plantuml-previewer.vim",
+    dependencies = {
+      -- "aklt/plantuml-syntax",
+      "tyru/open-browser.vim",
+    },
+  },
+  "fladson/vim-kitty",
+  "tpope/vim-sleuth",
+  "tpope/vim-repeat",
+  "tpope/vim-scriptease",
+  "farmergreg/vim-lastplace",
+  "simeji/winresizer",
+  "moll/vim-bbye",
+}
