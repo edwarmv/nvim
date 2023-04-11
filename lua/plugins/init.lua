@@ -7,6 +7,7 @@ local plugins = {
   "vim-markdown.vim",
   "vim-matchup.vim",
   "vim-zoom.vim",
+  "init.vim",
 }
 
 for _, v in ipairs(plugins) do
