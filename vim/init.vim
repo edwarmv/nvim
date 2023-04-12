@@ -1,1 +1,2 @@
-let g:python3_host_prog = "/home/edwarmv/.asdf/installs/python/3.11.3/bin/python"
+let g:python3_host_prog = "/usr/bin/python"
+let g:node_host_prog = "/usr/bin/node"

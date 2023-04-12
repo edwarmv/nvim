@@ -24,6 +24,13 @@ return {
       end,
       desc = "FZF - Files Relative Path",
     },
+    {
+      "<space><space>ff",
+      function()
+        require("fzf-lua").files({ cmd = "find" })
+      end,
+      desc = "FZF - Files [find]",
+    },
     { "<space>fh", "<cmd>FzfLua oldfiles<cr>", desc = "FZF - Files History" },
     { "<space>fb", "<cmd>FzfLua buffers<cr>", desc = "FZF - Buffers" },
     {
