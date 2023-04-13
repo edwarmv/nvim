@@ -22,6 +22,7 @@ return {
       "stylua",
       "autopep8",
       "eslint-lsp",
+      "eslint_d",
     },
   },
 }

@@ -32,7 +32,7 @@ local function modified(bufnr, sel)
 
   return table.concat({
     not sel and " " or "",
-    sel and "%#TabLineModifiedSel#" or "%#TabLineModified#",
+    sel and "%#TabLineSel#" or "%#TabLine#",
     "[+]",
   })
 end
