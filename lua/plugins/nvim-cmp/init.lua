@@ -91,9 +91,9 @@ return {
               fallback()
             end
           end,
-          -- c = function(fallback)
-          --   fallback()
-          -- end,
+          c = function(fallback)
+            fallback()
+          end,
         }),
         ["<c-p>"] = cmp.mapping({
           i = function(fallback)
@@ -112,9 +112,9 @@ return {
               fallback()
             end
           end,
-          -- c = function(fallback)
-          --   fallback()
-          -- end,
+          c = function(fallback)
+            fallback()
+          end,
         }),
         ["<m-f>"] = cmp.mapping.scroll_docs(1),
         ["<m-b>"] = cmp.mapping.scroll_docs(-1),
@@ -127,13 +127,13 @@ return {
               fallback()
             end
           end,
-          -- c = function(fallback)
-          --   if cmp.visible() then
-          --     cmp.close()
-          --   else
-          --     fallback()
-          --   end
-          -- end,
+          c = function(fallback)
+            if cmp.visible() then
+              cmp.close()
+            else
+              fallback()
+            end
+          end,
         }),
         ["<c-y>"] = cmp.mapping({
           i = function(fallback)
@@ -147,16 +147,16 @@ return {
               -- feedkey("<c-g>u", "i")
             end
           end,
-          -- c = function(fallback)
-          --   if cmp.visible() then
-          --     cmp.confirm({
-          --       behavior = cmp.ConfirmBehavior.Insert,
-          --       select = true,
-          --     })
-          --   else
-          --     fallback()
-          --   end
-          -- end,
+          c = function(fallback)
+            if cmp.visible() then
+              cmp.confirm({
+                behavior = cmp.ConfirmBehavior.Insert,
+                select = true,
+              })
+            else
+              fallback()
+            end
+          end,
         }),
         ["<CR>"] = cmp.mapping({
           i = function(fallback)
@@ -170,16 +170,16 @@ return {
               -- feedkey("<c-g>u", "i")
             end
           end,
-          -- c = function(fallback)
-          --   if cmp.visible() then
-          --     cmp.confirm({
-          --       behavior = cmp.ConfirmBehavior.Replace,
-          --       select = true,
-          --     })
-          --   else
-          --     fallback()
-          --   end
-          -- end,
+          c = function(fallback)
+            if cmp.visible() then
+              cmp.confirm({
+                behavior = cmp.ConfirmBehavior.Replace,
+                select = true,
+              })
+            else
+              fallback()
+            end
+          end,
         }),
         ["<tab>"] = cmp.mapping({
           i = function(fallback)
@@ -193,15 +193,15 @@ return {
               fallback()
             end
           end,
-          -- c = function(fallback)
-          --   if cmp.visible() then
-          --     debounce.cancel_autocomplete = true
-          --     cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-          --   else
-          --     -- fallback()
-          --     cmp.complete()
-          --   end
-          -- end,
+          c = function(fallback)
+            if cmp.visible() then
+              debounce.cancel_autocomplete = true
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+            else
+              -- fallback()
+              cmp.complete()
+            end
+          end,
         }),
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
@@ -212,22 +212,22 @@ return {
               fallback()
             end
           end,
-          -- c = function(fallback)
-          --   if cmp.visible() then
-          --     debounce.cancel_autocomplete = true
-          --     cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-          --   else
-          --     fallback()
-          --   end
-          -- end,
+          c = function(fallback)
+            if cmp.visible() then
+              debounce.cancel_autocomplete = true
+              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
+            else
+              fallback()
+            end
+          end,
         }),
         ["<c-space>"] = cmp.mapping({
           i = function()
             cmp.complete()
           end,
-          -- c = function()
-          --   cmp.complete()
-          -- end,
+          c = function()
+            cmp.complete()
+          end,
         }),
         ["<c-x><c-s>"] = cmp.mapping({
           i = function()
@@ -284,21 +284,21 @@ return {
       -- },
     })
 
-    -- cmp.setup.cmdline(":", {
-    --   completion = {
-    --     autocomplete = false,
-    --   },
-    --   sources = cmp.config.sources({
-    --     { name = "cmdline" },
-    --   }, {
-    --     { name = "path" },
-    --   }),
-    --   formatting = {
-    --     fields = {
-    --       cmp.ItemField.Abbr,
-    --     },
-    --   },
-    -- })
+    cmp.setup.cmdline(":", {
+      completion = {
+        autocomplete = false,
+      },
+      sources = cmp.config.sources({
+        { name = "cmdline" },
+      }, {
+        { name = "path" },
+      }),
+      formatting = {
+        fields = {
+          cmp.ItemField.Abbr,
+        },
+      },
+    })
 
     -- require("cmp").setup.cmdline("/", {
     --   completion = {
