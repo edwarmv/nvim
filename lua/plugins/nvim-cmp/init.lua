@@ -34,9 +34,9 @@ return {
         end,
       },
       preselect = types.cmp.PreselectMode.None,
-      completion = {
-        autocomplete = false,
-      },
+      -- completion = {
+      --   autocomplete = false,
+      -- },
       window = { --{{{
         completion = {
           -- border = { '', '', '', '', '', '', '', '' },

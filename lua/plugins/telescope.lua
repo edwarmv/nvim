@@ -72,6 +72,11 @@ return {
     { "<space>tlD", "<cmd>Telescope diagnostics<cr>", desc = "Telescope - Diagnostics Workspace" },
     { "<space>tls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Telescope - LSP Document Symbols" },
     { "<space>tlS", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Telescope - LSP Workspace Symbols" },
+    { "<space>tlr", "<cmd>Telescope lsp_references<cr>", desc = "Telescope - LSP References" },
+    { "<space>tli", "<cmd>Telescope lsp_implementations<cr>", desc = "Telescope - LSP Implementation" },
+    { "<space>tLd", "<cmd>Telescope lsp_definitions<cr>", desc = "Telescope - LSP Definitions" },
+    { "<space>tLc", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Telescope - LSP Incoming calls" },
+    { "<space>tLC", "<cmd>Telescope lsp_outgoing_calls<cr>", desc = "Telescope - LSP Outcoming calls" },
 
     { "<space>tr", "<cmd>Telescope live_grep<cr>", desc = "Telescope - Live Grep" },
     { "<space>tR", "<cmd>Telescope grep_string<cr>", desc = "Telescope - Live Grep" },
