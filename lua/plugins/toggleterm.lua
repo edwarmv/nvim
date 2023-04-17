@@ -43,7 +43,7 @@ return {
           return width
         end,
         height = function(_term)
-          local height = math.ceil((vim.o.lines - 4) * 0.9)
+          local height = math.ceil(vim.o.lines * 0.9)
           -- _term.float_opts.row = math.ceil(vim.o.lines - 2 / 2)
           return height
         end,
