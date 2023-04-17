@@ -171,14 +171,7 @@ return {
             end
           end,
           c = function(fallback)
-            if cmp.visible() then
-              cmp.confirm({
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = true,
-              })
-            else
-              fallback()
-            end
+            fallback()
           end,
         }),
         ["<tab>"] = cmp.mapping({
@@ -285,9 +278,6 @@ return {
     })
 
     cmp.setup.cmdline(":", {
-      completion = {
-        autocomplete = false,
-      },
       sources = cmp.config.sources({
         { name = "cmdline" },
       }, {
