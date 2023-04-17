@@ -40,9 +40,9 @@ return {
 
     vim.keymap.set({ "n" }, "s", "<Plug>(leap-forward-to)", { silent = true })
     vim.keymap.set({ "n" }, "S", "<Plug>(leap-backward-to)", { silent = true })
-    vim.keymap.set({ "x", "o" }, "si", "<Plug>(leap-forward-till)", { silent = true })
+    vim.keymap.set({ "x", "o" }, "zi", "<Plug>(leap-forward-till)", { silent = true })
     vim.keymap.set({ "x", "o" }, "Zi", "<Plug>(leap-backward-till)", { silent = true })
-    vim.keymap.set({ "x", "o" }, "sa", "<Plug>(leap-forward-to)", { silent = true })
+    vim.keymap.set({ "x", "o" }, "za", "<Plug>(leap-forward-to)", { silent = true })
     vim.keymap.set({ "x", "o" }, "Za", "<Plug>(leap-backward-to)", { silent = true })
     vim.keymap.set({ "n", "x", "o" }, "gs", "<Plug>(leap-cross-window)", { silent = true })
 

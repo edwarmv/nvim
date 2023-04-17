@@ -13,8 +13,6 @@ return {
     local fb_actions = require("telescope").extensions.file_browser.actions
     require("telescope").setup({
       defaults = {
-        -- Default configuration for telescope goes here:
-        -- config_key = value,
         mappings = {
           i = {
             -- map actions.which_key to <C-h> (default: <C-/>)
@@ -37,15 +35,6 @@ return {
         },
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-      },
-      pickers = {
-        -- Default configuration for builtin pickers goes here:
-        -- picker_name = {
-        --   picker_config_key = value,
-        --   ...
-        -- }
-        -- Now the picker_config_key will be applied every time you call this
-        -- builtin picker
       },
       extensions = {
         fzf = {
@@ -76,6 +65,7 @@ return {
 
     require("telescope").load_extension("file_browser")
     require("telescope").load_extension("fzf")
+    require("telescope").load_extension("noice")
   end,
   keys = {
     { "<space>tld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Telescope - Diagnostics Document" },
@@ -111,7 +101,7 @@ return {
     { "<space>tgC", "<cmd>Telescope git_bcommits<cr>", desc = "Telescope - Git Buffer's Commits" },
     { "<space>tgb", "<cmd>Telescope git_branches<cr>", desc = "Telescope - Git Branches" },
     { "<space>tgs", "<cmd>Telescope git_status<cr>", desc = "Telescope - Git Status" },
-    { "<space>tgS", "<cmd>Telescope git_stashcr>", desc = "Telescope - Git Stash" },
-    { "<space>tn", "<cmd>Telescope noice>", desc = "Telescope - Git Stash" },
+    { "<space>tgS", "<cmd>Telescope git_stash<cr>", desc = "Telescope - Git Stash" },
+    { "<space>tn", "<cmd>Telescope noice<cr>", desc = "Telescope - Noice" },
   },
 }

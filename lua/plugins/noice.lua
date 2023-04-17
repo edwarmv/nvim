@@ -51,14 +51,8 @@ return {
         },
       },
     },
-    routes = {
-      {
-        filter = {
-          event = "msg_show",
-          min_height = 3,
-        },
-        view = "split",
-      },
+    presets = {
+      long_message_to_split = true,
     },
   },
 }
