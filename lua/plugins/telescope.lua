@@ -65,7 +65,6 @@ return {
 
     require("telescope").load_extension("file_browser")
     require("telescope").load_extension("fzf")
-    require("telescope").load_extension("noice")
   end,
   keys = {
     { "<space>tld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Telescope - Diagnostics Document" },
@@ -108,6 +107,5 @@ return {
     { "<space>tgb", "<cmd>Telescope git_branches<cr>", desc = "Telescope - Git Branches" },
     { "<space>tgs", "<cmd>Telescope git_status<cr>", desc = "Telescope - Git Status" },
     { "<space>tgS", "<cmd>Telescope git_stash<cr>", desc = "Telescope - Git Stash" },
-    { "<space>tn", "<cmd>Telescope noice<cr>", desc = "Telescope - Noice" },
   },
 }

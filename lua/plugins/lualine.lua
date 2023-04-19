@@ -139,6 +139,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
   config = function()
+    vim.opt.cmdheight = 0
     local navic = require("nvim-navic")
     require("lualine").setup({
       options = {
@@ -180,21 +181,8 @@ return {
           },
           "zoom#statusline",
           "ObsessionStatus",
-          {
-            require("noice").api.status.command.get,
-            cond = require("noice").api.status.command.has,
-            color = { fg = "Orange" },
-          },
-          {
-            require("noice").api.status.mode.get,
-            cond = require("noice").api.status.mode.has,
-            color = { fg = "Orange" },
-          },
-          {
-            require("noice").api.status.search.get,
-            cond = require("noice").api.status.search.has,
-            color = { fg = "Orange" },
-          },
+          "searchcount",
+          "selectioncount",
           -- { require("auto-session-library").current_session_name, icon = { "", color = { fg = "#89b482" } } },
           -- "searchcount",
           "filetype",
@@ -212,7 +200,7 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      extensions = { "fzf", "nvim-tree", "neo-tree", "quickfix", "aerial", nnn, floaterm, telescope },
+      extensions = { "fzf", "nvim-tree", "neo-tree", "quickfix", "aerial", nnn, floaterm, telescope, "lazy", "toggleterm", "trouble" },
     })
   end,
 }
