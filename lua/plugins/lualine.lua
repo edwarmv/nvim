@@ -183,6 +183,14 @@ return {
           "ObsessionStatus",
           "searchcount",
           "selectioncount",
+          function()
+            local recording_register = vim.fn.reg_recording()
+            if recording_register == "" then
+              return ""
+            else
+              return "Recording @" .. recording_register
+            end
+          end,
           -- { require("auto-session-library").current_session_name, icon = { "", color = { fg = "#89b482" } } },
           -- "searchcount",
           "filetype",
@@ -200,7 +208,19 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      extensions = { "fzf", "nvim-tree", "neo-tree", "quickfix", "aerial", nnn, floaterm, telescope, "lazy", "toggleterm", "trouble" },
+      extensions = {
+        "fzf",
+        "nvim-tree",
+        "neo-tree",
+        "quickfix",
+        "aerial",
+        nnn,
+        floaterm,
+        telescope,
+        "lazy",
+        "toggleterm",
+        "trouble",
+      },
     })
   end,
 }
