@@ -99,6 +99,7 @@ return {
     },
     { "<space>tk", "<cmd>Telescope keymaps<cr>", desc = "Telescope - Keymaps" },
     { "<space>tc", "<cmd>Telescope commands<cr>", desc = "Telescope - Commands" },
+    { "<space>tm", "<cmd>Telescope marks<cr>", desc = "Telescope - Commands" },
 
     { "<space>Tf", "<cmd>Telescope file_browser<cr>", desc = "Telescope - File Manager" },
 

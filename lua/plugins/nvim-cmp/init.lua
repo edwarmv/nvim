@@ -290,20 +290,20 @@ return {
       },
     })
 
-    -- require("cmp").setup.cmdline("/", {
-    --   completion = {
-    --     autocomplete = false,
-    --   },
-    --   sources = cmp.config.sources({
-    --     -- { name = "nvim_lsp_document_symbol" },
-    --     { name = "buffer" },
-    --   }),
-    --   -- formatting = {
-    --   --   fields = {
-    --   --     cmp.ItemField.Abbr,
-    --   --   },
-    --   -- },
-    -- })
+    require("cmp").setup.cmdline("/", {
+      -- completion = {
+      --   autocomplete = false,
+      -- },
+      sources = cmp.config.sources({
+        { name = "nvim_lsp_document_symbol" },
+        { name = "buffer" },
+      }),
+      -- formatting = {
+      --   fields = {
+      --     cmp.ItemField.Abbr,
+      --   },
+      -- },
+    })
 
     -- cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
     --   sources = cmp.config.sources({
