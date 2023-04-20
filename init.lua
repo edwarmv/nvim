@@ -60,7 +60,7 @@ vim.keymap.set("n", "<leader>tm", ":tabmove")
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>")
 
-vim.api.nvim_create_autocmd({ "User", "TabLeave" }, {
+vim.api.nvim_create_autocmd({ "TabLeave" }, {
   command = "let g:lasttab = tabpagenr()",
 })
 
