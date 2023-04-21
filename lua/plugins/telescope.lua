@@ -19,6 +19,8 @@ return {
             -- actions.which_key shows the mappings for your picker,
             -- e.g. git_{create, delete, ...}_branch for the git_branches picker
             ["<C-h>"] = "which_key",
+            ["<C-x>"] = false,
+            ["<C-s>"] = "select_horizontal",
           },
         },
         prompt_prefix = "",
@@ -89,6 +91,7 @@ return {
     },
     { "<space>to", "<cmd>Telescope oldfiles<cr>", desc = "Telescope - Old Files" },
     { "<space>tb", "<cmd>Telescope buffers<cr>", desc = "Telescope - Buffers" },
+    { "<space>Tb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Telescope - Current Buffer Fuzzy Find" },
     {
       "<space>tB",
       function()

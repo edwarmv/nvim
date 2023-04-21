@@ -9,6 +9,10 @@ return {
       enabled = true,
     },
     lsp = {
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+      },
       progress = {
         enabled = false,
       },
@@ -50,7 +54,7 @@ return {
           style = "single",
         },
         size = {
-          width = "50%",
+          width = "90%",
           height = "auto",
         },
         format = "details",
