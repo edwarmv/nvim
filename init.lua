@@ -20,10 +20,7 @@ vim.opt.wrap = false
 vim.opt.display = "msgsep"
 -- " set notimeout
 -- " https://github.com/sindrets/diffview.nvim/issues/35
-vim.opt.fillchars:append({ diff = "╱" })
-
-vim.opt.foldmethod = "manual"
-vim.opt.foldcolumn = "auto"
+vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "▼", foldsep = "│", foldclose = "▶" })
 
 -- =========================================================
 -- Mappings

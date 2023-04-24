@@ -7,6 +7,7 @@ return {
   opts = {
     messages = {
       enabled = true,
+      view_search = false,
     },
     lsp = {
       override = {

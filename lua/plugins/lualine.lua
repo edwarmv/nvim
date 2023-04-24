@@ -177,7 +177,6 @@ return {
           },
           "zoom#statusline",
           "ObsessionStatus",
-          "searchcount",
           "selectioncount",
           function()
             local recording_register = vim.fn.reg_recording()

@@ -7,7 +7,7 @@ return {
     -- "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
-    "hrsh7th/cmp-calc",
+    -- "hrsh7th/cmp-calc",
     -- "ray-x/cmp-treesitter",
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
     {
@@ -250,7 +250,7 @@ return {
         { name = "luasnip" },
         { name = "path" },
         { name = "buffer" },
-        { name = "calc" },
+        -- { name = "calc" },
       }), --}}}
       formatting = { --{{{
         fields = {
