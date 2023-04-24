@@ -62,7 +62,10 @@ return {
       },
       fold_virt_text_handler = handler,
       provider_selector = function(bufnr, filetype, buftype)
-        return { "indent" }
+        if ftMap[filetype] ~= nil then
+          return ftMap[filetype]
+        end
+        return { "lsp", "indent" }
       end,
     })
   end,
