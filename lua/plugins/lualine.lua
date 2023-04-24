@@ -159,12 +159,8 @@ return {
         lualine_b = { { "b:gitsigns_head", icon = "" }, { "diff", source = diff_source } },
         lualine_c = {
           {
-            function()
-              return navic.get_location()
-            end,
-            cond = function()
-              return navic.is_available()
-            end,
+            "navic",
+            color_correction = "static",
           },
         },
         lualine_x = {
