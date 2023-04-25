@@ -34,9 +34,9 @@ return {
         end,
       },
       preselect = types.cmp.PreselectMode.None,
-      -- completion = {
-      --   autocomplete = false,
-      -- },
+      completion = {
+        autocomplete = false,
+      },
       window = { --{{{
         completion = {
           -- border = { '', '', '', '', '', '', '', '' },
@@ -278,6 +278,9 @@ return {
     })
 
     cmp.setup.cmdline(":", {
+      completion = {
+        autocomplete = false,
+      },
       sources = cmp.config.sources({
         { name = "cmdline" },
       }, {
@@ -291,9 +294,9 @@ return {
     })
 
     require("cmp").setup.cmdline("/", {
-      -- completion = {
-      --   autocomplete = false,
-      -- },
+      completion = {
+        autocomplete = false,
+      },
       sources = cmp.config.sources({
         { name = "nvim_lsp_document_symbol" },
         { name = "buffer" },

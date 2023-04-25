@@ -11,9 +11,9 @@ vim.opt.showmode = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
-vim.opt.signcolumn = "yes:1"
+vim.opt.signcolumn = "auto:1"
 vim.opt.numberwidth = 1
-vim.opt.number = true
+vim.opt.number = false
 vim.opt.wrap = false
 -- " set linebreak
 -- " set showbreak=…
@@ -22,7 +22,7 @@ vim.opt.display = "msgsep"
 -- " set notimeout
 -- " https://github.com/sindrets/diffview.nvim/issues/35
 vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "⯆", foldsep = "│", foldclose = "⯈" })
-vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldcolumn = "auto:1" -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
