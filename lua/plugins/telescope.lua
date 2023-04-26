@@ -208,7 +208,7 @@ return {
     { "<space>tLC", "<cmd>Telescope lsp_outgoing_calls<cr>", desc = "Telescope - LSP Outcoming calls" },
 
     { "<space>tr", "<cmd>Telescope live_grep<cr>", desc = "Telescope - Live Grep" },
-    { "<space>tR", "<cmd>Telescope grep_string<cr>", desc = "Telescope - Live Grep" },
+    { "<space>tR", "<cmd>Telescope grep_string<cr>", desc = "Telescope - Live Grep Under Cursor" },
     { "<space>tf", "<cmd>Telescope find_files<cr>", desc = "Telescope - Find Files" },
     {
       "<space>tF",
