@@ -3,10 +3,10 @@
 " **************
 " hi default link fzf Normal
 " hi fzf guifg=#d4be98 guibg=#32302f
-let g:fzf_colors = {
-\ 'bg': ['bg', 'NormalFloat'],
-\ 'border': ['fg', 'FloatBorder'],
-\}
+" let g:fzf_colors = {
+" \ 'bg': ['bg', 'NormalFloat'],
+" \ 'border': ['fg', 'FloatBorder'],
+" \}
 " let g:fzf_colors = {
 " \ 'bg': ['bg', 'Normal'],
 " \ 'bg+': ['bg', 'CursorLine'],
@@ -71,21 +71,21 @@ let g:fzf_colors = {
 "   \   })
 "   \)
 
-function! s:shortpath()
-  let short = fnamemodify(getcwd(), ':~:.')
-  if !has('win32unix')
-    let short = pathshorten(short)
-  endif
-  let slash = '/'
-  return empty(short) ? '~'.slash : short . (short =~ escape(slash, '\').'$' ? '' : slash)
-endfunction
-
-function! s:get_dir()
-  let dir = s:shortpath()
-  return strwidth(dir) < &columns / 2 - 20 ? dir : '> '
-endfunction
-
-command! -bang -complete=dir -nargs=? Find call fzf#run(fzf#vim#with_preview(fzf#wrap({ 'source': 'find . -type f', 'dir': <q-args>, 'options': ['--prompt', s:get_dir()] }, <bang>0)))
+" function! s:shortpath()
+"   let short = fnamemodify(getcwd(), ':~:.')
+"   if !has('win32unix')
+"     let short = pathshorten(short)
+"   endif
+"   let slash = '/'
+"   return empty(short) ? '~'.slash : short . (short =~ escape(slash, '\').'$' ? '' : slash)
+" endfunction
+"
+" function! s:get_dir()
+"   let dir = s:shortpath()
+"   return strwidth(dir) < &columns / 2 - 20 ? dir : '> '
+" endfunction
+"
+" command! -bang -complete=dir -nargs=? Find call fzf#run(fzf#vim#with_preview(fzf#wrap({ 'source': 'find . -type f', 'dir': <q-args>, 'options': ['--prompt', s:get_dir()] }, <bang>0)))
 
 " maps *********
 " nmap <silent><space>ff                <cmd>Files<CR>
