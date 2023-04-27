@@ -51,18 +51,32 @@ return {
         },
       },
       confirm = {
-        border = {
-          style = "single",
+        relative = "editor",
+        position = {
+          row = "100%",
+          col = 0,
         },
         size = {
-          width = "90%",
           height = "auto",
+          width = "100%",
+        },
+        border = {
+          style = "none",
+        },
+        win_options = {
+          winhighlight = {
+            Normal = "NoiceCmdline",
+            IncSearch = "",
+            CurSearch = "",
+            Search = "",
+          },
         },
         format = "details",
       },
     },
     presets = {
       long_message_to_split = true,
+      bottom_search = true,
     },
   },
 }
