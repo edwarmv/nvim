@@ -137,7 +137,7 @@ local telescope = { --{{{
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
+  dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic", "folke/noice.nvim" },
   config = function()
     vim.opt.cmdheight = 0
     local navic = require("nvim-navic")
@@ -177,7 +177,21 @@ return {
           },
           "zoom#statusline",
           "ObsessionStatus",
-          "selectioncount",
+          {
+            require("noice").api.status.message.get,
+            cond = require("noice").api.status.message.has,
+            color = { fg = "#e78a4e", bg = "#3c3836" },
+          },
+          {
+            require("noice").api.status.command.get,
+            cond = require("noice").api.status.command.has,
+            color = { fg = "#e78a4e", bg = "#3c3836" },
+          },
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#e78a4e", bg = "#3c3836" },
+          },
           function()
             local recording_register = vim.fn.reg_recording()
             if recording_register == "" then

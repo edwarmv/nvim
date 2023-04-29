@@ -34,9 +34,9 @@ return {
         end,
       },
       preselect = types.cmp.PreselectMode.None,
-      completion = {
-        autocomplete = false,
-      },
+      -- completion = {
+      --   autocomplete = false,
+      -- },
       window = { --{{{
         completion = {
           -- border = { '', '', '', '', '', '', '', '' },
@@ -246,10 +246,12 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({ --{{{
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
-        { name = "buffer" },
+        {
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+        },
+        { { name = "buffer" } },
+        { { name = "path" } },
         -- { name = "calc" },
       }), --}}}
       formatting = { --{{{
@@ -270,17 +272,17 @@ return {
           end,
         }),
       }, --}}}
-      -- performance = {
-      --   debounce = 80, -- 60
-      --   throttle = 40, -- 30
-      --   fetching_timeout = 200, -- 200
-      -- },
+      performance = {
+        debounce = 300, -- 60
+        throttle = 60, -- 30
+        fetching_timeout = 200, -- 200
+      },
     })
 
     cmp.setup.cmdline(":", {
-      completion = {
-        autocomplete = false,
-      },
+      -- completion = {
+      --   autocomplete = false,
+      -- },
       sources = cmp.config.sources({
         { name = "cmdline" },
       }, {
@@ -294,12 +296,16 @@ return {
     })
 
     require("cmp").setup.cmdline("/", {
-      completion = {
-        autocomplete = false,
-      },
+      -- completion = {
+      --   autocomplete = false,
+      -- },
       sources = cmp.config.sources({
-        { name = "nvim_lsp_document_symbol" },
-        { name = "buffer" },
+        {
+          { name = "buffer" },
+        },
+        {
+          { name = "nvim_lsp_document_symbol" },
+        },
       }),
       -- formatting = {
       --   fields = {
