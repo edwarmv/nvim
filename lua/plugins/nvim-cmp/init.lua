@@ -245,15 +245,10 @@ return {
           end,
         }),
       }, --}}}
-      sources = cmp.config.sources({ --{{{
-        {
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-        },
-        { { name = "buffer" } },
-        { { name = "path" } },
-        -- { name = "calc" },
-      }), --}}}
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+      }, { { name = "buffer" } }, { { name = "path" } }),
       formatting = { --{{{
         fields = {
           cmp.ItemField.Kind,
@@ -272,11 +267,6 @@ return {
           end,
         }),
       }, --}}}
-      performance = {
-        debounce = 300, -- 60
-        throttle = 60, -- 30
-        fetching_timeout = 200, -- 200
-      },
     })
 
     cmp.setup.cmdline(":", {
@@ -300,12 +290,9 @@ return {
       --   autocomplete = false,
       -- },
       sources = cmp.config.sources({
-        {
-          { name = "buffer" },
-        },
-        {
-          { name = "nvim_lsp_document_symbol" },
-        },
+        { name = "buffer" },
+      }, {
+        { name = "nvim_lsp_document_symbol" },
       }),
       -- formatting = {
       --   fields = {

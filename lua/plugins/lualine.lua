@@ -178,11 +178,6 @@ return {
           "zoom#statusline",
           "ObsessionStatus",
           {
-            require("noice").api.status.message.get,
-            cond = require("noice").api.status.message.has,
-            color = { fg = "#e78a4e", bg = "#3c3836" },
-          },
-          {
             require("noice").api.status.command.get,
             cond = require("noice").api.status.command.has,
             color = { fg = "#e78a4e", bg = "#3c3836" },
@@ -192,14 +187,6 @@ return {
             cond = require("noice").api.status.mode.has,
             color = { fg = "#e78a4e", bg = "#3c3836" },
           },
-          function()
-            local recording_register = vim.fn.reg_recording()
-            if recording_register == "" then
-              return ""
-            else
-              return "Recording @" .. recording_register
-            end
-          end,
           -- { require("auto-session-library").current_session_name, icon = { "", color = { fg = "#89b482" } } },
           -- "searchcount",
           "filetype",
