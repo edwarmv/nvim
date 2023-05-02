@@ -5,7 +5,6 @@ local plugins = {
   "vim-visual-multi.vim",
   "emmet-vim.vim",
   "vim-markdown.vim",
-  "vim-matchup.vim",
   "vim-zoom.vim",
   "init.vim",
 }

@@ -44,6 +44,8 @@ function! s:gruvbox_material_custom() abort
   hi default link NeoTreeMessage NonText
   hi default link NeoTreeDimText NonText
 
+  hi! default link MatchWord Visual
+
   hi! link NullLsInfoBorder FloatBorder
 
   " hi default link WinBar StatusLine
@@ -220,18 +222,6 @@ function! s:gruvbox_material_custom() abort
   call gruvbox_material#highlight('WinBar', l:palette.fg0, l:palette.bg_statusline1)
   call gruvbox_material#highlight('WinBarNC', l:palette.grey1, l:palette.bg_statusline1)
 
-  " let g:choosewin_color_other = {
-    "   \ 'gui': ['#32302f' ],
-    "   \}
-    let g:choosewin_color_other = {
-          \ 'gui': ['#3c3836' ],
-          \}
-    let g:choosewin_color_label = {
-          \ 'gui': ['#a9b665', '#282828', 'bold'],
-          \}
-    let g:choosewin_color_label_current = {
-          \ 'gui': ['#504945', '#ddc7a1', 'bold'],
-          \}
   endfunction
 
   augroup GruvboxMaterialCustom
@@ -240,70 +230,3 @@ function! s:gruvbox_material_custom() abort
   augroup END
 
   colorscheme gruvbox-material
-
-  " " Floating with border
-  " " hi NormalFloat ctermfg=223 ctermbg=236 guifg=#d4be98 guibg=#32302f
-  " " hi default link FloatBorder Normal
-
-  " " hi Normal ctermfg=245 ctermbg=236 guifg=#928374 guibg=#32302f
-
-  " hi DiffAdd ctermbg=22 guibg=#424a3e
-  " hi DiffChange ctermbg=17 guibg=#404946
-  " hi DiffDelete ctermbg=52 guibg=#543937
-
-  " hi HintFloat ctermfg=142 ctermbg=none guifg=#a9b665 guibg=none
-  " hi WarningFloat ctermfg=214 ctermbg=none guifg=#d8a657 guibg=none
-  " hi ErrorFloat ctermfg=167 ctermbg=none guifg=#ea6962 guibg=none
-  " hi InfoFloat ctermfg=109 ctermbg=none guifg=#7daea3 guibg=none
-
-  " hi DiagnosticSignHint ctermfg=142 ctermbg=none guifg=#a9b665 guibg=none
-
-  " hi Search guifg=none guibg=#45403d
-
-  " " Floating windows no border
-  " " hi NormalFloat guifg=#d4be98 guibg=#413b39
-  " " hi Pmenu guibg=#413b39
-  " " hi PmenuSbar guibg=#413b39
-
-  " " hi FloatBorder guifg=#393735 guibg=#393735
-  " hi Pmenu guibg=#393735
-  " hi PmenuSbar guibg=#393735
-  " hi PmenuSel ctermfg=236 ctermbg=246 guifg=#32302f guibg=#a89984
-
-  " " fixes cmp scrollbar bg
-  " " hi EndOfBuffer ctermfg=241 ctermbg=none guifg=#665c54 guibg=none
-  " hi EndOfBuffer ctermbg=none guibg=none
-  " hi CmpItemAbbrMatch cterm=bold ctermfg=109 gui=bold guifg=#7daea3
-  " hi CmpItemAbbr ctermfg=245 guifg=#928374
-  " hi CmpItemMenu ctermfg=245 guifg=#928374
-
-  " hi LightspeedLabel cterm=bold,underline ctermfg=142 gui=bold,underline guifg=#a9b665
-  " hi LightspeedLabelOverlapped cterm=underline ctermfg=142 gui=underline guifg=#a9b665
-  " hi LightspeedLabelDistant cterm=bold,underline ctermfg=109 gui=bold,underline guifg=#7daea3
-  " hi LightspeedLabelDistantOverlapped cterm=underline ctermfg=109 gui=underline guifg=#7daea3
-  " hi LightspeedShortcut cterm=bold,underline ctermfg=236 ctermbg=142 gui=bold,underline guifg=#32302f guibg=#a9b665
-  " hi LightspeedShortcutOverlapped cterm=bold ctermfg=236 ctermbg=142 gui=bold guifg=#32302f guibg=#a9b665
-  " hi LightspeedMaskedChar cterm=bold ctermfg=175 gui=bold guifg=#d3869b
-  " hi LightspeedGreyWash ctermfg=245 guifg=#928374
-  " hi LightspeedUnlabeledMatch cterm=bold ctermfg=223 gui=bold guifg=#d4be98
-  " hi LightspeedOneCharMatch cterm=bold ctermfg=236 ctermbg=142 gui=bold guifg=#32302f guibg=#a9b665
-  " hi LightspeedPendingOpArea ctermfg=236 ctermbg=142 guifg=#32302f guibg=#a9b665
-  " hi LightspeedCursor guifg=#282828 guibg=#a89984
-
-  " hi HopNextKey  cterm=bold gui=bold guifg=#282828 guibg=#a9b665
-  " hi HopNextKey1 cterm=bold gui=bold guifg=#282828 guibg=#a9b665
-  " hi HopNextKey2 cterm=bold gui=bold guifg=#282828 guibg=#a9b665
-  " hi HopUnmatched cterm=italic gui=italic guifg=#928374
-
-  " hi NnnBorder ctermfg=239 ctermbg=239 guifg=#393735 guibg=#393735
-
-  " highlight ConflictMarkerOurs guibg=#424a3e
-  " highlight ConflictMarkerTheirs guibg=#404946
-
-  " " lang
-
-  " hi javascriptComma ctermfg=223 guifg=#d4be98
-  " hi javascriptOpSymbol ctermfg=223 guifg=#d4be98
-  " hi javascriptParens ctermfg=223 guifg=#d4be98
-
-  " hi link NeoTreeNormal Normal
