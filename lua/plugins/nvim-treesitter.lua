@@ -7,6 +7,9 @@ return {
     {
       "JoosepAlviste/nvim-ts-context-commentstring",
     },
+    {
+      "windwp/nvim-ts-autotag"
+    }
     -- "nvim-treesitter/nvim-treesitter-angular",
   },
   config = function()
