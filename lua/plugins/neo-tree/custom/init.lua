@@ -11,7 +11,7 @@ components.clipboard = function(config, node, state)
     return {}
   end
   return {
-    text = clipboard_state.action == "copy" and " " or " ",
+    text = clipboard_state.action == "copy" and "󰆏 " or "󰆐 ",
     highlight = config.highlight or highlights.DIM_TEXT,
   }
 end
