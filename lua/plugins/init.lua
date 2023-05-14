@@ -41,4 +41,5 @@ return {
   "farmergreg/vim-lastplace",
   "simeji/winresizer",
   "moll/vim-bbye",
+  "vim-scripts/restore_view.vim",
 }
