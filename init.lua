@@ -23,9 +23,8 @@ vim.opt.display = "msgsep"
 -- " https://github.com/sindrets/diffview.nvim/issues/35
 vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "⯆", foldsep = "│", foldclose = "⯈" })
 vim.o.foldcolumn = "auto:1" -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 
 -- =========================================================
 -- Mappings
@@ -148,7 +147,7 @@ vim.opt.copyindent = true
 -- set autoindent
 -- set cinkeys=
 -- filetype indent on
-vim.opt.viewoptions = { "cursor" }
+vim.opt.viewoptions = { "folds" }
 -- " no autocomments
 -- " set indentkeys=!^F
 -- " set formatoptions=tcqj
