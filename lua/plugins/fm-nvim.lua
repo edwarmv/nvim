@@ -45,7 +45,7 @@ return {
 
       -- Terminal commands used w/ file manager (have to be in your $PATH)
       cmds = {
-        -- lf_cmd = "lf", -- eg: lf_cmd = "lf -command 'set hidden'"
+        lf_cmd = "lf", -- eg: lf_cmd = "lf -command 'set hidden'"
         -- fm_cmd = "fm",
         nnn_cmd = "nnn",
         -- fff_cmd = "fff",
@@ -79,6 +79,7 @@ return {
 
     vim.keymap.set("n", "<space>n", "<cmd>Nnn<cr>")
     -- vim.keymap.set("n", "<space>r", "<cmd>Ranger<cr>")
+    vim.keymap.set("n", "<space>L", "<cmd>Lf<cr>")
     vim.keymap.set("n", "<space>l", "<cmd>Lazygit<cr>")
   end,
 }
