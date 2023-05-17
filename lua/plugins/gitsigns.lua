@@ -77,17 +77,17 @@ return {
       end, { expr = true, desc = "[Gitsigns] Prev Hunk" })
 
       -- Actions
-      map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { desc = "[Gitsigns] Stage Hunk" })
-      map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { desc = "[Gitsigns] Reset Hunk" })
-      map("n", "<leader>hS", gs.stage_buffer, { desc = "[Gitsigns] Stage Buffer" })
-      map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "[Gitsigns] Undo Stage Hunk" })
-      map("n", "<leader>hR", gs.reset_buffer, { desc = "[Gitsigns] Reset Buffer" })
-      map("n", "<leader>hp", gs.preview_hunk, { desc = "[Gitsigns] Preview Hunk" })
-      map("n", "<leader>hP", gs.preview_hunk_inline, { desc = "[Gitsigns] Preview Hunk Inline" })
-      map("n", "<leader>hb", function()
-        gs.blame_line({ full = true })
-      end, { desc = "[Gitsigns] Line Blame" })
-      map("n", "<leader>hB", gs.toggle_current_line_blame, { desc = "[Gitsigns] Toggle Current Line Blame" })
+      map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", { desc = "[Gitsigns] Stage Hunk" })
+      map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "[Gitsigns] Reset Hunk" })
+      map("n", "<leader>gS", gs.stage_buffer, { desc = "[Gitsigns] Stage Buffer" })
+      map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "[Gitsigns] Undo Stage Hunk" })
+      map("n", "<leader>gR", gs.reset_buffer, { desc = "[Gitsigns] Reset Buffer" })
+      map("n", "<leader>gp", gs.preview_hunk, { desc = "[Gitsigns] Preview Hunk" })
+      map("n", "<leader>gP", gs.preview_hunk_inline, { desc = "[Gitsigns] Preview Hunk Inline" })
+      -- map("n", "<leader>hb", function()
+      --   gs.blame_line({ full = true })
+      -- end, { desc = "[Gitsigns] Line Blame" })
+      -- map("n", "<leader>hB", gs.toggle_current_line_blame, { desc = "[Gitsigns] Toggle Current Line Blame" })
       -- map("n", "<leader>hd", gs.diffthis, {desc="[Gitsigns] Stage Hunk"})
       -- map("n", "<leader>hD", function()
       --   gs.diffthis("~")
@@ -95,7 +95,7 @@ return {
       -- map("n", "<leader>td", gs.toggle_deleted)
 
       -- Text object
-      map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { silent = true })
+      map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>", { silent = true })
     end,
   },
 }
