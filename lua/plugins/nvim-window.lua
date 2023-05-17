@@ -1,8 +1,13 @@
+vim.g.windowswap_map_keys = 0
+
 return {
   "https://gitlab.com/yorickpeterse/nvim-window.git",
   dependencies = {
     {
       "wesQ3/vim-windowswap",
+      keys = {
+        { "<leader>s", "<cmd>call WindowSwap#EasyWindowSwap()<cr>", desc = "WindowSwap" },
+      },
     },
   },
   config = function()
