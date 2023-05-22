@@ -30,6 +30,7 @@ require("lspconfig").lua_ls.setup({
     },
   },
   capabilities = capabilities,
+  before_init = require("neodev.lsp").before_init,
   on_attach = function(client, bufnr)
     maps.lsp(bufnr)
   end,
