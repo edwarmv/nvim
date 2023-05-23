@@ -16,7 +16,7 @@ return {
 
       -- These are passed to nvim_open_win
       anchor = "NW",
-      border = "single",
+      border = "rounded",
       -- 'editor' and 'win' will default to being centered
       relative = "cursor",
 
@@ -93,7 +93,7 @@ return {
         size = nil,
         relative = "editor",
         border = {
-          style = "single",
+          style = "rounded",
         },
         max_width = 80,
         max_height = 40,
@@ -103,7 +103,7 @@ return {
       builtin = {
         -- These are passed to nvim_open_win
         anchor = "NW",
-        border = "single",
+        border = "rounded",
         -- 'editor' and 'win' will default to being centered
         relative = "cursor",
 

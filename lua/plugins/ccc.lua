@@ -11,7 +11,7 @@ return {
         lsp = true,
       },
       win_opts = {
-        border = "single",
+        border = "rounded",
       },
     })
   end,

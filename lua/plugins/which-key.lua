@@ -21,7 +21,7 @@ return {
       },
     },
     window = {
-      border = "single",
+      border = "rounded",
     },
   },
 }

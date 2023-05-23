@@ -186,7 +186,7 @@ return {
     -- Options for opening aerial in a floating win
     float = {
       -- Controls border appearance. Passed to nvim_open_win
-      border = "single",
+      border = "rounded",
 
       -- Determines location of floating window
       --   cursor - Opens float on top of the cursor

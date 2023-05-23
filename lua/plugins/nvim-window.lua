@@ -51,7 +51,7 @@ return {
       hint_hl = "Bold",
 
       -- The border style to use for the floating window.
-      border = "single",
+      border = "rounded",
     })
 
     vim.keymap.set("n", "-", "<cmd>lua require('nvim-window').pick()<cr>")

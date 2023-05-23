@@ -6,7 +6,7 @@ return {
     local maps = require("config.maps")
 
     null_ls.setup({
-      border = "single",
+      border = "rounded",
       sources = {
         -- null_ls.builtins.diagnostics.eslint,
         -- null_ls.builtins.code_actions.eslint,

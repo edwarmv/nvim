@@ -8,7 +8,7 @@ return {
       -- Function called when a new window is opened, use for changing win settings/config
       on_open = function(win)
         if vim.api.nvim_win_is_valid(win) then
-          vim.api.nvim_win_set_config(win, { border = "single" })
+          vim.api.nvim_win_set_config(win, { border = "rounded" })
           -- vim.api.nvim_win_set_option(win, "winhl", "Normal:NormalFloat,NormalFloat:NormalFloat,FloatBorder:FloatBorder")
         end
       end,

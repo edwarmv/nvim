@@ -117,7 +117,7 @@ return {
         color = "amaranth",
         invoke_on_body = true,
         hint = {
-          border = "single",
+          border = "rounded",
           position = "middle",
         },
       },

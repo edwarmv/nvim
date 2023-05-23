@@ -33,7 +33,7 @@ return {
       },
       cmdline_popup = {
         border = {
-          style = "single",
+          style = "rounded",
         },
         size = {
           min_width = 0,
@@ -43,7 +43,7 @@ return {
       },
       popup = {
         border = {
-          style = "single",
+          style = "rounded",
         },
         size = {
           width = "50%",

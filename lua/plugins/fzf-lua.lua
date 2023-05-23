@@ -4,7 +4,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     winopts = {
-      border = "single",
+      border = "rounded",
       height = 0.9,
       width = 0.9,
       preview = {

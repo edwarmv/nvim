@@ -37,7 +37,7 @@ M.lsp = function(bufnr)
   vim.keymap.set("v", "<leader>f", vim.lsp.buf.format, { desc = "[LSP] Format" })
 
   vim.keymap.set("n", "<leader>d", function()
-    vim.diagnostic.open_float({ border = "single" })
+    vim.diagnostic.open_float({ border = "rounded" })
   end, { desc = "[Diagnostic] Current Line" })
 
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "[Diagnostic] Location List" })

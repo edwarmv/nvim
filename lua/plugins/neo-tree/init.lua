@@ -37,7 +37,7 @@ return {
       },
       hide_root_node = false,
       same_level = false, -- Create and paste/move files/directories on the same level as the directory under cursor (as opposed to within the directory under cursor).
-      popup_border_style = "single",
+      popup_border_style = "rounded",
       enable_diagnostics = false,
       use_default_mappings = true,
       use_libuv_file_watcher = true,
