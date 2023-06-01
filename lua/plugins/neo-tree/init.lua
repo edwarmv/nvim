@@ -1,12 +1,13 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  cond = false,
   branch = "main",
   -- branch = "v2.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
-    "s1n7ax/nvim-window-picker",
+    { "s1n7ax/nvim-window-picker", name = "window-picker" },
   },
   config = function()
     vim.g.neo_tree_remove_legacy_commands = 1
