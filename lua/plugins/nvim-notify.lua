@@ -13,6 +13,8 @@ return {
         end
       end,
 
+      top_down = false,
+
       -- Function called when a window is closed
       -- on_close = nil,
 
