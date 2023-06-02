@@ -72,6 +72,8 @@ return {
       end,
       desc = "FZF - Buffers Relative Path",
     },
+    { "<space><space>fbl", "<cmd>FzfLua blines<cr>", desc = "FZF - Current Buffer Lines" },
+    { "<space><space>fbL", "<cmd>FzfLua lines<cr>", desc = "FZF - Open Buffers Lines" },
     { "<space>fr", "<cmd>FzfLua live_grep<cr>", desc = "FZF - Grep" },
     { "<space>fk", "<cmd>FzfLua keymaps<cr>", desc = "FZF - Key Mappings" },
     { "<space>fm", "<cmd>FzfLua marks<cr>", desc = "FZF - Key Mappings" },
