@@ -37,10 +37,10 @@ vim.keymap.set("n", "<c-w>t", "<cmd>tabe %<cr>")
 -- "   execute window_count . "wincmd w"
 -- " endfunction
 
-vim.keymap.set("n", "<leader><leader>f", function()
-  local window_count = vim.fn.winnr("$")
-  vim.cmd(window_count .. "wincmd w")
-end, { desc = "Focus Floating Window" })
+-- vim.keymap.set("n", "<leader><leader>f", function()
+--   local window_count = vim.fn.winnr("$")
+--   vim.cmd(window_count .. "wincmd w")
+-- end, { desc = "Focus Floating Window" })
 
 vim.keymap.set("n", "<m-H>", "<c-w>h")
 vim.keymap.set("n", "<m-J>", "<c-w>j")
