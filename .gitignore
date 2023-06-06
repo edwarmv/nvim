@@ -6,4 +6,7 @@ Session.vim
 # Packer
 plugin/packer_compiled.lua
 
+# Lazy
+lazy-lock.json
+
 .luarc.json
