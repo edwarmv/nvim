@@ -42,4 +42,10 @@ return {
   "simeji/winresizer",
   "moll/vim-bbye",
   "vim-scripts/restore_view.vim",
+  {
+    "gcmt/taboo.vim",
+    config = function()
+      vim.g.taboo_tabline = 0
+    end,
+  },
 }
