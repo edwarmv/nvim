@@ -44,6 +44,7 @@ return {
         "git_rebase",
         "gitattributes",
         "dockerfile",
+        "dart",
         -- "norg",
         -- "norg_meta",
         -- "norg_table",
