@@ -31,7 +31,7 @@ return {
       },
       buftype_exclude = { "terminal", "floaterm", "help", "quickfix" }, -- "nofile"
       show_current_context = false,
-      use_treesitter = true,
+      use_treesitter = false,
       show_trailing_blankline_indent = false,
       show_end_of_line = false,
       show_foldtext = false,
