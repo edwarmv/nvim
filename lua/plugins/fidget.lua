@@ -20,6 +20,7 @@ return {
       relative = "editor", -- where to anchor, either "win" or "editor"
       blend = 0, -- &winblend for the window
       zindex = nil, -- the zindex value for the window
+      border = "rounded"
     },
     fmt = {
       leftpad = true, -- right-justify text in fidget box
