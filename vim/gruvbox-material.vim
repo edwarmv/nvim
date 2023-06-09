@@ -7,13 +7,13 @@ let g:gruvbox_material_background = 'soft'
 let g:gruvbox_material_sign_column_background = 'none' " default none
 let g:gruvbox_material_diagnostic_text_highlight = 1
 let g:gruvbox_material_diagnostic_line_highlight = 1
-let g:gruvbox_material_transparent_background = 1
+let g:gruvbox_material_transparent_background = 0
 let g:gruvbox_material_visual = 'grey background'
 let g:gruvbox_material_show_eob = 0
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_diagnostic_virtual_text = 'grey' " colored grey
 let g:gruvbox_material_current_word = 'grey background'
-" let g:gruvbox_material_colors_override = { 'bg_dim': ['#32302f', '236'] }
+let g:gruvbox_material_colors_override = { 'bg_dim': ['#32302f', '236'] }
 function! s:gruvbox_material_custom() abort
   " Link a highlight group to a predefined highlight group.
   " See `colors/gruvbox-material.vim` for all predefined highlight groups.
