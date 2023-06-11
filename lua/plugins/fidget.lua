@@ -1,5 +1,6 @@
 return {
   "j-hui/fidget.nvim",
+  enabled = false,
   opts = {
     text = {
       spinner = "line", -- animation shown when tasks are ongoing
