@@ -51,11 +51,11 @@ return {
       },
       highlight = {
         enable = true,
-        -- disable = { "html" },
+        -- disable = { "dart" },
         -- additional_vim_regex_highlighting = { "html" },
       },
       indent = {
-        enable = true,
+        enable = false,
       },
       playground = {
         enable = true,
@@ -84,7 +84,6 @@ return {
       },
       context_commentstring = {
         enable = true,
-        enable_autocmd = false,
       },
     })
     local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
