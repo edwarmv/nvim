@@ -8,8 +8,8 @@ return {
       "JoosepAlviste/nvim-ts-context-commentstring",
     },
     {
-      "windwp/nvim-ts-autotag"
-    }
+      "windwp/nvim-ts-autotag",
+    },
     -- "nvim-treesitter/nvim-treesitter-angular",
   },
   config = function()
@@ -55,7 +55,8 @@ return {
         -- additional_vim_regex_highlighting = { "html" },
       },
       indent = {
-        enable = false,
+        enable = true,
+        disable = { "dart" },
       },
       playground = {
         enable = true,
