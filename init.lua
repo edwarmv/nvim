@@ -11,6 +11,7 @@ vim.opt.showmode = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 vim.opt.signcolumn = "auto:1"
 vim.opt.numberwidth = 1
 vim.opt.number = false
