@@ -4,10 +4,12 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "stevearc/dressing.nvim",
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     local maps = require("config.maps")
     local navic_attach = require("plugins.nvim-navic.attach")
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     require("flutter-tools").setup({
       fvm = true,
       lsp = {
@@ -23,6 +25,7 @@ return {
             require("telescope").extensions.flutter.fvm()
           end, { buffer = bufnr, desc = "Flutter FVM" })
         end,
+        capabilities = capabilities,
       },
     })
     require("telescope").load_extension("flutter")
