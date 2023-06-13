@@ -1,11 +1,14 @@
 return {
   "L3MON4D3/LuaSnip",
   dependencies = { "rafamadriz/friendly-snippets" },
+  build = "make install_jsregexp",
   config = function()
     require("luasnip.loaders.from_vscode").lazy_load()
     local types = require("luasnip.util.types")
+    require("plugins.luasnip.snippets")
     require("luasnip.config").setup({
       history = true,
+      update_events = { "TextChanged", "TextChangedI" },
       -- ext_opts = {
       --   [types.choiceNode] = {
       --     active = {
