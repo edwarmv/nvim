@@ -5,6 +5,13 @@ return {
     "nvim-lua/plenary.nvim",
     "stevearc/dressing.nvim",
     "hrsh7th/cmp-nvim-lsp",
+    {
+      "dart-lang/dart-vim-plugin",
+      config = function()
+        -- vim.g.dart_trailing_comma_indent = true
+        -- vim.g.dart_style_guide = 2
+      end,
+    },
   },
   config = function()
     local maps = require("config.maps")
