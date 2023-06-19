@@ -23,7 +23,7 @@ vim.opt.display = "msgsep"
 -- " set notimeout
 -- " https://github.com/sindrets/diffview.nvim/issues/35
 vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "⯆", foldsep = "│", foldclose = "⯈" })
-vim.opt.indentkeys:remove({ "o", "O" })
+-- vim.opt.indentkeys:remove({ "o", "O" })
 vim.o.foldcolumn = "auto:1" -- '0' is not bad
 vim.o.foldenable = true
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
