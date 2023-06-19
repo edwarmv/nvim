@@ -33,7 +33,7 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
-      preselect = types.cmp.PreselectMode.None,
+      -- preselect = types.cmp.PreselectMode.None,
       -- completion = {
       --   autocomplete = false,
       -- },
