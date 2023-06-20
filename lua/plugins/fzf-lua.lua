@@ -78,6 +78,7 @@ return {
     { "<space>fk", "<cmd>FzfLua keymaps<cr>", desc = "FZF - Key Mappings" },
     { "<space>fm", "<cmd>FzfLua marks<cr>", desc = "FZF - Key Mappings" },
     { "<space>fc", "<cmd>FzfLua commands<cr>", desc = "FZF - Commands" },
+    { "<space>ft", "<cmd>FzfLua tabs<cr>", desc = "FZF - Tabs" },
 
     { "<space>fgf", "<cmd>FzfLua git_files<cr>", desc = "FZF - Git Files" },
     { "<space>fgs", "<cmd>FzfLua git_status<cr>", desc = "FZF - Git Status" },
