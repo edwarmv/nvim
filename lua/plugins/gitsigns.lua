@@ -39,7 +39,7 @@ return {
       relative = "cursor",
       row = 1,
       col = 0,
-      width = math.floor(vim.opt.columns:get() / 4),
+      width = vim.opt.columns:get(),
       height = math.floor(vim.opt.lines:get() / 3),
     },
     yadm = {
