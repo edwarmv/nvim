@@ -111,6 +111,7 @@ function! s:gruvbox_material_custom() abort
 
   " call gruvbox_material#highlight('MatchParen', l:palette.none, l:palette.)
 
+  call gruvbox_material#highlight('DiagnosticDeprecated', l:palette.none, l:palette.none, 'strikethrough', l:palette.red)
   call gruvbox_material#highlight('DiagnosticError', l:palette.red, l:palette.none)
   call gruvbox_material#highlight('DiagnosticWarn', l:palette.yellow, l:palette.none)
   call gruvbox_material#highlight('DiagnosticInfo', l:palette.blue, l:palette.none)
