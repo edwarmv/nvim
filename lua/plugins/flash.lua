@@ -1,7 +1,16 @@
 return {
   "folke/flash.nvim",
   event = "VeryLazy",
-  opts = {},
+  opts = {
+    search = {
+      filetype_exclude = { "notify", "noice", "cmp_menu", "cmp_docs" },
+    },
+    modes = {
+      char = {
+        enabled = false,
+      },
+    },
+  },
   keys = {
     {
       "s",
