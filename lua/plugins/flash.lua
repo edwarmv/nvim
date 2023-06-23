@@ -1,16 +1,8 @@
 return {
   "folke/flash.nvim",
   event = "VeryLazy",
-  opts = {
-    search = {
-      filetype_exclude = { "notify", "noice", "cmp_menu", "cmp_docs" },
-    },
-    modes = {
-      char = {
-        enabled = false,
-      },
-    },
-  },
+  ---@type Flash.Config
+  opts = {},
   keys = {
     {
       "s",
@@ -19,13 +11,23 @@ return {
         -- default options: exact mode, multi window, all directions, with a backdrop
         require("flash").jump()
       end,
+      desc = "Flash",
     },
     {
       "Z",
-      mode = { "o", "x" },
+      mode = { "n", "o", "x" },
       function()
         require("flash").treesitter()
       end,
+      desc = "Flash Treesitter",
+    },
+    {
+      "r",
+      mode = "o",
+      function()
+        require("flash").remote()
+      end,
+      desc = "Remote Flash",
     },
   },
 }
