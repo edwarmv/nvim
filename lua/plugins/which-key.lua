@@ -24,4 +24,9 @@ return {
       border = "rounded",
     },
   },
+  config = function()
+    local presets = require("which-key.plugins.presets")
+    presets.operators["v"] = nil
+    presets.operators["y"] = nil
+  end,
 }
