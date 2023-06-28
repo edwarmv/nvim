@@ -3,7 +3,7 @@ return {
   config = function()
     require("which-key").setup({
       plugins = {
-        marks = false, -- shows a list of your marks on ' and `
+        marks = true, -- shows a list of your marks on ' and `
         registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
         spelling = {
           enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
@@ -20,6 +20,9 @@ return {
           z = true, -- bindings for folds, spelling and others prefixed with z
           g = true, -- bindings for prefixed with g
         },
+      },
+      triggers_blacklist = {
+        n = { "y", "v" },
       },
       window = {
         border = "rounded",
