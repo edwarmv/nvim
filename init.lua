@@ -25,7 +25,7 @@ vim.opt.timeoutlen = 500
 vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "⯆", foldsep = "│", foldclose = "⯈" })
 -- vim.opt.indentkeys:remove({ "o", "O" })
 vim.o.foldcolumn = "auto:1" -- '0' is not bad
-vim.o.foldenable = true
+-- vim.o.foldenable = true
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 
 -- =========================================================
