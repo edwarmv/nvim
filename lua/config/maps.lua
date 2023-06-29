@@ -50,6 +50,20 @@ M.lsp = function(bufnr)
     vim.diagnostic.goto_prev({ float = false })
   end, { desc = "[Diagnostic] Prev" })
 
+  local goto_preview = require("goto-preview")
+
+  vim.keymap.set("n", "glpd", goto_preview.goto_preview_definition, { desc = "[LSP] Goto Preview Definition" })
+  vim.keymap.set(
+    "n",
+    "glpt",
+    goto_preview.goto_preview_type_definition,
+    { desc = "[LSP] Goto Preview Type Definition" }
+  )
+  vim.keymap.set("n", "glpi", goto_preview.goto_preview_implementation, { desc = "[LSP] Goto Preview Implementation" })
+  vim.keymap.set("n", "glP", goto_preview.close_all_win, { desc = "[LSP] Goto Preview Close All Win" })
+  -- Only set if you have telescope installed
+  vim.keymap.set("n", "glpr", goto_preview.goto_preview_references, { desc = "[LSP] Goto Preview References" })
+
   -- vim.keymap.set('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   -- vim.keymap.set('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   -- vim.keymap.set('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
