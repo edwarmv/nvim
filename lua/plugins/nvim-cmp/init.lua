@@ -33,7 +33,7 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
-      -- preselect = types.cmp.PreselectMode.None,
+      preselect = cmp.PreselectMode.None,
       -- completion = {
       --   autocomplete = false,
       -- },
@@ -247,7 +247,7 @@ return {
       }, --}}}
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "luasnip" },
+        -- { name = "luasnip" },
         { name = "buffer" },
       }),
       formatting = { --{{{
