@@ -60,7 +60,7 @@ return {
       window = {
         margin = {
           horizontal = 0,
-          vertical = 0,
+          vertical = 1,
         },
         options = {
           signcolumn = "no",
@@ -70,7 +70,7 @@ return {
         padding_char = " ",
         placement = {
           horizontal = "right",
-          vertical = "bottom",
+          vertical = "top",
         },
         width = "fit",
         winhighlight = {
