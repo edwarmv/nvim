@@ -20,6 +20,9 @@ return {
     require("flutter-tools").setup({
       fvm = true,
       lsp = {
+        settings = {
+          renameFilesWithClasses = "always",
+        },
         on_attach = function(client, bufnr)
           maps.lsp(bufnr)
           navic_attach.attach(client, bufnr)
