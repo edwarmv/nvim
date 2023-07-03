@@ -35,6 +35,7 @@ navic.setup({
   depth_limit = 0,
   depth_limit_indicator = "..",
   safe_output = true,
+  click = true,
 })
 
 M.attach = navic.attach

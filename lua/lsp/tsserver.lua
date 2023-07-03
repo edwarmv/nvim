@@ -1,5 +1,4 @@
 local maps = require("config.maps")
-local navic_attach = require("plugins.nvim-navic.attach")
 --
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -35,7 +34,6 @@ require("typescript").setup({
     },
     on_attach = function(client, bufnr)
       maps.lsp(bufnr)
-      navic_attach.attach(client, bufnr)
     end,
   },
 })

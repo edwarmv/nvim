@@ -161,6 +161,9 @@ return {
           {
             "navic",
             color_correction = "static",
+            navic_opts = {
+              click = true,
+            },
           },
         },
         lualine_x = {
