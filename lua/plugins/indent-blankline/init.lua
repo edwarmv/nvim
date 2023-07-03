@@ -28,6 +28,7 @@ return {
         "git",
         "lazy",
         "checkhealth",
+        "notify",
       },
       buftype_exclude = { "terminal", "floaterm", "help", "quickfix" }, -- "nofile"
       show_current_context = false,
