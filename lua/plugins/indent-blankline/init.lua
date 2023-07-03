@@ -29,8 +29,16 @@ return {
         "lazy",
         "checkhealth",
         "notify",
+        "Navbuddy",
       },
-      buftype_exclude = { "terminal", "floaterm", "help", "quickfix" }, -- "nofile"
+      buftype_exclude = {
+        "terminal",
+        "floaterm",
+        "help",
+        "quickfix",
+        "nofile",
+        "",
+      }, -- "nofile"
       show_current_context = false,
       use_treesitter = false,
       show_trailing_blankline_indent = false,
