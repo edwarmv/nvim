@@ -1,30 +1,32 @@
 return {
   "neovim/nvim-lspconfig",
+  event = "VeryLazy",
   -- requires = { "editorconfig/editorconfig-vim" },
-  config = function()
-    local util = require("lspconfig.util")
+  -- config = function()
+    -- require('lsp');
+    -- local util = require("lspconfig.util")
 
-    util.get_managed_clients = function()
-      local configs = require("lspconfig.configs")
-      local clients = {}
-      for _, config in pairs(configs) do
-        if config.manager then
-          vim.list_extend(clients, config.manager.clients())
-        end
-      end
-      return clients
-    end
+    -- util.get_managed_clients = function()
+    --   local configs = require("lspconfig.configs")
+    --   local clients = {}
+    --   for _, config in pairs(configs) do
+    --     if config.manager then
+    --       vim.list_extend(clients, config.manager.clients())
+    --     end
+    --   end
+    --   return clients
+    -- end
 
-    require("lspconfig")
+    -- require("lspconfig")
 
-    local function filter_client(list, val)
-      for _, value in ipairs(list) do
-        if value == val then
-          return false
-        end
-      end
-      return true
-    end
+    -- local function filter_client(list, val)
+    --   for _, value in ipairs(list) do
+    --     if value == val then
+    --       return false
+    --     end
+    --   end
+    --   return true
+    -- end
 
     -- vim.lsp.buf.format({
     --   filter = function(client)
@@ -39,5 +41,5 @@ return {
     --     }, client.name)
     --   end,
     -- })
-  end,
+  -- end,
 }
