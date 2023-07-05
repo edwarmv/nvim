@@ -37,7 +37,7 @@ return {
         "help",
         "quickfix",
         "nofile",
-        "",
+        -- "",
       }, -- "nofile"
       show_current_context = false,
       use_treesitter = false,
