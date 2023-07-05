@@ -64,11 +64,24 @@ M.lsp = function(bufnr)
   -- Only set if you have telescope installed
   vim.keymap.set("n", "glpr", goto_preview.goto_preview_references, { desc = "[LSP] Goto Preview References" })
 
-  vim.keymap.set('n', 'glwa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', { desc = "[LSP] Add Workspace Folder" })
-  vim.keymap.set('n', 'glwr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',
-    { desc = "[LSP] Remove Workspace Folder" })
-  vim.keymap.set('n', 'glwl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
-    { desc = "[LSP] List Workspace Folders" })
+  vim.keymap.set(
+    "n",
+    "glwa",
+    "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
+    { desc = "[LSP] Add Workspace Folder" }
+  )
+  vim.keymap.set(
+    "n",
+    "glwr",
+    "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
+    { desc = "[LSP] Remove Workspace Folder" }
+  )
+  vim.keymap.set(
+    "n",
+    "glwl",
+    "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
+    { desc = "[LSP] List Workspace Folders" }
+  )
 
   -- local wk = require("which-key")
   --
