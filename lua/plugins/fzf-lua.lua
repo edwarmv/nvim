@@ -11,7 +11,21 @@ return {
         horizontal = "right:50%",
         border = "noborder",
       },
-      hl = { border = "FloatBorder", title = "FloatTitle" },
+      hl = {
+        border = "FloatBorder",
+        title = "FloatTitle",
+        preview_border = "FloatBorder",
+        preview_title = "FloatTitle",
+        header_bind = "Comment",
+        header_text = "Comment",
+        buf_name = "Normal",
+        buf_nr = "LineNr",
+        buf_linenr = "LineNr",
+        buf_flag_cur = "Normal",
+        buf_flag_alt = "Normal",
+        tab_title = "Normal",
+        tab_marker = "Normal"
+      },
     },
     file_icon_padding = " ",
     lsp = {
