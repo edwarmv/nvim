@@ -117,17 +117,17 @@ return {
             -- e.g. git_{create, delete, ...}_branch for the git_branches picker
             ["<C-h>"] = "which_key",
             ["<C-x>"] = false,
-            ["<C-v>"] = stopinsert(custom_actions.multi_selection_open_vertical),
-            ["<C-s>"] = stopinsert(custom_actions.multi_selection_open_horizontal),
-            ["<C-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
-            ["<CR>"] = stopinsert(custom_actions.multi_selection_open),
+            -- ["<C-v>"] = stopinsert(custom_actions.multi_selection_open_vertical),
+            -- ["<C-s>"] = stopinsert(custom_actions.multi_selection_open_horizontal),
+            -- ["<C-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
+            -- ["<CR>"] = stopinsert(custom_actions.multi_selection_open),
           },
           n = {
             ["<C-x>"] = false,
-            ["<C-v>"] = custom_actions.multi_selection_open_vertical,
-            ["<C-s>"] = custom_actions.multi_selection_open_horizontal,
-            ["<C-t>"] = custom_actions.multi_selection_open_tab,
-            ["<CR>"] = custom_actions.multi_selection_open,
+            -- ["<C-v>"] = custom_actions.multi_selection_open_vertical,
+            -- ["<C-s>"] = custom_actions.multi_selection_open_horizontal,
+            -- ["<C-t>"] = custom_actions.multi_selection_open_tab,
+            -- ["<CR>"] = custom_actions.multi_selection_open,
           },
         },
         prompt_prefix = "> ",
@@ -232,6 +232,7 @@ return {
     { "<space>tm", "<cmd>Telescope marks<cr>", desc = "Telescope - Commands" },
 
     { "<space>Tf", "<cmd>Telescope file_browser<cr>", desc = "Telescope - File Manager" },
+    { "<space>TF", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", desc = "Telescope - File Manager" },
 
     { "<space>tgc", "<cmd>Telescope git_commits<cr>", desc = "Telescope - Git Commits" },
     { "<space>tgC", "<cmd>Telescope git_bcommits<cr>", desc = "Telescope - Git Buffer's Commits" },
