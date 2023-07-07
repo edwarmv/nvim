@@ -1,5 +1,6 @@
 return {
   "junegunn/fzf",
+  enabled = true,
   dependencies = { "junegunn/fzf.vim", "gfanto/fzf-lsp.nvim" },
   config = function()
     -- binary paths {{{
@@ -194,6 +195,43 @@ return {
     -- vim.keymap.set("n", "<space>fr", "<cmd>Rg<CR>")
     -- vim.keymap.set("n", "<space>fc", "<cmd>Commands<CR>")
   end,
+  keys = {
+    { "<space>ff", "<cmd>Files<cr>", desc = "FZF - Files" },
+    {
+      "<space>fF",
+      "<cmd>FilesRelativePath<cr>",
+      desc = "FZF - Files Relative Path",
+    },
+    {
+      "<space><space>ff",
+      "<cmd>Find<cr>",
+      desc = "FZF - Files [find]",
+    },
+    { "<space>fo", "<cmd>History<cr>", desc = "FZF - Files History" },
+    { "<space>fb", "<cmd>Buffers<cr>", desc = "FZF - Buffers" },
+    {
+      "<space>fB",
+      "<cmd>BuffersRelativePath<cr>",
+      desc = "FZF - Buffers Relative Path",
+    },
+    { "<space><space>fbl", "<cmd>BLines<cr>", desc = "FZF - Current Buffer Lines" },
+    { "<space><space>fbL", "<cmd>Lines<cr>", desc = "FZF - Open Buffers Lines" },
+    { "<space>fr", "<cmd>Rg<cr>", desc = "FZF - Grep" },
+    { "<space>fR", "<cmd>RG<cr>", desc = "FZF - Live Grep" },
+    { "<space>fr", "<cmd>Ag<cr>", desc = "FZF - Ag" },
+    { "<space>fk", "<cmd>Maps<cr>", desc = "FZF - Key Mappings" },
+    { "<space>fm", "<cmd>Marks<cr>", desc = "FZF - Key Mappings" },
+    { "<space>fc", "<cmd>Commands<cr>", desc = "FZF - Commands" },
+    -- { "<space>ft", "<cmd>FzfLua tabs<cr>", desc = "FZF - Tabs" },
+
+    { "<space>fgs", "<cmd>GFiles?<cr>", desc = "FZF - Git Status" },
+    { "<space>fgS", "<cmd>GFiles<cr>", desc = "FZF - Git ls-files" },
+
+    { "<space>fls", "<cmd>DocumentSymbols<cr>", desc = "FZF - LSP Document Symbols" },
+    { "<space>flS", "<cmd>WorkspaceSymbols<cr>", desc = "FZF - LSP Workspace Symbols" },
+    { "<space>fld", "<cmd>Diagnostics<cr>", desc = "FZF - Document Diagnostics" },
+    { "<space>flD", "<cmd>DiagnosticsAll<cr>", desc = "FZF - Document Workspace" },
+  },
 }
 
 -- vim: foldmethod=marker
