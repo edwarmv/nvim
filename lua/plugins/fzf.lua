@@ -220,7 +220,7 @@ return {
     { "<space><space>fbL", "<cmd>Lines<cr>", desc = "FZF - Open Buffers Lines" },
     { "<space>fr", "<cmd>Rg<cr>", desc = "FZF - Grep" },
     { "<space>fR", "<cmd>RG<cr>", desc = "FZF - Live Grep" },
-    { "<space>fr", "<cmd>Ag<cr>", desc = "FZF - Ag" },
+    { "<space>fa", "<cmd>Ag<cr>", desc = "FZF - Ag" },
     { "<space>fk", "<cmd>Maps<cr>", desc = "FZF - Key Mappings" },
     { "<space>fm", "<cmd>Marks<cr>", desc = "FZF - Key Mappings" },
     { "<space>fc", "<cmd>Commands<cr>", desc = "FZF - Commands" },
