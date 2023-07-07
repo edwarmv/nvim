@@ -208,6 +208,8 @@ return {
       desc = "FZF - Files [find]",
     },
     { "<space>fo", "<cmd>History<cr>", desc = "FZF - Files History" },
+    { "<space><space>fbd", "<cmd>DBuffers<cr>", desc = "FZF - Delete Buffers" },
+    { "<space><space>fbw", "<cmd>WBuffers<cr>", desc = "FZF - Wipe Buffers" },
     { "<space>fb", "<cmd>Buffers<cr>", desc = "FZF - Buffers" },
     {
       "<space>fB",
