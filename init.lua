@@ -252,7 +252,7 @@ vim.keymap.set("n", "<esc>", function()
     -- filter using buffer options
     bo = {
       -- if the file type is one of following, the window will be ignored
-      filetype = { "neo-tree", "incline", "neo-tree-preview", "fidget", "noice" }, -- "notify",
+      filetype = { "neo-tree", "incline", "neo-tree-preview", "fidget", "noice", "NvimSeparator" }, -- "notify",
 
       -- if the buffer type is one of following, the window will be ignored
       buftype = { "terminal" },
