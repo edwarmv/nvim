@@ -16,6 +16,7 @@ end
 return {
   "b0o/SchemaStore.nvim",
   { "chrisbra/csv.vim", ft = "csv" },
+  { "chrisbra/recover.vim" },
   {
     "preservim/vim-markdown",
     dependencies = {
