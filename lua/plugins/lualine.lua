@@ -156,7 +156,20 @@ return {
         lualine_a = {
           "mode",
         },
-        lualine_b = { { "b:gitsigns_head", icon = "" }, { "diff", source = diff_source } },
+        lualine_b = {
+          {
+            "b:gitsigns_head",
+            icon = "",
+            fmt = function(value)
+              if value ~= "" then
+                local max_width = vim.o.columns * 1 / 5
+                return string.len(value) <= max_width and value or string.sub(value, 1, max_width) .. "…"
+              end
+              return ""
+            end,
+          },
+          { "diff", source = diff_source },
+        },
         lualine_c = {
           {
             "navic",
