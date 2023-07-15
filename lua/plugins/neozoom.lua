@@ -3,7 +3,7 @@ return {
   enabled = true,
   config = function()
     require("neo-zoom").setup({
-      popup = { enabled = true }, -- this is the default.
+      popup = { enabled = false }, -- this is the default.
       -- NOTE: Add popup-effect (replace the window on-zoom with a `[No Name]`).
       -- EXPLAIN: This improves the performance, and you won't see two
       --          identical buffers got updated at the same time.
@@ -19,32 +19,39 @@ return {
           -- NOTE: omit `top`/`left` to center the floating window vertically/horizontally.
           -- top = 0,
           -- left = 0.17,
-          width = 0.9,
-          height = 0.9,
+          width = 1,
+          height = 1,
         },
         -- NOTE: check :help nvim_open_win() for possible border values.
-        border = "single", -- this is a preset, try it :)
+        border = "rounded",
       },
       presets = {
         {
           -- NOTE: regex pattern can be used here!
           filetypes = { "dapui_.*", "dap-repl" },
           winopts = {
-            -- offset = { top = 0.02, left = 0.26, width = 0.74, height = 0.25 },
+            offset = { top = 0.02, left = 0.26, width = 0.74, height = 0.25 },
           },
         },
-        {
-          filetypes = { "markdown" },
-          callbacks = {
-            function()
-              vim.wo.wrap = true
-            end,
-          },
-        },
+        -- {
+        --   filetypes = { "markdown" },
+        --   callbacks = {
+        --     function()
+        --       vim.wo.wrap = true
+        --     end,
+        --   }
+        -- },
       },
     })
     vim.keymap.set("n", "<CR>", function()
       vim.cmd("NeoZoomToggle")
     end, { silent = true, nowait = true })
+    -- vim.api.nvim_create_autocmd({ "WinEnter" }, {
+    --   callback = function()
+    --     if require("neo-zoom").is_neo_zoom_float() then
+    --       require("incline").disable()
+    --     end
+    --   end,
+    -- })
   end,
 }
