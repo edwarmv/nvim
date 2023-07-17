@@ -1,6 +1,6 @@
 return {
   "nyngwang/NeoZoom.lua",
-  enabled = true,
+  enabled = false,
   config = function()
     require("neo-zoom").setup({
       popup = { enabled = false }, -- this is the default.
