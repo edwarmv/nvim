@@ -4,6 +4,7 @@ return {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
+  enabled = true,
   opts = {
     messages = {
       enabled = true,
@@ -20,6 +21,7 @@ return {
       },
       hover = {
         enabled = false,
+        silent = true,
       },
       signature = {
         enabled = false,
@@ -51,33 +53,13 @@ return {
           height = "auto",
         },
       },
-      confirm = {
-        relative = "editor",
-        position = {
-          row = "100%",
-          col = 0,
-        },
-        size = {
-          height = "auto",
-          width = "100%",
-        },
-        border = {
-          style = "none",
-        },
-        win_options = {
-          winhighlight = {
-            Normal = "NoiceCmdline",
-            IncSearch = "",
-            CurSearch = "",
-            Search = "",
-          },
-        },
-        format = "details",
-      },
     },
     presets = {
       long_message_to_split = true,
       bottom_search = true,
+      command_palette = true,
+      inc_rename = false,
+      lsp_doc_border = true,
     },
   },
 }
