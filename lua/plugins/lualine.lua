@@ -137,7 +137,11 @@ local telescope = { --{{{
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic", "folke/noice.nvim" },
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "SmiteshP/nvim-navic",
+    "folke/noice.nvim",
+  },
   config = function()
     vim.opt.cmdheight = 0
     local navic = require("nvim-navic")
@@ -205,7 +209,6 @@ return {
             color = { fg = "#e78a4e", bg = "#3c3836" },
           },
           -- { require("auto-session-library").current_session_name, icon = { "", color = { fg = "#89b482" } } },
-          -- "searchcount",
           "filetype",
         },
         lualine_y = { "progress" },
