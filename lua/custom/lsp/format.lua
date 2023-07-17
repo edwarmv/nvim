@@ -1,7 +1,11 @@
 local util = require("vim.lsp.util")
 local api = vim.api
 
-local function range_from_selection()
+---@private
+---@param bufnr integer
+---@param mode "v"|"V"
+---@return table {start={row,col}, end={row,col}} using (1, 0) indexing
+local function range_from_selection(bufnr, mode)
   -- TODO: Use `vim.region()` instead https://github.com/neovim/neovim/pull/13896
 
   -- [bufnum, lnum, col, off]; both row and column 1-indexed
@@ -20,6 +24,11 @@ local function range_from_selection()
     start_row, end_row = end_row, start_row
     start_col, end_col = end_col, start_col
   end
+  if mode == "V" then
+    start_col = 1
+    local lines = api.nvim_buf_get_lines(bufnr, end_row - 1, end_row, true)
+    end_col = #lines[1]
+  end
   return {
     ["start"] = { start_row, start_col - 1 },
     ["end"] = { end_row, end_col - 1 },
@@ -29,6 +38,15 @@ end
 vim.lsp.buf.format = function(options)
   options = options or {}
   local bufnr = options.bufnr or api.nvim_get_current_buf()
+
+  local mode = api.nvim_get_mode().mode
+  local range = options.range
+  if not range and mode == "v" or mode == "V" then
+    range = range_from_selection(bufnr, mode)
+  end
+
+  local method = range and "textDocument/rangeFormatting" or "textDocument/formatting"
+
   local clients = vim.lsp.get_active_clients({
     id = options.id,
     bufnr = bufnr,
@@ -40,18 +58,12 @@ vim.lsp.buf.format = function(options)
   end
 
   clients = vim.tbl_filter(function(client)
-    return client.supports_method("textDocument/formatting")
+    return client.supports_method(method)
   end, clients)
 
   if #clients == 0 then
     vim.notify("[LSP] Format request failed, no matching language servers.")
     return
-  end
-
-  local mode = api.nvim_get_mode().mode
-  local range = options.range
-  if not range and mode == "v" or mode == "V" then
-    range = range_from_selection()
   end
 
   ---@private
@@ -63,7 +75,6 @@ vim.lsp.buf.format = function(options)
     return params
   end
 
-  local method = range and "textDocument/rangeFormatting" or "textDocument/formatting"
   if options.async then
     vim.ui.select(clients, {
       prompt = "Select a language server:",

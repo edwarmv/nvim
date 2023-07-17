@@ -7,15 +7,12 @@ vim.lsp.buf.rename = function(new_name, options)
   local clients = vim.lsp.get_active_clients({
     bufnr = bufnr,
     name = options.name,
+    -- Clients must at least support rename, prepareRename is optional
+    method = 'textDocument/rename',
   })
   if options.filter then
     clients = vim.tbl_filter(options.filter, clients)
   end
-
-  -- Clients must at least support rename, prepareRename is optional
-  clients = vim.tbl_filter(function(client)
-    return client.supports_method("textDocument/rename")
-  end, clients)
 
   if #clients == 0 then
     vim.notify("[LSP] Rename, no matching language servers with rename capability.")
