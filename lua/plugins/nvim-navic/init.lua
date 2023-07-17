@@ -34,6 +34,7 @@ return {
     separator = " > ",
     depth_limit = 0,
     depth_limit_indicator = "..",
+    lazy_update_context = true,
     safe_output = true,
     click = true,
     lsp = {
