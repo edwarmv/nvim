@@ -1,13 +1,15 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
+    "anuvyklack/hydra.nvim",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
     -- "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
-    -- "hrsh7th/cmp-calc",
+    "hrsh7th/cmp-calc",
+    { "dcampos/cmp-emmet-vim", dependencies = { "mattn/emmet-vim" } },
     -- "ray-x/cmp-treesitter",
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
     {
@@ -222,28 +224,39 @@ return {
             cmp.complete()
           end,
         }),
-        ["<c-x><c-s>"] = cmp.mapping({
-          i = function()
-            cmp.complete({
-              config = {
-                sources = {
-                  { name = "luasnip" },
-                },
-              },
-            })
-          end,
-        }),
-        ["<c-x><c-p>"] = cmp.mapping({
-          i = function()
-            cmp.complete({
-              config = {
-                sources = {
-                  { name = "path" },
-                },
-              },
-            })
-          end,
-        }),
+        -- ["<c-z>s"] = cmp.mapping({
+        --   i = function()
+        --     cmp.complete({
+        --       config = {
+        --         sources = {
+        --           { name = "luasnip" },
+        --         },
+        --       },
+        --     })
+        --   end,
+        -- }),
+        -- ["<c-z>p"] = cmp.mapping({
+        --   i = function()
+        --     cmp.complete({
+        --       config = {
+        --         sources = {
+        --           { name = "path" },
+        --         },
+        --       },
+        --     })
+        --   end,
+        -- }),
+        -- ["<c-z>c"] = cmp.mapping({
+        --   i = function()
+        --     cmp.complete({
+        --       config = {
+        --         sources = {
+        --           { name = "cacl" },
+        --         },
+        --       },
+        --     })
+        --   end,
+        -- }),
       }, --}}}
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
@@ -300,6 +313,91 @@ return {
       --     cmp.ItemField.Abbr,
       --   },
       -- },
+    })
+
+    local Hydra = require("hydra")
+
+    Hydra({
+      config = {
+        hint = {
+          type = "statusline",
+        },
+        invoke_on_body = true,
+        timeout = false,
+      },
+      mode = "i",
+      body = "<c-z>",
+      heads = {
+        {
+          "s",
+          function()
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "luasnip" },
+                },
+              },
+            })
+          end,
+          { desc = "snippets", exit = true },
+        },
+        {
+          "p",
+          function()
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "path" },
+                },
+              },
+            })
+          end,
+          { desc = "path", exit = true },
+        },
+        {
+          "c",
+          function()
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "calc" },
+                },
+              },
+            })
+          end,
+          { desc = "calc", exit = true },
+        },
+        {
+          "e",
+          function()
+            cmp.complete({
+              config = {
+                sources = {
+                  {
+                    name = "emmet_vim",
+                    option = {
+                      filetypes = {
+                        "html",
+                        "xml",
+                        "typescriptreact",
+                        "javascriptreact",
+                        "css",
+                        "sass",
+                        "scss",
+                        "less",
+                        "heex",
+                        "tsx",
+                        "jsx",
+                      },
+                    },
+                  },
+                },
+              },
+            })
+          end,
+          { desc = "emmet", exit = true },
+        },
+      },
     })
 
     -- cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
