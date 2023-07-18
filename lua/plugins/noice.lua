@@ -40,7 +40,7 @@ return {
         },
         size = {
           min_width = 0,
-          width = "50%",
+          width = "70%",
           height = "auto",
         },
       },
@@ -49,7 +49,7 @@ return {
           style = "rounded",
         },
         size = {
-          width = "50%",
+          width = "70%",
           height = "auto",
         },
       },
