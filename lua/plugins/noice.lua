@@ -12,8 +12,8 @@ return {
     },
     lsp = {
       override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-        ["vim.lsp.util.stylize_markdown"] = true,
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+        ["vim.lsp.util.stylize_markdown"] = false,
         ["cmp.entry.get_documentation"] = false,
       },
       progress = {
