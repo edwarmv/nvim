@@ -16,7 +16,7 @@ return {
 
     max_height = math.ceil(vim.o.lines / 4), -- max height of signature floating_window
     max_width = math.ceil(vim.o.columns / 4), -- max_width of signature floating_window
-    noice = true, -- set to true if you using noice to render markdown
+    noice = false, -- set to true if you using noice to render markdown
     wrap = true, -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
 
     floating_window = false, -- show hint in a floating window, set to false for virtual text only mode
