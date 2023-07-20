@@ -6,8 +6,6 @@ return {
       -- providers: provider used to get references in the buffer, ordered by priority
       providers = {
         "regex",
-        "treesitter",
-        "lsp",
       },
       -- delay: delay in milliseconds
       delay = 300,
