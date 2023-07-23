@@ -18,7 +18,7 @@ return {
     },
   },
   config = function()
-    require("plugins.nvim-cmp.custom")
+    -- require("plugins.nvim-cmp.custom")
     local utils = require("plugins.nvim-cmp.utils")
     local luasnip = require("luasnip")
     local types = require("cmp.types")
