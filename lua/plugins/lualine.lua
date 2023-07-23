@@ -141,6 +141,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "SmiteshP/nvim-navic",
     "folke/noice.nvim",
+    "ecthelionvi/NeoComposer.nvim",
   },
   config = function()
     vim.opt.cmdheight = 0
@@ -198,16 +199,18 @@ return {
           "zoom#statusline",
           "ObsessionStatus",
           "searchcount",
-          {
-            require("noice").api.status.command.get,
-            cond = require("noice").api.status.command.has,
-            color = { fg = "#e78a4e", bg = "#3c3836" },
-          },
-          {
-            require("noice").api.status.mode.get,
-            cond = require("noice").api.status.mode.has,
-            color = { fg = "#e78a4e", bg = "#3c3836" },
-          },
+          "selectioncount",
+          require("NeoComposer.ui").status_recording,
+          -- {
+          --   require("noice").api.status.command.get,
+          --   cond = require("noice").api.status.command.has,
+          --   color = { fg = "#e78a4e", bg = "#3c3836" },
+          -- },
+          -- {
+          --   require("noice").api.status.mode.get,
+          --   cond = require("noice").api.status.mode.has,
+          --   color = { fg = "#e78a4e", bg = "#3c3836" },
+          -- },
           -- { require("auto-session-library").current_session_name, icon = { "", color = { fg = "#89b482" } } },
           "filetype",
         },

@@ -4,7 +4,7 @@ return {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
-  enabled = true,
+  enabled = false,
   opts = {
     messages = {
       enabled = true,
@@ -17,7 +17,7 @@ return {
         ["cmp.entry.get_documentation"] = false,
       },
       progress = {
-        enabled = true,
+        enabled = false,
       },
       hover = {
         enabled = false,
