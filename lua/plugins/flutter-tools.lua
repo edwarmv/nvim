@@ -12,10 +12,15 @@ return {
         -- vim.g.dart_style_guide = 2
       end,
     },
+    {
+      "thosakwe/vim-flutter",
+      config = function()
+        vim.g.flutter_command = "fvm flutter"
+      end,
+    },
   },
   config = function()
     local maps = require("config.maps")
-    local navic_attach = require("plugins.nvim-navic.attach")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     require("flutter-tools").setup({
       fvm = true,
@@ -25,7 +30,6 @@ return {
         },
         on_attach = function(client, bufnr)
           maps.lsp(bufnr)
-          navic_attach.attach(client, bufnr)
 
           vim.keymap.set("n", "<leader><leader>fc", function()
             require("telescope").extensions.flutter.commands()
