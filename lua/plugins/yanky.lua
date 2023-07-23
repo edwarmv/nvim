@@ -63,8 +63,8 @@ return {
     vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", {})
     vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", {})
 
-    vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)", {})
-    vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)", {})
+    vim.keymap.set("n", "]y", "<Plug>(YankyCycleForward)", {})
+    vim.keymap.set("n", "[y", "<Plug>(YankyCycleBackward)", {})
 
     -- local Hydra = require("hydra")
     --
