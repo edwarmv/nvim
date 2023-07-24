@@ -314,7 +314,7 @@ end)
 -- })
 
 vim.opt.sessionoptions = "blank,buffers,curdir,help,tabpages,globals,winsize,winpos" -- ,terminal
--- vim.opt.laststatus = 3
+vim.opt.laststatus = 3
 
 -- vim.lsp.set_log_level("trace")
 
