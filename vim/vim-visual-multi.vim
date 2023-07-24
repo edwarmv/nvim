@@ -5,7 +5,10 @@ nnoremap <silent> <Plug>(VM-Exit) <cmd>call vm#reset()<cr>
 let g:VM_mouse_mappings = 1
 let g:VM_show_warnings = 0
 let g:VM_set_statusline = 1
-let g:VM_silent_exit = 1
+let g:VM_silent_exit = 0
+" ref: https://github.com/mg979/vim-visual-multi/issues/12#issuecomment-410577960
+let g:VM_cmdheight=0
+let g:VM_manual_infoline=1
 " let g:VM_disable_syntax_in_imode = 1
 " let g:VM_use_first_cursor_in_line = 1
 
