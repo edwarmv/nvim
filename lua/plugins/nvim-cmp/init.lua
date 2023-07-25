@@ -36,9 +36,9 @@ return {
         end,
       },
       preselect = cmp.PreselectMode.None,
-      -- completion = {
-      --   autocomplete = false,
-      -- },
+      completion = {
+        autocomplete = false,
+      },
       window = { --{{{
         completion = {
           -- border = { '', '', '', '', '', '', '', '' },
@@ -426,13 +426,13 @@ return {
     --     au TextChangedI * lua require("config.nvim-cmp").debounce()
     --   augroup end
     -- ]])
-    -- vim.api.nvim_create_autocmd({ "TextChangedI" }, {
-    --   group = vim.api.nvim_create_augroup("CmpDebounceAuGroup", {}),
-    --   callback = function()
-    --     debounce.debounce()
-    --     debounce.cancel_autocomplete = false
-    --   end,
-    -- })
+    vim.api.nvim_create_autocmd({ "TextChangedI" }, {
+      -- group = vim.api.nvim_create_augroup("CmpDebounceAuGroup", {}),
+      callback = function()
+        debounce.debounce()
+        debounce.cancel_autocomplete = false
+      end,
+    })
 
     -- vim.cmd([[
     --   augroup CmpCmdlineDebounceAuGroup
@@ -440,12 +440,13 @@ return {
     --     au CmdlineChanged * lua require("config.nvim-cmp").debounce()
     --   augroup end
     -- ]])
-    -- vim.api.nvim_create_autocmd({ "CmdlineChanged" }, {
-    --   group = vim.api.nvim_create_augroup("CmpDebounceAuGroup", {}),
-    --   callback = function()
-    --     debounce.debounce()
-    --   end,
-    -- })
+    vim.api.nvim_create_autocmd({ "CmdlineChanged" }, {
+      -- group = vim.api.nvim_create_augroup("CmpDebounceAuGroup", {}),
+      callback = function()
+        debounce.debounce()
+        debounce.cancel_autocomplete = false
+      end,
+    })
 
     -- cmp.setup.filetype({ "norg" }, {
     --   sources = {

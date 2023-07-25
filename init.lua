@@ -202,7 +202,7 @@ vim.opt.termguicolors = true
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
-  update_in_insert = false,
+  update_in_insert = true,
   signs = true,
   severity_sort = true,
   -- float = {
@@ -315,6 +315,21 @@ end)
 
 vim.opt.sessionoptions = "blank,buffers,curdir,help,tabpages,globals,winsize,winpos" -- ,terminal
 vim.opt.laststatus = 3
+
+local cmdheight
+
+vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
+  callback = function()
+    cmdheight = vim.api.nvim_get_option_value('cmdheight', {});
+    vim.opt.cmdheight = 1
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
+  callback = function()
+    vim.opt.cmdheight = cmdheight
+  end,
+})
 
 -- vim.lsp.set_log_level("trace")
 

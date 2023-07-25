@@ -2,7 +2,7 @@ local M = {}
 local cmp = require("cmp")
 local timer = vim.loop.new_timer()
 
-local DEBOUNCE_DELAY = 300
+local DEBOUNCE_DELAY = 250
 M.cancel_autocomplete = false
 
 function M.debounce()
@@ -18,9 +18,9 @@ function M.debounce()
       -- print("cb" .. math.random())
       if not M.cancel_autocomplete then
         cmp.complete({ reason = cmp.ContextReason.Auto })
-        --   M.cancel_autocomplete = false
-        -- else
-        -- cmp.abort()
+        -- M.cancel_autocomplete = false
+        else
+        cmp.abort()
       end
     end)
   )
