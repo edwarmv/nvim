@@ -144,7 +144,7 @@ return {
     "ecthelionvi/NeoComposer.nvim",
   },
   config = function()
-    vim.opt.cmdheight = 0
+    -- vim.opt.cmdheight = 0
     local navic = require("nvim-navic")
     require("lualine").setup({
       options = {

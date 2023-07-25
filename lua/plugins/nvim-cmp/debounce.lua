@@ -2,7 +2,7 @@ local M = {}
 local cmp = require("cmp")
 local timer = vim.loop.new_timer()
 
-local DEBOUNCE_DELAY = 250
+local DEBOUNCE_DELAY = 150
 M.cancel_autocomplete = false
 
 function M.debounce()
