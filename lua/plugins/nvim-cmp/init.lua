@@ -331,6 +331,9 @@ return {
         {
           "s",
           function()
+            if cmp.visible() then
+              cmp.close()
+            end
             cmp.complete({
               config = {
                 sources = {
@@ -344,6 +347,9 @@ return {
         {
           "p",
           function()
+            if cmp.visible() then
+              cmp.close()
+            end
             cmp.complete({
               config = {
                 sources = {
@@ -357,6 +363,9 @@ return {
         {
           "c",
           function()
+            if cmp.visible() then
+              cmp.close()
+            end
             cmp.complete({
               config = {
                 sources = {
@@ -370,6 +379,9 @@ return {
         {
           "e",
           function()
+            if cmp.visible() then
+              cmp.close()
+            end
             cmp.complete({
               config = {
                 sources = {
