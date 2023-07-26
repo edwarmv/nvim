@@ -63,16 +63,16 @@ return {
       return vim.fn.strwidth(dir) < (vim.opt.columns:get() / 2 - 20) and dir or "> "
     end
 
-    -- vim.api.nvim_create_user_command("Find", function(opts)
-    --   vim.fn["fzf#run"](vim.fn["fzf#vim#with_preview"](vim.fn["fzf#wrap"]({
-    --     source = "find .",
-    --     dir = opts.args,
-    --     options = { "--prompt", get_dir(), "--multi" },
-    --   }, opts.bang)))
-    -- end, {
-    --   nargs = "?",
-    --   bang = true,
-    -- })
+    vim.api.nvim_create_user_command("Find", function(opts)
+      vim.fn["fzf#run"](vim.fn["fzf#vim#with_preview"](vim.fn["fzf#wrap"]({
+        source = "find .",
+        dir = opts.args,
+        options = { "--prompt", get_dir(), "--multi" },
+      }, opts.bang)))
+    end, {
+      nargs = "?",
+      bang = true,
+    })
 
     vim.api.nvim_create_user_command("FilesRelativePath", function(opts)
       vim.fn["fzf#vim#files"](vim.fn.expand("%:p:h"), vim.fn["fzf#vim#with_preview"](), opts.bang)
