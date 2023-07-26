@@ -144,7 +144,7 @@ return {
     "ecthelionvi/NeoComposer.nvim",
   },
   config = function()
-    -- vim.opt.cmdheight = 0
+    vim.opt.cmdheight = 0
     local navic = require("nvim-navic")
     require("lualine").setup({
       options = {
@@ -198,14 +198,14 @@ return {
           },
           "zoom#statusline",
           "ObsessionStatus",
-          "searchcount",
-          "selectioncount",
+          -- "searchcount",
+          -- "selectioncount",
           require("NeoComposer.ui").status_recording,
-          -- {
-          --   require("noice").api.status.command.get,
-          --   cond = require("noice").api.status.command.has,
-          --   color = { fg = "#e78a4e", bg = "#3c3836" },
-          -- },
+          {
+            require("noice").api.status.command.get,
+            cond = require("noice").api.status.command.has,
+            color = { fg = "#e78a4e", bg = "#3c3836" },
+          },
           -- {
           --   require("noice").api.status.mode.get,
           --   cond = require("noice").api.status.mode.has,

@@ -4,7 +4,7 @@ return {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
-  enabled = false,
+  enabled = true,
   opts = {
     messages = {
       enabled = true,
