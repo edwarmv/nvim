@@ -1,5 +1,6 @@
 return {
   "sainnhe/gruvbox-material",
+  enabled = true,
   lazy = false,
   priority = 1000,
   config = function()

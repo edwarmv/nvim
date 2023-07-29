@@ -14,8 +14,6 @@ return {
       -- When true, <Esc> will close the modal
       insert_only = false,
 
-      -- These are passed to nvim_open_win
-      anchor = "NW",
       border = "rounded",
       -- 'editor' and 'win' will default to being centered
       relative = "cursor",
@@ -101,8 +99,6 @@ return {
 
       -- Options for built-in selector
       builtin = {
-        -- These are passed to nvim_open_win
-        anchor = "NW",
         border = "rounded",
         -- 'editor' and 'win' will default to being centered
         relative = "cursor",
