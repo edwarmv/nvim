@@ -204,7 +204,8 @@ return {
           {
             require("noice").api.status.command.get,
             cond = require("noice").api.status.command.has,
-            color = { fg = "#e78a4e", bg = "#3c3836" },
+            color = { fg = "#ff9e64" },
+            -- color = { fg = "#e78a4e", bg = "#3c3836" },
           },
           -- {
           --   require("noice").api.status.mode.get,
