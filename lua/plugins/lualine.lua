@@ -185,17 +185,17 @@ return {
           },
         },
         lualine_x = {
-          -- {
-          --   "diagnostics",
-          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          --   symbols = {
-          --     error = icons.diagnostic.error,
-          --     warn = icons.diagnostic.warn,
-          --     info = icons.diagnostic.info,
-          --     hint = icons.diagnostic.hint,
-          --   },
-          --   update_in_insert = true, -- Update diagnostics in insert mode
-          -- },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostic.error,
+              warn = icons.diagnostic.warn,
+              info = icons.diagnostic.info,
+              hint = icons.diagnostic.hint,
+            },
+            update_in_insert = true, -- Update diagnostics in insert mode
+          },
           "zoom#statusline",
           "ObsessionStatus",
           -- "searchcount",
@@ -232,18 +232,18 @@ return {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-          { "filename", file_status = true },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
-            },
-            update_in_insert = true, -- Update diagnostics in insert mode
-          },
+          -- { "filename", file_status = true },
+          -- {
+          --   "diagnostics",
+          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+          --   symbols = {
+          --     error = icons.diagnostic.error,
+          --     warn = icons.diagnostic.warn,
+          --     info = icons.diagnostic.info,
+          --     hint = icons.diagnostic.hint,
+          --   },
+          --   update_in_insert = true, -- Update diagnostics in insert mode
+          -- },
         },
         lualine_x = {},
         lualine_y = {},
@@ -252,7 +252,7 @@ return {
       inactive_winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { { "filename", file_status = true } },
+        -- lualine_c = { { "filename", file_status = true } },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {},

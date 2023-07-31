@@ -6,7 +6,7 @@ return {
     require("neorg").setup({
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
-        ["core.integrations.telescope"] = {},
+        -- ["core.integrations.telescope"] = {},
         ["core.concealer"] = {}, -- Adds pretty icons to your documents
         ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
@@ -17,11 +17,11 @@ return {
             },
           },
         },
-        ["core.completion"] = {
-          config = {
-            engine = "nvim-cmp",
-          },
-        },
+        -- ["core.completion"] = {
+        --   config = {
+        --     engine = "nvim-cmp",
+        --   },
+        -- },
       },
     })
   end,
