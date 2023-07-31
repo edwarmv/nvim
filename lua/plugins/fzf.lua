@@ -2,7 +2,7 @@ return {
   "junegunn/fzf",
   enabled = true,
   dependencies = { "junegunn/fzf.vim", "gfanto/fzf-lsp.nvim" },
-  config = function()
+  init = function()
     -- binary paths {{{
     local bin_dir = vim.fn.expand("~") .. "/.local/share/nvim/lazy/fzf.vim/bin"
     local bin = { preview = (bin_dir .. "/preview.sh") }
