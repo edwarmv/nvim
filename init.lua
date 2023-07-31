@@ -135,6 +135,7 @@ vim.opt.encoding = "utf-8"
 vim.opt.updatetime = 300
 vim.opt.pumheight = 6
 vim.opt.wildoptions = { "tagfile" }
+vim.opt.conceallevel = 3
 
 -- *************
 -- Spaces & Tabs

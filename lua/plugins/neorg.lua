@@ -3,7 +3,6 @@ return {
   build = ":Neorg sync-parsers",
   dependencies = { "nvim-lua/plenary.nvim", { "nvim-neorg/neorg-telescope" } },
   config = function()
-    vim.opt.conceallevel = 3
     require("neorg").setup({
       load = {
         ["core.defaults"] = {}, -- Loads default behaviour
