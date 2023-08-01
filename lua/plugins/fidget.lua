@@ -1,6 +1,8 @@
 return {
   "j-hui/fidget.nvim",
-  enabled = false,
+  enabled = true,
+  tag = "legacy",
+  event = "LspAttach",
   opts = {
     text = {
       spinner = "line", -- animation shown when tasks are ongoing
@@ -13,7 +15,7 @@ return {
       right = true, -- align fidgets along right edge of buffer
     },
     timer = {
-      spinner_rate = 125, -- frame rate of spinner animation, in ms
+      spinner_rate = 300, -- frame rate of spinner animation, in ms
       fidget_decay = 2000, -- how long to keep around empty fidget, in ms
       task_decay = 1000, -- how long to keep around completed task, in ms
     },
@@ -21,7 +23,7 @@ return {
       relative = "editor", -- where to anchor, either "win" or "editor"
       blend = 0, -- &winblend for the window
       zindex = nil, -- the zindex value for the window
-      border = "rounded"
+      border = "none",
     },
     fmt = {
       leftpad = true, -- right-justify text in fidget box
