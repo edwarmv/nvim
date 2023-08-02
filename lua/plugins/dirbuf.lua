@@ -1,5 +1,6 @@
 return {
   "elihunter173/dirbuf.nvim",
+  enabled = false,
   opts = {
     hash_padding = 2,
     show_hidden = true,
