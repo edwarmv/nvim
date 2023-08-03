@@ -42,16 +42,16 @@ return {
       window = { --{{{
         completion = {
           -- border = { '', '', '', '', '', '', '', '' },
-          -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+          border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+          -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,Search:None",
         },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
           -- border = { '', '', '', '', '', '', '', '' },
-          -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+          border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+          -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,Search:None",
         },
       }, --}}}

@@ -1,6 +1,7 @@
 return {
   "rcarriga/nvim-notify",
   config = function()
+    local defaults = require("config.defaults")
     require("notify").setup({
       -- Animation style (see below for details)
       stages = "fade_in_slide_out", -- fade_in_slide_out, fade, slide, static
@@ -8,7 +9,7 @@ return {
       -- Function called when a new window is opened, use for changing win settings/config
       on_open = function(win)
         if vim.api.nvim_win_is_valid(win) then
-          vim.api.nvim_win_set_config(win, { border = "rounded" })
+          vim.api.nvim_win_set_config(win, { border = defaults.border })
           -- vim.api.nvim_win_set_option(win, "winhl", "Normal:NormalFloat,NormalFloat:NormalFloat,FloatBorder:FloatBorder")
         end
       end,

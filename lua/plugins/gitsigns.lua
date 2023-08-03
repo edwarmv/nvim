@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "lewis6991/gitsigns.nvim",
   opts = {
@@ -34,7 +36,7 @@ return {
     max_file_length = 40000,
     preview_config = {
       -- Options passed to nvim_open_win
-      border = "rounded",
+      border = defaults.border,
       style = "minimal",
       relative = "cursor",
       row = 1,

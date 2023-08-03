@@ -216,12 +216,14 @@ vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn" })
 vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint" })
 
+local defaults = require("config.defaults")
+
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
+  border = defaults.border,
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
+  border = defaults.border,
 })
 
 vim.opt.list = true

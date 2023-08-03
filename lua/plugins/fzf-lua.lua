@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "ibhagwan/fzf-lua",
   enabled = false,
@@ -5,7 +7,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     winopts = {
-      border = "rounded",
+      border = defaults.border,
       height = 0.9,
       width = 0.9,
       preview = {

@@ -2,11 +2,12 @@ return {
   "jose-elias-alvarez/null-ls.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
+    local defaults = require("config.defaults")
     local null_ls = require("null-ls")
     local maps = require("config.maps")
 
     null_ls.setup({
-      border = "rounded",
+      border = defaults.border,
       sources = {
         -- null_ls.builtins.diagnostics.eslint,
         -- null_ls.builtins.code_actions.eslint,

@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "williamboman/mason.nvim",
   dependencies = {
@@ -12,7 +14,7 @@ return {
       --   package_pending = "➜",
       --   package_uninstalled = "✗",
       -- },
-      border = "rounded",
+      border = defaults.border,
     },
   },
 }

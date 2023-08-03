@@ -2,6 +2,7 @@ return {
   "akinsho/toggleterm.nvim",
   version = "*",
   config = function()
+    local defaults = require("config.defaults")
     require("toggleterm").setup({
       -- size can be a number or function which is passed the current terminal
       size = function(term)
@@ -36,7 +37,7 @@ return {
       close_on_exit = true, -- close the terminal window when the process exits
       shell = vim.o.shell, -- change the default shell
       float_opts = {
-        border = "rounded",
+        border = defaults.border,
         width = function(_term)
           local width = math.ceil(vim.o.columns * 0.9)
           -- _term.float_opts.col = vim.o.columns

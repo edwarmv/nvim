@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "nyngwang/NeoZoom.lua",
   enabled = false,
@@ -23,7 +25,7 @@ return {
           height = 1,
         },
         -- NOTE: check :help nvim_open_win() for possible border values.
-        border = "rounded",
+        border = defaults.border,
       },
       presets = {
         {

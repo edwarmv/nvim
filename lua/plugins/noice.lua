@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "folke/noice.nvim",
   dependencies = {
@@ -36,7 +38,7 @@ return {
       },
       cmdline_popup = {
         border = {
-          style = "rounded",
+          style = defaults.border,
         },
         size = {
           min_width = 0,
@@ -46,7 +48,7 @@ return {
       },
       popup = {
         border = {
-          style = "rounded",
+          style = defaults.border,
         },
         size = {
           width = "70%",

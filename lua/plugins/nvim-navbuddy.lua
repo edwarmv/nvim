@@ -8,6 +8,7 @@ return {
     "nvim-telescope/telescope.nvim", -- Optional
   },
   config = function()
+    local defaults = require("config.defaults")
     local navbuddy = require("nvim-navbuddy")
     local actions = require("nvim-navbuddy.actions")
     navbuddy.setup({
@@ -51,7 +52,7 @@ return {
         }),
       },
       window = {
-        border = "rounded",
+        border = defaults.border,
         size = { height = "90%", width = "90%" },
       },
       lsp = {

@@ -26,6 +26,7 @@ return {
 
     require("plugins.neo-tree.custom")
 
+    local defaults = require("config.defaults")
     local fold_commands = require("plugins.neo-tree.fold-commands")
     local commands = require("plugins.neo-tree.commands")
 
@@ -38,7 +39,7 @@ return {
       },
       hide_root_node = false,
       same_level = false, -- Create and paste/move files/directories on the same level as the directory under cursor (as opposed to within the directory under cursor).
-      popup_border_style = "rounded",
+      popup_border_style = defaults.border,
       enable_diagnostics = false,
       use_default_mappings = true,
       use_libuv_file_watcher = true,

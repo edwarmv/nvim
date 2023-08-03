@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "anuvyklack/hydra.nvim",
   config = function()
@@ -117,7 +119,7 @@ return {
         color = "amaranth",
         invoke_on_body = true,
         hint = {
-          border = "rounded",
+          border = defaults.border,
           position = "middle",
         },
       },

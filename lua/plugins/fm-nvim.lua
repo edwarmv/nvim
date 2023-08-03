@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "is0n/fm-nvim",
   config = function()
@@ -16,7 +18,7 @@ return {
 
         float = {
           -- Floating window border (see ':h nvim_open_win')
-          border = "rounded",
+          border = defaults.border,
 
           -- Highlight group for floating window/border (see ':h winhl')
           float_hl = "NormalFloat",

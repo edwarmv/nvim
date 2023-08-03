@@ -3,6 +3,7 @@ return {
   enabled = true,
   dependencies = { "junegunn/fzf.vim", "gfanto/fzf-lsp.nvim" },
   init = function()
+    local defaults = require("config.defaults")
     -- binary paths {{{
     local bin_dir = vim.fn.expand("~") .. "/.local/share/nvim/lazy/fzf.vim/bin"
     local bin = { preview = (bin_dir .. "/preview.sh") }
@@ -34,7 +35,7 @@ return {
       window = {
         width = 0.9,
         height = 0.9,
-        border = "rounded",
+        border = defaults.border,
         yoffset = 0.5,
         relative = false,
       },

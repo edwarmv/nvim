@@ -1,6 +1,7 @@
 return {
   "uga-rosa/ccc.nvim",
   config = function()
+    local defaults = require("config.defaults")
     local ccc = require("ccc")
     local mapping = ccc.mapping
     ccc.setup({
@@ -11,7 +12,7 @@ return {
         lsp = true,
       },
       win_opts = {
-        border = "rounded",
+        border = defaults.border,
       },
     })
   end,

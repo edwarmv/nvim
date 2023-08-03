@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 local M = {}
 
 local function lspRename()
@@ -122,7 +124,7 @@ M.lsp = function(bufnr)
   vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format" })
 
   vim.keymap.set("n", "<leader>d", function()
-    vim.diagnostic.open_float({ border = "rounded" })
+    vim.diagnostic.open_float({ border = defaults.border })
   end, { desc = "[Diagnostic] Current Line" })
 
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "[Diagnostic] Location List" })

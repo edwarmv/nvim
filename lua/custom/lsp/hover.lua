@@ -1,3 +1,4 @@
+local defaults = require("config.defaults")
 local util = require("vim.lsp.util")
 local api = vim.api
 
@@ -6,7 +7,7 @@ vim.lsp.buf.hover = function()
   local params = util.make_position_params()
   local bufnr = vim.fn.bufnr("%")
   vim.lsp.buf_request_all(bufnr, "textDocument/hover", params, function(results)
-    local config = { border = "rounded" }
+    local config = { border = defaults.border }
     config.focus_id = "textDocument/hover"
     if api.nvim_get_current_buf() ~= bufnr then
       -- Ignore result since buffer changed. This happens for slow language servers.

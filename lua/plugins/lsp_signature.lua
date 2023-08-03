@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "ray-x/lsp_signature.nvim",
   enabled = true,
@@ -36,7 +38,7 @@ return {
     hint_scheme = "String",
     hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
     handler_opts = {
-      border = "rounded", -- double, rounded, single, shadow, none
+      border = defaults.border, -- double, rounded, single, shadow, none
     },
 
     always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58

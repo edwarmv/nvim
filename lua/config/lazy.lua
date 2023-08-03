@@ -1,3 +1,4 @@
+local defaults = require("config.defaults")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 print(lazypath)
 if not vim.loop.fs_stat(lazypath) then
@@ -14,6 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
   ui = {
-    border = "rounded",
+    border = defaults.border,
   },
 })

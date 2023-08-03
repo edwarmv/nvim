@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "folke/which-key.nvim",
   config = function()
@@ -25,7 +27,7 @@ return {
         n = { "y", "v" },
       },
       window = {
-        border = "rounded",
+        border = defaults.border,
       },
     })
     local presets = require("which-key.plugins.presets")

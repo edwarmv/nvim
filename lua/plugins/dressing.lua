@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "stevearc/dressing.nvim",
   opts = {
@@ -14,7 +16,7 @@ return {
       -- When true, <Esc> will close the modal
       insert_only = false,
 
-      border = "rounded",
+      border = defaults.border,
       -- 'editor' and 'win' will default to being centered
       relative = "cursor",
 
@@ -91,7 +93,7 @@ return {
         size = nil,
         relative = "editor",
         border = {
-          style = "rounded",
+          style = defaults.border,
         },
         max_width = 80,
         max_height = 40,
@@ -99,7 +101,7 @@ return {
 
       -- Options for built-in selector
       builtin = {
-        border = "rounded",
+        border = defaults.border,
         -- 'editor' and 'win' will default to being centered
         relative = "cursor",
 
