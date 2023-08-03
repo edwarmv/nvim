@@ -35,7 +35,7 @@ return {
       window = {
         width = 0.9,
         height = 0.9,
-        border = defaults.border,
+        border = defaults.border == "single" and "sharp" or "rounded",
         yoffset = 0.5,
         relative = false,
       },
