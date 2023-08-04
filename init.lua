@@ -2,6 +2,7 @@
 -- vim-settings
 -- =========================================================
 -- vim.opt.python3_host_prog = vim.fn.expand("~") .. "/.asdf/shims/python3"
+vim.loader.enable()
 vim.opt.shortmess:append({ I = true, A = false })
 vim.opt.jumpoptions = "view"
 vim.opt.splitkeep = "screen"
