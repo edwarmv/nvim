@@ -30,6 +30,7 @@ return {
         "checkhealth",
         "notify",
         "Navbuddy",
+        "dashboard",
       },
       buftype_exclude = {
         "terminal",

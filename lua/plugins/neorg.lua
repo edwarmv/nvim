@@ -3,12 +3,12 @@ return {
   build = ":Neorg sync-parsers",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    -- {
-    --   "nvim-neorg/neorg-telescope",
-    --   keys = {
-    --     { "<space>tnw", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
-    --   },
-    -- },
+    {
+      "nvim-neorg/neorg-telescope",
+      -- keys = {
+      --   { "<space>tnw", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
+      -- },
+    },
   },
   event = "VeryLazy",
   config = function()
@@ -31,7 +31,7 @@ return {
             engine = "nvim-cmp",
           },
         },
-        -- ["core.integrations.telescope"] = {},
+        ["core.integrations.telescope"] = {},
       },
     })
   end,
