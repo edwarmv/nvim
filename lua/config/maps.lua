@@ -7,6 +7,11 @@ local function lspRename()
     bufnr = 0,
     method = "textDocument/rename",
   })
+
+  if #clients == 0 then
+    return
+  end
+
   vim.ui.select(clients, {
     format_item = function(client)
       return client.name
@@ -65,13 +70,17 @@ local function lspFormat()
 
   local method = range and "textDocument/rangeFormatting" or "textDocument/formatting"
 
-  local clients = vim.lsp.get_active_clients({
+  local clients = vim.lsp.get_clients({
     bufnr = 0,
   })
 
   clients = vim.tbl_filter(function(client)
     return client.supports_method(method)
   end, clients)
+
+  if #clients == 0 then
+    return
+  end
 
   vim.ui.select(clients, {
     format_item = function(client)
