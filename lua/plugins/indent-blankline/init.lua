@@ -4,7 +4,7 @@ return {
     local utils = require("indent_blankline.utils")
     require("indent_blankline").setup({
       char = "▏",
-      -- context_char = "▎",
+      context_char = "▏", -- ▎
       -- char = "│",
       -- space_char_blankline = " ",
       filetype_exclude = {
@@ -40,10 +40,11 @@ return {
         "nofile",
         -- "",
       }, -- "nofile"
-      show_current_context = false,
+      show_current_context = true,
+      show_current_context_start = false,
       use_treesitter = false,
       show_trailing_blankline_indent = false,
-      show_end_of_line = false,
+      show_end_of_line = true,
       show_foldtext = false,
       --  char_highlight_list = {
       --     "IndentBlanklineIndent1",
