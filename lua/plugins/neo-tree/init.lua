@@ -38,7 +38,6 @@ return {
         statusline = false,
       },
       hide_root_node = false,
-      same_level = false, -- Create and paste/move files/directories on the same level as the directory under cursor (as opposed to within the directory under cursor).
       popup_border_style = defaults.border,
       enable_diagnostics = false,
       use_default_mappings = true,
@@ -81,6 +80,8 @@ return {
       window = {
         position = "left",
         width = 40,
+        same_level = true, -- Create and paste/move files/directories on the same level as the directory under cursor (as opposed to within the directory under cursor).
+        insert_as = "sibling",
         mappings = {
           ["o"] = "open",
           ["<cr>"] = "open",
