@@ -5,9 +5,9 @@ return {
     "nvim-lua/plenary.nvim",
     {
       "nvim-neorg/neorg-telescope",
-      -- keys = {
-      --   { "<space>tnw", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
-      -- },
+      keys = {
+        { "<space>tnw", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
+      },
     },
   },
   event = "VeryLazy",
