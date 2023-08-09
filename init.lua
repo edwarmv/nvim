@@ -33,7 +33,7 @@ vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop)
 -- Mappings
 -- =========================================================
 
-vim.keymap.set("n", "<c-w>t", "<cmd>tabe %<cr>")
+-- vim.keymap.set("n", "<c-w>t", "<cmd>tabe %<cr>")
 
 -- " function FocusFloatingWindow()
 -- "   let window_count = winnr('$')
