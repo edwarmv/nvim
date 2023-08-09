@@ -207,11 +207,12 @@ return {
             color = { fg = "#ff9e64" },
             -- color = { fg = "#e78a4e", bg = "#3c3836" },
           },
-          -- {
-          --   require("noice").api.status.mode.get,
-          --   cond = require("noice").api.status.mode.has,
-          --   color = { fg = "#e78a4e", bg = "#3c3836" },
-          -- },
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#ff9e64" },
+            -- color = { fg = "#e78a4e", bg = "#3c3836" },
+          },
           -- { require("auto-session-library").current_session_name, icon = { "", color = { fg = "#89b482" } } },
           "filetype",
         },
