@@ -2,6 +2,7 @@ return {
   "ecthelionvi/NeoComposer.nvim",
   dependencies = { "kkharji/sqlite.lua" },
   opts = {
+    queue_most_recent = true,
     colors = {
       bg = "#1f2335",
       fg = "#ff9e64",
