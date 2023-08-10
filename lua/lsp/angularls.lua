@@ -9,10 +9,10 @@ local cmd = {
   "ngserver",
   "--stdio",
   "--tsProbeLocations",
-  vim.fn.expand("~") .. "/.local/share/nvim/mason/packages/angular-language-server/node_modules/typescript",
+  vim.fn.expand("~") .. "/.asdf/installs/nodejs/18.15.0/lib/node_modules/typescript",
   "--ngProbeLocations",
   vim.fn.expand("~")
-    .. "/.local/share/nvim/mason/packages/angular-language-server/node_modules/@angular/language-server",
+    .. "/.local/share/nvim/mason/packages/angular-language-server/node_modules/@angular/language-server/bin",
 }
 
 require("lspconfig").angularls.setup({
@@ -20,8 +20,6 @@ require("lspconfig").angularls.setup({
   on_new_config = function(new_config, _)
     new_config.cmd = cmd
   end,
-  root_dir = util.root_pattern("angular.json"),
-  filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "svg" },
   capabilities = capabilities,
   on_attach = function(client, bufnr)
     maps.lsp(bufnr)
