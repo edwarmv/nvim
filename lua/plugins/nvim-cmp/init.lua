@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
@@ -281,6 +282,9 @@ return {
           end,
         }),
       }, --}}}
+      experimental = {
+        ghost_text = true,
+      },
     })
 
     cmp.setup.cmdline(":", {
