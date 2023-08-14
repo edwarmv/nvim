@@ -56,6 +56,11 @@ return {
           winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,Search:None",
         },
       }, --}}}
+      view = {
+        docs = {
+          auto_open = false,
+        },
+      },
       mapping = { --{{{
         ["<up>"] = cmp.mapping({
           i = function(fallback)
@@ -220,6 +225,11 @@ return {
         ["<c-space>"] = cmp.mapping({
           i = function()
             cmp.complete()
+            if cmp.visible_docs() then
+              cmp.close_docs()
+            else
+              cmp.open_docs()
+            end
           end,
           c = function()
             cmp.complete()
