@@ -1,6 +1,6 @@
 let g:zoom#statustext = '[Z]'
 let g:zoom_tmux_z = v:false
-nmap <leader>z <Plug>(zoom-toggle)
+" nmap <leader>z <Plug>(zoom-toggle)
 
 function! s:ZoomVimLeave()
 	" let zoomstatus = zoom#statusline()

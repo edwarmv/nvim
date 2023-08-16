@@ -1,7 +1,7 @@
 return {
   "dhruvasagar/vim-zoom",
   -- dependencies = { "nvim-zh/colorful-winsep.nvim" },
-  enabled = true,
+  enabled = false,
   -- config = function()
   -- local utils = require("utils.init")
   -- local colorful_winsep = require("colorful-winsep")
