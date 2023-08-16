@@ -146,6 +146,13 @@ return {
     vim.api.nvim_set_hl(0, "HydraTeal", { fg = colors.teal })
     vim.api.nvim_set_hl(0, "HydraPink", { fg = colors.purple })
 
+    vim.api.nvim_set_hl(0, "NeoTreeMessage", { link = "Comment" })
+
+    vim.api.nvim_set_hl(0, "DiagnosticLineNrError", { link = "DiagnosticSignError" })
+    vim.api.nvim_set_hl(0, "DiagnosticLineNrWarn", { link = "DiagnosticSignWarn" })
+    vim.api.nvim_set_hl(0, "DiagnosticLineNrInfo", { link = "DiagnosticSignInfo" })
+    vim.api.nvim_set_hl(0, "DiagnosticLineNrHint", { link = "DiagnosticSignHint" })
+
     -- vim.api.nvim_set_hl(0, "ModesCopy", { bg = utils.blend(colors.yellow, colors.bg, 0.15) })
     -- vim.api.nvim_set_hl(0, "ModesDelete", { bg = utils.blend(colors.red, colors.bg, 0.15) })
     -- vim.api.nvim_set_hl(0, "ModesInsert", { bg = utils.blend(colors.blue, colors.bg, 0.15) })
