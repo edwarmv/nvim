@@ -9,7 +9,7 @@ local cmd = {
   "ngserver",
   "--stdio",
   "--tsProbeLocations",
-  vim.fn.expand("~") .. "/.asdf/installs/nodejs/18.15.0/lib/node_modules/typescript",
+  vim.fn.expand("~") .. "/.local/share/nvim/mason/packages/angular-language-server/node_modules/@typescript/bin",
   "--ngProbeLocations",
   vim.fn.expand("~")
     .. "/.local/share/nvim/mason/packages/angular-language-server/node_modules/@angular/language-server/bin",
