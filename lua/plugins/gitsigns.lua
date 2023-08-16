@@ -4,12 +4,12 @@ return {
   "lewis6991/gitsigns.nvim",
   opts = {
     signs = {
-      add = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-      change = { hl = "GitSignsChange", text = "▍", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-      delete = { hl = "GitSignsDelete", text = "▍", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      topdelete = { hl = "GitSignsDelete", text = "▍", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      changedelete = { hl = "GitSignsChange", text = "▍", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-      untracked = { hl = "GitSignsAdd", text = "▍", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      add = { hl = "GitSignsAdd", text = "▐", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      change = { hl = "GitSignsChange", text = "▐", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+      delete = { hl = "GitSignsDelete", text = "▐", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+      topdelete = { hl = "GitSignsDelete", text = "▐", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+      changedelete = { hl = "GitSignsChange", text = "▐", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+      untracked = { hl = "GitSignsAdd", text = "▐", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
     numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -43,7 +43,6 @@ return {
       col = 0,
       width = vim.opt.columns:get(),
       height = math.floor(vim.opt.lines:get() / 4),
-      zindex=1
     },
     yadm = {
       enable = true,
