@@ -225,10 +225,12 @@ return {
         ["<c-space>"] = cmp.mapping({
           i = function()
             cmp.complete()
-            if cmp.visible_docs() then
-              cmp.close_docs()
-            else
-              cmp.open_docs()
+            if cmp.get_selected_entry() ~= nil then
+              if cmp.visible_docs() then
+                cmp.close_docs()
+              else
+                cmp.open_docs()
+              end
             end
           end,
           c = function()
