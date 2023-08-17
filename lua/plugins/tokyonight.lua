@@ -59,6 +59,9 @@ return {
           fg = c.comment,
           bg = c.none,
         }
+        hl.IlluminatedWordText = {
+          underline = true
+        }
         hl.TelescopeNormal = { fg = c.comment, bg = c.bg_float }
         hl.TelescopeSelection = { link = "CursorLine" }
       end,
