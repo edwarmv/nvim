@@ -41,7 +41,7 @@ return {
       relative = "cursor",
       row = 1,
       col = 0,
-      width = vim.opt.columns:get(),
+      width = vim.opt.columns:get() + 2,
       height = math.floor(vim.opt.lines:get() / 4),
     },
     yadm = {
