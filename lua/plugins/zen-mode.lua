@@ -1,12 +1,18 @@
 return {
   "folke/zen-mode.nvim",
-  enabled = false,
+  dependencies = {
+    {
+      "folke/twilight.nvim",
+      opts = true,
+    },
+  },
+  enabled = true,
   opts = {
     window = {
       width = 0.85,
     },
   },
   keys = {
-    { "<leader>z", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
+    { "<leader>Z", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
   },
 }
