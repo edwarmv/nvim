@@ -58,7 +58,7 @@ return {
       }, --}}}
       view = {
         docs = {
-          auto_open = false,
+          auto_open = true,
         },
       },
       mapping = { --{{{
