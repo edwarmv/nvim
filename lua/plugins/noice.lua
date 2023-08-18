@@ -55,6 +55,11 @@ return {
           height = "auto",
         },
       },
+      confirm = {
+        border = {
+          style = defaults.border,
+        },
+      },
     },
     presets = {
       long_message_to_split = true,
