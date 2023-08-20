@@ -1,0 +1,28 @@
+return {
+  "glepnir/dashboard-nvim",
+  event = "VimEnter",
+  opts = {
+    theme = "hyper",
+    config = {
+      shortcut = {
+        -- action can be a function type
+        { desc = "󰊳 Lazy", group = "@property", action = "Lazy update", key = "1" },
+        { desc = " Mason", group = "@constant", action = "MasonUpdate", key = "2" },
+        { desc = "󰏘 Treesitter", group = "@string", action = "TSUpdate", key = "3" },
+      },
+      week_header = {
+        enable = true, --boolean use a week header
+      },
+    },
+  },
+  dependencies = {
+    { "nvim-tree/nvim-web-devicons" },
+    {
+      "folke/drop.nvim",
+      event = "VimEnter",
+      config = function()
+        require("drop").setup()
+      end,
+    },
+  },
+}
