@@ -24,7 +24,7 @@ return {
     --   callback(input)
     -- end
 
-    require("plugins.neo-tree.custom")
+    -- require("plugins.neo-tree.custom")
 
     local defaults = require("config.defaults")
     local fold_commands = require("plugins.neo-tree.fold-commands")
@@ -83,7 +83,6 @@ return {
         same_level = true, -- Create and paste/move files/directories on the same level as the directory under cursor (as opposed to within the directory under cursor).
         insert_as = "sibling",
         mappings = {
-          ["o"] = "open",
           ["<cr>"] = "open",
           ["S"] = "none",
           ["v"] = "none",
