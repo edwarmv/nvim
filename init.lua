@@ -207,7 +207,7 @@ vim.diagnostic.config({
   update_in_insert = false,
   signs = true,
   severity_sort = true,
-  virtual_lines = true,
+  virtual_lines = false,
   -- float = {
   --   source = "always",  -- Or "if_many"
   -- },
@@ -218,14 +218,14 @@ local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = fals
 vim.api.nvim_create_autocmd("InsertEnter", {
   group = group,
   callback = function()
-    vim.diagnostic.hide()
+    pcall(vim.diagnostic.hide)
   end,
 })
 
 vim.api.nvim_create_autocmd("InsertLeave", {
   group = group,
   callback = function()
-    vim.diagnostic.show()
+    pcall(vim.diagnostic.show)
   end,
 })
 

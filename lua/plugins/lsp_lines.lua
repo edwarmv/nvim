@@ -1,7 +1,7 @@
 return {
   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   depencies = { "neovim/nvim-lspconfig" },
-  enabled = false,
+  enabled = true,
   event = "LspAttach",
   config = function()
     require("lsp_lines").setup()
@@ -9,9 +9,9 @@ return {
     vim.keymap.set("", "<Leader>D", function()
       enabled = not enabled
       if enabled then
-        vim.diagnostic.config({ virtual_lines = true })
+        vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
       else
-        vim.diagnostic.config({ virtual_lines = false })
+        vim.diagnostic.config({ virtual_lines = false, virtual_text = true })
       end
     end, { desc = "[lsp_lines] - Toggle" })
 
