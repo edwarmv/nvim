@@ -6,8 +6,8 @@ return {
       width = math.ceil(vim.o.columns * 0.5), -- Width of the floating window
       height = math.ceil(vim.o.lines * 0.3), -- Height of the floating window
       default_mappings = false, -- Bind default mappings
-      -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
       -- border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" },
       -- border = { "", "", "", "", "", "", "", "" },
     })
