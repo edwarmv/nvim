@@ -9,7 +9,7 @@ return {
     -- 'statusline-winbar' draw on 'statusline' if possible, if not 'winbar' will be
     -- 'floating-big-letter' draw big letter on a floating window
     -- used
-    hint = "floating-big-letter",
+    hint = "statusline-winbar",
 
     -- when you go to window selection mode, status bar will show one of
     -- following letters on them so you can use that letter to select the window
@@ -38,7 +38,44 @@ return {
         -- additionally, user can pass in a table of fonts in to font
         -- property to use instead
 
-        font = "ansi-shadow", -- ansi-shadow |
+        font = {
+          a = "a",
+          b = "b",
+          c = "c",
+          d = "d",
+          e = "e",
+          f = "f",
+          g = "g",
+          h = "h",
+          i = "i",
+          j = "j",
+          k = "k",
+          l = "l",
+          m = "m",
+          n = "n",
+          o = "o",
+          p = "p",
+          q = "q",
+          r = "r",
+          s = "s",
+          t = "t",
+          u = "u",
+          v = "v",
+          w = "w",
+          x = "x",
+          y = "y",
+          z = "z",
+          ["1"] = "1",
+          ["2"] = "2",
+          ["3"] = "3",
+          ["4"] = "4",
+          ["5"] = "5",
+          ["6"] = "6",
+          ["7"] = "7",
+          ["8"] = "8",
+          ["9"] = "9",
+          ["0"] = "0",
+        }, -- ansi-shadow |
       },
     },
 
@@ -77,6 +114,7 @@ return {
         filetype = {
           "NvimTree",
           "neo-tree",
+          "neo-tree-popup",
           "notify",
           "incline",
           "fidget",
@@ -108,25 +146,25 @@ return {
     highlights = {
       statusline = {
         focused = {
-          fg = "#ddc7a1",
-          bg = "#3c3836",
+          fg = "#a9b1d6",
+          bg = "#1f2335",
           bold = true,
         },
         unfocused = {
-          fg = "#ddc7a1",
-          bg = "#3c3836",
+          fg = "#a9b1d6",
+          bg = "#1f2335",
           bold = true,
         },
       },
       winbar = {
         focused = {
-          fg = "#ddc7a1",
-          bg = "#3c3836",
+          fg = "#a9b1d6",
+          bg = "#1f2335",
           bold = true,
         },
         unfocused = {
-          fg = "#ddc7a1",
-          bg = "#3c3836",
+          fg = "#a9b1d6",
+          bg = "#1f2335",
           bold = true,
         },
       },
@@ -151,17 +189,17 @@ return {
   --
   -- vim.keymap.set("n", "-", "<cmd>WindowPicker<cr>")
   -- end,
-  keys = {
-    {
-      "-",
-      function()
-        local _, picked_window_id = pcall(require("window-picker").pick_window)
-        local cur_winid = vim.fn.win_getid()
-        if picked_window_id and picked_window_id ~= cur_winid then
-          vim.api.nvim_set_current_win(picked_window_id)
-        end
-      end,
-      desc = "Pick a window",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "-",
+  --     function()
+  --       local _, picked_window_id = pcall(require("window-picker").pick_window)
+  --       local cur_winid = vim.fn.win_getid()
+  --       if picked_window_id and picked_window_id ~= cur_winid then
+  --         vim.api.nvim_set_current_win(picked_window_id)
+  --       end
+  --     end,
+  --     desc = "Pick a window",
+  --   },
+  -- },
 }

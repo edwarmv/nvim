@@ -1,3 +1,4 @@
+
 return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
   opts = {
@@ -15,7 +16,10 @@ return {
       "taplo",
       "tailwindcss-language-server",
       "pyright",
+      "diagnostic-languageserver",
+      "vue-language-server",
       -- formatters
+      "black",
       "sql-formatter",
       "prettier",
       "prettierd",

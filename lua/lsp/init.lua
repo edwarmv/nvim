@@ -11,6 +11,7 @@ require('lsp.clangd')
 require('lsp.taplo') -- TOML
 require('lsp.tailwindcss') -- TOML
 require('lsp.pyright')
+-- require('lsp.volar')
 -- require('lsp.sqlls')
 
 -- require('lsp.diagnosticls')

@@ -1,4 +1,3 @@
-local maps = require("config.maps")
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
@@ -31,7 +30,4 @@ require("lspconfig").lua_ls.setup({
   },
   capabilities = capabilities,
   before_init = require("neodev.lsp").before_init,
-  on_attach = function(client, bufnr)
-    maps.lsp(bufnr)
-  end,
 })

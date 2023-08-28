@@ -1,5 +1,3 @@
-local maps = require("config.maps")
---
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- vim.env.TS_TSLINT_ENABLE_WORKSPACE_LIBRARY_EXECUTION=1
@@ -32,9 +30,6 @@ require("typescript").setup({
     settings = {
       completions = { completeFunctionCalls = false },
     },
-    on_attach = function(client, bufnr)
-      maps.lsp(bufnr)
-    end,
   },
 })
 

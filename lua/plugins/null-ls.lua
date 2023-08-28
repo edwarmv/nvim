@@ -5,7 +5,6 @@ return {
   config = function()
     local defaults = require("config.defaults")
     local null_ls = require("null-ls")
-    local maps = require("config.maps")
 
     null_ls.setup({
       border = defaults.border,
@@ -21,7 +20,6 @@ return {
         null_ls.builtins.code_actions.eslint_d,
       },
       on_attach = function(client, bufnr)
-        maps.lsp(bufnr)
         --   local opts = {
         --     buffer = bufnr,
         --   }

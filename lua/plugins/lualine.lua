@@ -1,3 +1,4 @@
+
 local icons = require("config.icons")
 
 local function diff_source()

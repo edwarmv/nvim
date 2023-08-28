@@ -1,3 +1,4 @@
+
 return {
   "lukas-reineke/indent-blankline.nvim",
   config = function()
@@ -55,28 +56,28 @@ return {
       --     "IndentBlanklineIndent6",
       -- },
     })
-
-    vim.api.nvim_set_keymap("n", "<leader>ir", "<cmd>IndentBlanklineRefresh<cr>", { silent = false })
-
-    vim.api.nvim_set_keymap("n", "zo", "zo:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-    vim.api.nvim_set_keymap("n", "zO", "zO:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-
-    vim.api.nvim_set_keymap("n", "zc", "zc:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-    vim.api.nvim_set_keymap("n", "zC", "zC:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-
-    vim.api.nvim_set_keymap("n", "za", "za:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-    vim.api.nvim_set_keymap("n", "zA", "zA:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-
-    vim.api.nvim_set_keymap("n", "zd", "zd:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-    vim.api.nvim_set_keymap("n", "zD", "zD:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-
-    vim.api.nvim_set_keymap("n", "zr", "zr:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-    vim.api.nvim_set_keymap("n", "zR", "zR:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-
-    vim.api.nvim_set_keymap("n", "zf", "zf:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-
-    vim.api.nvim_set_keymap("n", "zm", "zm:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
-    vim.api.nvim_set_keymap("n", "zM", "zM:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    --
+    -- vim.api.nvim_set_keymap("n", "<leader>ir", "<cmd>IndentBlanklineRefresh<cr>", { silent = false })
+    --
+    -- vim.api.nvim_set_keymap("n", "zo", "zo:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap("n", "zO", "zO:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    --
+    -- vim.api.nvim_set_keymap("n", "zc", "zc:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap("n", "zC", "zC:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    --
+    -- vim.api.nvim_set_keymap("n", "za", "za:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap("n", "zA", "zA:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    --
+    -- vim.api.nvim_set_keymap("n", "zd", "zd:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap("n", "zD", "zD:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    --
+    -- vim.api.nvim_set_keymap("n", "zr", "zr:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap("n", "zR", "zR:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    --
+    -- vim.api.nvim_set_keymap("n", "zf", "zf:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    --
+    -- vim.api.nvim_set_keymap("n", "zm", "zm:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
+    -- vim.api.nvim_set_keymap("n", "zM", "zM:IndentBlanklineRefresh<cr>", { silent = true, noremap = true })
 
     -- vim.cmd([[autocmd OptionSet signcolumn IndentBlanklineRefresh]])
     -- vim.api.nvim_set_keymap("n", "]w", "<cmd>NextTrailingWhitespace<cr>", { silent = true, noremap = true })
@@ -96,10 +97,10 @@ return {
     -- })
     local timer = vim.loop.new_timer()
 
-    vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
-      callback = function()
-        require("plugins.indent-blankline.debounce").debounce()
-      end,
-    })
+    -- vim.api.nvim_create_autocmd({ "CursorMoved", "WinScrolled" }, {
+    --   callback = function()
+    --     require("plugins.indent-blankline.debounce").debounce()
+    --   end,
+    -- })
   end,
 }

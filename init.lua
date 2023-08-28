@@ -1,3 +1,4 @@
+
 -- =========================================================
 -- vim-settings
 -- =========================================================
@@ -21,7 +22,7 @@ vim.opt.wrap = false
 -- " set showbreak=…
 -- " set breakindent " indent wrap
 vim.opt.display = "msgsep"
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 1000
 -- " https://github.com/sindrets/diffview.nvim/issues/35
 vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "⯆", foldsep = "│", foldclose = "⯈" })
 -- vim.opt.indentkeys:remove({ "o", "O" })
@@ -334,7 +335,7 @@ end)
 --   end,
 -- })
 
-vim.opt.sessionoptions = "blank,buffers,curdir,help,tabpages,globals,winsize,winpos" -- ,terminal
+vim.opt.sessionoptions = "blank,buffers,help,tabpages,globals,winsize,winpos" -- ,terminal
 vim.opt.laststatus = 3
 
 local fn = vim.fn

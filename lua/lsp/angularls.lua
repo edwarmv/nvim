@@ -1,4 +1,4 @@
-local maps = require("config.maps")
+
 local util = require("lspconfig.util")
 -- local project_library_path = "/Users/edwarmv/.asdf/installs/nodejs/lts/lib/node_modules"
 local project_library_path = vim.fn.expand("~") .. "/.local/share/nvim/mason/packages"
@@ -21,7 +21,4 @@ require("lspconfig").angularls.setup({
     new_config.cmd = cmd
   end,
   capabilities = capabilities,
-  on_attach = function(client, bufnr)
-    maps.lsp(bufnr)
-  end,
 })

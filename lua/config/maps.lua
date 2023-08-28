@@ -1,3 +1,4 @@
+
 local defaults = require("config.defaults")
 
 local M = {}
@@ -202,6 +203,21 @@ M.lsp = function(bufnr)
   --   },
   -- })
 end
+
+local group = vim.api.nvim_create_augroup("LspMappings", { clear = false })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = group,
+  callback = function(event)
+    M.lsp(event.buf)
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspDetach", {
+  group = group,
+  callback = function()
+  end,
+})
 -- 
 -- 
 return M

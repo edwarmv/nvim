@@ -2,7 +2,7 @@ local utils = require("utils.init")
 
 local plugins = {
   "winresizer.vim",
-  "vim-visual-multi.vim",
+  -- "vim-visual-multi.vim",
   "emmet-vim.vim",
   "vim-markdown.vim",
   "init.vim",

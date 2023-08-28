@@ -1,3 +1,4 @@
+
 return {
   "folke/tokyonight.nvim",
   enabled = true,
@@ -51,10 +52,10 @@ return {
           fg = c.fg,
           bg = c.bg_float,
         }
-        hl.CmpFloat = {
-          fg = c.fg,
-          bg = c.bg_float,
-        }
+        -- hl.CmpFloat = {
+        --   fg = c.fg,
+        --   bg = c.bg_float,
+        -- }
         hl.CmpItemAbbr = {
           fg = c.comment,
           bg = c.none,

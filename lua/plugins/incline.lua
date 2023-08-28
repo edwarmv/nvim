@@ -1,3 +1,4 @@
+
 return {
   "b0o/incline.nvim",
   enabled = true,
@@ -78,22 +79,6 @@ return {
         },
         zindex = 1,
       },
-    })
-
-    vim.api.nvim_create_user_command("InclineUpdate", function()
-      require("incline.manager").update({ refresh = true })
-      -- manager.update({ refresh = true })
-      -- pcall(require("incline.manager").update())
-    end, {})
-
-    vim.keymap.set("n", "<c-w>r", "<c-w>r:InclineUpdate<cr>", { silent = true })
-    vim.keymap.set("n", "<c-w>=", "<c-w>=:InclineUpdate<cr>", { silent = true })
-    vim.keymap.set("n", "<c-l>", "<c-l>:nohl<cr>:InclineUpdate<cr>", { silent = true })
-
-    vim.api.nvim_create_autocmd({ "FocusLost", "FocusGained" }, {
-      callback = function()
-        require("incline").enable()
-      end,
     })
   end,
 }
