@@ -4,7 +4,7 @@ return {
   config = function()
     local prettier = require("efmls-configs.formatters.prettier")
     local stylua = require("efmls-configs.formatters.stylua")
-    local black = require('efmls-configs.formatters.black')
+    local black = require("efmls-configs.formatters.black")
 
     local languages = {
       json = { prettier },
