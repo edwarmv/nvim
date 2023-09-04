@@ -1,6 +1,7 @@
 return {
   "gbprod/yanky.nvim",
   dependencies = {
+    "kkharji/sqlite.lua",
     {
       "gbprod/cutlass.nvim",
       opts = {
@@ -17,8 +18,8 @@ return {
     local utils = require("yanky.utils")
     require("yanky").setup({
       ring = {
-        history_length = 10,
-        storage = "shada",
+        history_length = 100,
+        storage = "sqlite",
         sync_with_numbered_registers = true,
         cancel_event = "update",
       },
