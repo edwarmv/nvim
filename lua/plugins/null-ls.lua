@@ -1,6 +1,6 @@
 return {
   "jose-elias-alvarez/null-ls.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local defaults = require("config.defaults")
