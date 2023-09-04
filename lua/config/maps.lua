@@ -1,4 +1,3 @@
-
 local defaults = require("config.defaults")
 
 local M = {}
@@ -99,12 +98,7 @@ local function lspFormat()
   end)
 end
 
-M.lsp = function(bufnr)
-  local opts = {
-    buffer = bufnr,
-    silent = true,
-  }
-
+M.lsp = function(buffer)
   -- lspsaga
   -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
   -- vim.keymap.set("n", "gld", "<cmd>Lspsaga peek_definition<cr>", opts)
@@ -113,71 +107,71 @@ M.lsp = function(bufnr)
   -- vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
   -- vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
 
-  vim.keymap.set("n", "glD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration" })
+  vim.keymap.set("n", "glD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
 
-  vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition" })
+  vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover" })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
 
-  vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation" })
+  vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
   -- vim.keymap.set({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
 
-  vim.keymap.set("n", "glt", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition" })
+  vim.keymap.set("n", "glt", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
-  vim.keymap.set("n", "glr", lspRename, { desc = "[LSP] Rename" })
+  vim.keymap.set("n", "glr", lspRename, { desc = "[LSP] Rename", buffer = buffer })
 
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[LSP] Code Action" })
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
 
-  vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References" })
+  vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
-  vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format" })
+  vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format", buffer = buffer })
 
   vim.keymap.set("n", "<leader>d", function()
     vim.diagnostic.open_float({ border = defaults.border })
-  end, { desc = "[Diagnostic] Current Line" })
+  end, { desc = "[Diagnostic] Current Line", buffer = buffer })
 
-  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "[Diagnostic] Location List" })
+  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "[Diagnostic] Location List", buffer = buffer })
 
   vim.keymap.set("n", "]d", function()
     vim.diagnostic.goto_next({ float = false })
-  end, { desc = "[Diagnostic] Next" })
+  end, { desc = "[Diagnostic] Next", buffer = buffer })
 
   vim.keymap.set("n", "[d", function()
     vim.diagnostic.goto_prev({ float = false })
-  end, { desc = "[Diagnostic] Prev" })
+  end, { desc = "[Diagnostic] Prev", buffer = buffer })
 
   local goto_preview = require("goto-preview")
 
-  vim.keymap.set("n", "glpd", goto_preview.goto_preview_definition, { desc = "[LSP] Goto Preview Definition" })
+  vim.keymap.set("n", "glpd", goto_preview.goto_preview_definition, { desc = "[LSP] Goto Preview Definition", buffer = buffer })
   vim.keymap.set(
     "n",
     "glpt",
     goto_preview.goto_preview_type_definition,
-    { desc = "[LSP] Goto Preview Type Definition" }
+    { desc = "[LSP] Goto Preview Type Definition", buffer = buffer }
   )
-  vim.keymap.set("n", "glpi", goto_preview.goto_preview_implementation, { desc = "[LSP] Goto Preview Implementation" })
-  vim.keymap.set("n", "glP", goto_preview.close_all_win, { desc = "[LSP] Goto Preview Close All Win" })
+  vim.keymap.set("n", "glpi", goto_preview.goto_preview_implementation, { desc = "[LSP] Goto Preview Implementation", buffer = buffer })
+  vim.keymap.set("n", "glP", goto_preview.close_all_win, { desc = "[LSP] Goto Preview Close All Win", buffer = buffer })
   -- Only set if you have telescope installed
-  vim.keymap.set("n", "glpr", goto_preview.goto_preview_references, { desc = "[LSP] Goto Preview References" })
+  vim.keymap.set("n", "glpr", goto_preview.goto_preview_references, { desc = "[LSP] Goto Preview References", buffer = buffer })
 
   vim.keymap.set(
     "n",
     "glwa",
     "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
-    { desc = "[LSP] Add Workspace Folder" }
+    { desc = "[LSP] Add Workspace Folder", buffer = buffer }
   )
   vim.keymap.set(
     "n",
     "glwr",
     "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-    { desc = "[LSP] Remove Workspace Folder" }
+    { desc = "[LSP] Remove Workspace Folder", buffer = buffer }
   )
   vim.keymap.set(
     "n",
     "glwl",
     "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
-    { desc = "[LSP] List Workspace Folders" }
+    { desc = "[LSP] List Workspace Folders", buffer = buffer }
   )
 
   -- local wk = require("which-key")
@@ -213,11 +207,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.api.nvim_create_autocmd("LspDetach", {
-  group = group,
-  callback = function()
-  end,
-})
+-- vim.api.nvim_create_autocmd("LspDetach", {
+--   group = group,
+--   callback = function()
+--   end,
+-- })
 -- 
 -- 
 return M
