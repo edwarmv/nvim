@@ -1,4 +1,3 @@
-
 ---@diagnostic disable: missing-fields
 return {
   "hrsh7th/nvim-cmp",
@@ -8,6 +7,7 @@ return {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp",
     -- "hrsh7th/cmp-nvim-lua",
+    "f3fora/cmp-spell",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-calc",
@@ -42,10 +42,10 @@ return {
       --   autocomplete = false,
       -- },
       window = { --{{{
-      --   completion = {
-      --     border = defaults.border,
-      --     winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,Search:None",
-      --   },
+        --   completion = {
+        --     border = defaults.border,
+        --     winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,Search:None",
+        --   },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
@@ -234,41 +234,17 @@ return {
             cmp.complete()
           end,
         }),
-        -- ["<c-z>s"] = cmp.mapping({
-        --   i = function()
-        --     cmp.complete({
-        --       config = {
-        --         sources = {
-        --           { name = "luasnip" },
-        --         },
-        --       },
-        --     })
-        --   end,
-        -- }),
-        -- ["<c-z>p"] = cmp.mapping({
-        --   i = function()
-        --     cmp.complete({
-        --       config = {
-        --         sources = {
-        --           { name = "path" },
-        --         },
-        --       },
-        --     })
-        --   end,
-        -- }),
-        -- ["<c-z>c"] = cmp.mapping({
-        --   i = function()
-        --     cmp.complete({
-        --       config = {
-        --         sources = {
-        --           { name = "cacl" },
-        --         },
-        --       },
-        --     })
-        --   end,
-        -- }),
       }, --}}}
       sources = cmp.config.sources({
+        {
+            name = 'spell',
+            option = {
+                keep_all_entries = false,
+                enable_in_context = function()
+                    return vim.opt.spell:get()
+                end,
+            },
+        },
         { name = "nvim_lsp" },
         -- { name = "luasnip" },
         { name = "buffer" },
@@ -280,7 +256,6 @@ return {
           cmp.ItemField.Menu,
         },
         format = require("lspkind").cmp_format({
-          -- with_text = false,
           mode = "symbol",
           before = function(_, vim_item)
             local width = math.floor(vim.opt.columns:get() / 4)
@@ -289,6 +264,10 @@ return {
             end
             return vim_item
           end,
+          menu = {
+            buffer = "[Buffer]",
+            spell = "[Spell]"
+          }
         }),
       }, --}}}
       experimental = {
