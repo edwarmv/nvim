@@ -206,7 +206,7 @@ vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
   update_in_insert = false,
-  signs = true,
+  signs = false,
   severity_sort = true,
   virtual_lines = false,
   -- float = {
@@ -230,10 +230,10 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   end,
 })
 
-vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError" })
-vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn" })
-vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint" })
+vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError", text = "" })
+vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn", text = "" })
+vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo", text = "" })
+vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint", text = "" })
 
 local defaults = require("config.defaults")
 
