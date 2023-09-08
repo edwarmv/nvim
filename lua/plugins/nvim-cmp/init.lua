@@ -236,15 +236,6 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        {
-            name = 'spell',
-            option = {
-                keep_all_entries = false,
-                enable_in_context = function()
-                    return vim.opt.spell:get()
-                end,
-            },
-        },
         { name = "nvim_lsp" },
         -- { name = "luasnip" },
         { name = "buffer" },
@@ -266,8 +257,8 @@ return {
           end,
           menu = {
             buffer = "[Buffer]",
-            spell = "[Spell]"
-          }
+            spell = "[Spell]",
+          },
         }),
       }, --}}}
       experimental = {
@@ -464,6 +455,36 @@ return {
     -- cmp.event:on("menu_opened", function()
     --   debounce.cancel_autocomplete = false
     -- end)
+
+    local group = vim.api.nvim_create_augroup("CmpUserAuGroup", { clear = false })
+
+    vim.api.nvim_create_autocmd("OptionSet", {
+      group = group,
+      pattern = "spell",
+      callback = function()
+        local is_spell_on = vim.opt.spell:get()
+        if is_spell_on then
+          cmp.setup.buffer({
+            sources = cmp.config.sources({
+              {
+                name = "spell",
+                option = {
+                  keep_all_entries = false,
+                },
+              },
+            }),
+          })
+        else
+          cmp.setup.buffer({
+            sources = cmp.config.sources({
+              { name = "nvim_lsp" },
+              -- { name = "luasnip" },
+              { name = "buffer" },
+            }),
+          })
+        end
+      end,
+    })
   end,
 }
 -- vim: foldmethod=marker
