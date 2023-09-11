@@ -20,13 +20,13 @@ return {
       -- on_close = nil,
 
       -- Render function for notifications. See notify-render()
-      render = "minimal", -- default minimal
+      render = "wrapped-compact", -- default minimal
 
       -- Default timeout for notifications
       timeout = 3000,
 
       -- Max number of columns for messages
-      max_width = math.floor(vim.opt.columns:get() * 0.75),
+      max_width = math.floor(vim.opt.columns:get() * 0.35),
       -- Max number of lines for a message
       -- max_height = nil,
 
