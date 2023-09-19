@@ -206,7 +206,7 @@ vim.opt.termguicolors = true
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
-  update_in_insert = false,
+  update_in_insert = true,
   signs = false,
   severity_sort = true,
   virtual_lines = false,
@@ -215,21 +215,21 @@ vim.diagnostic.config({
   -- },
 })
 
-local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
+-- local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
 
-vim.api.nvim_create_autocmd("InsertEnter", {
-  group = group,
-  callback = function()
-    pcall(vim.diagnostic.hide)
-  end,
-})
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--   group = group,
+--   callback = function()
+--     pcall(vim.diagnostic.hide)
+--   end,
+-- })
 
-vim.api.nvim_create_autocmd("InsertLeave", {
-  group = group,
-  callback = function()
-    pcall(vim.diagnostic.show)
-  end,
-})
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   group = group,
+--   callback = function()
+--     pcall(vim.diagnostic.show)
+--   end,
+-- })
 
 vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError", text = "" })
 vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn", text = "" })
