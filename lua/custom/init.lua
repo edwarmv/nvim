@@ -1,1 +1,1 @@
-require('custom.lsp')
+-- require('custom.lsp')
