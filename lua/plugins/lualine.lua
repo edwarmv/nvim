@@ -1,4 +1,3 @@
-
 local icons = require("config.icons")
 
 local function diff_source()
@@ -32,7 +31,7 @@ local fern = { --{{{
     },
   },
   filetypes = { "fern" },
-} --}}}
+}                --}}}
 
 local aerial = { --{{{
   sections = {
@@ -54,7 +53,7 @@ local aerial = { --{{{
     },
   },
   filetypes = { "aerial" },
-} --}}}
+}             --}}}
 
 local nnn = { --{{{
   sections = {
@@ -76,7 +75,7 @@ local nnn = { --{{{
     },
   },
   filetypes = { "nnn" },
-} --}}}
+}                  --}}}
 
 local floaterm = { --{{{
   sections = {
@@ -112,7 +111,7 @@ local floaterm = { --{{{
     },
   },
   filetypes = { "floaterm" },
-} --}}}
+}                   --}}}
 
 local telescope = { --{{{
   sections = {
@@ -195,7 +194,7 @@ return {
               info = icons.diagnostic.info,
               hint = icons.diagnostic.hint,
             },
-            update_in_insert = true, -- Update diagnostics in insert mode
+            update_in_insert = false, -- Update diagnostics in insert mode
           },
           "zoom#statusline",
           "ObsessionStatus",
@@ -247,15 +246,32 @@ return {
           --   update_in_insert = true, -- Update diagnostics in insert mode
           -- },
         },
-        lualine_x = {},
+        lualine_x = {
+          -- "filetype",
+        },
         lualine_y = {},
         lualine_z = {},
       },
       inactive_winbar = {
         lualine_a = {},
         lualine_b = {},
-        -- lualine_c = { { "filename", file_status = true } },
-        lualine_x = {},
+        lualine_c = {
+          -- { "filename", file_status = true },
+          -- {
+          --   "diagnostics",
+          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+          --   symbols = {
+          --     error = icons.diagnostic.error,
+          --     warn = icons.diagnostic.warn,
+          --     info = icons.diagnostic.info,
+          --     hint = icons.diagnostic.hint,
+          --   },
+          --   update_in_insert = true, -- Update diagnostics in insert mode
+          -- },
+        },
+        lualine_x = {
+          -- "filetype",
+        },
         lualine_y = {},
         lualine_z = {},
       },
