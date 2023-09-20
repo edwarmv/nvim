@@ -16,7 +16,7 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.signcolumn = "auto:1"
 vim.opt.numberwidth = 1
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.wrap = false
 vim.opt.spelllang = { 'en_us' }
 -- " set linebreak
@@ -206,8 +206,8 @@ vim.opt.termguicolors = true
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
-  update_in_insert = true,
-  signs = false,
+  update_in_insert = false,
+  signs = true,
   severity_sort = true,
   virtual_lines = false,
   -- float = {
@@ -215,36 +215,29 @@ vim.diagnostic.config({
   -- },
 })
 
--- local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
+local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
 
--- vim.api.nvim_create_autocmd("InsertEnter", {
---   group = group,
---   callback = function()
---     pcall(vim.diagnostic.hide)
---   end,
--- })
+vim.api.nvim_create_autocmd("InsertEnter", {
+  group = group,
+  callback = function()
+    pcall(vim.diagnostic.hide)
+  end,
+})
 
--- vim.api.nvim_create_autocmd("InsertLeave", {
---   group = group,
---   callback = function()
---     pcall(vim.diagnostic.show)
---   end,
--- })
+vim.api.nvim_create_autocmd("InsertLeave", {
+  group = group,
+  callback = function()
+    pcall(vim.diagnostic.show)
+  end,
+})
 
-vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError", text = "" })
-vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn", text = "" })
-vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo", text = "" })
-vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint", text = "" })
+vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticLineNrError", text = "" })
+vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticLineNrWarn", text = "" })
+vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticLineNrInfo", text = "" })
+vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticLineNrHint", text = "" })
 
 local defaults = require("config.defaults")
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = defaults.border,
-})
-
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = defaults.border,
-})
 
 vim.opt.list = true
 vim.opt.listchars = {
@@ -411,5 +404,13 @@ vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 -- vim.lsp.set_log_level("trace")
 
 require("config")
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = defaults.border,
+})
+
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+  border = defaults.border,
+})
 
 -- vim: foldmethod=marker
