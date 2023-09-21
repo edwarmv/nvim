@@ -185,17 +185,17 @@ return {
           },
         },
         lualine_x = {
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-          },
+          -- {
+          --   "diagnostics",
+          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+          --   symbols = {
+          --     error = icons.diagnostic.error,
+          --     warn = icons.diagnostic.warn,
+          --     info = icons.diagnostic.info,
+          --     hint = icons.diagnostic.hint,
+          --   },
+          --   update_in_insert = false, -- Update diagnostics in insert mode
+          -- },
           "zoom#statusline",
           "ObsessionStatus",
           "searchcount",
@@ -233,18 +233,19 @@ return {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-          -- { "filename", file_status = true },
-          -- {
-          --   "diagnostics",
-          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          --   symbols = {
-          --     error = icons.diagnostic.error,
-          --     warn = icons.diagnostic.warn,
-          --     info = icons.diagnostic.info,
-          --     hint = icons.diagnostic.hint,
-          --   },
-          --   update_in_insert = true, -- Update diagnostics in insert mode
-          -- },
+          { 'filetype', icon_only = true, separator = '', padding = { right = 0, left = 1 } },
+          { 'filename', file_status = true, separator = '', padding = { right = 0, left = 1 } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostic.error,
+              warn = icons.diagnostic.warn,
+              info = icons.diagnostic.info,
+              hint = icons.diagnostic.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
         },
         lualine_x = {
           -- "filetype",
@@ -256,18 +257,19 @@ return {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-          -- { "filename", file_status = true },
-          -- {
-          --   "diagnostics",
-          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          --   symbols = {
-          --     error = icons.diagnostic.error,
-          --     warn = icons.diagnostic.warn,
-          --     info = icons.diagnostic.info,
-          --     hint = icons.diagnostic.hint,
-          --   },
-          --   update_in_insert = true, -- Update diagnostics in insert mode
-          -- },
+          { 'filetype', icon_only = true,  separator = '', padding = { right = 0, left = 1 } },
+          { 'filename', file_status = true, separator = '', padding = { right = 0, left = 1 } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostic.error,
+              warn = icons.diagnostic.warn,
+              info = icons.diagnostic.info,
+              hint = icons.diagnostic.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
         },
         lualine_x = {
           -- "filetype",
