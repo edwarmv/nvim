@@ -13,6 +13,7 @@ vim.lsp.buf.hover = function()
       -- Ignore result since buffer changed. This happens for slow language servers.
       return
     end
+    local format = 'markdown'
     local contents = {}
     for _, result in pairs(results) do
       if result and result.result and result.result.contents and not vim.tbl_isempty(result.result.contents) then
@@ -21,9 +22,15 @@ vim.lsp.buf.hover = function()
     end
     local separate_content = {}
     for i, content in pairs(contents) do
+      if type(content) == 'table' and content.kind == 'plaintext' then
+        format = 'plaintext'
+        content = vim.split(content.value or '', '\n', { trimempty = true })
+      else
+        content = util.convert_input_to_markdown_lines(content)
+      end
       table.insert(separate_content, content)
       if i < #contents then
-        table.insert(separate_content, "___")
+        table.insert(separate_content, "---")
       end
     end
     if vim.tbl_isempty(separate_content) then
@@ -31,11 +38,10 @@ vim.lsp.buf.hover = function()
       return
     end
     local markdown_lines = util.convert_input_to_markdown_lines(separate_content)
-    markdown_lines = util.trim_empty_lines(markdown_lines)
     if vim.tbl_isempty(markdown_lines) then
       vim.notify("No information available")
       return
     end
-    return util.open_floating_preview(markdown_lines, "markdown", config)
+    return util.open_floating_preview(markdown_lines, format, config)
   end)
 end

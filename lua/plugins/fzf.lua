@@ -68,7 +68,8 @@ return {
       vim.fn["fzf#run"](vim.fn["fzf#vim#with_preview"](vim.fn["fzf#wrap"]({
         source = "find .",
         dir = opts.args,
-        options = { "--prompt", get_dir(), "--multi" },
+        options = { "--prompt", get_dir() .. "/" },
+        sink = 'edit',
       }, opts.bang)))
     end, {
       nargs = "?",

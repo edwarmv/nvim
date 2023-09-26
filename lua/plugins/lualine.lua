@@ -185,17 +185,17 @@ return {
           },
         },
         lualine_x = {
-          -- {
-          --   "diagnostics",
-          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          --   symbols = {
-          --     error = icons.diagnostic.error,
-          --     warn = icons.diagnostic.warn,
-          --     info = icons.diagnostic.info,
-          --     hint = icons.diagnostic.hint,
-          --   },
-          --   update_in_insert = false, -- Update diagnostics in insert mode
-          -- },
+          {
+            "diagnostics",
+            sources = { "nvim_workspace_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostic.error,
+              warn = icons.diagnostic.warn,
+              info = icons.diagnostic.info,
+              hint = icons.diagnostic.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
           "zoom#statusline",
           "ObsessionStatus",
           "searchcount",

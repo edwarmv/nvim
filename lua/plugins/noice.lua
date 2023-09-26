@@ -22,7 +22,7 @@ return {
         enabled = true,
       },
       hover = {
-        enabled = true,
+        enabled = false,
         silent = true,
       },
       signature = {
@@ -58,6 +58,11 @@ return {
       confirm = {
         border = {
           style = defaults.border,
+        },
+      },
+      hover = {
+        border = {
+          padding = { 0, 0 },
         },
       },
     },
