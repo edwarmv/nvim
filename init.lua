@@ -1,4 +1,3 @@
-
 -- =========================================================
 -- vim-settings
 -- =========================================================
@@ -18,7 +17,7 @@ vim.opt.signcolumn = "auto:1"
 vim.opt.numberwidth = 1
 vim.opt.number = true
 vim.opt.wrap = false
-vim.opt.spelllang = { 'en_us' }
+vim.opt.spelllang = { "en_us" }
 -- " set linebreak
 -- " set showbreak=…
 -- " set breakindent " indent wrap
@@ -237,7 +236,6 @@ vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticLineNrInfo", text
 vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticLineNrHint", text = "" })
 
 local defaults = require("config.defaults")
-
 
 vim.opt.list = true
 vim.opt.listchars = {
