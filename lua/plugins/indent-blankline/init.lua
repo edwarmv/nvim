@@ -2,8 +2,8 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   config = function()
-    local utils = require("indent_blankline.utils")
-    require("indent_blankline").setup({
+    local utils = require("ibl.utils")
+    require("ibl").setup({
       char = "▏",
       context_char = "▏", -- ▎
       -- char = "│",
