@@ -15,7 +15,7 @@ let g:VM_manual_infoline=1
 function! VM_Start()
   lua require('lualine').hide({ place = { 'statusline' } })
   nmap <buffer> <leader>e <cmd>VMClear<cr>
-  execute("IndentBlanklineDisable")
+  execute("IBLDisable")
   " execute("NoiceDisable")
 endfunction
 
@@ -23,7 +23,7 @@ function! VM_Exit()
   lua require('lualine').hide({unhide=true})
   lua require("nvim-autopairs").force_attach()
   noh
-  execute("IndentBlanklineEnable")
+  execute("IBLEnable")
   " execute("NoiceEnable")
   " execute("VMClear")
   " call vm#clearmatches()

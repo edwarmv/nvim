@@ -15,13 +15,13 @@ return {
     vim.api.nvim_create_autocmd("User", {
       pattern = "GitConflictDetected",
       callback = function()
-        vim.fn.execute("IndentBlanklineDisable")
+        vim.fn.execute("IBLDisable")
       end,
     })
     vim.api.nvim_create_autocmd("User", {
       pattern = "GitConflictResolved",
       callback = function()
-        vim.fn.execute("IndentBlanklineEnable")
+        vim.fn.execute("IBLEnable")
       end,
     })
     vim.keymap.set("n", "<leader>gcq", "<cmd>GitConflictListQf<cr>", { desc = "Git Conflict - Quickfix" })
