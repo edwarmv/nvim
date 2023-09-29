@@ -1,6 +1,6 @@
 return {
   "b0o/incline.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     require("incline").setup({
       debounce_threshold = {
@@ -36,10 +36,10 @@ return {
         local filename = bufname ~= "" and vim.fn.fnamemodify(bufname, ":t") or "[No Name]"
         -- local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-        if vim.api.nvim_buf_get_option(props.buf, "readonly") then
+        if vim.api.nvim_get_option_value("readonly", { buf = props.buf }) then
           filename = filename .. " [-]"
         end
-        if vim.api.nvim_buf_get_option(props.buf, "modified") then
+        if vim.api.nvim_get_option_value("modified", { buf = props.buf }) then
           filename = filename .. " [+]"
         end
         return {

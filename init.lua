@@ -24,7 +24,7 @@ vim.opt.spelllang = { "en_us" }
 vim.opt.display = "msgsep"
 vim.opt.timeoutlen = 1000
 -- " https://github.com/sindrets/diffview.nvim/issues/35
-vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "⯆", foldsep = "│", foldclose = "⯈" })
+vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "", foldsep = "│", foldclose = "" })
 -- vim.opt.indentkeys:remove({ "o", "O" })
 vim.o.foldcolumn = "auto:1" -- '0' is not bad
 -- vim.o.foldenable = true
