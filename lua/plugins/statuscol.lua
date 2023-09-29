@@ -8,7 +8,7 @@ return {
       segments = {
         { text = { builtin.foldfunc }, click = "v:lua.ScFa", sign = { colwidth = 1, auto = true } },
         {
-          sign = { name = { "Diagnostic" }, maxwidth = 1, colwidth = 2, auto = false },
+          sign = { name = { "Diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScSa",
           -- condition = {
           --   function()
@@ -17,26 +17,24 @@ return {
           -- },
         },
         {
-          text = {
-            builtin.lnumfunc,
-            -- function()
-            --   if not vim.opt_local.number:get() then
-            --     return ""
-            --   end
-            --   return (vim.b.gitsigns_head == nil) and " " or ""
-            -- end,
-          },
-          sign = { auto = true },
-          click = "v:lua.ScLa",
-        },
-        {
-          sign = { name = { "GitSigns" }, maxwidth = 1, auto = false },
+          sign = { name = { "GitSigns" }, maxwidth = 1, auto = true },
           click = "v:lua.ScSa",
           -- condition = {
           --   function()
           --     return vim.b.gitsigns_status ~= nil
           --   end,
           -- },
+        },
+        {
+          text = {
+            builtin.lnumfunc,
+            function()
+              return vim.opt_local.number:get() and " " or ""
+              -- return (vim.b.gitsigns_head == nil) and " " or ""
+            end,
+          },
+          sign = { auto = true },
+          click = "v:lua.ScLa",
         },
         -- { text = { "%s" }, click = "v:lua.ScSa" },
       },

@@ -15,7 +15,7 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.signcolumn = "auto:1"
 vim.opt.numberwidth = 1
-vim.opt.number = true
+vim.opt.number = false
 vim.opt.wrap = false
 vim.opt.spelllang = { "en_us" }
 -- " set linebreak
@@ -206,7 +206,7 @@ vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
   update_in_insert = false,
-  signs = true,
+  signs = false,
   severity_sort = true,
   virtual_lines = false,
   -- float = {
