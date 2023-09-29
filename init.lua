@@ -214,21 +214,21 @@ vim.diagnostic.config({
   -- },
 })
 
-local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
+-- local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
 
-vim.api.nvim_create_autocmd("InsertEnter", {
-  group = group,
-  callback = function()
-    pcall(vim.diagnostic.hide)
-  end,
-})
+-- vim.api.nvim_create_autocmd("InsertEnter", {
+--   group = group,
+--   callback = function()
+--     pcall(vim.diagnostic.hide)
+--   end,
+-- })
 
-vim.api.nvim_create_autocmd("InsertLeave", {
-  group = group,
-  callback = function()
-    pcall(vim.diagnostic.show)
-  end,
-})
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+--   group = group,
+--   callback = function()
+--     pcall(vim.diagnostic.show)
+--   end,
+-- })
 
 vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticLineNrError", text = "" })
 vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticLineNrWarn", text = "" })
