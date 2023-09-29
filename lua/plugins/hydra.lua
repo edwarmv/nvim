@@ -11,10 +11,10 @@ return {
           type = "statusline",
         },
         on_enter = function()
-          vim.api.nvim_command("IndentBlanklineDisable")
+          vim.api.nvim_command("IBLDisable")
         end,
         on_exit = function()
-          vim.api.nvim_command("IndentBlanklineEnable")
+          vim.api.nvim_command("IBLEnable")
         end,
         timeout = true,
       },
