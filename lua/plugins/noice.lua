@@ -13,13 +13,13 @@ return {
       view_search = false,
     },
     lsp = {
-      override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-        ["vim.lsp.util.stylize_markdown"] = false,
-        ["cmp.entry.get_documentation"] = false,
-      },
+      -- override = {
+      --   ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+      --   ["vim.lsp.util.stylize_markdown"] = false,
+      --   ["cmp.entry.get_documentation"] = false,
+      -- },
       progress = {
-        enabled = true,
+        enabled = false,
       },
       hover = {
         enabled = false,
