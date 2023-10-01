@@ -12,7 +12,7 @@ return {
       },
       inlay_hint = {
         enable = false,
-      }
+      },
     })
   end,
 }
