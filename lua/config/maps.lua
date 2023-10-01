@@ -111,7 +111,8 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
+  -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "[LSP] Hover", buffer = buffer })
 
   vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
@@ -125,7 +126,7 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
-  vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format", buffer = buffer })
+  vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>Format<cr>", { desc = "[LSP] Format", buffer = buffer })
 
   vim.keymap.set("n", "<leader>d", function()
     vim.diagnostic.open_float({ border = defaults.border })
@@ -143,17 +144,32 @@ M.lsp = function(buffer)
 
   local goto_preview = require("goto-preview")
 
-  vim.keymap.set("n", "glpd", goto_preview.goto_preview_definition, { desc = "[LSP] Goto Preview Definition", buffer = buffer })
+  vim.keymap.set(
+    "n",
+    "glpd",
+    goto_preview.goto_preview_definition,
+    { desc = "[LSP] Goto Preview Definition", buffer = buffer }
+  )
   vim.keymap.set(
     "n",
     "glpt",
     goto_preview.goto_preview_type_definition,
     { desc = "[LSP] Goto Preview Type Definition", buffer = buffer }
   )
-  vim.keymap.set("n", "glpi", goto_preview.goto_preview_implementation, { desc = "[LSP] Goto Preview Implementation", buffer = buffer })
+  vim.keymap.set(
+    "n",
+    "glpi",
+    goto_preview.goto_preview_implementation,
+    { desc = "[LSP] Goto Preview Implementation", buffer = buffer }
+  )
   vim.keymap.set("n", "glP", goto_preview.close_all_win, { desc = "[LSP] Goto Preview Close All Win", buffer = buffer })
   -- Only set if you have telescope installed
-  vim.keymap.set("n", "glpr", goto_preview.goto_preview_references, { desc = "[LSP] Goto Preview References", buffer = buffer })
+  vim.keymap.set(
+    "n",
+    "glpr",
+    goto_preview.goto_preview_references,
+    { desc = "[LSP] Goto Preview References", buffer = buffer }
+  )
 
   vim.keymap.set(
     "n",

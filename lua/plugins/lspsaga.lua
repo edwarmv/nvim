@@ -1,10 +1,10 @@
 return {
-  'nvimdev/lspsaga.nvim',
-  enabled = false,
+  "nvimdev/lspsaga.nvim",
+  enabled = true,
   config = function()
-    require('lspsaga').setup({
+    require("lspsaga").setup({
       ui = {
-        border = 'rounded',
+        border = "rounded",
       },
       lightbulb = {
         enable = false,
@@ -15,7 +15,7 @@ return {
     })
   end,
   dependencies = {
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-tree/nvim-web-devicons'
-  }
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons",
+  },
 }
