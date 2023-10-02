@@ -142,6 +142,13 @@ return {
     "SmiteshP/nvim-navic",
     "folke/noice.nvim",
     "ecthelionvi/NeoComposer.nvim",
+    {
+      "linrongbin16/lsp-progress.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      config = function()
+        require("lsp-progress").setup()
+      end,
+    },
   },
   config = function()
     vim.opt.cmdheight = 0
@@ -185,6 +192,7 @@ return {
           },
         },
         lualine_x = {
+          "require('lsp-progress').progress()",
           {
             "diagnostics",
             sources = { "nvim_workspace_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
@@ -290,6 +298,12 @@ return {
         "toggleterm",
         "trouble",
       },
+    })
+
+    vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+    vim.api.nvim_create_autocmd("User LspProgressStatusUpdated", {
+      group = "lualine_augroup",
+      callback = require("lualine").refresh,
     })
   end,
 }
