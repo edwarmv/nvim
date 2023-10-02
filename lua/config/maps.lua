@@ -112,11 +112,11 @@ M.lsp = function(buffer)
   vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
   -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
-  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++quiet<cr>", { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "[LSP] Hover", buffer = buffer })
 
-  vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
 
-  vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Outgoing Calls", buffer = buffer })
 
   vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
