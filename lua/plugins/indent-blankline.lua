@@ -3,7 +3,7 @@ return {
   main = "ibl",
   opts = {
     exclude = {
-      filetype_exclude = {
+      filetypes = {
         "help",
         "sagahover",
         "floaterm",
@@ -28,7 +28,7 @@ return {
         "Navbuddy",
         "dashboard",
       },
-      buftype_exclude = {
+      buftypes = {
         "terminal",
         "floaterm",
         "help",
