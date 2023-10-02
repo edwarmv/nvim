@@ -19,7 +19,7 @@ return {
       --   ["cmp.entry.get_documentation"] = false,
       -- },
       progress = {
-        enabled = false,
+        enabled = true,
       },
       hover = {
         enabled = false,
