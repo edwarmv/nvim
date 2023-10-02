@@ -111,8 +111,8 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
-  -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
-  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
+  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "[LSP] Hover", buffer = buffer })
 
   vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
 
@@ -130,7 +130,11 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
-  vim.keymap.set({ "n", "v" }, "<leader>f", "<cmd>Format<cr>", { desc = "[LSP] Format", buffer = buffer })
+  vim.keymap.set({ "n", "v" }, "<leader>f", function()
+    require("conform").format({ async = true, lsp_fallback = true })
+  end, { desc = "[LSP] Format", buffer = buffer })
+
+  -- vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format", buffer = buffer })
 
   vim.keymap.set("n", "<leader>d", function()
     vim.diagnostic.open_float({ border = defaults.border })
