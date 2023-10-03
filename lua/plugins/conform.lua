@@ -1,8 +1,5 @@
 return {
   "stevearc/conform.nvim",
-  init = function()
-    vim.g.disable_autoformat = true
-  end,
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
@@ -20,7 +17,9 @@ return {
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
-      return { timeout_ms = 500, lsp_fallback = true }
+      if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
+        return { timeout_ms = 500, lsp_fallback = true }
+      end
     end,
   },
   config = function(_, opts)
@@ -50,11 +49,16 @@ return {
       bang = true,
     })
 
-    vim.api.nvim_create_user_command("FormatEnable", function()
-      vim.b.disable_autoformat = false
-      vim.g.disable_autoformat = false
+    vim.api.nvim_create_user_command("FormatEnable", function(args)
+      if args.bang then
+        -- FormatDisable! will disable formatting just for this buffer
+        vim.b.disable_autoformat = false
+      else
+        vim.g.disable_autoformat = false
+      end
     end, {
       desc = "Re-enable autoformat-on-save",
+      bang = true,
     })
   end,
 }
