@@ -159,7 +159,7 @@ return {
         component_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "dashboard" },
-          winbar = { "neo-tree", "dashboard", "packer", "NvimTree", "aerial", "Trouble" },
+          winbar = { "neo-tree", "dashboard", "packer", "NvimTree", "aerial", "Trouble", "qf" },
         },
         globalstatus = true,
         always_divide_middle = true,
