@@ -106,17 +106,20 @@ M.lsp = function(buffer)
   -- vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
   -- vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
   -- vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+  -- vim.keymap.set("n", "glfr", "<cmd>Lspsaga finder ref<cr>", { desc = "[LSP - Saga] Finder References", buffer = buffer })
+  vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
+  vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Outgoing Calls", buffer = buffer })
+  vim.keymap.set("n", "glr", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Rename", buffer = buffer })
+  vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", { desc = "[LSP] Code Action", buffer = buffer })
+  -- vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "[Diagnostic] Next", buffer = buffer })
+  -- vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "[Diagnostic] Prev", buffer = buffer })
+  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "[LSP] Hover", buffer = buffer })
 
   vim.keymap.set("n", "glD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
 
   vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
   vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
-  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "[LSP] Hover", buffer = buffer })
-
-  vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
-
-  vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Outgoing Calls", buffer = buffer })
 
   vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
@@ -124,9 +127,9 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "glt", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
-  vim.keymap.set("n", "glr", lspRename, { desc = "[LSP] Rename", buffer = buffer })
+  -- vim.keymap.set("n", "glr", lspRename, { desc = "[LSP] Rename", buffer = buffer })
 
-  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
+  -- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
 
   vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
