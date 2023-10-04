@@ -208,7 +208,7 @@ vim.diagnostic.config({
   update_in_insert = true,
   signs = true,
   severity_sort = true,
-  virtual_lines = false,
+  virtual_lines = { only_current_line = true }
   -- float = {
   --   source = "always",  -- Or "if_many"
   -- },
