@@ -17,6 +17,7 @@ vim.opt.signcolumn = "auto:1"
 vim.opt.numberwidth = 1
 vim.opt.number = true
 vim.opt.wrap = false
+vim.opt.scrolloff = 5
 vim.opt.spelllang = { "en_us" }
 -- " set linebreak
 -- " set showbreak=…
