@@ -15,6 +15,9 @@ return {
       rename = {
         in_select = false,
       },
+      diagnostic = {
+        show_code_action = false,
+      },
     })
   end,
   dependencies = {
