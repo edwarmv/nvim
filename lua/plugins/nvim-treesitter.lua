@@ -78,7 +78,7 @@ return {
         },
       },
       matchup = {
-        enable = false,
+        enable = true,
         disable_virtual_text = true,
       },
       autotag = {
