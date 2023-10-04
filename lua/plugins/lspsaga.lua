@@ -12,6 +12,9 @@ return {
       symbol_in_winbar = {
         enable = false,
       },
+      rename = {
+        in_select = false,
+      },
     })
   end,
   dependencies = {
