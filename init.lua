@@ -15,7 +15,7 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.signcolumn = "auto:1"
 vim.opt.numberwidth = 1
-vim.opt.number = true
+vim.opt.number = false
 vim.opt.wrap = false
 vim.opt.scrolloff = 5
 vim.opt.spelllang = { "en_us" }
@@ -209,7 +209,7 @@ vim.diagnostic.config({
   update_in_insert = true,
   signs = true,
   severity_sort = true,
-  virtual_lines = { only_current_line = true }
+  virtual_lines = { only_current_line = true },
   -- float = {
   --   source = "always",  -- Or "if_many"
   -- },
@@ -231,10 +231,14 @@ vim.diagnostic.config({
 --   end,
 -- })
 
-vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticLineNrError", text = "" })
-vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticLineNrWarn", text = "" })
-vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticLineNrInfo", text = "" })
-vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticLineNrHint", text = "" })
+vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError", text = "" })
+vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn", text = "" })
+vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo", text = "" })
+vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint", text = "" })
+-- vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticLineNrError", text = "" })
+-- vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticLineNrWarn", text = "" })
+-- vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticLineNrInfo", text = "" })
+-- vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticLineNrHint", text = "" })
 
 local defaults = require("config.defaults")
 
@@ -280,7 +284,7 @@ vim.keymap.set("n", "<esc>", function()
     local bufid = vim.api.nvim_win_get_buf(winid)
 
     for opt_key, opt_values in pairs(filter_rules.bo) do
-      local actual_opt = vim.api.nvim_buf_get_option(bufid, opt_key)
+      local actual_opt = vim.api.nvim_get_option_value(opt_key, { buf = bufid })
 
       local has_value = vim.tbl_contains(opt_values, actual_opt)
 
