@@ -151,19 +151,19 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "]de", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.ERROR })
-  end, { desc = "[Diagnostic] Next Error", buffer = buffer })
+  end, { desc = "[Diagnostic] Next Error  ", buffer = buffer })
 
   vim.keymap.set("n", "]dw", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.WARN })
-  end, { desc = "[Diagnostic] Next Warn", buffer = buffer })
+  end, { desc = "[Diagnostic] Next Warn  ", buffer = buffer })
 
   vim.keymap.set("n", "]di", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.INFO })
-  end, { desc = "[Diagnostic] Next Info", buffer = buffer })
+  end, { desc = "[Diagnostic] Next Info  ", buffer = buffer })
 
   vim.keymap.set("n", "]dh", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.HINT })
-  end, { desc = "[Diagnostic] Next Hint", buffer = buffer })
+  end, { desc = "[Diagnostic] Next Hint  ", buffer = buffer })
 
   vim.keymap.set("n", "[D", function()
     vim.diagnostic.goto_prev({ float = false })
@@ -171,19 +171,19 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "[de", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.ERROR })
-  end, { desc = "[Diagnostic] Prev Error", buffer = buffer })
+  end, { desc = "[Diagnostic] Prev Error  ", buffer = buffer })
 
   vim.keymap.set("n", "[dw", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.WARN })
-  end, { desc = "[Diagnostic] Prev Warn", buffer = buffer })
+  end, { desc = "[Diagnostic] Prev Warn  ", buffer = buffer })
 
   vim.keymap.set("n", "[di", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.INFO })
-  end, { desc = "[Diagnostic] Prev Info", buffer = buffer })
+  end, { desc = "[Diagnostic] Prev Info  ", buffer = buffer })
 
   vim.keymap.set("n", "[dh", function()
     vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.HINT })
-  end, { desc = "[Diagnostic] Prev Hint", buffer = buffer })
+  end, { desc = "[Diagnostic] Prev Hint  ", buffer = buffer })
 
   local goto_preview = require("goto-preview")
 
