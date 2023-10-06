@@ -258,53 +258,53 @@ vim.opt.listchars = {
   -- precedes = "…",
 }
 
-vim.keymap.set("n", "<esc>", function()
-  if vim.fn.expand("%:t") == "[Command Line]" then
-    return
-  end
-
-  if vim.api.nvim_get_option_value("filetype", { buf = 0 }) == "neo-tree" then
-    return
-  end
-
-  local filter_rules = {
-    -- filter using buffer options
-    bo = {
-      -- if the file type is one of following, the window will be ignored
-      filetype = { "neo-tree", "incline", "neo-tree-preview", "fidget", "noice", "NvimSeparator" }, -- "notify",
-
-      -- if the buffer type is one of following, the window will be ignored
-      buftype = { "terminal" },
-    },
-  }
-
-  local window_ids = vim.api.nvim_list_wins()
-
-  local filtered_windows = vim.tbl_filter(function(winid)
-    local bufid = vim.api.nvim_win_get_buf(winid)
-
-    for opt_key, opt_values in pairs(filter_rules.bo) do
-      local actual_opt = vim.api.nvim_get_option_value(opt_key, { buf = bufid })
-
-      local has_value = vim.tbl_contains(opt_values, actual_opt)
-
-      if has_value then
-        return false
-      end
-    end
-
-    return true
-  end, window_ids)
-
-  for _, win in ipairs(filtered_windows) do
-    if vim.api.nvim_win_is_valid(win) then
-      local config = vim.api.nvim_win_get_config(win)
-      if config.relative ~= "" then
-        vim.api.nvim_win_close(win, false)
-      end
-    end
-  end
-end)
+-- vim.keymap.set("n", "<esc>", function()
+--   if vim.fn.expand("%:t") == "[Command Line]" then
+--     return
+--   end
+--
+--   if vim.api.nvim_get_option_value("filetype", { buf = 0 }) == "neo-tree" then
+--     return
+--   end
+--
+--   local filter_rules = {
+--     -- filter using buffer options
+--     bo = {
+--       -- if the file type is one of following, the window will be ignored
+--       filetype = { "neo-tree", "incline", "neo-tree-preview", "fidget", "noice", "NvimSeparator" }, -- "notify",
+--
+--       -- if the buffer type is one of following, the window will be ignored
+--       buftype = { "terminal" },
+--     },
+--   }
+--
+--   local window_ids = vim.api.nvim_list_wins()
+--
+--   local filtered_windows = vim.tbl_filter(function(winid)
+--     local bufid = vim.api.nvim_win_get_buf(winid)
+--
+--     for opt_key, opt_values in pairs(filter_rules.bo) do
+--       local actual_opt = vim.api.nvim_get_option_value(opt_key, { buf = bufid })
+--
+--       local has_value = vim.tbl_contains(opt_values, actual_opt)
+--
+--       if has_value then
+--         return false
+--       end
+--     end
+--
+--     return true
+--   end, window_ids)
+--
+--   for _, win in ipairs(filtered_windows) do
+--     if vim.api.nvim_win_is_valid(win) then
+--       local config = vim.api.nvim_win_get_config(win)
+--       if config.relative ~= "" then
+--         vim.api.nvim_win_close(win, false)
+--       end
+--     end
+--   end
+-- end)
 
 -- REF: https://github.com/neovim/nvim-lspconfig/issues/1659
 -- vim.api.nvim_create_autocmd("BufDelete", {
