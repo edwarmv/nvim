@@ -26,7 +26,9 @@ return {
       timeout = 3000,
 
       -- Max number of columns for messages
-      max_width = math.floor(vim.opt.columns:get() * 0.35),
+      max_width = function ()
+        return math.floor(vim.opt.columns:get() * 0.35)
+      end,
       -- Max number of lines for a message
       -- max_height = nil,
 
