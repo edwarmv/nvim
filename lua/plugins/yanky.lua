@@ -17,12 +17,6 @@ return {
     local mapping = require("yanky.telescope.mapping")
     local utils = require("yanky.utils")
     require("yanky").setup({
-      ring = {
-        history_length = 100,
-        storage = "sqlite",
-        sync_with_numbered_registers = true,
-        cancel_event = "update",
-      },
       picker = {
         telescope = {
           use_default_mappings = false,
@@ -43,16 +37,8 @@ return {
           },
         },
       },
-      system_clipboard = {
-        sync_with_ring = true,
-      },
       highlight = {
-        on_put = true,
-        on_yank = true,
         timer = 250,
-      },
-      preserve_cursor_position = {
-        enabled = true,
       },
     })
 
