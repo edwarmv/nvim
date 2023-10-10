@@ -85,6 +85,7 @@ return {
       map("n", "<leader>gR", gs.reset_buffer, { desc = "[Gitsigns] Reset Buffer" })
       map("n", "<leader>gp", gs.preview_hunk, { desc = "[Gitsigns] Preview Hunk" })
       map("n", "<leader>gP", gs.preview_hunk_inline, { desc = "[Gitsigns] Preview Hunk Inline" })
+      map("n", "<leader>gq", "<cmd>Gitsigns setloclist<cr>", { desc = "[Gitsigns] Quifix" })
       -- map("n", "<leader>hb", function()
       --   gs.blame_line({ full = true })
       -- end, { desc = "[Gitsigns] Line Blame" })
