@@ -18,6 +18,9 @@ return {
       diagnostic = {
         show_code_action = false,
       },
+      finder = {
+        default = "ref+def+imp"
+      }
     })
   end,
   dependencies = {
