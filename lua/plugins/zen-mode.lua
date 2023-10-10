@@ -9,7 +9,7 @@ return {
   enabled = true,
   opts = {
     window = {
-      width = 0.85,
+      width = 0.9,
     },
   },
   keys = {
