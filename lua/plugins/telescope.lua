@@ -18,15 +18,19 @@ return {
             -- map actions.which_key to <C-h> (default: <C-/>)
             -- actions.which_key shows the mappings for your picker,
             -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-            ["<C-h>"] = "which_key",
+            ["<C-/>"] = false,
+            ["<C-_>"] = false, -- keys from pressing <C-/>
             ["<C-x>"] = false,
+            ["<C-s>"] = "select_horizontal",
             -- ["<C-v>"] = stopinsert(custom_actions.multi_selection_open_vertical),
             -- ["<C-s>"] = stopinsert(custom_actions.multi_selection_open_horizontal),
             -- ["<C-t>"] = stopinsert(custom_actions.multi_selection_open_tab),
             -- ["<CR>"] = stopinsert(custom_actions.multi_selection_open),
           },
           n = {
+            ["?"] = false,
             ["<C-x>"] = false,
+            ["<C-s>"] = "select_horizontal",
             -- ["<C-v>"] = custom_actions.multi_selection_open_vertical,
             -- ["<C-s>"] = custom_actions.multi_selection_open_horizontal,
             -- ["<C-t>"] = custom_actions.multi_selection_open_tab,
