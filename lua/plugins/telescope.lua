@@ -37,7 +37,7 @@ return {
             -- ["<CR>"] = custom_actions.multi_selection_open,
           },
         },
-        initial_mode = "normal",
+        initial_mode = "insert",
         prompt_prefix = "> ",
         sorting_strategy = "ascending",
         layout_strategy = "flex",
