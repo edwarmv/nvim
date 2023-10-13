@@ -14,6 +14,7 @@ end
 
 return {
   "b0o/SchemaStore.nvim",
+  "seandewar/killersheep.nvim",
   { "chrisbra/csv.vim", ft = "csv" },
   { "chrisbra/recover.vim" },
   {
