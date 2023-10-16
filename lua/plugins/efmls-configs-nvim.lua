@@ -1,7 +1,7 @@
 return {
   "creativenull/efmls-configs-nvim",
   dependencies = { "neovim/nvim-lspconfig" },
-  enable = false,
+  enabled = false,
   config = function()
     local prettier = require("efmls-configs.formatters.prettier")
     local stylua = require("efmls-configs.formatters.stylua")
