@@ -2,7 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "ray-x/lsp_signature.nvim",
-  enabled = true,
+  enabled = false,
   event = "VeryLazy",
   opts = {
     debug = false, -- set to true to enable debug logging

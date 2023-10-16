@@ -124,7 +124,7 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
-  -- vim.keymap.set({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
+  vim.keymap.set({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
 
   vim.keymap.set("n", "glt", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
