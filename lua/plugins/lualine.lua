@@ -203,7 +203,7 @@ return {
               info = icons.diagnostic.info,
               hint = icons.diagnostic.hint,
             },
-            update_in_insert = true, -- Update diagnostics in insert mode
+            update_in_insert = false, -- Update diagnostics in insert mode
           },
           "zoom#statusline",
           "ObsessionStatus",
