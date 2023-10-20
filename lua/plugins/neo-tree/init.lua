@@ -1,6 +1,6 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  cond = true,
+  enabled = true,
   branch = "main",
   -- branch = "v2.x",
   dependencies = {
