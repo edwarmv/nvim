@@ -1,5 +1,3 @@
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 -- vim.env.TS_TSLINT_ENABLE_WORKSPACE_LIBRARY_EXECUTION=1
 -- local util = require("lspconfig.util")
 
@@ -11,7 +9,6 @@ require("typescript").setup({
     flags = {
       debounce_text_changes = 0,
     },
-    capabilities = capabilities,
     filetypes = {
       "javascript",
       "javascriptreact",

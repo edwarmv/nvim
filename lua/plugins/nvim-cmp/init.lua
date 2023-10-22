@@ -1,6 +1,7 @@
 ---@diagnostic disable: missing-fields
 return {
   "hrsh7th/nvim-cmp",
+  enabled = true,
   dependencies = {
     "anuvyklack/hydra.nvim",
     "hrsh7th/cmp-buffer",
@@ -23,13 +24,8 @@ return {
     -- require("plugins.nvim-cmp.custom")
     local utils = require("plugins.nvim-cmp.utils")
     local luasnip = require("luasnip")
-    local types = require("cmp.types")
     local cmp = require("cmp")
     local debounce = require("plugins.nvim-cmp.debounce")
-
-    local feedkey = function(key, mode)
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-    end
 
     cmp.setup({
       snippet = {
@@ -127,7 +123,6 @@ return {
           i = function(fallback)
             if cmp.visible() then
               cmp.close()
-            -- feedkey("<c-g>u", "i")
             else
               fallback()
             end
@@ -149,7 +144,6 @@ return {
               })
             else
               fallback()
-              -- feedkey("<c-g>u", "i")
             end
           end,
           c = function(fallback)
@@ -172,7 +166,6 @@ return {
               })
             else
               fallback()
-              -- feedkey("<c-g>u", "i")
             end
           end,
           c = function(fallback)

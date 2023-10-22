@@ -1,6 +1,3 @@
-
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 local util = require("lspconfig.util")
 local function get_typescript_server_path(root_dir)
   local global_ts = vim.fn.expand("~") .. "/.asdf/installs/nodejs/18.15.0/lib/node_modules/typescript/lib"
@@ -22,7 +19,6 @@ end
 
 require("lspconfig").volar.setup({
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
-  capabilities = capabilities,
   on_new_config = function(new_config, new_root_dir)
     new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
   end,

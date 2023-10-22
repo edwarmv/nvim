@@ -1,5 +1,5 @@
 return {
   "yorickpeterse/nvim-dd",
-  enabled = true,
+  enabled = false,
   opts = true,
 }

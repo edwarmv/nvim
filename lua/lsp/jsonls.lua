@@ -15,10 +15,7 @@ local on_attach = function(_, bufnr)
   buf_set_keymap("n", "<leader>f", '<Cmd>lua vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})<CR>', opts)
 end
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 require("lspconfig").jsonls.setup({
-  capabilities = capabilities,
   on_attach = function(client, bufnr)
     maps.lsp(bufnr)
   end,

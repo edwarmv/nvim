@@ -206,7 +206,7 @@ vim.opt.termguicolors = true
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
-  update_in_insert = false,
+  update_in_insert = true,
   signs = true,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
