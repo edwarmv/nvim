@@ -1,3 +1,4 @@
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local util = require("lspconfig.util")
 -- local project_library_path = "/Users/edwarmv/.asdf/installs/nodejs/lts/lib/node_modules"
 local project_library_path = vim.fn.expand("~") .. "/.local/share/nvim/mason/packages"
@@ -17,4 +18,5 @@ require("lspconfig").angularls.setup({
   on_new_config = function(new_config, _)
     new_config.cmd = cmd
   end,
+  capabilities = capabilities,
 })

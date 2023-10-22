@@ -1,4 +1,4 @@
-local maps = require("config.maps")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- JSON & YAML schemas http://schemastore.org/json/
 local on_attach = function(_, bufnr)
   local function buf_set_keymap(...)
@@ -16,9 +16,6 @@ local on_attach = function(_, bufnr)
 end
 
 require("lspconfig").jsonls.setup({
-  on_attach = function(client, bufnr)
-    maps.lsp(bufnr)
-  end,
   settings = {
     json = {
       schemas = require("schemastore").json.schemas(),
@@ -47,4 +44,5 @@ require("lspconfig").jsonls.setup({
       -- }
     },
   },
+  capabilities = capabilities,
 })

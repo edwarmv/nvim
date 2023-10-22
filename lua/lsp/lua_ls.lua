@@ -1,9 +1,8 @@
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require("lspconfig").lua_ls.setup({
   capabilities = capabilities,

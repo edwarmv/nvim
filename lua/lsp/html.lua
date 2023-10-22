@@ -1,6 +1,7 @@
 -- capabilities.textDocument.completion.completionItem.resolveSupport = {
 --     properties = {'documentation', 'detail', 'additionalTextEdits'}
 -- }
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("lspconfig").html.setup({
   -- cmd = { "html-languageserver", "--stdio" },
@@ -18,4 +19,5 @@ require("lspconfig").html.setup({
   settings = {
     autoClosingTags = true,
   },
+  capabilities = capabilities,
 })
