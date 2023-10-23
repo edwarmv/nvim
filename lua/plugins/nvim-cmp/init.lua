@@ -2,6 +2,7 @@
 return {
   "hrsh7th/nvim-cmp",
   enabled = true,
+  pin = true,
   dependencies = {
     "anuvyklack/hydra.nvim",
     "hrsh7th/cmp-buffer",
@@ -50,6 +51,9 @@ return {
         },
       }, --}}}
       view = {
+        entries = {
+          follow_cursor = true,
+        },
         docs = {
           auto_open = true,
         },
