@@ -10,6 +10,8 @@ return {
       scss = { "prettier" },
       javascript = { "prettier" },
       typescript = { "prettier" },
+      javascriptreact = { "prettier" },
+      typescriptreact = { "prettier" },
       python = { "black" },
     },
     format_on_save = function(bufnr)
