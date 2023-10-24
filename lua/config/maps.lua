@@ -128,9 +128,9 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "glt", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
-  vim.keymap.set("n", "glr", vim.lsp.buf.rename, { desc = "[LSP] Rename", buffer = buffer })
+  -- vim.keymap.set("n", "glr", vim.lsp.buf.rename, { desc = "[LSP] Rename", buffer = buffer })
 
-  -- vim.keymap.set("n", "glr", lspRename, { desc = "[LSP] Rename", buffer = buffer })
+  vim.keymap.set("n", "glr", lspRename, { desc = "[LSP] Rename", buffer = buffer })
 
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
 
