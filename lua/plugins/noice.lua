@@ -22,7 +22,7 @@ return {
         enabled = true,
       },
       hover = {
-        enabled = false,
+        enabled = true,
         silent = true,
       },
       signature = {
