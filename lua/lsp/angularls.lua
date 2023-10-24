@@ -19,4 +19,7 @@ require("lspconfig").angularls.setup({
     new_config.cmd = cmd
   end,
   capabilities = capabilities,
+  on_attach = function (client, buffer)
+    client.server_capabilities.renameProvider = true
+  end
 })
