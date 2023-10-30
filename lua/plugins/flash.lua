@@ -19,6 +19,22 @@ return {
       end,
       desc = "Flash",
     },
+    {
+      "S",
+      mode = { "n", "o" },
+      function()
+        require("flash").jump({ continue = true })
+      end,
+      desc = "Flash - Continue last search",
+      {
+        "Z",
+        mode = { "x" },
+        function()
+          require("flash").jump({ continue = true })
+        end,
+        desc = "Flash - Continue last search",
+      },
+    },
     -- {
     --   "S",
     --   mode = { "n", "o", "x" },

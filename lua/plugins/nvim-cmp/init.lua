@@ -20,6 +20,14 @@ return {
       "saadparwaiz1/cmp_luasnip",
       dependencies = { "L3MON4D3/LuaSnip" },
     },
+    -- {
+    --   "max397574/better-escape.nvim",
+    --   config = function()
+    --     require("better_escape").setup({
+    --       mapping = { "jk" }, -- a table with mappings to use
+    --     })
+    --   end,
+    -- },
   },
   config = function()
     -- require("plugins.nvim-cmp.custom")
@@ -27,6 +35,7 @@ return {
     local luasnip = require("luasnip")
     local cmp = require("cmp")
     local debounce = require("plugins.nvim-cmp.debounce")
+    local types = require("cmp.types")
 
     cmp.setup({
       snippet = {
@@ -34,10 +43,13 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
-      preselect = cmp.PreselectMode.None,
-      -- completion = {
-      --   autocomplete = false,
-      -- },
+      preselect = cmp.PreselectMode.Item, -- None
+      completion = {
+        -- autocomplete = false,
+        autocomplete = {
+          types.cmp.TriggerEvent.TextChanged,
+        },
+      },
       window = { --{{{
         --   completion = {
         --     border = defaults.border,
@@ -233,9 +245,10 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        -- { name = "luasnip" },
+        { name = "nvim_lsp", max_item_count = 50 },
         { name = "buffer" },
+      }, {
+        -- { name = "luasnip" },
       }),
       formatting = { --{{{
         fields = {
@@ -259,14 +272,16 @@ return {
         }),
       }, --}}}
       experimental = {
-        ghost_text = false,
+        ghost_text = true,
       },
     })
 
     cmp.setup.cmdline(":", {
-      -- completion = {
-      --   autocomplete = false,
-      -- },
+      completion = {
+        autocomplete = {
+          types.cmp.TriggerEvent.TextChanged,
+        },
+      },
       sources = cmp.config.sources({
         { name = "cmdline" },
       }, {
@@ -280,9 +295,11 @@ return {
     })
 
     require("cmp").setup.cmdline("/", {
-      -- completion = {
-      --   autocomplete = false,
-      -- },
+      completion = {
+        autocomplete = {
+          types.cmp.TriggerEvent.TextChanged,
+        },
+      },
       sources = cmp.config.sources({
         { name = "buffer" },
       }, {
@@ -406,10 +423,11 @@ return {
     --     au TextChangedI * lua require("config.nvim-cmp").debounce()
     --   augroup end
     -- ]])
-    -- vim.api.nvim_create_autocmd({ "TextChangedI" }, {
-    --   -- group = vim.api.nvim_create_augroup("CmpDebounceAuGroup", {}),
+    -- vim.api.nvim_create_augroup("CmpDebounceAuGroup", { clear = true })
+    -- vim.api.nvim_create_autocmd("TextChangedI", {
+    --   group = "CmpDebounceAuGroup",
     --   callback = function()
-    --     debounce.cancel_autocomplete = true
+    --     debounce.cancel_autocomplete = false
     --     debounce.debounce()
     --   end,
     -- })

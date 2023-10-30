@@ -42,7 +42,8 @@ return {
       popup_border_style = defaults.border,
       enable_diagnostics = false,
       use_default_mappings = true,
-      use_popups_for_input = false,
+      use_popups_for_input = true,
+      enable_normal_mode_for_inputs = true,
       default_component_configs = {
         container = {
           enable_character_fade = true,
@@ -74,7 +75,7 @@ return {
       renderers = {
         message = {
           { "indent", with_markers = true },
-          { "name",   highlight = "NeoTreeMessage" },
+          { "name", highlight = "NeoTreeMessage" },
         },
       },
       window = {
@@ -108,14 +109,16 @@ return {
         },
       },
       filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+        },
         follow_current_file = {
-          enabled = true,           -- This will find and focus the file in the active buffer every time
+          enabled = true, -- This will find and focus the file in the active buffer every time
           --               -- the current file is changed while the tree is open.
-          leave_dirs_open = false,   -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
         },
         use_libuv_file_watcher = true,
         scan_mode = "deep",
-        hide_dotfiles = false,
         window = {
           mappings = {
             ["S"] = "system_open",
