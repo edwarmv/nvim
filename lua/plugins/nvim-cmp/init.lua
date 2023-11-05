@@ -1,8 +1,9 @@
+local defaults = require("config.defaults")
 ---@diagnostic disable: missing-fields
 return {
   "hrsh7th/nvim-cmp",
   enabled = true,
-  pin = true,
+  pin = false,
   dependencies = {
     "anuvyklack/hydra.nvim",
     "hrsh7th/cmp-buffer",
@@ -13,6 +14,7 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-calc",
+    "chrisgrieser/cmp_yanky",
     { "dcampos/cmp-emmet-vim", dependencies = { "mattn/emmet-vim" } },
     -- "ray-x/cmp-treesitter",
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -245,10 +247,8 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        { name = "nvim_lsp", max_item_count = 50 },
+        { name = "nvim_lsp", max_item_count = 100 },
         { name = "buffer" },
-      }, {
-        -- { name = "luasnip" },
       }),
       formatting = { --{{{
         fields = {
@@ -272,7 +272,7 @@ return {
         }),
       }, --}}}
       experimental = {
-        ghost_text = true,
+        ghost_text = false,
       },
     })
 
@@ -367,6 +367,22 @@ return {
               config = {
                 sources = {
                   { name = "calc" },
+                },
+              },
+            })
+          end,
+          { desc = "calc", exit = true },
+        },
+        {
+          "y",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "cmp_yanky" },
                 },
               },
             })
