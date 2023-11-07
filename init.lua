@@ -23,7 +23,7 @@ vim.opt.spelllang = { "en_us" }
 -- " set showbreak=…
 -- " set breakindent " indent wrap
 -- vim.opt.display = "msgsep"
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 1000
 -- " https://github.com/sindrets/diffview.nvim/issues/35
 vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "", foldsep = "│", foldclose = "" })
 -- vim.opt.indentkeys:remove({ "o", "O" })
