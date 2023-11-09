@@ -382,12 +382,17 @@ return {
             cmp.complete({
               config = {
                 sources = {
-                  { name = "cmp_yanky" },
+                  {
+                    name = "cmp_yanky",
+                    option = {
+                      onlyCurrentFiletype = true, -- default: false
+                    },
+                  },
                 },
               },
             })
           end,
-          { desc = "calc", exit = true },
+          { desc = "yanky", exit = true },
         },
         {
           "e",
