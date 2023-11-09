@@ -171,10 +171,10 @@ return {
     -- vim.highlight.create("CmpItemAbbr", { guifg = colors.comment }, false)
     -- vim.api.nvim_command("hi link LightBulbVirtualText DiagnosticHint")
 
-    vim.g.VM_Mono_hl = "Cursor"
-    vim.g.VM_Extend_hl = "Visual"
-    vim.g.VM_Cursor_hl = "Cursor"
-    vim.g.VM_Insert_hl = "Cursor"
+    -- vim.g.VM_Mono_hl = "Cursor"
+    -- vim.g.VM_Extend_hl = "Visual"
+    -- vim.g.VM_Cursor_hl = "Cursor"
+    -- vim.g.VM_Insert_hl = "Cursor"
 
     vim.cmd.colorscheme("tokyonight")
   end,
