@@ -384,9 +384,6 @@ return {
                 sources = {
                   {
                     name = "cmp_yanky",
-                    option = {
-                      onlyCurrentFiletype = true, -- default: false
-                    },
                   },
                 },
               },
