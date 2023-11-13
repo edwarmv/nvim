@@ -174,7 +174,7 @@ return {
             icon = "",
             fmt = function(value)
               if value ~= "" then
-                local max_width = vim.o.columns * 1 / 5
+                local max_width = vim.o.columns * 1 / 8
                 return string.len(value) <= max_width and value or string.sub(value, 1, max_width) .. "…"
               end
               return ""
@@ -196,7 +196,7 @@ return {
           -- require("lsp-progress").progress,
           {
             "diagnostics",
-            sources = { "nvim_workspace_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
+            sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
             symbols = {
               error = icons.diagnostic.error,
               warn = icons.diagnostic.warn,
@@ -238,54 +238,54 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
-          { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-          },
-        },
-        lualine_x = {
-          -- "filetype",
-        },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      inactive_winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
-          { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-          },
-        },
-        lualine_x = {
-          -- "filetype",
-        },
-        lualine_y = {},
-        lualine_z = {},
-      },
+      -- winbar = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {
+      --     { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+      --     { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
+      --     {
+      --       "diagnostics",
+      --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+      --       symbols = {
+      --         error = icons.diagnostic.error,
+      --         warn = icons.diagnostic.warn,
+      --         info = icons.diagnostic.info,
+      --         hint = icons.diagnostic.hint,
+      --       },
+      --       update_in_insert = false, -- Update diagnostics in insert mode
+      --     },
+      --   },
+      --   lualine_x = {
+      --     -- "filetype",
+      --   },
+      --   lualine_y = {},
+      --   lualine_z = {},
+      -- },
+      -- inactive_winbar = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {
+      --     { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+      --     { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
+      --     {
+      --       "diagnostics",
+      --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+      --       symbols = {
+      --         error = icons.diagnostic.error,
+      --         warn = icons.diagnostic.warn,
+      --         info = icons.diagnostic.info,
+      --         hint = icons.diagnostic.hint,
+      --       },
+      --       update_in_insert = false, -- Update diagnostics in insert mode
+      --     },
+      --   },
+      --   lualine_x = {
+      --     -- "filetype",
+      --   },
+      --   lualine_y = {},
+      --   lualine_z = {},
+      -- },
       extensions = {
         "fzf",
         "nvim-tree",
