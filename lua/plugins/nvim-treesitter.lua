@@ -6,12 +6,8 @@ return {
       "nvim-treesitter/playground",
     },
     {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
-    {
       "windwp/nvim-ts-autotag",
     },
-    -- "nvim-treesitter/nvim-treesitter-angular",
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -86,63 +82,6 @@ return {
       autotag = {
         enable = true,
       },
-      context_commentstring = {
-        enable = true,
-      },
     })
-    local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-
-    parser_configs.norg_meta = {
-      install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-    }
-
-    parser_configs.norg_table = {
-      install_info = {
-        url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-    }
-
-    parser_configs.sql = {
-      install_info = {
-        url = "https://github.com/m-novikov/tree-sitter-sql",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-    }
-
-    -- parser_configs.scss = {
-    --   install_info = {
-    --     url = "~/github/tree-sitter-scss", -- local path or git repo
-    --     files = { "src/parser.c", "src/scanner.c" },
-    --   },
-    -- }
-
-    -- parser_configs.jsdoc = {
-    --   install_info = {
-    --     url = "~/github/tree-sitter/tree-sitter-jsdoc", -- local path or git repo
-    --     files = { "src/parser.c" },
-    --   },
-    -- }
-
-    -- parser_config.viml = {
-    --   install_info = {
-    --     url = "https://github.com/vigoux/tree-sitter-viml", -- local path or git repo
-    --     files = {"src/parser.c", "src/scanner.c"}
-    --   },
-    --   filetype = "vim"
-    -- }
-
-    -- parser_configs.graphql = {
-    --   install_info = {
-    --     url = "~/github/tree-sitter/tree-sitter-graphql", -- local path or git repo
-    --     files = {"src/parser.c"}
-    --   },
-    -- }
   end,
 }

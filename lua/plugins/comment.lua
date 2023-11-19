@@ -1,6 +1,13 @@
 return {
   "numToStr/Comment.nvim",
-  dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+  dependencies = {
+    {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      opts = {
+        enable_autocmd = true,
+      },
+    },
+  },
   event = "VimEnter",
   config = function()
     require("Comment").setup({
