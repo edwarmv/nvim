@@ -5,17 +5,12 @@ return {
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
       ft_ignore = { "neo-tree", "Trouble" },
-      relculright = false,
+      relculright = true,
       segments = {
         { text = { builtin.foldfunc }, click = "v:lua.ScFa", sign = { colwidth = 1, auto = true } },
         {
-          sign = { name = { "Diagnostic" }, maxwidth = 1, colwidth = 2, auto = false },
+          sign = { name = { "Diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScSa",
-          -- condition = {
-          --   function()
-          --     return #vim.lsp.get_clients({ bufnr = 0 }) > 0
-          --   end,
-          -- },
         },
         {
           text = {
@@ -29,13 +24,8 @@ return {
           click = "v:lua.ScLa",
         },
         {
-          sign = { name = { "GitSigns" }, maxwidth = 1, auto = false },
+          sign = { namespace = { "gitsigns" }, maxwidth = 1, auto = true, wrap = true },
           click = "v:lua.ScSa",
-          -- condition = {
-          --   function()
-          --     return vim.b.gitsigns_status ~= nil
-          --   end,
-          -- },
         },
         -- { text = { "%s" }, click = "v:lua.ScSa" },
       },

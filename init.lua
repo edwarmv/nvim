@@ -13,7 +13,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-vim.opt.signcolumn = "auto:1"
+vim.opt.signcolumn = "auto"
 vim.opt.numberwidth = 1
 vim.opt.number = false
 vim.opt.wrap = false
@@ -25,9 +25,9 @@ vim.opt.spelllang = { "en_us" }
 -- vim.opt.display = "msgsep"
 vim.opt.timeoutlen = 1000
 -- " https://github.com/sindrets/diffview.nvim/issues/35
-vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "", foldsep = "│", foldclose = "" })
+vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "", foldsep = "│", foldclose = "" })
 -- vim.opt.indentkeys:remove({ "o", "O" })
-vim.o.foldcolumn = "auto:1" -- '0' is not bad
+vim.o.foldcolumn = "auto" -- '0' is not bad
 -- vim.o.foldenable = true
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 
@@ -138,7 +138,6 @@ vim.opt.encoding = "utf-8"
 vim.opt.updatetime = 300
 vim.opt.pumheight = 6
 vim.opt.wildoptions = { "tagfile" }
-vim.opt.conceallevel = 3
 
 -- *************
 -- Spaces & Tabs
