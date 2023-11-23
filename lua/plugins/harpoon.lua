@@ -15,11 +15,15 @@ return {
 
     vim.keymap.set("n", "gh", function()
       return '<cmd>lua require("harpoon.ui").nav_file(vim.v.count)<CR>'
-    end, { expr = true })
+    end, { expr = true, desc ="[Harpoon] - Navigate to File" })
 
     vim.keymap.set("n", "gah", function()
-      pcall(require("harpoon.mark").add_file)
-    end, { desc = "[Harpoon] - Add File" })
+      if vim.v.count > 0 then
+        return '<cmd>lua require("harpoon.mark").set_current_at(vim.v.count)<cr>'
+      else
+        return '<cmd>lua require("harpoon.mark").add_file()<cr>'
+      end
+    end, { expr = true, desc = "[Harpoon] - Add File" })
 
     vim.keymap.set("n", "gH", function()
       require("harpoon.ui").toggle_quick_menu()
