@@ -1,4 +1,3 @@
-
 return {
   "folke/tokyonight.nvim",
   enabled = true,
@@ -61,12 +60,17 @@ return {
           bg = c.none,
         }
         hl.IlluminatedWordText = {
-          underline = true
+          underline = true,
         }
         hl.TelescopeNormal = { fg = c.comment, bg = c.bg_float }
         hl.TelescopeSelection = { link = "CursorLine" }
       end,
     })
+    vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = colors.error })
+    vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn", { fg = colors.warning })
+    vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo", { fg = colors.info })
+    vim.api.nvim_set_hl(0, "DiagnosticFloatingHint", { fg = colors.hint })
+    vim.api.nvim_set_hl(0, "DiagnosticFloatingOk", { fg = colors.green })
 
     vim.api.nvim_set_hl(0, "MasonHighlightBlock", { fg = colors.bg_dark, bg = colors.blue })
     vim.api.nvim_set_hl(0, "MasonLink", { fg = colors.blue })
