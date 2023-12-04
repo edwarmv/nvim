@@ -18,6 +18,7 @@ return {
       "diagnostic-languageserver",
       "efm",
       "vue-language-server",
+      "marksman",
       -- formatters
       "black",
       "sql-formatter",
