@@ -30,6 +30,7 @@ return {
         "fish",
         "comment",
         "vim",
+        "vimdoc",
         "bash",
         "regex",
         "markdown",
