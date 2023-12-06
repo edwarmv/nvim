@@ -40,6 +40,7 @@ return {
         "gitcommit",
         "gitignore",
         "git_rebase",
+        "diff",
         "gitattributes",
         "dockerfile",
         "dart",
