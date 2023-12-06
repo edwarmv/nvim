@@ -18,6 +18,7 @@ vim.opt.numberwidth = 1
 vim.opt.number = false
 vim.opt.wrap = false
 vim.opt.smoothscroll = true
+vim.opt.colorcolumn = "80"
 -- vim.opt.scrolloff = 5
 vim.opt.spelllang = { "en_us" }
 -- " set linebreak
@@ -231,14 +232,14 @@ vim.diagnostic.config({
 --   end,
 -- })
 
-vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError", text = "" })
-vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn", text = "" })
-vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo", text = "" })
-vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint", text = "" })
--- vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticLineNrError", text = "" })
--- vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticLineNrWarn", text = "" })
--- vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticLineNrInfo", text = "" })
--- vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticLineNrHint", text = "" })
+-- vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError", text = "" })
+-- vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn", text = "" })
+-- vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo", text = "" })
+-- vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint", text = "" })
+vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticLineNrError", text = "" })
+vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticLineNrWarn", text = "" })
+vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticLineNrInfo", text = "" })
+vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticLineNrHint", text = "" })
 
 local defaults = require("config.defaults")
 
