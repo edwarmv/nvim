@@ -27,6 +27,7 @@ return {
         "notify",
         "Navbuddy",
         "dashboard",
+        "diff",
       },
       buftypes = {
         "terminal",
