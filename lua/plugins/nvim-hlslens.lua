@@ -1,5 +1,6 @@
 return {
   "kevinhwang91/nvim-hlslens",
+  enabled = false,
   config = true,
   keys = {
     { "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]] },
