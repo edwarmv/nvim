@@ -9,9 +9,9 @@ return {
   opts = {
     signs = {
       -- { CLOSED, OPENED }
-      hunk = { "", "" },
-      item = { "", "" },
-      section = { "", "" },
+      hunk = { "", "" },
+      item = { "", "" },
+      section = { "", "" },
     },
   },
   keys = {
