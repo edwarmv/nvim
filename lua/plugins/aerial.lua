@@ -3,9 +3,7 @@ local defaults = require("config.defaults")
 return {
   "stevearc/aerial.nvim",
   opts = {
-    -- Priority list of preferred backends for aerial.
-    -- This can be a filetype map (see :help aerial-filetype-map)
-    backends = { "lsp", "treesitter", "markdown" },
+    backends = { "lsp", "treesitter", "markdown", "man" },
     layout = {
       -- Determines the default direction to open the aerial window. The 'prefer'
       -- options will open the window in the other direction *if* there is a
@@ -18,6 +16,7 @@ return {
       --   window - open aerial to the right/left of the current window
       placement = "edge",
     },
+    attach_mode = "global",
     -- Show box drawing characters for the tree hierarchy
     show_guides = true,
     -- Call this function when aerial attaches to a buffer.
