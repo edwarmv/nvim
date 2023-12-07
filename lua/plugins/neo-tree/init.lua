@@ -71,6 +71,9 @@ return {
             conflict = "C",
           },
         },
+        file_size = {
+          enabled = false,
+        },
       },
       renderers = {
         message = {
