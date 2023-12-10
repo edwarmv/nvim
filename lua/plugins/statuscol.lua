@@ -37,7 +37,7 @@ return {
           condition = {
             true,
             function(args)
-              return (args.nu or args.rnu) and vim.b.gitsigns_status == ""
+              return (args.nu or args.rnu) and (vim.b.gitsigns_status == nil or vim.b.gitsigns_status == "")
             end,
           },
           sign = { auto = true },
