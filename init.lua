@@ -208,9 +208,16 @@ vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
   update_in_insert = false,
-  signs = true,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    },
+  },
   -- float = {
   --   source = "always",  -- Or "if_many"
   -- },
@@ -231,15 +238,6 @@ vim.diagnostic.config({
 --     pcall(vim.diagnostic.show)
 --   end,
 -- })
-
--- vim.fn.sign_define("DiagnosticSignError", { numhl = "DiagnosticLineNrError", text = "" })
--- vim.fn.sign_define("DiagnosticSignWarn", { numhl = "DiagnosticLineNrWarn", text = "" })
--- vim.fn.sign_define("DiagnosticSignInfo", { numhl = "DiagnosticLineNrInfo", text = "" })
--- vim.fn.sign_define("DiagnosticSignHint", { numhl = "DiagnosticLineNrHint", text = "" })
-vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticLineNrError", text = "" })
-vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticLineNrWarn", text = "" })
-vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticLineNrInfo", text = "" })
-vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticLineNrHint", text = "" })
 
 local defaults = require("config.defaults")
 
