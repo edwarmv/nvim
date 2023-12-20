@@ -26,7 +26,7 @@ return {
           sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
         },
         {
-          sign = { name = { "Diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
+          sign = { namespace = { "diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScSa",
         },
         {
