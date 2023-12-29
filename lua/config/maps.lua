@@ -3,7 +3,7 @@ local defaults = require("config.defaults")
 local M = {}
 
 local function lspRename()
-  local clients = vim.lsp.get_clients({
+  local clients = vim.lsp.get_active_clients({
     bufnr = 0,
     method = "textDocument/rename",
   })
@@ -70,7 +70,7 @@ local function lspFormat()
 
   local method = range and "textDocument/rangeFormatting" or "textDocument/formatting"
 
-  local clients = vim.lsp.get_clients({
+  local clients = vim.lsp.get_active_clients({
     bufnr = 0,
   })
 
