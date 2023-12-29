@@ -17,7 +17,6 @@ vim.opt.signcolumn = "auto"
 vim.opt.numberwidth = 1
 vim.opt.number = false
 vim.opt.wrap = false
-vim.opt.smoothscroll = true
 vim.opt.colorcolumn = "80"
 -- vim.opt.scrolloff = 5
 vim.opt.spelllang = { "en_us" }
