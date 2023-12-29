@@ -11,7 +11,6 @@ return {
       changedelete = { text = "▐" },
       untracked = { text = "▐" },
     },
-    _extmark_signs = false,
     signcolumn = true,
     preview_config = {
       border = defaults.border,
