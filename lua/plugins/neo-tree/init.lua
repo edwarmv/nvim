@@ -43,7 +43,7 @@ return {
       enable_diagnostics = false,
       use_default_mappings = true,
       use_popups_for_input = true,
-      enable_normal_mode_for_inputs = true,
+      enable_normal_mode_for_inputs = false,
       default_component_configs = {
         container = {
           enable_character_fade = true,
