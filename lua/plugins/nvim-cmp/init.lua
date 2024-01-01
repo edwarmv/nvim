@@ -2,6 +2,7 @@ local defaults = require("config.defaults")
 ---@diagnostic disable: missing-fields
 return {
   "hrsh7th/nvim-cmp",
+  event = { "InsertEnter", "CmdlineEnter" },
   enabled = true,
   pin = false,
   dependencies = {
@@ -247,7 +248,9 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        { name = "nvim_lsp", max_item_count = 50 },
+        { name = "nvim_lsp", keyword_length = 1 },
+        { name = "luasnip" },
+      }, {
         { name = "buffer" },
       }),
       formatting = { --{{{
@@ -272,7 +275,7 @@ return {
         }),
       }, --}}}
       experimental = {
-        ghost_text = true,
+        ghost_text = false,
       },
     })
 
