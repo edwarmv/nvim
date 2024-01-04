@@ -19,6 +19,7 @@ return {
       "efm",
       "vue-language-server",
       "marksman",
+      "emmet-language-server",
       -- formatters
       "black",
       "sql-formatter",
