@@ -6,5 +6,8 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   opts = {
     capabilities = capabilities,
+    settings = {
+      publish_diagnostic_on = "change",
+    },
   },
 }
