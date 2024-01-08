@@ -46,7 +46,7 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
-      preselect = cmp.PreselectMode.Item, -- None
+      preselect = cmp.PreselectMode.Item, -- None - Item
       completion = {
         -- autocomplete = false,
         autocomplete = {
@@ -154,43 +154,8 @@ return {
             end
           end,
         }),
-        ["<c-y>"] = cmp.mapping({
-          i = function(fallback)
-            if cmp.visible() then
-              cmp.confirm({
-                behavior = cmp.ConfirmBehavior.Insert,
-                select = true,
-              })
-            else
-              fallback()
-            end
-          end,
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.confirm({
-                behavior = cmp.ConfirmBehavior.Insert,
-                select = true,
-              })
-            else
-              fallback()
-            end
-          end,
-        }),
-        ["<CR>"] = cmp.mapping({
-          i = function(fallback)
-            if cmp.visible() then
-              cmp.confirm({
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = true,
-              })
-            else
-              fallback()
-            end
-          end,
-          c = function(fallback)
-            fallback()
-          end,
-        }),
+        ["<c-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+        ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         ["<tab>"] = cmp.mapping({
           i = function(fallback)
             if cmp.visible() then
@@ -275,7 +240,7 @@ return {
         }),
       }, --}}}
       experimental = {
-        ghost_text = false,
+        ghost_text = true,
       },
     })
 
@@ -411,6 +376,7 @@ return {
                         "xml",
                         "typescriptreact",
                         "javascriptreact",
+                        "javascript",
                         "css",
                         "sass",
                         "scss",

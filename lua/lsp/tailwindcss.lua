@@ -4,7 +4,7 @@ require("lspconfig").tailwindcss.setup({
   capabilities = capabilities,
   settings = {
     tailwindCSS = {
-      suggestions = false,
+      suggestions = true,
     },
   },
 })

@@ -12,7 +12,7 @@ require('lsp.taplo') -- TOML
 require('lsp.tailwindcss') -- TOML
 require('lsp.pyright')
 require('lsp.marksman')
-require('lsp.emmet-language-server')
+-- require('lsp.emmet-language-server')
 -- require('lsp.volar')
 -- require('lsp.sqlls')
 
