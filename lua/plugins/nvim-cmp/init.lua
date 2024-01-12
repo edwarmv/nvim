@@ -226,16 +226,21 @@ return {
         },
         format = require("lspkind").cmp_format({
           mode = "symbol",
-          before = function(_, vim_item)
-            local width = math.floor(vim.opt.columns:get() / 4)
-            if #vim_item.abbr > width then
-              vim_item.abbr = string.sub(vim_item.abbr, 1, width - 1) .. "…"
-            end
-            return vim_item
+          maxwidth = function()
+            return math.floor(vim.o.columns / 4)
           end,
+          ellipsis_char = "…",
+          -- before = function(_, vim_item)
+          --   local width = math.floor(vim.opt.columns:get() / 4)
+          --   if #vim_item.abbr > width then
+          --     vim_item.abbr = string.sub(vim_item.abbr, 1, width - 1) .. "…"
+          --   end
+          --   return vim_item
+          -- end,
           menu = {
             buffer = "[Buffer]",
             spell = "[Spell]",
+            nvim_lsp = "[LSP]",
           },
         }),
       }, --}}}
