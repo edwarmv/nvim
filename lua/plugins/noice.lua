@@ -9,7 +9,7 @@ return {
   enabled = true,
   opts = {
     messages = {
-      enabled = true,
+      enabled = false,
       view_search = false,
     },
     lsp = {

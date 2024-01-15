@@ -1,6 +1,6 @@
 return {
   "kosayoda/nvim-lightbulb",
-  enabled = true,
+  enabled = false,
   opts = {
     autocmd = { enabled = true },
     sign = {

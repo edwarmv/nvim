@@ -273,9 +273,9 @@ return {
         },
       },
       sources = cmp.config.sources({
-        { name = "buffer" },
-      }, {
         { name = "nvim_lsp_document_symbol" },
+      }, {
+        { name = "buffer" },
       }),
       -- formatting = {
       --   fields = {
