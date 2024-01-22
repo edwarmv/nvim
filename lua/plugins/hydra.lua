@@ -1,7 +1,7 @@
 local defaults = require("config.defaults")
 
 return {
-  "anuvyklack/hydra.nvim",
+  "nvimtools/hydra.nvim",
   config = function()
     local Hydra = require("hydra")
 
