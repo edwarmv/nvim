@@ -30,6 +30,10 @@ return {
           click = "v:lua.ScSa",
         },
         {
+          sign = { namespace = { "gitsigns" }, maxwidth = 1, auto = true, wrap = true },
+          click = "v:lua.ScSa",
+        },
+        {
           text = {
             builtin.lnumfunc,
             " ",
@@ -37,15 +41,11 @@ return {
           condition = {
             true,
             function(args)
-              return (args.nu or args.rnu) and (vim.b.gitsigns_status == nil or vim.b.gitsigns_status == "")
+              return (args.nu or args.rnu)
             end,
           },
           sign = { auto = true },
           click = "v:lua.ScLa",
-        },
-        {
-          sign = { namespace = { "gitsigns" }, maxwidth = 1, auto = true, wrap = true },
-          click = "v:lua.ScSa",
         },
         -- { text = { "%s" }, click = "v:lua.ScSa" },
       },
