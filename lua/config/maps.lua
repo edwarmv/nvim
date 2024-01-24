@@ -142,7 +142,7 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format", buffer = buffer })
 
-  vim.keymap.set("n", "<leader>d", function()
+  vim.keymap.set("n", "<leader>D", function()
     vim.diagnostic.open_float({ border = defaults.border })
   end, { desc = "[Diagnostic] Current Line", buffer = buffer })
 
