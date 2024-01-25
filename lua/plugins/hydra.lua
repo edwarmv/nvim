@@ -114,12 +114,15 @@ return {
 
     Hydra({
       name = "Options",
-      -- hint = hint,
+      hint = hint,
       config = {
         color = "amaranth",
         invoke_on_body = true,
         hint = {
-          type = "statusline",
+          position = "middle",
+          float_opts = {
+            border = "rounded",
+          },
         },
       },
       mode = { "n", "x" },
@@ -134,7 +137,7 @@ return {
               vim.o.number = true
             end
           end,
-          { desc = "number", exit = true },
+          { desc = "number" },
         },
         {
           "r",
@@ -146,7 +149,7 @@ return {
               vim.o.relativenumber = true
             end
           end,
-          { desc = "relativenumber", exit = true },
+          { desc = "relativenumber" },
         },
         {
           "v",
@@ -157,7 +160,7 @@ return {
               vim.o.virtualedit = "all"
             end
           end,
-          { desc = "virtualedit", exit = true },
+          { desc = "virtualedit" },
         },
         {
           "i",
@@ -168,7 +171,7 @@ return {
               vim.o.list = true
             end
           end,
-          { desc = "show invisible", exit = true },
+          { desc = "show invisible" },
         },
         {
           "s",
@@ -179,7 +182,7 @@ return {
               vim.o.spell = true
             end
           end,
-          { exit = true, desc = "spell" },
+          { desc = "spell" },
         },
         {
           "w",
@@ -204,7 +207,7 @@ return {
               vim.keymap.del("n", "j")
             end
           end,
-          { desc = "wrap", exit = true },
+          { desc = "wrap" },
         },
         {
           "c",

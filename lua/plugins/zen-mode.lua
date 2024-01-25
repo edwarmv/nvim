@@ -4,6 +4,7 @@ return {
     {
       "folke/twilight.nvim",
       opts = true,
+      enabled = false,
     },
   },
   enabled = true,
@@ -13,6 +14,6 @@ return {
     },
   },
   keys = {
-    { "<leader>Z", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
+    { "<cr>", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
   },
 }

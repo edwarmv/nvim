@@ -1,53 +1,106 @@
 -- =========================================================
 -- vim-settings
 -- =========================================================
--- vim.opt.python3_host_prog = vim.fn.expand("~") .. "/.asdf/shims/python3"
-vim.loader.enable()
-vim.opt.shortmess:append({ I = true, A = false })
-vim.opt.jumpoptions = "view"
-vim.opt.splitkeep = "screen"
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.showmode = false
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
-vim.opt.signcolumn = "auto"
-vim.opt.numberwidth = 1
-vim.opt.number = false
-vim.opt.wrap = false
-vim.opt.colorcolumn = "80"
--- vim.opt.scrolloff = 5
-vim.opt.spelllang = { "en_us" }
--- " set linebreak
--- " set showbreak=…
--- " set breakindent " indent wrap
--- vim.opt.display = "msgsep"
-vim.opt.timeoutlen = 1000
--- " https://github.com/sindrets/diffview.nvim/issues/35
-vim.opt.fillchars:append({ diff = "╱", eob = " ", fold = " ", foldopen = "", foldsep = "│", foldclose = "" })
--- vim.opt.indentkeys:remove({ "o", "O" })
-vim.o.foldcolumn = "auto" -- '0' is not bad
--- vim.o.foldenable = true
+-- This file is automatically loaded by plugins.core
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "\\"
+
+-- Enable LazyVim auto format
+vim.g.autoformat = true
+
+-- LazyVim root dir detection
+-- Each entry can be:
+-- * the name of a detector function like `lsp` or `cwd`
+-- * a pattern or array of patterns like `.git` or `lua`.
+-- * a function with signature `function(buf) -> string|string[]`
+vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
+
+local opt = vim.opt
+
+opt.autowrite = true -- Enable auto write
+opt.clipboard = "unnamedplus" -- Sync with system clipboard
+opt.completeopt = "menu,menuone,noselect"
+opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
+opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.cursorline = true -- Enable highlighting of the current line
+opt.expandtab = true -- Use spaces instead of tabs
+opt.formatoptions = "jcroqlnt" -- tcqj
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep"
+opt.ignorecase = true -- Ignore case
+opt.inccommand = "nosplit" -- preview incremental substitute
+opt.laststatus = 3 -- global statusline
+opt.list = true -- Show some invisible characters (tabs...
+opt.mouse = "a" -- Enable mouse mode
+opt.number = false -- Print line number
+opt.pumblend = 0 -- Popup blend
+opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.relativenumber = false -- Relative line numbers
+opt.scrolloff = 4 -- Lines of context
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", "winpos" }
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.showmode = false -- Dont show mode since we have a statusline
+opt.sidescrolloff = 8 -- Columns of context
+opt.signcolumn = "auto" -- Always show the signcolumn, otherwise it would shift the text each time
+opt.numberwidth = 1
+opt.smartcase = true -- Don't ignore case with capitals
+opt.smartindent = true -- Insert indents automatically
+opt.spelllang = { "en" }
+opt.splitbelow = true -- Put new windows below current
+opt.splitkeep = "screen"
+opt.splitright = true -- Put new windows right of current
+opt.tabstop = 2 -- Number of spaces tabs count for
+opt.termguicolors = true -- True color support
+opt.timeoutlen = 300
+opt.undofile = true
+opt.undolevels = 10000
+opt.updatetime = 200 -- Save swap file and trigger CursorHold
+opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
+opt.wildmode = "longest:full,full" -- Command-line completion mode
+opt.winminwidth = 5 -- Minimum window width
+opt.wrap = false -- Disable line wrap
+opt.colorcolumn = "80"
+
+if vim.fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true
+end
+
+-- Folding
+vim.opt.foldlevel = 99
+
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
+
+vim.opt.viewoptions = { "folds" }
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
+vim.opt.fillchars = {
+  diff = "╱",
+  eob = " ",
+  fold = " ",
+  foldopen = "",
+  foldsep = "│",
+  foldclose = "",
+}
+vim.opt.listchars = {
+  -- space = "⋅",
+  -- space = "⋅", -- "·"
+  -- lead = "⋅",
+  -- multispace = "+⋅",
+  eol = "󰌑",
+  -- tab = "→ ",
+  tab = "  ",
+  -- tab = "-->",
+  -- trail = "⋅", -- ␣
+  trail = " ", -- ␣
+  -- extends = "…",
+  -- precedes = "…",
+}
 
 -- =========================================================
 -- Mappings
 -- =========================================================
-
--- vim.keymap.set("n", "<c-w>t", "<cmd>tabe %<cr>")
-
--- " function FocusFloatingWindow()
--- "   let window_count = winnr('$')
--- "   execute window_count . "wincmd w"
--- " endfunction
-
--- vim.keymap.set("n", "<leader><leader>f", function()
---   local window_count = vim.fn.winnr("$")
---   vim.cmd(window_count .. "wincmd w")
--- end, { desc = "Focus Floating Window" })
-
 vim.keymap.set("n", "<m-H>", "<c-w>h")
 vim.keymap.set("n", "<m-J>", "<c-w>j")
 vim.keymap.set("n", "<m-K>", "<c-w>k")
@@ -66,142 +119,12 @@ vim.keymap.set("n", "<leader>tn", "<cmd>$tabnew<cr>")
 vim.keymap.set("n", "<leader>tm", ":tabmove")
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>")
-
 vim.api.nvim_create_autocmd({ "TabLeave" }, {
   command = "let g:lasttab = tabpagenr()",
 })
-
--- au TabLeave * let g:lasttab = tabpagenr()
 vim.keymap.set("n", "<m-6>", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc = "Last Tab" })
-
 vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
---
--- " nmap <m-s> <cmd>w<cr>
--- " vmap <m-s> <cmd>w<cr>
--- " imap <m-s> <cmd>w<cr>
--- "
--- " nmap <m-S> <cmd>wa<cr>
--- " vmap <m-S> <cmd>wa<cr>
--- " imap <m-S> <cmd>wa<cr>
--- "
--- " nmap <m-w> <cmd>bd<cr>
--- " vmap <m-w> <cmd>bd<cr>
--- " imap <m-w> <cmd>bd<cr>
--- "
--- " nmap <m-W> <cmd>bufdo bd<cr>
--- " vmap <m-W> <cmd>bufdo bd<cr>
--- " imap <m-W> <cmd>bufdo bd<cr>
--- "{{{
--- " nnoremap <silent> zh :call HorizontalScrollMode('h')<CR>
--- " nnoremap <silent> zl :call HorizontalScrollMode('l')<CR>
--- " nnoremap <silent> zH :call HorizontalScrollMode('H')<CR>
--- " nnoremap <silent> zL :call HorizontalScrollMode('L')<CR>
--- "
--- " function! HorizontalScrollMode( call_char )
--- "     if &wrap
--- "         return
--- "     endif
--- "
--- "     execute 'IndentBlanklineDisable'
--- "
--- "     echohl Title
--- "     let typed_char = a:call_char
--- "     while index( [ 'h', 'l', 'H', 'L' ], typed_char ) != -1
--- "         execute 'normal! z'.typed_char
--- "         redraws
--- "         echon '-- Horizontal scrolling mode (h/l/H/L)'
--- "         let typed_char = nr2char(getchar())
--- "     endwhile
--- "
--- "     execute 'IndentBlanklineEnable'
--- "
--- "     echohl None | echo '' | redraws
--- " endfunction
--- "}}}
---
--- " autocmd VimEnter * :let @/ = ""
---
--- " search under the cursor and keep their position
--- " https://stackoverflow.com/questions/4256697/vim-search-and-highlight-but-do-not-jump
--- " nmap <silent> <leader>hl :let @/=expand('<cword>') <bar> set hls <cr>
--- " nmap <silent> <leader>hn <cmd>noh<cr>
--- " nnoremap <leader><leader>h <cmd>nohl<cr>
-
--- *************
--- for lsp
--- *************
-vim.opt.backup = false
-vim.opt.writebackup = false
-vim.opt.hidden = true
-vim.opt.shortmess:append({ c = true })
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
-vim.opt.encoding = "utf-8"
-vim.opt.updatetime = 300
-vim.opt.pumheight = 6
-vim.opt.wildoptions = { "tagfile" }
-
--- *************
--- Spaces & Tabs
--- *************
-vim.opt.tabstop = 8 -- number of visual spaces per TAB
-vim.opt.softtabstop = -1 -- number of spaces in tab when editing - previous value 0
-vim.opt.shiftwidth = 2 -- number of spaces to use for autoindent
-vim.opt.expandtab = true -- tabs are space
-vim.opt.copyindent = true
--- set smarttab
--- " set smartindent
--- set autoindent
--- set cinkeys=
--- filetype indent on
-vim.opt.viewoptions = { "folds" }
--- " no autocomments
--- " set indentkeys=!^F
--- " set formatoptions=tcqj
--- " autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o indentkeys=!^F
---
--- autocmd BufEnter * setlocal formatoptions=cqjr/ indentkeys=!^F
--- autocmd TermOpen * setlocal signcolumn=no nocursorcolumn nocursorline nonumber
--- autocmd CmdwinEnter * setlocal nonumber signcolumn=no
---
--- " disable because tree-sitter errors
--- " nnoremap = <nop>
--- " vnoremap = <nop>
--- " vnoremap gq <nop>
 vim.keymap.set("i", "<c-l>", "<c-f>")
--- " vnoremap p P
--- " vnoremap P p
--- " nmap <F1> <nop>
--- " imap <F1> <nop>
---
--- " =========================================================
--- " colors cheme config
--- " =========================================================
--- syntax on
--- set termguicolors
-vim.opt.termguicolors = true
--- " autocmd BufRead * syn sync fromstart
--- " source ~/.config/nvim/colorscheme_config/tokyonight.vim
--- " source ~/.config/nvim/colorscheme_config/gruvbox-material.vim
--- " source ~/.config/nvim/colorscheme_config/edge.vim
---
--- au BufRead,BufNewFile Podfile set filetype=ruby
---
---       " \ 'hexokinase.vim',
--- let s:core_conf_files = [
---       \ 'gruvbox-material.vim',
---       \ ]
---     " \ 'vim-markdown.vim',
---     " \ 'winresizer.vim',
---     " \ 'vim-visual-multi.vim',
---     " \ 'emmet-vim.vim',
---     " \ 'vim-netrw.vim',
---     " \ 'matchup.vim',
---     " \ 'zoom.vim',
---     " \ 'fzf.vim',
---
--- for s:fname in s:core_conf_files
---   execute printf('source %s/vim/%s', stdpath('config'), s:fname)
--- endfor
 
 vim.diagnostic.config({
   -- underline = false,
@@ -211,14 +134,14 @@ vim.diagnostic.config({
   virtual_lines = { only_current_line = true },
   signs = {
     text = {
-      -- [vim.diagnostic.severity.ERROR] = "",
-      -- [vim.diagnostic.severity.WARN] = "",
-      -- [vim.diagnostic.severity.INFO] = "",
-      -- [vim.diagnostic.severity.HINT] = "",
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      -- [vim.diagnostic.severity.ERROR] = "",
+      -- [vim.diagnostic.severity.WARN] = "",
+      -- [vim.diagnostic.severity.INFO] = "",
+      -- [vim.diagnostic.severity.HINT] = "",
     },
   },
   -- float = {
@@ -226,39 +149,56 @@ vim.diagnostic.config({
   -- },
 })
 
--- local group = vim.api.nvim_create_augroup("LspLinesToggleInsert", { clear = false })
-
--- vim.api.nvim_create_autocmd("InsertEnter", {
---   group = group,
---   callback = function()
---     pcall(vim.diagnostic.hide)
---   end,
--- })
-
--- vim.api.nvim_create_autocmd("InsertLeave", {
---   group = group,
---   callback = function()
---     pcall(vim.diagnostic.show)
---   end,
--- })
-
 local defaults = require("config.defaults")
 
-vim.opt.list = false
-vim.opt.listchars = {
-  -- space = "⋅",
-  -- space = "⋅", -- "·"
-  -- lead = "⋅",
-  -- multispace = "+⋅",
-  eol = "󰌑",
-  -- tab = "→ ",
-  tab = "  ",
-  -- tab = "-->",
-  -- trail = "⋅", -- ␣
-  trail = " ", -- ␣
-  -- extends = "…",
-  -- precedes = "…",
-}
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("close_with_q"),
+  pattern = {
+    "PlenaryTestPopup",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "query",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "neotest-output",
+    "checkhealth",
+    "neotest-summary",
+    "neotest-output-panel",
+    "harpoon",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
+})
+
+-- Fix conceallevel for json files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("json_conceal"),
+  pattern = { "json", "jsonc", "json5" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("wrap_spell"),
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
 
 vim.api.nvim_create_user_command("CloseAllFloatingWindows", function()
   if vim.fn.expand("%:t") == "[Command Line]" then
@@ -309,35 +249,6 @@ vim.api.nvim_create_user_command("CloseAllFloatingWindows", function()
 end, {})
 
 vim.keymap.set("n", "<c-w>Q", "<cmd>CloseAllFloatingWindows<cr>", { desc = "Quit all windows" })
-
--- REF: https://github.com/neovim/nvim-lspconfig/issues/1659
--- vim.api.nvim_create_autocmd("BufDelete", {
---   group = vim.api.nvim_create_augroup("BufDeleteLspBufDetach", {}),
---   callback = function(info)
---     local bufnr = info.buf
---     local clients = vim.lsp.buf_get_clients(bufnr)
---     for client_id, _ in pairs(clients) do
---       vim.lsp.buf_detach_client(bufnr, client_id)
---     end
---   end,
--- })
--- vim.api.nvim_create_autocmd("LspAttach", {
---   callback = function()
---     vim.api.nvim_create_autocmd({ "BufDelete" }, {
---       buffer = vim.api.nvim_get_current_buf(),
---       callback = function(opts)
---         local bufnr = opts.buf
---         local clients = vim.lsp.buf_get_clients(bufnr)
---         for client_id, _ in pairs(clients) do
---           vim.lsp.buf_detach_client(bufnr, client_id)
---         end
---       end,
---     })
---   end,
--- })
-
-vim.opt.sessionoptions = "blank,buffers,help,tabpages,globals,winsize,winpos" -- ,terminal
-vim.opt.laststatus = 3
 
 local fn = vim.fn
 
@@ -392,23 +303,6 @@ function _G.qftf(info)
 end
 
 vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
-
--- local cmdheight
-
--- vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
---   callback = function()
---     cmdheight = vim.api.nvim_get_option_value('cmdheight', {});
---     vim.opt.cmdheight = 1
---   end,
--- })
-
--- vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
---   callback = function()
---     vim.opt.cmdheight = cmdheight
---   end,
--- })
-
--- vim.lsp.set_log_level("trace")
 
 require("config")
 
