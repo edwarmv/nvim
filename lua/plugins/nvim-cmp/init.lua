@@ -240,6 +240,7 @@ return {
             buffer = "[Buffer]",
             spell = "[Spell]",
             nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
           },
         }),
       }, --}}}
