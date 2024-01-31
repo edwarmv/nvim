@@ -61,6 +61,9 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
+opt.breakindent = true
+opt.showbreak = "…"
+opt.linebreak = true
 opt.colorcolumn = "80"
 
 if vim.fn.has("nvim-0.10") == 1 then
@@ -88,14 +91,14 @@ vim.opt.listchars = {
   -- space = "⋅", -- "·"
   -- lead = "⋅",
   -- multispace = "+⋅",
-  eol = "󰌑",
+  eol = "↲",
   -- tab = "→ ",
   tab = "  ",
   -- tab = "-->",
   -- trail = "⋅", -- ␣
   trail = " ", -- ␣
-  -- extends = "…",
-  -- precedes = "…",
+  extends = "…",
+  precedes = "…",
 }
 
 -- =========================================================
