@@ -7,7 +7,7 @@ local js_based_languages = {
 
 return {
   "mfussenegger/nvim-dap",
-  enabled = false,
+  enabled = true,
   dependencies = {
 
     -- fancy UI for the debugger
@@ -43,15 +43,9 @@ return {
       opts = {},
     },
 
-    -- which key integration
     {
-      "folke/which-key.nvim",
-      optional = true,
-      opts = {
-        defaults = {
-          ["<leader>d"] = { name = "+debug" },
-        },
-      },
+      "LiadOz/nvim-dap-repl-highlights",
+      opts = {},
     },
 
     -- mason.nvim integration

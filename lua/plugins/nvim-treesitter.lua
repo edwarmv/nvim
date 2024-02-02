@@ -8,6 +8,7 @@ return {
     {
       "windwp/nvim-ts-autotag",
     },
+    "LiadOz/nvim-dap-repl-highlights",
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -44,6 +45,7 @@ return {
         "gitattributes",
         "dockerfile",
         "dart",
+        "dap_repl",
         -- "norg",
         -- "norg_meta",
         -- "norg_table",
