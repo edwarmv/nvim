@@ -82,7 +82,7 @@ return {
         hint = {
           type = "statusline",
         },
-        timeout = true,
+        timeout = false,
       },
       mode = "n",
       body = "<c-w>",

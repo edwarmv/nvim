@@ -2,23 +2,16 @@ return {
   "NTBBloodbath/rest.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    require("rest-nvim").setup({
-      -- Open request results in a horizontal split
-      result_split_horizontal = false,
-      -- Skip SSL verification, useful for unknown certificates
-      skip_ssl_verification = false,
-      -- Highlight request on run
-      highlight = {
-        enabled = true,
-        timeout = 150,
-      },
-      -- Jump to request line on run
-      jump_to_request = false,
-    })
+    require("rest-nvim").setup({})
 
     -- vim.api.nvim_set_keymap('n', '<leader><leader>rr', '<Plug>RestNvim', { noremap = false, silent = true })
     -- vim.api.nvim_set_keymap('n', '<leader><leader>rp', '<Plug>RestNvimPreview', { noremap = false, silent = true })
     -- vim.api.nvim_set_keymap('n', '<leader><leader>rl', '<Plug>RestNvimLast', { noremap = false, silent = true })
   end,
+  keys = {
+    { "<leader>rr", "<Plug>RestNvim", desc = "REST - run the request under the cursor" },
+    { "<leader>rp", "<Plug>RestNvimPreview", desc = "REST - preview the request cURL command" },
+    { "<leader>rl", "<Plug>RestNvimLast", desc = "REST - re-run the last request" },
+  },
   ft = "http",
 }

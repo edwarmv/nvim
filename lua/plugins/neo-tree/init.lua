@@ -43,6 +43,7 @@ return {
       enable_diagnostics = false,
       use_default_mappings = true,
       use_popups_for_input = true,
+      enable_cursor_hijack = true,
       enable_normal_mode_for_inputs = false,
       default_component_configs = {
         container = {

@@ -2,17 +2,11 @@ return {
   "utilyre/barbecue.nvim",
   enabled = false,
   name = "barbecue",
-  version = "*",
   dependencies = {
     "SmiteshP/nvim-navic",
     "nvim-tree/nvim-web-devicons", -- optional dependency
   },
-  opts = {
-    -- configurations go here
-    create_autocmd = true,
-    show_modified = true,
-    show_navic = false,
-  },
+  opts = {},
   config = function(_, opts)
     require("barbecue").setup(opts)
 

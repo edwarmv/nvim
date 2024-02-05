@@ -1,7 +1,7 @@
 local utils = require("utils.init")
 
 local plugins = {
-  "winresizer.vim",
+  -- "winresizer.vim",
   "vim-visual-multi.vim",
   "emmet-vim.vim",
   "vim-markdown.vim",
@@ -41,7 +41,7 @@ return {
   "tpope/vim-repeat",
   "tpope/vim-scriptease",
   "farmergreg/vim-lastplace",
-  "simeji/winresizer",
+  -- "simeji/winresizer",
   "moll/vim-bbye",
   "vim-scripts/restore_view.vim",
   {

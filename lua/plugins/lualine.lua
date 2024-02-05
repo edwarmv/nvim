@@ -184,13 +184,13 @@ return {
         },
         lualine_c = {
           -- { "filename", file_status = true },
-          {
-            "navic",
-            color_correction = "static",
-            navic_opts = {
-              click = true,
-            },
-          },
+          -- {
+          --   "navic",
+          --   color_correction = "static",
+          --   navic_opts = {
+          --     click = true,
+          --   },
+          -- },
         },
         lualine_x = {
           -- require("lsp-progress").progress,

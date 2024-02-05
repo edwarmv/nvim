@@ -46,6 +46,7 @@ return {
         "dockerfile",
         "dart",
         "dap_repl",
+        "angular",
         -- "norg",
         -- "norg_meta",
         -- "norg_table",
