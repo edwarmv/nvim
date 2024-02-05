@@ -1,9 +1,15 @@
 return {
   "Bekaboo/dropbar.nvim",
+  enabled = false,
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
   },
   opts = {
+    general = {
+      enable = function(buf, win, _)
+        return vim.fn.buflisted(buf) == 1
+      end,
+    },
     icons = {
       kinds = {
         symbols = {
