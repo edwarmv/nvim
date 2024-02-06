@@ -1,4 +1,4 @@
-local js_based_languages = {
+local languages = {
   "typescript",
   "javascript",
   "typescriptreact",
@@ -127,9 +127,9 @@ return {
         if vim.fn.filereadable(".vscode/launch.json") then
           local dap_vscode = require("dap.ext.vscode")
           dap_vscode.load_launchjs(nil, {
-            ["pwa-node"] = js_based_languages,
-            ["chrome"] = js_based_languages,
-            ["pwa-chrome"] = js_based_languages,
+            ["pwa-node"] = languages,
+            ["chrome"] = languages,
+            ["pwa-chrome"] = languages,
           })
         end
         require("dap").continue()
@@ -170,6 +170,84 @@ return {
         { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
       )
     end
+
+    dap.adapters["pwa-node"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "js-debug-adapter",
+        args = { "${port}" },
+      },
+    }
+
+    dap.adapters["pwa-chrome"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "js-debug-adapter",
+        args = { "${port}" },
+      },
+    }
+
+    for _, language in ipairs(languages) do
+      dap.configurations[language] = {
+        -- {
+        --   type = 'pwa-node',
+        --   request = 'launch',
+        --   name = 'Launch JS file',
+        --   program = '${file}',
+        --   cwd = '${workspaceFolder}',
+        -- },
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Launch file",
+          cwd = "${workspaceFolder}",
+          -- NOTE: you would need to have tsx installed globally
+          runtimeExecutable = "tsx",
+          args = { "${file}" },
+          sourceMaps = true,
+          protocol = "inspector",
+          skipFiles = { "<node_internals>/**", "node_modules/**" },
+          resolveSourceMapLocations = {
+            "${workspaceFolder}/**",
+            "!**/node_modules/**",
+          },
+        },
+        {
+          type = "pwa-node",
+          request = "launch",
+          name = "Run and Debug Custom Command",
+          -- you need to have tsx globally or locally installed
+          runtimeExecutable = "tsx",
+          runtimeArgs = function()
+            local input = vim.fn.input({ prompt = "Command to run: ", completion = "file" })
+            print(input)
+            return input
+          end,
+          cwd = "${workspaceFolder}",
+          sourceMaps = true,
+          protocol = "inspector",
+          skipFiles = { "<node_internals>/**", "node_modules/**" },
+        },
+        {
+          type = "pwa-node",
+          request = "attach",
+          name = "Attach to process",
+          processId = require("dap.utils").pick_process,
+          cwd = "${workspaceFolder}",
+        },
+      }
+    end
+
+    require("dap.ext.vscode").load_launchjs(nil, {
+      ["pwa-node"] = languages,
+      ["node"] = languages,
+      ["chrome"] = languages,
+      ["pwa-chrome"] = languages,
+    })
 
     -- for _, language in ipairs(js_based_languages) do
     --   dap.configurations[language] = {
