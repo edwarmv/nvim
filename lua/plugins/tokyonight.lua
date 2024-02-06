@@ -53,11 +53,11 @@ return {
         }
         hl.WinBar = {
           fg = c.fg_sidebar,
-          bg = c.none,
+          bg = c.bg_statusline,
         }
         hl.WinBarNC = {
           fg = c.fg_gutter,
-          bg = c.none,
+          bg = c.bg_statusline,
         }
         -- hl.CmpFloat = {
         --   fg = c.fg,

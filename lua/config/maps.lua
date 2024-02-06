@@ -99,6 +99,10 @@ local function lspFormat()
 end
 
 M.lsp = function(buffer)
+  vim.keymap.set("n", "gLR", "<cmd>Glance references<cr>", { desc = "[LSP - Glance] References", buffer = buffer })
+  vim.keymap.set("n", "gLd", "<cmd>Glance definitions<cr>", { desc = "[LSP - Glance] Definitions", buffer = buffer })
+  vim.keymap.set("n", "gLt", "<cmd>Glance type_definitions<cr>", { desc = "[LSP - Glance] Type Definitions", buffer = buffer })
+  vim.keymap.set("n", "gLi", "<cmd>Glance implementations<cr>", { desc = "[LSP - Glance] Implementations", buffer = buffer })
   -- lspsaga
   -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
   -- vim.keymap.set("n", "gld", "<cmd>Lspsaga peek_definition<cr>", opts)

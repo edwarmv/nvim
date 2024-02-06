@@ -1,7 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  enabled = false,
-  version = "*",
+  enabled = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
@@ -115,11 +114,16 @@ return {
           },
         },
       },
-      hijack_cursor = true
+      hijack_cursor = true,
+      diagnostics = {
+        enable = true,
+      },
+      update_focused_file = {
+        enable = true,
+      },
     })
+
+    vim.keymap.set("n", "<space>e", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree - Toggle" })
+    vim.keymap.set("n", "<space>E", "<cmd>NvimTreeFindFile<cr>", { desc = "NvimTree - FindFile" })
   end,
-  keys = {
-    { "<space>e", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree - Toggle" },
-    { "<space>E", "<cmd>NvimTreeFindFile<cr>", desc = "NvimTree - FindFile" },
-  },
 }

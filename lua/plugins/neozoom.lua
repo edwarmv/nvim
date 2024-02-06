@@ -45,7 +45,7 @@ return {
         -- },
       },
     })
-    vim.keymap.set("n", "<CR>", function()
+    vim.keymap.set("n", "<leader>Z", function()
       vim.cmd("NeoZoomToggle")
     end, { silent = true, nowait = true })
     -- vim.api.nvim_create_autocmd({ "WinEnter" }, {
