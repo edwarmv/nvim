@@ -39,7 +39,7 @@ return {
   "imsnif/kdl.vim",
   "tpope/vim-sleuth",
   "tpope/vim-repeat",
-  "tpope/vim-scriptease",
+  -- "tpope/vim-scriptease",
   "farmergreg/vim-lastplace",
   -- "simeji/winresizer",
   "moll/vim-bbye",

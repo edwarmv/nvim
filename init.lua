@@ -77,6 +77,7 @@ vim.opt.foldlevel = 99
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
+vim.opt.foldcolumn = "auto"
 vim.opt.viewoptions = { "folds" }
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 vim.opt.fillchars = {

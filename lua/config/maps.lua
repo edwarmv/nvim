@@ -101,16 +101,47 @@ end
 M.lsp = function(buffer)
   vim.keymap.set("n", "gLR", "<cmd>Glance references<cr>", { desc = "[LSP - Glance] References", buffer = buffer })
   vim.keymap.set("n", "gLd", "<cmd>Glance definitions<cr>", { desc = "[LSP - Glance] Definitions", buffer = buffer })
-  vim.keymap.set("n", "gLt", "<cmd>Glance type_definitions<cr>", { desc = "[LSP - Glance] Type Definitions", buffer = buffer })
-  vim.keymap.set("n", "gLi", "<cmd>Glance implementations<cr>", { desc = "[LSP - Glance] Implementations", buffer = buffer })
+  vim.keymap.set(
+    "n",
+    "gLt",
+    "<cmd>Glance type_definitions<cr>",
+    { desc = "[LSP - Glance] Type Definitions", buffer = buffer }
+  )
+  vim.keymap.set(
+    "n",
+    "gLi",
+    "<cmd>Glance implementations<cr>",
+    { desc = "[LSP - Glance] Implementations", buffer = buffer }
+  )
   -- lspsaga
   -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
   -- vim.keymap.set("n", "gld", "<cmd>Lspsaga peek_definition<cr>", opts)
   -- vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
-  -- vim.keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
-  -- vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-  -- vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-  -- vim.keymap.set("n", "glfr", "<cmd>Lspsaga finder ref<cr>", { desc = "[LSP - Saga] Finder References", buffer = buffer })
+  vim.keymap.set(
+    "n",
+    "<leader>d",
+    "<cmd>Lspsaga show_line_diagnostics<cr>",
+    { desc = "[Diagnostic] Current Line", buffer = buffer }
+  )
+
+  vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "[Diagnostic] Prev", buffer = buffer })
+
+  vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "[Diagnostic] Next", buffer = buffer })
+
+  vim.keymap.set("n", "]D", function()
+    require("lspsaga.diagnostic"):goto_Next({ severity = vim.diagnostic.severity.ERROR })
+  end, { desc = "[Diagnostic] Next Error  ", buffer = buffer })
+
+  vim.keymap.set("n", "[D", function()
+    require("lspsaga.diagnostic"):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  end, { desc = "[Diagnostic] Prev Error  ", buffer = buffer })
+
+  vim.keymap.set(
+    "n",
+    "glfr",
+    "<cmd>Lspsaga finder ref<cr>",
+    { desc = "[LSP - Saga] Finder References", buffer = buffer }
+  )
   vim.keymap.set("n", "glf", "<cmd>Lspsaga finder<cr>", { desc = "[LSP - Saga] Finder", buffer = buffer })
   vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
   vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Outgoing Calls", buffer = buffer })
@@ -146,27 +177,27 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format", buffer = buffer })
 
-  vim.keymap.set("n", "<leader>D", function()
-    vim.diagnostic.open_float({ border = defaults.border })
-  end, { desc = "[Diagnostic] Current Line", buffer = buffer })
+  -- vim.keymap.set("n", "<leader>D", function()
+  --   vim.diagnostic.open_float({ border = defaults.border })
+  -- end, { desc = "[Diagnostic] Current Line", buffer = buffer })
 
   vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "[Diagnostic] Location List", buffer = buffer })
 
-  vim.keymap.set("n", "]d", function()
-    vim.diagnostic.goto_next({ float = false })
-  end, { desc = "[Diagnostic] Next", buffer = buffer })
+  -- vim.keymap.set("n", "]d", function()
+  --   vim.diagnostic.goto_next({ float = false })
+  -- end, { desc = "[Diagnostic] Next", buffer = buffer })
 
-  vim.keymap.set("n", "]D", function()
-    vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.ERROR })
-  end, { desc = "[Diagnostic] Next Error  ", buffer = buffer })
+  -- vim.keymap.set("n", "]D", function()
+  --   vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.ERROR })
+  -- end, { desc = "[Diagnostic] Next Error  ", buffer = buffer })
 
-  vim.keymap.set("n", "[d", function()
-    vim.diagnostic.goto_prev({ float = false })
-  end, { desc = "[Diagnostic] Prev", buffer = buffer })
+  -- vim.keymap.set("n", "[d", function()
+  --   vim.diagnostic.goto_prev({ float = false })
+  -- end, { desc = "[Diagnostic] Prev", buffer = buffer })
 
-  vim.keymap.set("n", "[D", function()
-    vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.ERROR })
-  end, { desc = "[Diagnostic] Prev Error  ", buffer = buffer })
+  -- vim.keymap.set("n", "[D", function()
+  --   vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.ERROR })
+  -- end, { desc = "[Diagnostic] Prev Error  ", buffer = buffer })
 
   local goto_preview = require("goto-preview")
 
