@@ -40,10 +40,10 @@ return {
       close_if_last_window = true,
       hide_root_node = false,
       popup_border_style = defaults.border,
-      enable_diagnostics = false,
+      enable_diagnostics = true,
       use_default_mappings = true,
       use_popups_for_input = true,
-      enable_cursor_hijack = false,
+      enable_cursor_hijack = true,
       enable_normal_mode_for_inputs = false,
       default_component_configs = {
         container = {
@@ -109,12 +109,31 @@ return {
           ["zM"] = fold_commands.neotree_zM,
           ["zr"] = fold_commands.neotree_zr,
           ["zR"] = fold_commands.neotree_zR,
-          ["P"] = { "toggle_preview", config = { use_float = false } },
+          ["P"] = { "toggle_preview", config = { use_float = true } },
+          ["h"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" and node:is_expanded() then
+              require("neo-tree.sources.filesystem").toggle_directory(state, node)
+            else
+              require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
+            end
+          end,
+          ["l"] = function(state)
+            local node = state.tree:get_node()
+            if node.type == "directory" then
+              if not node:is_expanded() then
+                require("neo-tree.sources.filesystem").toggle_directory(state, node)
+              elseif node:has_children() then
+                require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
+              end
+            end
+          end,
         },
       },
       filesystem = {
         filtered_items = {
           hide_dotfiles = false,
+          hide_gitignored = false,
         },
         follow_current_file = {
           enabled = true, -- This will find and focus the file in the active buffer every time

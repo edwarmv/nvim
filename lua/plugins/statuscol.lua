@@ -8,8 +8,24 @@ return {
       relculright = true,
       segments = {
         {
-          sign = { name = { "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
+          text = { builtin.foldfunc },
+          click = "v:lua.ScFa",
+          sign = { colwidth = 2, auto = true },
+        },
+        {
+          sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
+        },
+        {
+          sign = { namespace = { "dap" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScLa",
+        },
+        {
+          sign = { namespace = { "diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
+          click = "v:lua.ScSa",
+        },
+        {
+          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = true, wrap = true },
+          click = "v:lua.ScSa",
         },
         {
           text = {
@@ -18,10 +34,7 @@ return {
           sign = { auto = true },
           click = "v:lua.ScLa",
         },
-        {
-          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = true },
-          click = "v:lua.ScSa",
-        },
+        { text = { " " }, condition = { builtin.not_empty } },
         -- { text = { "%s" }, click = "v:lua.ScSa" },
       },
     })
