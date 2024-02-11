@@ -169,6 +169,7 @@ return {
     vim.api.nvim_set_hl(0, "DiagnosticLineNrWarn", { link = "DiagnosticSignWarn" })
     vim.api.nvim_set_hl(0, "DiagnosticLineNrInfo", { link = "DiagnosticSignInfo" })
     vim.api.nvim_set_hl(0, "DiagnosticLineNrHint", { link = "DiagnosticSignHint" })
+    vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", { link = "StatusLine" })
 
     -- vim.api.nvim_set_hl(0, "ModesCopy", { bg = utils.blend(colors.yellow, colors.bg, 0.15) })
     -- vim.api.nvim_set_hl(0, "ModesDelete", { bg = utils.blend(colors.red, colors.bg, 0.15) })
