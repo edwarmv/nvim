@@ -1,6 +1,6 @@
 return {
   "nvim-zh/colorful-winsep.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
     highlight = {
       fg = "#29a4bd",
