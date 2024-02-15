@@ -4,7 +4,7 @@ return {
     local defaults = require("config.defaults")
     require("notify").setup({
       -- Animation style (see below for details)
-      stages = "fade", -- fade_in_slide_out, fade, slide, static
+      stages = "static", -- fade_in_slide_out, fade, slide, static
 
       -- Function called when a new window is opened, use for changing win settings/config
       -- on_open = function(win)
@@ -14,7 +14,7 @@ return {
       --   end
       -- end,
 
-      top_down = true,
+      top_down = false,
 
       -- Function called when a window is closed
       -- on_close = nil,

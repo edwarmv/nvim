@@ -71,10 +71,10 @@ if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
 end
 
-vim.keymap.set("n", "k", function()
+vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
 end, { expr = true, desc = "k or gk" })
-vim.keymap.set("n", "j", function()
+vim.keymap.set({ "n", "v" }, "j", function()
   return vim.v.count > 0 and "j" or "gj"
 end, { expr = true, desc = "j or gj" })
 
