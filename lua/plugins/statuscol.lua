@@ -1,6 +1,6 @@
 return {
   "luukvbaal/statuscol.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -34,7 +34,7 @@ return {
           sign = { auto = true },
           click = "v:lua.ScLa",
         },
-        { text = { " " }, condition = { builtin.not_empty } },
+        { text = { " " } },
         -- { text = { "%s" }, click = "v:lua.ScSa" },
       },
     })
