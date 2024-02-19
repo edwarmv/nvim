@@ -44,6 +44,7 @@ return {
       tab_char = "▎",
     },
     scope = {
+      enabled = false,
       char = "▏", -- ▎
       show_start = false,
       show_end = false,
