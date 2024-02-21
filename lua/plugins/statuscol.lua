@@ -10,7 +10,7 @@ return {
         {
           text = { builtin.foldfunc },
           click = "v:lua.ScFa",
-          sign = { colwidth = 2, auto = true },
+          sign = { colwidth = 1, auto = true },
         },
         {
           sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
