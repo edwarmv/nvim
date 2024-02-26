@@ -238,54 +238,54 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      -- winbar = {
-      --   lualine_a = {},
-      --   lualine_b = {},
-      --   lualine_c = {
-      --     { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
-      --     { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
-      --     {
-      --       "diagnostics",
-      --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-      --       symbols = {
-      --         error = icons.diagnostic.error,
-      --         warn = icons.diagnostic.warn,
-      --         info = icons.diagnostic.info,
-      --         hint = icons.diagnostic.hint,
-      --       },
-      --       update_in_insert = false, -- Update diagnostics in insert mode
-      --     },
-      --   },
-      --   lualine_x = {
-      --     -- "filetype",
-      --   },
-      --   lualine_y = {},
-      --   lualine_z = {},
-      -- },
-      -- inactive_winbar = {
-      --   lualine_a = {},
-      --   lualine_b = {},
-      --   lualine_c = {
-      --     { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
-      --     { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
-      --     {
-      --       "diagnostics",
-      --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-      --       symbols = {
-      --         error = icons.diagnostic.error,
-      --         warn = icons.diagnostic.warn,
-      --         info = icons.diagnostic.info,
-      --         hint = icons.diagnostic.hint,
-      --       },
-      --       update_in_insert = false, -- Update diagnostics in insert mode
-      --     },
-      --   },
-      --   lualine_x = {
-      --     -- "filetype",
-      --   },
-      --   lualine_y = {},
-      --   lualine_z = {},
-      -- },
+      winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+          { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+          { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostic.error,
+              warn = icons.diagnostic.warn,
+              info = icons.diagnostic.info,
+              hint = icons.diagnostic.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
+        },
+        lualine_x = {
+          -- "filetype",
+        },
+        lualine_y = {},
+        lualine_z = {},
+      },
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+          { "filetype", icon_only = true, separator = "", padding = { right = 0, left = 1 } },
+          { "filename", file_status = true, separator = "", padding = { right = 0, left = 1 } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostic.error,
+              warn = icons.diagnostic.warn,
+              info = icons.diagnostic.info,
+              hint = icons.diagnostic.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
+        },
+        lualine_x = {
+          -- "filetype",
+        },
+        lualine_y = {},
+        lualine_z = {},
+      },
       extensions = {
         "fzf",
         "nvim-tree",
