@@ -20,6 +20,7 @@ return {
       "vue-language-server",
       "marksman",
       "emmet-language-server",
+      "astro-language-server",
       -- formatters
       "black",
       "sql-formatter",

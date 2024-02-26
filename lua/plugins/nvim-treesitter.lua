@@ -47,6 +47,7 @@ return {
         "dart",
         "dap_repl",
         "angular",
+        "astro",
         -- "norg",
         -- "norg_meta",
         -- "norg_table",
