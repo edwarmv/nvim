@@ -1,6 +1,6 @@
 return {
   "junegunn/fzf",
-  enabled = true,
+  enabled = false,
   dependencies = { "junegunn/fzf.vim", "gfanto/fzf-lsp.nvim" },
   init = function()
     local defaults = require("config.defaults")
