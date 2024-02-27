@@ -91,9 +91,9 @@ vim.opt.fillchars = {
   diff = "╱",
   eob = " ",
   fold = " ",
-  foldopen = "",
+  foldopen = "+",
   foldsep = "│",
-  foldclose = "",
+  foldclose = "-",
 }
 vim.opt.listchars = {
   -- space = "⋅",
