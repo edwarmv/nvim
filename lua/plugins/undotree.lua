@@ -1,3 +1,4 @@
+vim.g.undotree_CustomDiffpanelCmd = "botright 10 new"
 return {
   "mbbill/undotree",
   keys = {
