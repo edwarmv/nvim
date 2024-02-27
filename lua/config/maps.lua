@@ -129,7 +129,7 @@ M.lsp = function(buffer)
   vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "[Diagnostic] Next", buffer = buffer })
 
   vim.keymap.set("n", "]D", function()
-    require("lspsaga.diagnostic"):goto_Next({ severity = vim.diagnostic.severity.ERROR })
+    require("lspsaga.diagnostic"):goto_next({ severity = vim.diagnostic.severity.ERROR })
   end, { desc = "[Diagnostic] Next Error  ", buffer = buffer })
 
   vim.keymap.set("n", "[D", function()
