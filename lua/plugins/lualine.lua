@@ -186,7 +186,6 @@ return {
           -- { "filename", file_status = true },
           {
             "navic",
-            color_correction = "static",
             navic_opts = {
               click = true,
             },
@@ -196,7 +195,7 @@ return {
           -- require("lsp-progress").progress,
           {
             "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
+            sources = { "nvim_workspace_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
             symbols = {
               error = icons.diagnostic.error,
               warn = icons.diagnostic.warn,
