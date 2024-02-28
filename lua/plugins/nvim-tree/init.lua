@@ -84,6 +84,9 @@ return {
       modified = {
         enable = true,
       },
+      filters = {
+        git_ignored = false,
+      },
     })
 
     vim.keymap.set("n", "<space>e", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree - Toggle" })
