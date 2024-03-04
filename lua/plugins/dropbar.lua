@@ -1,6 +1,6 @@
 return {
   "Bekaboo/dropbar.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
   },
@@ -9,6 +9,7 @@ return {
       enable = function(buf, win, _)
         return vim.fn.buflisted(buf) == 1
       end,
+      update_interval = 300,
     },
     icons = {
       kinds = {
@@ -50,4 +51,11 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("dropbar").setup(opts)
+
+    vim.keymap.set("n", "<space>w", function()
+      require("dropbar.api").pick()
+    end, { desc = "Dropbar - Pick" })
+  end,
 }

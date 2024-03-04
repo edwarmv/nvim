@@ -43,7 +43,7 @@ return {
       enable_diagnostics = false,
       use_default_mappings = true,
       use_popups_for_input = true,
-      enable_cursor_hijack = false,
+      enable_cursor_hijack = true,
       enable_normal_mode_for_inputs = true,
       default_component_configs = {
         container = {
@@ -109,7 +109,7 @@ return {
           ["zM"] = fold_commands.neotree_zM,
           ["zr"] = fold_commands.neotree_zr,
           ["zR"] = fold_commands.neotree_zR,
-          ["P"] = { "toggle_preview", config = { use_float = true } },
+          ["P"] = { "toggle_preview", config = { use_float = false } },
           ["h"] = function(state)
             local node = state.tree:get_node()
             if node.type == "directory" and node:is_expanded() then
