@@ -216,8 +216,8 @@ return {
             update_in_insert = false, -- Update diagnostics in insert mode
           },
           "zoom#statusline",
-          "ObsessionStatus",
-          "searchcount",
+          "%{ObsessionStatus('󰠘 ', '󰽃 ', '󱙄 ')}",
+          -- "searchcount",
           "selectioncount",
           require("NeoComposer.ui").status_recording,
           -- {

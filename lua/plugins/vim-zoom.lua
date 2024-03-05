@@ -3,7 +3,7 @@ return {
   -- dependencies = { "nvim-zh/colorful-winsep.nvim" },
   enabled = true,
   init = function()
-    vim.g["zoom#statustext"] = "[Z]"
+    vim.g["zoom#statustext"] = " "
     vim.g.zoom_tmux_z = false
   end,
   keys = {
