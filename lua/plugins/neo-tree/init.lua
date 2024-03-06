@@ -38,13 +38,12 @@ return {
         statusline = false,
       },
       close_if_last_window = true,
-      hide_root_node = false,
+      hide_root_node = true,
       popup_border_style = defaults.border,
       enable_diagnostics = false,
       use_default_mappings = true,
       use_popups_for_input = true,
-      enable_cursor_hijack = true,
-      enable_normal_mode_for_inputs = true,
+      enable_cursor_hijack = false,
       default_component_configs = {
         container = {
           enable_character_fade = true,
