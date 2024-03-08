@@ -80,6 +80,7 @@ end, { expr = true, desc = "j or gj" })
 
 -- Folding
 vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
@@ -90,7 +91,7 @@ vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop)
 vim.opt.fillchars = {
   diff = "╱",
   eob = " ",
-  fold = " ",
+  fold = "·",
   foldopen = "+",
   foldsep = "│",
   foldclose = "-",
