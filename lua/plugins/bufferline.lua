@@ -6,8 +6,13 @@ return {
     options = {
       show_buffer_close_icons = false,
       show_close_icon = false,
-      separator_style = "slant",
+      separator_style = "thin",
       diagnostics = "nvim_lsp",
+      hover = {
+        enabled = true,
+        delay = 200,
+        reveal = { "close" },
+      },
     },
   },
   config = function(_, opts)

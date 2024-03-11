@@ -7,4 +7,7 @@ require("lspconfig").tailwindcss.setup({
       suggestions = true,
     },
   },
+  on_attach = function(client)
+    client.server_capabilities.completionProvider.triggerCharacters = { '"', "'", "`", ".", "(", "[", "!", "/", ":" }
+  end,
 })
