@@ -4,6 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-tree/nvim-web-devicons",
+    "debugloop/telescope-undo.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
@@ -130,8 +131,11 @@ return {
 
     require("telescope").load_extension("file_browser")
     require("telescope").load_extension("fzf")
+    require("telescope").load_extension("undo")
   end,
   keys = {
+    { "<space>tu", "<cmd>Telescope undo<cr>", desc = "Telescope - Undo History" },
+
     { "<space>tld", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Telescope - Diagnostics Document" },
     { "<space>tlD", "<cmd>Telescope diagnostics<cr>", desc = "Telescope - Diagnostics Workspace" },
     { "<space>tls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Telescope - LSP Document Symbols" },

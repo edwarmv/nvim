@@ -1,5 +1,10 @@
 return {
   "stevearc/conform.nvim",
+  event = { "BufWritePre" },
+  cmd = { "ConformInfo" },
+  init = function()
+    vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+  end,
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
@@ -13,6 +18,7 @@ return {
       javascriptreact = { { "prettierd", "prettier" } },
       typescriptreact = { { "prettierd", "prettier" } },
       python = { "black" },
+      sql = { "sql_formatter" },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
@@ -23,6 +29,16 @@ return {
         return { timeout_ms = 500, lsp_fallback = true }
       end
     end,
+  },
+  keys = {
+    {
+      "<leader>f",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      mode = "",
+      desc = "[LSP] Format",
+    },
   },
   config = function(_, opts)
     require("conform").setup(opts)

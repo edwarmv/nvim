@@ -171,9 +171,9 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "gLR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
-  vim.keymap.set({ "n", "v" }, "<leader>f", function()
-    require("conform").format({ async = true, lsp_fallback = true })
-  end, { desc = "[LSP] Format", buffer = buffer })
+  -- vim.keymap.set({ "n", "v" }, "<leader>f", function()
+  --   require("conform").format({ async = true, lsp_fallback = true })
+  -- end, { desc = "[LSP] Format", buffer = buffer })
 
   -- vim.keymap.set({ "n", "v" }, "<leader>f", lspFormat, { desc = "[LSP] Format", buffer = buffer })
 
