@@ -137,8 +137,8 @@ return {
             fallback()
           end,
         }),
-        ["<m-f>"] = cmp.mapping.scroll_docs(1),
-        ["<m-b>"] = cmp.mapping.scroll_docs(-1),
+        ["<c-f>"] = cmp.mapping.scroll_docs(1),
+        ["<c-b>"] = cmp.mapping.scroll_docs(-1),
         ["<c-e>"] = cmp.mapping({
           i = function(fallback)
             if cmp.visible() then
@@ -251,7 +251,7 @@ return {
         }),
       }, --}}}
       experimental = {
-        ghost_text = true,
+        ghost_text = false,
       },
     })
 
