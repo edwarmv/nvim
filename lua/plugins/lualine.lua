@@ -183,7 +183,7 @@ return {
           { "diff", source = diff_source },
         },
         lualine_c = {
-          -- { "filename", file_status = true },
+          { "filename", file_status = true },
           -- {
           --   "diagnostics",
           --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
@@ -195,12 +195,12 @@ return {
           --   },
           --   update_in_insert = false, -- Update diagnostics in insert mode
           -- },
-          {
-            "navic",
-            navic_opts = {
-              click = true,
-            },
-          },
+          -- {
+          --   "navic",
+          --   navic_opts = {
+          --     click = true,
+          --   },
+          -- },
         },
         lualine_x = {
           -- require("lsp-progress").progress,

@@ -1,6 +1,6 @@
 return {
   "luukvbaal/statuscol.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -12,17 +12,17 @@ return {
           click = "v:lua.ScFa",
           sign = { colwidth = 1, auto = true },
         },
-        {
-          sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
-        },
+        -- {
+        --   sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
+        -- },
         {
           sign = { namespace = { "dap" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScLa",
         },
-        {
-          sign = { namespace = { "diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
-          click = "v:lua.ScSa",
-        },
+        -- {
+        --   sign = { namespace = { "diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
+        --   click = "v:lua.ScSa",
+        -- },
         {
           text = {
             builtin.lnumfunc,
@@ -34,7 +34,10 @@ return {
           sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = true, wrap = true },
           click = "v:lua.ScSa",
         },
-        { text = { " " } },
+        {
+          text = { " " },
+          condition = { builtin.not_empty },
+        },
       },
     })
   end,

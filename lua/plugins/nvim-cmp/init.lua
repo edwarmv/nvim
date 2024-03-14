@@ -213,14 +213,9 @@ return {
           end,
         }),
       }, --}}}
-      matching = {
-        disallow_partial_matching = true,
-        disallow_fuzzy_matching = true,
-        disallow_prefix_unmatching = true,
-      },
       sources = cmp.config.sources({
-        { name = "nvim_lsp", keyword_length = 2 },
-        { name = "luasnip" },
+        -- { name = "luasnip" },
+        { name = "nvim_lsp" },
         { name = "buffer" },
       }),
       formatting = { --{{{
@@ -490,8 +485,8 @@ return {
         else
           cmp.setup.buffer({
             sources = cmp.config.sources({
-              { name = "nvim_lsp", keyword_length = 2 },
-              { name = "luasnip" },
+              -- { name = "luasnip" },
+              { name = "nvim_lsp" },
               { name = "buffer" },
             }),
           })
@@ -500,4 +495,3 @@ return {
     })
   end,
 }
--- vim: foldmethod=marker
