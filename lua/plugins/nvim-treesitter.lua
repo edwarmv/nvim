@@ -55,7 +55,7 @@ return {
       highlight = {
         enable = true,
         -- disable = { "dart", "html" },
-        -- additional_vim_regex_highlighting = { "html" },
+        additional_vim_regex_highlighting = { "scss" },
       },
       indent = {
         enable = true,

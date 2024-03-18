@@ -8,8 +8,8 @@ return {
       filetypes = {},
       excludes = { "dirbuf" },
       highlighter = {
-        auto_enable = true,
-        lsp = true,
+        auto_enable = false,
+        lsp = false,
       },
       win_opts = {
         border = defaults.border,
