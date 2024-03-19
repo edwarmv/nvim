@@ -12,6 +12,7 @@ return {
       icons = {
         button = "",
       },
+      animation = false,
     },
     config = function(_, opts)
       require("barbar").setup(opts)
