@@ -1,6 +1,7 @@
 return {
   "NTBBloodbath/rest.nvim",
   dependencies = { "luarocks.nvim" },
+  enabled = false,
   config = function()
     require("rest-nvim").setup({})
 
