@@ -21,6 +21,7 @@ return {
       "marksman",
       "emmet-language-server",
       "astro-language-server",
+      "rust-analyzer",
       -- formatters
       "black",
       "sql-formatter",

@@ -48,6 +48,7 @@ return {
         "dap_repl",
         "angular",
         "astro",
+        "rust",
         -- "norg",
         -- "norg_meta",
         -- "norg_table",

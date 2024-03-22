@@ -13,6 +13,7 @@ require("lsp.tailwindcss") -- TOML
 require("lsp.pyright")
 require("lsp.marksman")
 require("lsp.astro")
+require("lsp.rust_analizer")
 -- require('lsp.emmet-language-server')
 -- require('lsp.volar')
 -- require('lsp.sqlls')

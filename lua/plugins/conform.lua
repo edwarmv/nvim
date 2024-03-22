@@ -19,6 +19,7 @@ return {
       typescriptreact = { { "prettierd", "prettier" } },
       python = { "black" },
       sql = { "sql_formatter" },
+      rust = { "rustfmt" },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
