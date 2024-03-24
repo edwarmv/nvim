@@ -1,32 +1,32 @@
 return {
   "ThePrimeagen/harpoon",
+  branch = "harpoon2",
   enabled = true,
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    require("harpoon").setup({
-      global_settings = {
-        excluded_filetypes = { "harpoon", "" },
-      },
-      menu = {
-        width = math.floor(vim.api.nvim_win_get_width(0) * 0.3),
-        height = math.floor(vim.api.nvim_win_get_height(0) * 0.4),
+    local harpoon = require("harpoon")
+
+    harpoon.setup({
+      settings = {
+        save_on_toggle = true,
+        sync_on_ui_close = true,
       },
     })
 
     vim.keymap.set("n", "gh", function()
-      return '<cmd>lua require("harpoon.ui").nav_file(vim.v.count)<CR>'
-    end, { expr = true, desc ="[Harpoon] - Navigate to File" })
+      return '<cmd>lua require("harpoon"):list():select(vim.v.count)<cr>'
+    end, { expr = true, desc = "[Harpoon] - Navigate to File" })
 
     vim.keymap.set("n", "gah", function()
-      if vim.v.count > 0 then
-        return '<cmd>lua require("harpoon.mark").set_current_at(vim.v.count)<cr>'
-      else
-        return '<cmd>lua require("harpoon.mark").add_file()<cr>'
-      end
+      harpoon:list():append()
     end, { expr = true, desc = "[Harpoon] - Add File" })
 
     vim.keymap.set("n", "gH", function()
-      require("harpoon.ui").toggle_quick_menu()
+      harpoon.ui:toggle_quick_menu(harpoon:list(), { border = "rounded" })
     end, { desc = "[Harpoon] - Toggle Quick Menu" })
+
+    vim.keymap.set("n", "gch", function()
+      harpoon:list():clear()
+    end, { desc = "[Harpoon] - Clear items" })
   end,
 }

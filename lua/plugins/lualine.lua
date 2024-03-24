@@ -11,51 +11,7 @@ local function diff_source()
   end
 end
 
-local fern = { --{{{
-  sections = {
-    lualine_a = {
-      {
-        function()
-          return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
-        end,
-      },
-    },
-  },
-  inactive_sections = {
-    lualine_c = {
-      {
-        function()
-          return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
-        end,
-      },
-    },
-  },
-  filetypes = { "fern" },
-} --}}}
-
-local aerial = { --{{{
-  sections = {
-    lualine_a = {
-      {
-        function()
-          return "Aerial"
-        end,
-      },
-    },
-  },
-  inactive_sections = {
-    lualine_c = {
-      {
-        function()
-          return "Aerial"
-        end,
-      },
-    },
-  },
-  filetypes = { "aerial" },
-} --}}}
-
-local nnn = { --{{{
+local nnn = {
   sections = {
     lualine_a = {
       {
@@ -75,45 +31,9 @@ local nnn = { --{{{
     },
   },
   filetypes = { "nnn" },
-} --}}}
+}
 
-local floaterm = { --{{{
-  sections = {
-    lualine_a = {
-      {
-        function()
-          return "Floaterm"
-        end,
-      },
-    },
-    lualine_c = {
-      -- {
-      --   function()
-      --     return vim.call("FloatermInfo")
-      --   end,
-      -- },
-    },
-  },
-  inactive_sections = {
-    lualine_a = {
-      {
-        function()
-          return "Floaterm"
-        end,
-      },
-    },
-    lualine_c = {
-      -- {
-      --   function()
-      --     return vim.call("FloatermInfo")
-      --   end,
-      -- },
-    },
-  },
-  filetypes = { "floaterm" },
-} --}}}
-
-local telescope = { --{{{
+local telescope = {
   sections = {
     lualine_a = {
       {
@@ -133,7 +53,7 @@ local telescope = { --{{{
     },
   },
   filetypes = { "TelescopePrompt" },
-} --}}}
+}
 
 return {
   "nvim-lualine/lualine.nvim",
@@ -142,6 +62,7 @@ return {
     "SmiteshP/nvim-navic",
     "folke/noice.nvim",
     "ecthelionvi/NeoComposer.nvim",
+    "abeldekat/harpoonline",
     -- {
     --   "linrongbin16/lsp-progress.nvim",
     --   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -151,6 +72,13 @@ return {
     -- },
   },
   config = function()
+    local Harpoonline = require("harpoonline")
+    Harpoonline.setup({
+      on_update = function()
+        require("lualine").refresh()
+      end,
+      formatter = "short",
+    })
     vim.opt.cmdheight = 0
     local navic = require("nvim-navic")
     require("lualine").setup({
@@ -204,7 +132,7 @@ return {
           },
         },
         lualine_x = {
-          -- require("lsp-progress").progress,
+          Harpoonline.format,
           {
             "diagnostics",
             sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
@@ -304,7 +232,6 @@ return {
         "quickfix",
         "aerial",
         nnn,
-        floaterm,
         telescope,
         "lazy",
         "toggleterm",
