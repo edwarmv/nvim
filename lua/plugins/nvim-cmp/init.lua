@@ -23,6 +23,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       dependencies = { "L3MON4D3/LuaSnip" },
     },
+    "luckasRanarison/tailwind-tools.nvim",
     -- {
     --   "max397574/better-escape.nvim",
     --   config = function()
@@ -54,18 +55,18 @@ return {
           types.cmp.TriggerEvent.TextChanged,
         },
       },
-      window = { --{{{
-        --   completion = {
-        --     border = defaults.border,
-        --     winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,Search:None",
-        --   },
+      window = {
+        completion = {
+          border = defaults.border,
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
-          -- border = defaults.border,
-          winhighlight = "NormalFloat:Pmenu,FloatBorder:Pmenu,Search:None",
+          border = defaults.border,
+          winhighlight = 'FloatBorder:FloatBorder',
         },
-      }, --}}}
+      },
       view = {
         entries = {
           follow_cursor = true,
@@ -74,7 +75,7 @@ return {
           auto_open = true,
         },
       },
-      mapping = { --{{{
+      mapping = {
         ["<up>"] = cmp.mapping({
           i = function(fallback)
             if cmp.visible() then
@@ -218,7 +219,7 @@ return {
         { name = "nvim_lsp" },
         { name = "buffer" },
       }),
-      formatting = { --{{{
+      formatting = {
         fields = {
           cmp.ItemField.Kind,
           cmp.ItemField.Abbr,
@@ -230,13 +231,7 @@ return {
             return math.floor(vim.o.columns / 4)
           end,
           ellipsis_char = "…",
-          -- before = function(_, vim_item)
-          --   local width = math.floor(vim.opt.columns:get() / 4)
-          --   if #vim_item.abbr > width then
-          --     vim_item.abbr = string.sub(vim_item.abbr, 1, width - 1) .. "…"
-          --   end
-          --   return vim_item
-          -- end,
+          before = require("tailwind-tools.cmp").lspkind_format,
           menu = {
             buffer = "[Buffer]",
             spell = "[Spell]",
@@ -244,7 +239,7 @@ return {
             luasnip = "[Snippet]",
           },
         }),
-      }, --}}}
+      },
       experimental = {
         ghost_text = true,
       },
