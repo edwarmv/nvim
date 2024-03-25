@@ -64,7 +64,7 @@ return {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
           border = defaults.border,
-          winhighlight = 'FloatBorder:FloatBorder',
+          winhighlight = "FloatBorder:FloatBorder",
         },
       },
       view = {
@@ -215,8 +215,9 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        -- { name = "luasnip" },
+        { name = "luasnip" },
         { name = "nvim_lsp" },
+      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -480,8 +481,9 @@ return {
         else
           cmp.setup.buffer({
             sources = cmp.config.sources({
-              -- { name = "luasnip" },
+              { name = "luasnip" },
               { name = "nvim_lsp" },
+            }, {
               { name = "buffer" },
             }),
           })

@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
@@ -20,6 +20,7 @@ return {
     bufferline.setup(opts)
 
     vim.keymap.set("n", "<leader>b", "<cmd>BufferLinePick<cr>", { desc = "[Buffer] Pick" })
+    vim.keymap.set("n", "<leader>B", "<cmd>BufferLinePickClose<cr>", { desc = "[Buffer] Pick" })
     vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<cr>", { desc = "[Buffer] Cycle Next" })
     vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<cr>", { desc = "[Buffer] Cycle Prev" })
     vim.keymap.set("n", "]B", "<cmd>BufferLineMoveNext<cr>", { desc = "[Buffer] Move Next" })

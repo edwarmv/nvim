@@ -18,7 +18,7 @@ vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 local opt = vim.opt
 
 opt.autowrite = false -- Enable auto write
-opt.clipboard = "unnamedplus" -- Sync with system clipboard
+-- opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = false -- Confirm to save changes before exiting modified buffer
@@ -87,7 +87,7 @@ vim.opt.foldlevelstart = 99
 vim.g.markdown_recommended_style = 0
 
 vim.opt.foldcolumn = "auto"
-vim.opt.viewoptions = { "folds" }
+vim.opt.viewoptions = { "folds", "cursor" }
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 vim.opt.fillchars = {
   diff = "╱",

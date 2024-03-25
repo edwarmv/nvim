@@ -1,9 +1,8 @@
 return {
   "nvim-neorg/neorg",
   enabled = true,
-  build = ":Neorg sync-parsers",
   dependencies = {
-    "nvim-lua/plenary.nvim",
+    "luarocks.nvim",
     {
       "nvim-neorg/neorg-telescope",
       keys = {
@@ -11,6 +10,7 @@ return {
       },
     },
   },
+  lazy = false,
   event = "VeryLazy",
   config = function()
     require("neorg").setup({

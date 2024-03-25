@@ -41,9 +41,9 @@ return {
   "tpope/vim-repeat",
   -- "tpope/vim-scriptease",
   "farmergreg/vim-lastplace",
+  "vim-scripts/restore_view.vim",
   -- "simeji/winresizer",
   "moll/vim-bbye",
-  "vim-scripts/restore_view.vim",
   {
     "gcmt/taboo.vim",
     config = function()

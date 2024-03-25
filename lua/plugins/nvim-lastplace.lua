@@ -1,4 +1,7 @@
 return {
   "ethanholz/nvim-lastplace",
-  config = true,
+  enabled = false,
+  opts = {
+    lastplace_open_folds = false,
+  },
 }
