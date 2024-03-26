@@ -14,7 +14,7 @@ return {
       --   end
       -- end,
 
-      top_down = false,
+      top_down = true,
 
       -- Function called when a window is closed
       -- on_close = nil,

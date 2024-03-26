@@ -26,6 +26,8 @@ return {
         vim.keymap.del("n", "<C-x>", { buffer = bufnr })
         vim.keymap.del("n", "-", { buffer = bufnr })
         vim.keymap.del("n", "<BS>", { buffer = bufnr })
+        vim.keymap.del("n", "f", { buffer = bufnr })
+        vim.keymap.del("n", "F", { buffer = bufnr })
 
         vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
         vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))

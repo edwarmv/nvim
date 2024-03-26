@@ -79,8 +79,9 @@ return {
       end,
       formatter = "short",
     })
+
     vim.opt.cmdheight = 0
-    local navic = require("nvim-navic")
+
     require("lualine").setup({
       options = {
         section_separators = { left = "", right = "" },

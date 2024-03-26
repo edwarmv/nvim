@@ -217,7 +217,6 @@ return {
       sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
-      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -483,7 +482,6 @@ return {
             sources = cmp.config.sources({
               { name = "luasnip" },
               { name = "nvim_lsp" },
-            }, {
               { name = "buffer" },
             }),
           })
