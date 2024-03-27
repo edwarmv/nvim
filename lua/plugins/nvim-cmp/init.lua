@@ -56,15 +56,15 @@ return {
         },
       },
       window = {
-        completion = {
-          border = defaults.border,
-          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-        },
+        -- completion = {
+        --   border = defaults.border,
+        --   winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        -- },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
-          border = defaults.border,
-          winhighlight = "FloatBorder:FloatBorder",
+          -- border = defaults.border,
+          -- winhighlight = "FloatBorder:FloatBorder",
         },
       },
       view = {
@@ -263,7 +263,7 @@ return {
       },
     })
 
-    require("cmp").setup.cmdline("/", {
+    cmp.setup.cmdline({ "/", "?" }, {
       completion = {
         autocomplete = {
           types.cmp.TriggerEvent.TextChanged,
