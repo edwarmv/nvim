@@ -58,9 +58,6 @@ return {
       width = vim.opt.columns:get() + 2,
       height = math.floor(vim.opt.lines:get() / 4),
     },
-    yadm = {
-      enable = true,
-    },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
 
