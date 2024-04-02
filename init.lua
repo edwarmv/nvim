@@ -142,7 +142,7 @@ vim.keymap.set("i", "<c-l>", "<c-f>")
 
 vim.diagnostic.config({
   -- underline = false,
-  virtual_text = true,
+  virtual_text = false,
   update_in_insert = false,
   severity_sort = true,
   virtual_lines = { only_current_line = true },

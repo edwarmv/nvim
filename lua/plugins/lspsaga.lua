@@ -17,10 +17,11 @@ return {
       },
       diagnostic = {
         show_code_action = false,
+        diagnostic_only_current = true,
       },
       finder = {
-        default = "ref+def+imp"
-      }
+        default = "ref+def+imp",
+      },
     })
   end,
   dependencies = {

@@ -22,6 +22,7 @@ return {
       "emmet-language-server",
       "astro-language-server",
       "rust-analyzer",
+      "basedpyright",
       -- formatters
       "black",
       "sql-formatter",
