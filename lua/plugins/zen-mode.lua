@@ -7,13 +7,13 @@ return {
       enabled = false,
     },
   },
-  enabled = false,
+  enabled = true,
   opts = {
     window = {
       width = 0.9,
     },
     on_open = function(_win)
-      -- vim.opt_local.winbar = [[%{%v:lua.dropbar.get_dropbar_str()%}]]
+      vim.opt_local.winbar = [[%{%v:lua.dropbar.get_dropbar_str()%}]]
     end,
   },
   keys = {
