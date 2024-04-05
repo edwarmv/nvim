@@ -15,13 +15,37 @@ return {
             or (
               buf
                 and vim.api.nvim_buf_is_valid(buf)
-                and (pcall(vim.treesitter.get_parser, buf, vim.bo[buf].ft))
+                -- and (pcall(vim.treesitter.get_parser, buf, vim.bo[buf].ft))
                 and true
               or false
             )
           )
       end,
       update_interval = 150,
+    },
+    bar = {
+      sources = function(buf, _)
+        local sources = require("dropbar.sources")
+        local utils = require("dropbar.utils")
+        if vim.bo[buf].ft == "markdown" then
+          return {
+            sources.path,
+            sources.markdown,
+          }
+        end
+        if vim.bo[buf].buftype == "terminal" then
+          return {
+            sources.terminal,
+          }
+        end
+        return {
+          sources.path,
+          utils.source.fallback({
+            sources.lsp,
+            -- sources.treesitter,
+          }),
+        }
+      end,
     },
     icons = {
       kinds = {
