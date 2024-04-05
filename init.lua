@@ -140,6 +140,8 @@ vim.keymap.set("n", "<m-6>", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc
 vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
 vim.keymap.set("i", "<c-l>", "<c-f>")
 
+vim.keymap.set("i", "<s-tab>", "<c-d>")
+
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = false,

@@ -163,9 +163,9 @@ return {
             if cmp.visible() then
               debounce.cancel_autocomplete = true
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            elseif utils.has_words_before() then
-              debounce.cancel_autocomplete = true
-              cmp.complete()
+            -- elseif utils.has_words_before() then
+            --   debounce.cancel_autocomplete = true
+            --   cmp.complete()
             else
               fallback()
             end
@@ -217,8 +217,14 @@ return {
       sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp", keyword_length = 2 },
+      }, {
         { name = "buffer" },
       }),
+      matching = {
+        disallow_partial_matching = true,
+        disallow_fuzzy_matching = true,
+        disallow_prefix_unmatching = true,
+      },
       formatting = {
         fields = {
           cmp.ItemField.Kind,
@@ -482,6 +488,7 @@ return {
             sources = cmp.config.sources({
               { name = "luasnip" },
               { name = "nvim_lsp", keyword_length = 2 },
+            }, {
               { name = "buffer" },
             }),
           })
