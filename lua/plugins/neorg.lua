@@ -1,17 +1,16 @@
 return {
   "nvim-neorg/neorg",
-  enabled = true,
+  enabled = false,
   dependencies = {
     "luarocks.nvim",
-    {
-      "nvim-neorg/neorg-telescope",
-      keys = {
-        { "<space>tnw", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
-      },
-    },
+    -- {
+    --   "nvim-neorg/neorg-telescope",
+    --   keys = {
+    --     { "<space>tnw", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
+    --   },
+    -- },
   },
   lazy = false,
-  event = "VeryLazy",
   config = function()
     require("neorg").setup({
       load = {
@@ -36,7 +35,7 @@ return {
             engine = "nvim-cmp",
           },
         },
-        ["core.integrations.telescope"] = {},
+        -- ["core.integrations.telescope"] = {},
       },
     })
   end,
