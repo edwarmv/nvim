@@ -56,15 +56,15 @@ return {
         },
       },
       window = {
-        -- completion = {
-        --   border = defaults.border,
-        --   winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-        -- },
+        completion = {
+          border = defaults.border,
+          winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
-          -- border = defaults.border,
-          -- winhighlight = "FloatBorder:FloatBorder",
+          border = defaults.border,
+          winhighlight = "FloatBorder:FloatBorder",
         },
       },
       view = {
@@ -216,7 +216,7 @@ return {
       }, --}}}
       sources = cmp.config.sources({
         { name = "luasnip" },
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", keyword_length = 2 },
         { name = "buffer" },
       }),
       formatting = {
@@ -481,7 +481,7 @@ return {
           cmp.setup.buffer({
             sources = cmp.config.sources({
               { name = "luasnip" },
-              { name = "nvim_lsp" },
+              { name = "nvim_lsp", keyword_length = 2 },
               { name = "buffer" },
             }),
           })
