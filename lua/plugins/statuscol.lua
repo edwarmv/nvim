@@ -36,7 +36,6 @@ return {
         },
         {
           text = { " " },
-          condition = { builtin.not_empty },
         },
       },
     })
