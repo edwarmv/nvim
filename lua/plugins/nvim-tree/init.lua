@@ -75,10 +75,10 @@ return {
       },
       hijack_cursor = true,
       diagnostics = {
-        enable = true,
+        enable = false,
       },
       update_focused_file = {
-        enable = true,
+        enable = false,
       },
       hijack_directories = {
         enable = false,
