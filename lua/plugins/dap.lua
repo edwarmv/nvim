@@ -120,10 +120,10 @@ return {
     --     })
     --   end,
     -- },
-    -- {
-    --   "Joakker/lua-json5",
-    --   build = "./install.sh",
-    -- },
+    {
+      "Joakker/lua-json5",
+      build = "./install.sh",
+    },
   },
 
   -- stylua: ignore
@@ -163,6 +163,7 @@ return {
 
   config = function()
     local dap = require("dap")
+    require("dap.ext.vscode").json_decode = require("json5").parse
 
     local icons = {
       Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
@@ -253,10 +254,11 @@ return {
     end
 
     require("dap.ext.vscode").load_launchjs(nil, {
-      ["pwa-node"] = languages,
-      ["node"] = languages,
-      ["chrome"] = languages,
-      ["pwa-chrome"] = languages,
+      -- ["pwa-node"] = languages,
+      -- ["node"] = languages,
+      -- ["chrome"] = languages,
+      -- ["pwa-chrome"] = languages,
+      -- ["python"] = { "python" },
     })
 
     -- for _, language in ipairs(js_based_languages) do
