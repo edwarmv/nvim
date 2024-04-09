@@ -220,11 +220,6 @@ return {
       }, {
         { name = "buffer" },
       }),
-      matching = {
-        disallow_partial_matching = true,
-        disallow_fuzzy_matching = true,
-        disallow_prefix_unmatching = true,
-      },
       formatting = {
         fields = {
           cmp.ItemField.Kind,
