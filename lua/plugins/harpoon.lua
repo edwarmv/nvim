@@ -18,7 +18,7 @@ return {
     end, { expr = true, desc = "[Harpoon] - Navigate to File" })
 
     vim.keymap.set("n", "gah", function()
-      harpoon:list():append()
+      harpoon:list():add()
     end, { expr = true, desc = "[Harpoon] - Add File" })
 
     vim.keymap.set("n", "gH", function()
