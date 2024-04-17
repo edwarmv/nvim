@@ -2,6 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "is0n/fm-nvim",
+  enabled = false,
   config = function()
     require("fm-nvim").setup({
       -- (Vim) Command used to open files

@@ -63,6 +63,7 @@ return {
     "folke/noice.nvim",
     "ecthelionvi/NeoComposer.nvim",
     "abeldekat/harpoonline",
+    "akinsho/git-conflict.nvim",
     -- {
     --   "linrongbin16/lsp-progress.nvim",
     --   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -81,6 +82,11 @@ return {
     })
 
     vim.opt.cmdheight = 0
+
+    local function conflict_count()
+      local count = require("git-conflict").conflict_count()
+      return count > 0 and " " .. count or ""
+    end
 
     require("lualine").setup({
       options = {
@@ -110,9 +116,10 @@ return {
             end,
           },
           { "diff", source = diff_source },
+          { conflict_count, color = { fg = "#b2555b" } },
         },
         lualine_c = {
-          { "filename", file_status = true },
+          -- { "filename", file_status = true },
           -- {
           --   "diagnostics",
           --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic

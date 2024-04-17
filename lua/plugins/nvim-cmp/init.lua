@@ -163,9 +163,9 @@ return {
             if cmp.visible() then
               debounce.cancel_autocomplete = true
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            -- elseif utils.has_words_before() then
-            --   debounce.cancel_autocomplete = true
-            --   cmp.complete()
+            elseif utils.has_words_before() then
+              debounce.cancel_autocomplete = true
+              cmp.complete()
             else
               fallback()
             end
