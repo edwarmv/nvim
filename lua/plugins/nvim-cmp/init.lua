@@ -215,10 +215,10 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        { name = "luasnip", keyword_length = 2 },
-        { name = "nvim_lsp", keyword_length = 2 },
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
       }, {
-        { name = "buffer", keyword_length = 2 },
+        { name = "buffer" },
       }),
       formatting = {
         fields = {
@@ -477,7 +477,6 @@ return {
             sources = cmp.config.sources({
               {
                 name = "spell",
-                keyword_length = 2,
                 option = {
                   keep_all_entries = false,
                 },
@@ -487,10 +486,10 @@ return {
         else
           cmp.setup.buffer({
             sources = cmp.config.sources({
-              { name = "luasnip", keyword_length = 2 },
-              { name = "nvim_lsp", keyword_length = 2 },
+              { name = "luasnip" },
+              { name = "nvim_lsp" },
             }, {
-              { name = "buffer", keyword_length = 2 },
+              { name = "buffer" },
             }),
           })
         end

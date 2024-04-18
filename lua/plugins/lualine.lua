@@ -119,7 +119,7 @@ return {
           { conflict_count, color = { fg = "#b2555b" } },
         },
         lualine_c = {
-          -- { "filename", file_status = true },
+          { "filename", file_status = true },
           -- {
           --   "diagnostics",
           --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic

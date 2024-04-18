@@ -20,7 +20,7 @@ return {
       -- on_close = nil,
 
       -- Render function for notifications. See notify-render()
-      render = "wrapped-compact", -- default minimal
+      render = "compact", -- default minimal
 
       -- Default timeout for notifications
       timeout = 3000,
@@ -30,7 +30,7 @@ return {
         return math.floor(vim.opt.columns:get() * 0.35)
       end,
       -- Max number of lines for a message
-      -- max_height = nil,
+      max_height = 1,
 
       -- For stages that change opacity this is treated as the highlight behind the window
       -- Set this to either a highlight group, an RGB hex value e.g. "#000000" or a function returning an RGB code for dynamic values

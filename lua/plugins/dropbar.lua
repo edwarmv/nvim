@@ -1,15 +1,31 @@
 return {
   "Bekaboo/dropbar.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
   },
   opts = {
     general = {
       enable = function(buf, win, _)
-        return vim.fn.buflisted(buf) == 1
+        return vim.fn.buflisted(buf) == 1 and vim.fn.bufname(buf) ~= ""
       end,
       update_interval = 150,
+    },
+    update_events = {
+      win = {
+        "CursorMoved",
+        "WinEnter",
+        "WinResized",
+      },
+      buf = {
+        "BufModifiedSet",
+        "FileChangedShellPost",
+        "TextChanged",
+      },
+      global = {
+        "DirChanged",
+        "VimResized",
+      },
     },
     bar = {
       sources = function(buf, _)
