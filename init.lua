@@ -144,7 +144,7 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 
 vim.diagnostic.config({
   -- underline = false,
-  virtual_text = false,
+  virtual_text = true,
   update_in_insert = false,
   severity_sort = true,
   virtual_lines = { only_current_line = true },

@@ -20,7 +20,7 @@ return {
       -- on_close = nil,
 
       -- Render function for notifications. See notify-render()
-      render = "compact", -- default minimal
+      render = "minimal", -- default minimal
 
       -- Default timeout for notifications
       timeout = 3000,

@@ -64,7 +64,7 @@ return {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
           -- border = defaults.border,
-          -- winhighlight = "FloatBorder:FloatBorder",
+          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
         },
       },
       view = {
@@ -217,7 +217,6 @@ return {
       sources = cmp.config.sources({
         { name = "luasnip" },
         { name = "nvim_lsp" },
-      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -488,7 +487,6 @@ return {
             sources = cmp.config.sources({
               { name = "luasnip" },
               { name = "nvim_lsp" },
-            }, {
               { name = "buffer" },
             }),
           })

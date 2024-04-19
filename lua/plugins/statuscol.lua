@@ -1,11 +1,11 @@
 return {
   "luukvbaal/statuscol.nvim",
-  enabled = false,
+  enabled = true,
+  branch = "0.10",
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
-      ft_ignore = { "neo-tree", "Trouble", "NeogitStatus", "NvimTree" },
-      relculright = true,
+      relculright = false,
       segments = {
         {
           text = { builtin.foldfunc },
@@ -16,11 +16,11 @@ return {
         --   sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
         -- },
         {
-          sign = { namespace = { "dap" }, maxwidth = 1, colwidth = 2, auto = true },
+          sign = { name = { "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScLa",
         },
         -- {
-        --   sign = { namespace = { "diagnostic" }, maxwidth = 1, colwidth = 2, auto = true },
+        --   sign = { namespace = { "diagnostic", "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
         --   click = "v:lua.ScSa",
         -- },
         {
@@ -31,9 +31,13 @@ return {
           click = "v:lua.ScLa",
         },
         {
-          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = true, wrap = true },
+          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = true },
           click = "v:lua.ScSa",
         },
+        -- {
+        --   sign = { name = { ".*" }, auto = true },
+        --   click = "v:lua.ScSa",
+        -- },
         {
           text = { " " },
         },
