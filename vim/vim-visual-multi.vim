@@ -16,6 +16,7 @@ function! VM_Start()
   lua require('lualine').hide({ place = { 'statusline' } })
   nmap <buffer> <leader>e <cmd>VMClear<cr>
   execute("IBLDisable")
+  lua require('cmp').setup.buffer({ enabled = false })
   " execute("NoiceDisable")
 endfunction
 
@@ -24,6 +25,7 @@ function! VM_Exit()
   lua require("nvim-autopairs").force_attach()
   noh
   execute("IBLEnable")
+  lua require('cmp').setup.buffer({ enabled = true })
   " execute("NoiceEnable")
   " execute("VMClear")
   " call vm#clearmatches()
