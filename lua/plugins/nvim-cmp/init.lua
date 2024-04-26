@@ -445,6 +445,22 @@ return {
     --     { name = "buffer" },
     --   },
     -- })
+    cmp.setup.filetype({ "markdown" }, {
+      sources = {
+        { name = "spell" },
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+        { name = "buffer" },
+      },
+    })
+
+    cmp.setup.filetype({ "gitcommit" }, {
+      sources = {
+        { name = "spell" },
+        { name = "luasnip" },
+        { name = "buffer" },
+      },
+    })
 
     -- cmp.event:on("confirm_done", function()
     --   print('confirm_done')
