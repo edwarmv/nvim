@@ -215,8 +215,8 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "buffer" },
       }),
       formatting = {
@@ -448,8 +448,8 @@ return {
     cmp.setup.filetype({ "markdown" }, {
       sources = {
         { name = "spell" },
-        { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "buffer" },
       },
     })
@@ -501,8 +501,8 @@ return {
         else
           cmp.setup.buffer({
             sources = cmp.config.sources({
-              { name = "luasnip" },
               { name = "nvim_lsp" },
+              { name = "luasnip" },
               { name = "buffer" },
             }),
           })

@@ -1,6 +1,6 @@
 return {
   "Bekaboo/dropbar.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
   },
@@ -9,7 +9,7 @@ return {
       enable = function(buf, win, _)
         return vim.fn.buflisted(buf) == 1 and vim.fn.bufname(buf) ~= ""
       end,
-      update_interval = 150,
+      update_interval = 250,
     },
     update_events = {
       win = {
