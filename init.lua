@@ -62,7 +62,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = true -- Disable line wrap
+opt.wrap = false -- Disable line wrap
 opt.breakindent = true
 opt.showbreak = "…"
 opt.linebreak = true
@@ -145,7 +145,7 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
-  update_in_insert = false,
+  update_in_insert = true,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
   signs = {
