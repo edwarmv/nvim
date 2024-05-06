@@ -8,6 +8,7 @@ return {
     "ibhagwan/fzf-lua", -- optional
   },
   opts = {
+    disable_signs = true,
     signs = {
       -- { CLOSED, OPENED }
       hunk = { "", "" },

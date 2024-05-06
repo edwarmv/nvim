@@ -216,7 +216,7 @@ return {
       }, --}}}
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "luasnip" },
+        -- { name = "luasnip" },
         { name = "buffer" },
       }),
       formatting = {
@@ -449,7 +449,7 @@ return {
       sources = {
         { name = "spell" },
         { name = "nvim_lsp" },
-        { name = "luasnip" },
+        -- { name = "luasnip" },
         { name = "buffer" },
       },
     })
@@ -457,7 +457,7 @@ return {
     cmp.setup.filetype({ "gitcommit" }, {
       sources = {
         { name = "spell" },
-        { name = "luasnip" },
+        -- { name = "luasnip" },
         { name = "buffer" },
       },
     })
@@ -502,7 +502,7 @@ return {
           cmp.setup.buffer({
             sources = cmp.config.sources({
               { name = "nvim_lsp" },
-              { name = "luasnip" },
+              -- { name = "luasnip" },
               { name = "buffer" },
             }),
           })
