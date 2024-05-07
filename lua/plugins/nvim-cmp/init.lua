@@ -34,13 +34,10 @@ return {
     -- },
   },
   config = function()
-    -- require("plugins.nvim-cmp.custom")
     local utils = require("plugins.nvim-cmp.utils")
     local luasnip = require("luasnip")
     local cmp = require("cmp")
-    local debounce = require("plugins.nvim-cmp.debounce")
     local types = require("cmp.types")
-    local compare = require("cmp.config.compare")
 
     cmp.setup({
       snippet = {
@@ -56,15 +53,15 @@ return {
         },
       },
       window = {
-        -- completion = {
-        --   border = defaults.border,
+        completion = {
+          -- border = defaults.border,
         --   winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
-        -- },
+        },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
           -- border = defaults.border,
-          winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
+          -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu",
         },
       },
       view = {
@@ -161,10 +158,8 @@ return {
         ["<tab>"] = cmp.mapping({
           i = function(fallback)
             if cmp.visible() then
-              debounce.cancel_autocomplete = true
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif utils.has_words_before() then
-              debounce.cancel_autocomplete = true
               cmp.complete()
             else
               fallback()
@@ -172,7 +167,6 @@ return {
           end,
           c = function(fallback)
             if cmp.visible() then
-              debounce.cancel_autocomplete = true
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
             else
               -- fallback()
@@ -183,7 +177,6 @@ return {
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
             if cmp.visible() then
-              debounce.cancel_autocomplete = true
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
@@ -191,7 +184,6 @@ return {
           end,
           c = function(fallback)
             if cmp.visible() then
-              debounce.cancel_autocomplete = true
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
             else
               fallback()
@@ -216,7 +208,7 @@ return {
       }, --}}}
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        -- { name = "luasnip" },
+        { name = "luasnip" },
         { name = "buffer" },
       }),
       formatting = {
@@ -449,7 +441,7 @@ return {
       sources = {
         { name = "spell" },
         { name = "nvim_lsp" },
-        -- { name = "luasnip" },
+        { name = "luasnip" },
         { name = "buffer" },
       },
     })
@@ -457,7 +449,7 @@ return {
     cmp.setup.filetype({ "gitcommit" }, {
       sources = {
         { name = "spell" },
-        -- { name = "luasnip" },
+        { name = "luasnip" },
         { name = "buffer" },
       },
     })
@@ -502,7 +494,7 @@ return {
           cmp.setup.buffer({
             sources = cmp.config.sources({
               { name = "nvim_lsp" },
-              -- { name = "luasnip" },
+              { name = "luasnip" },
               { name = "buffer" },
             }),
           })
