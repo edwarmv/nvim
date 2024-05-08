@@ -27,6 +27,7 @@ return {
         "WinResized",
       },
       buf = {
+        "BufWinEnter",
         "BufModifiedSet",
         "FileChangedShellPost",
         "TextChanged",
