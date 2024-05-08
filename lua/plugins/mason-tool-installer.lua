@@ -23,6 +23,7 @@ return {
       "astro-language-server",
       "rust-analyzer",
       "basedpyright",
+      "css-variables-language-server",
       -- formatters
       "black",
       "sql-formatter",
