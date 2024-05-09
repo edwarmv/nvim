@@ -1,7 +1,7 @@
 return {
   "yorickpeterse/nvim-dd",
-  enabled = false,
+  enabled = true,
   opts = {
-    timeout = 300
+    timeout = 100
   },
 }

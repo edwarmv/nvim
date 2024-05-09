@@ -19,10 +19,10 @@ return {
           sign = { name = { "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScLa",
         },
-        -- {
-        --   sign = { namespace = { "diagnostic", "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
-        --   click = "v:lua.ScSa",
-        -- },
+        {
+          sign = { namespace = { "diagnostic", "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
+          click = "v:lua.ScSa",
+        },
         {
           text = {
             builtin.lnumfunc,

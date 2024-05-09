@@ -119,7 +119,7 @@ return {
           { conflict_count, color = { fg = "#b2555b" } },
         },
         lualine_c = {
-          { "filename", file_status = true },
+          -- { "filename", file_status = true },
           -- {
           --   "diagnostics",
           --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
@@ -131,13 +131,13 @@ return {
           --   },
           --   update_in_insert = false, -- Update diagnostics in insert mode
           -- },
-          -- {
-          --   "navic",
-          --   color_correction = "dynamic",
-          --   navic_opts = {
-          --     click = true,
-          --   },
-          -- },
+          {
+            "navic",
+            color_correction = "dynamic",
+            navic_opts = {
+              click = true,
+            },
+          },
         },
         lualine_x = {
           Harpoonline.format,

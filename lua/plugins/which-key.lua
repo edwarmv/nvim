@@ -23,15 +23,15 @@ return {
           g = true, -- bindings for prefixed with g
         },
       },
-      triggers_blacklist = {
-        n = { "y", "v" },
-      },
+      -- triggers_blacklist = {
+      --   n = { "y", "v" },
+      -- },
       window = {
         border = defaults.border,
       },
     })
-    local presets = require("which-key.plugins.presets")
-    presets.operators["v"] = nil
-    presets.operators["y"] = nil
+    -- local presets = require("which-key.plugins.presets")
+    -- presets.operators["v"] = nil
+    -- presets.operators["y"] = nil
   end,
 }

@@ -32,8 +32,6 @@ return {
       on_colors = function(colors) end,
 
       on_highlights = function(hl, c)
-        hl.BufferCurrentSign = { fg = c.blue1 }
-        hl.BufferInactiveSign = { fg = "#636a8d" }
         hl.TabLineFill = {
           bg = c.bg_dark,
         }

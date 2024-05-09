@@ -4,7 +4,7 @@ local exclude_ft = {
 
 return {
   "Bekaboo/dropbar.nvim",
-  enabled = true,
+  enabled = false,
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
   },

@@ -62,7 +62,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
+opt.wrap = true -- Disable line wrap
 opt.breakindent = true
 opt.showbreak = "…"
 opt.linebreak = true
@@ -93,9 +93,9 @@ vim.opt.fillchars = {
   diff = "╱",
   eob = " ",
   fold = "·",
-  foldopen = "",
+  foldopen = "",
   foldsep = "│",
-  foldclose = "",
+  foldclose = "",
 }
 vim.opt.listchars = {
   -- space = "⋅",
@@ -145,19 +145,19 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
-  update_in_insert = true,
+  update_in_insert = false,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
-      -- [vim.diagnostic.severity.ERROR] = "",
-      -- [vim.diagnostic.severity.WARN] = "",
-      -- [vim.diagnostic.severity.INFO] = "",
-      -- [vim.diagnostic.severity.HINT] = "",
+      -- [vim.diagnostic.severity.ERROR] = "",
+      -- [vim.diagnostic.severity.WARN] = "",
+      -- [vim.diagnostic.severity.INFO] = "",
+      -- [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
     },
   },
   -- float = {
@@ -198,23 +198,23 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Fix conceallevel for json files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = augroup("json_conceal"),
-  pattern = { "json", "jsonc", "json5" },
-  callback = function()
-    vim.opt_local.conceallevel = 0
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   group = augroup("json_conceal"),
+--   pattern = { "json", "jsonc", "json5" },
+--   callback = function()
+--     vim.opt_local.conceallevel = 0
+--   end,
+-- })
 
 -- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("wrap_spell"),
-  pattern = { "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = augroup("wrap_spell"),
+--   pattern = { "gitcommit", "NeogitCommitMessage", "markdown" },
+--   callback = function()
+--     vim.opt_local.wrap = true
+--     vim.opt_local.spell = true
+--   end,
+-- })
 
 vim.api.nvim_create_user_command("CloseAllFloatingWindows", function()
   if vim.fn.expand("%:t") == "[Command Line]" then

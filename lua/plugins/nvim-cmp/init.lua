@@ -309,6 +309,22 @@ return {
           { desc = "snippets", exit = true },
         },
         {
+          "S",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "spell" },
+                },
+              },
+            })
+          end,
+          { desc = "spell", exit = true },
+        },
+        {
           "p",
           function()
             if cmp.visible() then
@@ -395,6 +411,36 @@ return {
       },
     })
 
+    Hydra({
+      config = {
+        hint = {
+          type = "statusline",
+        },
+        invoke_on_body = true,
+        timeout = false,
+      },
+      mode = "i",
+      body = "<c-x>",
+      heads = {
+        {
+          "s",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "spell" },
+                },
+              },
+            })
+          end,
+          { desc = "spell", exit = true },
+        },
+      },
+    })
+
     -- cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
     --   sources = cmp.config.sources({
     --     { name = "vim-dadbod-completion" },
@@ -447,7 +493,7 @@ return {
       },
     })
 
-    cmp.setup.filetype({ "gitcommit" }, {
+    cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
       sources = {
         { name = "spell" },
         { name = "luasnip" },
@@ -473,34 +519,34 @@ return {
     --   debounce.cancel_autocomplete = false
     -- end)
 
-    local group = vim.api.nvim_create_augroup("CmpUserAuGroup", { clear = false })
+    -- local group = vim.api.nvim_create_augroup("CmpUserAuGroup", { clear = false })
 
-    vim.api.nvim_create_autocmd("OptionSet", {
-      group = group,
-      pattern = "spell",
-      callback = function()
-        local is_spell_on = vim.opt.spell:get()
-        if is_spell_on then
-          cmp.setup.buffer({
-            sources = cmp.config.sources({
-              {
-                name = "spell",
-                option = {
-                  keep_all_entries = false,
-                },
-              },
-            }),
-          })
-        else
-          cmp.setup.buffer({
-            sources = cmp.config.sources({
-              { name = "nvim_lsp" },
-              { name = "luasnip" },
-              { name = "buffer" },
-            }),
-          })
-        end
-      end,
-    })
+    -- vim.api.nvim_create_autocmd("OptionSet", {
+    --   group = group,
+    --   pattern = "spell",
+    --   callback = function()
+    --     local is_spell_on = vim.opt.spell:get()
+    --     if is_spell_on then
+    --       cmp.setup.buffer({
+    --         sources = cmp.config.sources({
+    --           {
+    --             name = "spell",
+    --             option = {
+    --               keep_all_entries = false,
+    --             },
+    --           },
+    --         }),
+    --       })
+    --     else
+    --       cmp.setup.buffer({
+    --         sources = cmp.config.sources({
+    --           { name = "nvim_lsp" },
+    --           { name = "luasnip" },
+    --           { name = "buffer" },
+    --         }),
+    --       })
+    --     end
+    --   end,
+    -- })
   end,
 }

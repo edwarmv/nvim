@@ -10,7 +10,7 @@ return {
       vim.g.barbar_auto_setup = false
     end,
     opts = {
-      exclude_ft = { "oil", "" },
+      -- exclude_ft = { "oil", "" },
       icons = {
         button = "",
         separator_at_end = false,
