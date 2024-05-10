@@ -72,7 +72,7 @@ return {
         }
         hl.TelescopeNormal = { fg = c.comment, bg = c.bg_float }
         hl.TelescopeSelection = { link = "CursorLine" }
-        hl.Folded = { fg = c.blue, bg = c.none }
+        hl.Folded = { fg = c.comment, bg = c.none }
       end,
     })
     vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = colors.error })
