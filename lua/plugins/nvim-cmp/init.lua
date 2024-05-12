@@ -97,8 +97,6 @@ return {
           i = function(fallback)
             if cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            elseif luasnip.locally_jumpable(1) then
-              luasnip.jump(1)
             else
               fallback()
             end
@@ -118,8 +116,6 @@ return {
           i = function(fallback)
             if cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            elseif luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
             else
               fallback()
             end
@@ -157,7 +153,9 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         ["<tab>"] = cmp.mapping({
           i = function(fallback)
-            if cmp.visible() then
+            if luasnip.locally_jumpable(1) then
+              luasnip.jump(1)
+            elseif cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif utils.has_words_before() then
               cmp.complete()
@@ -176,7 +174,9 @@ return {
         }),
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
-            if cmp.visible() then
+            if luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            elseif cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
@@ -207,8 +207,9 @@ return {
         }),
       }, --}}}
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "nvim_lsp" },
+      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -307,22 +308,6 @@ return {
             })
           end,
           { desc = "snippets", exit = true },
-        },
-        {
-          "S",
-          function()
-            if cmp.visible() then
-              cmp.close()
-            end
-            cmp.complete({
-              config = {
-                sources = {
-                  { name = "spell" },
-                },
-              },
-            })
-          end,
-          { desc = "spell", exit = true },
         },
         {
           "p",
@@ -485,20 +470,22 @@ return {
     --   },
     -- })
     cmp.setup.filetype({ "markdown" }, {
-      sources = {
+      sources = cmp.config.sources({
         { name = "spell" },
-        { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "nvim_lsp" },
+      }, {
         { name = "buffer" },
-      },
+      }),
     })
 
     cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
-      sources = {
+      sources = cmp.config.sources({
         { name = "spell" },
         { name = "luasnip" },
+      }, {
         { name = "buffer" },
-      },
+      }),
     })
 
     -- cmp.event:on("confirm_done", function()

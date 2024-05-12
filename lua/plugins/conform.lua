@@ -3,6 +3,7 @@ return {
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   init = function()
+    vim.g.disable_autoformat = true
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
   end,
   opts = {

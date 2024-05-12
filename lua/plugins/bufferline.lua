@@ -1,6 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
@@ -8,6 +8,7 @@ return {
       show_close_icon = false,
       separator_style = "thin",
       diagnostics = "nvim_lsp",
+      diagnostics_update_in_insert = false,
       hover = {
         enabled = true,
         delay = 200,

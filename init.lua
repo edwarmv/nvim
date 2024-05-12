@@ -144,20 +144,20 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 
 vim.diagnostic.config({
   -- underline = false,
-  virtual_text = false,
+  virtual_text = true,
   update_in_insert = false,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
   signs = {
     text = {
-      -- [vim.diagnostic.severity.ERROR] = "",
-      -- [vim.diagnostic.severity.WARN] = "",
-      -- [vim.diagnostic.severity.INFO] = "",
-      -- [vim.diagnostic.severity.HINT] = "",
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+      -- [vim.diagnostic.severity.ERROR] = "",
+      -- [vim.diagnostic.severity.WARN] = "",
+      -- [vim.diagnostic.severity.INFO] = "",
+      -- [vim.diagnostic.severity.HINT] = "",
     },
   },
   -- float = {
