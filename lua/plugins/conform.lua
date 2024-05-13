@@ -1,9 +1,9 @@
 return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
+  cmd = { "ConformInfo", "Format", "FormatDisable", "FormatEnable" },
   init = function()
-    vim.g.disable_autoformat = true
+    vim.g.disable_autoformat = false
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
   end,
   opts = {
@@ -22,13 +22,22 @@ return {
       sql = { "sql_formatter" },
       rust = { "rustfmt" },
     },
-    format_on_save = function(bufnr)
+    -- format_on_save = function(bufnr)
+    --   -- Disable with a global or buffer-local variable
+    --   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+    --     return
+    --   end
+    --   if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
+    --     return { timeout_ms = 500, lsp_fallback = true }
+    --   end
+    -- end,
+    format_after_save = function(bufnr)
       -- Disable with a global or buffer-local variable
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
       if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
-        return { timeout_ms = 500, lsp_fallback = true }
+        return { lsp_fallback = true, async = true, bufnr = bufnr }
       end
     end,
   },
