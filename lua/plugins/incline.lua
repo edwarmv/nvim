@@ -14,10 +14,6 @@ return {
   enabled = true,
   config = function()
     require("incline").setup({
-      debounce_threshold = {
-        falling = 50,
-        rising = 10,
-      },
       hide = {
         cursorline = "focused_win",
         focused_win = false,

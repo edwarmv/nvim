@@ -67,6 +67,7 @@ opt.breakindent = true
 opt.showbreak = "…"
 opt.linebreak = true
 opt.colorcolumn = "80"
+opt.termsync = false
 
 if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true

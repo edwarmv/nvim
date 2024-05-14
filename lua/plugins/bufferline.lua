@@ -2,23 +2,23 @@ return {
   "akinsho/bufferline.nvim",
   enabled = true,
   dependencies = "nvim-tree/nvim-web-devicons",
-  opts = {
-    options = {
-      show_buffer_close_icons = false,
-      show_close_icon = false,
-      separator_style = "thin",
-      diagnostics = "nvim_lsp",
-      diagnostics_update_in_insert = false,
-      hover = {
-        enabled = true,
-        delay = 200,
-        reveal = { "close" },
-      },
-    },
-  },
-  config = function(_, opts)
+  config = function()
     local bufferline = require("bufferline")
-    bufferline.setup(opts)
+    bufferline.setup({
+      options = {
+        show_buffer_close_icons = false,
+        style_preset = bufferline.style_preset.minimal, -- or ,
+        show_close_icon = false,
+        separator_style = "thin",
+        diagnostics = "nvim_lsp",
+        diagnostics_update_in_insert = false,
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { "close" },
+        },
+      },
+    })
 
     vim.keymap.set("n", "<leader>b", "<cmd>BufferLinePick<cr>", { desc = "[Buffer] Pick" })
     vim.keymap.set("n", "<leader>B", "<cmd>BufferLinePickClose<cr>", { desc = "[Buffer] Pick" })

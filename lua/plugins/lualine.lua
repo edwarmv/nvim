@@ -154,7 +154,7 @@ return {
           },
           "zoom#statusline",
           "ObsessionStatus",
-          -- "searchcount",
+          "searchcount",
           "selectioncount",
           require("NeoComposer.ui").status_recording,
           -- {
