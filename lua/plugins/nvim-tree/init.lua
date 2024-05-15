@@ -3,9 +3,31 @@ return {
   enabled = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
+    { "b0o/nvim-tree-preview.lua", dependencies = { "nvim-lua/plenary.nvim" } },
+    {
+      "antosha417/nvim-lsp-file-operations",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-tree.lua",
+      },
+      config = function()
+        require("lsp-file-operations").setup()
+      end,
+    },
   },
   config = function()
     local icons = require("config.icons")
+    local preview = require("nvim-tree-preview")
+    preview.setup({
+      keymaps = {
+        ["<Esc>"] = { action = "close", unwatch = true },
+        ["<Tab>"] = { action = "toggle_focus" },
+        ["<CR>"] = { open = "edit" },
+        ["<C-t>"] = { open = "tab" },
+        ["<C-v>"] = { open = "vertical" },
+        ["<C-s>"] = { open = "horizontal" },
+      },
+    })
 
     require("nvim-tree").setup({
       on_attach = function(bufnr)
@@ -34,6 +56,11 @@ return {
         vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
         vim.keymap.set("n", "K", api.tree.change_root_to_parent, opts("Up"))
         vim.keymap.set("n", "J", api.tree.change_root_to_node, opts("CD"))
+
+        vim.keymap.set("n", "P", preview.watch, opts("Preview (Watch)"))
+        vim.keymap.set("n", "<Esc>", preview.unwatch, opts("Close Preview/Unwatch"))
+
+        vim.keymap.set("n", "<Tab>", preview.node_under_cursor, opts("Preview"))
       end,
       view = {
         width = {
@@ -69,7 +96,13 @@ return {
         open_file = {
           window_picker = {
             enable = true,
-            picker = require("window-picker").pick_window,
+            picker = function()
+              return require("window-picker").pick_window({
+                filter_rules = {
+                  file_path_contains = { "nvim-tree-preview://" },
+                },
+              })
+            end,
           },
         },
       },
