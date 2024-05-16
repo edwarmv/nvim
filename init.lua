@@ -1,3 +1,5 @@
+vim.deprecate = function() end
+
 -- =========================================================
 -- vim-settings
 -- =========================================================
@@ -72,6 +74,16 @@ opt.termsync = false
 if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
 end
+
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+  pattern = "{}",
+  callback = function()
+    if vim.fn.line("$") == 1 and vim.fn.getline(1) == "" then
+      vim.bo.buftype = "nofile"
+      vim.bo.bufhidden = "wipe"
+    end
+  end,
+})
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"

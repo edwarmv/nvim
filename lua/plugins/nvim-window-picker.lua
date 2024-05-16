@@ -4,6 +4,7 @@ return {
   event = "VeryLazy",
   opts = {
     hint = "floating-big-letter",
+    show_prompt = false,
     picker_config = {
       floating_big_letter = {
         font = {

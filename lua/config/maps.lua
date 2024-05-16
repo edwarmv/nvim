@@ -3,7 +3,7 @@ local defaults = require("config.defaults")
 local M = {}
 
 local function lspRename()
-  local clients = vim.lsp.get_active_clients({
+  local clients = vim.lsp.get_clients({
     bufnr = 0,
     method = "textDocument/rename",
   })
@@ -70,7 +70,7 @@ local function lspFormat()
 
   local method = range and "textDocument/rangeFormatting" or "textDocument/formatting"
 
-  local clients = vim.lsp.get_active_clients({
+  local clients = vim.lsp.get_clients({
     bufnr = 0,
   })
 
@@ -142,7 +142,7 @@ M.lsp = function(buffer)
     "<cmd>Lspsaga finder ref<cr>",
     { desc = "[LSP - Saga] Finder References", buffer = buffer }
   )
-  vim.keymap.set("n", "glf", "<cmd>Lspsaga finder<cr>", { desc = "[LSP - Saga] Finder", buffer = buffer })
+  vim.keymap.set("n", "glF", "<cmd>Lspsaga finder<cr>", { desc = "[LSP - Saga] Finder", buffer = buffer })
   vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
   vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Outgoing Calls", buffer = buffer })
   -- vim.keymap.set("n", "glr", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Rename", buffer = buffer })

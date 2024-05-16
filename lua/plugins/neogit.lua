@@ -8,7 +8,7 @@ return {
     "ibhagwan/fzf-lua", -- optional
   },
   opts = {
-    disable_signs = false,
+    disable_signs = true,
     signs = {
       -- { CLOSED, OPENED }
       hunk = { "▸", "▾" },
@@ -17,37 +17,6 @@ return {
     },
     auto_show_console = false,
     graph_style = "unicode",
-    kind = "floating",
-    commit_editor = {
-      kind = "floating",
-    },
-    commit_select_view = {
-      kind = "floating",
-    },
-    commit_view = {
-      kind = "floating",
-    },
-    log_view = {
-      kind = "floating",
-    },
-    rebase_editor = {
-      kind = "floating",
-    },
-    reflog_view = {
-      kind = "floating",
-    },
-    merge_editor = {
-      kind = "floating",
-    },
-    tag_editor = {
-      kind = "floating",
-    },
-    preview_buffer = {
-      kind = "floating",
-    },
-    popup = {
-      kind = "floating",
-    },
   },
   keys = {
     {
