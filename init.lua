@@ -69,7 +69,6 @@ opt.breakindent = true
 opt.showbreak = "…"
 opt.linebreak = true
 opt.colorcolumn = "80"
-opt.termsync = false
 
 if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
@@ -158,7 +157,7 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = true,
-  update_in_insert = false,
+  update_in_insert = true,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
   signs = {
@@ -220,14 +219,14 @@ vim.api.nvim_create_autocmd("FileType", {
 -- })
 
 -- wrap and check for spell in text filetypes
--- vim.api.nvim_create_autocmd("FileType", {
---   group = augroup("wrap_spell"),
---   pattern = { "gitcommit", "NeogitCommitMessage", "markdown" },
---   callback = function()
---     vim.opt_local.wrap = true
---     vim.opt_local.spell = true
---   end,
--- })
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("wrap_spell"),
+  pattern = { "gitcommit", "NeogitCommitMessage", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
 
 vim.api.nvim_create_user_command("CloseAllFloatingWindows", function()
   if vim.fn.expand("%:t") == "[Command Line]" then
@@ -277,7 +276,7 @@ vim.api.nvim_create_user_command("CloseAllFloatingWindows", function()
   end
 end, {})
 
-vim.keymap.set("n", "<c-w>Q", "<cmd>CloseAllFloatingWindows<cr>", { desc = "Quit all windows" })
+vim.keymap.set("n", "<esc>", "<cmd>CloseAllFloatingWindows<cr>", { desc = "Quit all windows", remap = true })
 
 local fn = vim.fn
 

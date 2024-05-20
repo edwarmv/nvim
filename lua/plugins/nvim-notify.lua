@@ -26,7 +26,7 @@ return {
       timeout = 3000,
 
       -- Max number of columns for messages
-      max_width = function ()
+      max_width = function()
         return math.floor(vim.opt.columns:get() * 0.35)
       end,
       -- Max number of lines for a message
@@ -56,6 +56,15 @@ return {
     -- vim.cmd([[hi link NotifyINFOBody NormalFloat]])
     -- vim.cmd([[hi link NotifyDEBUGBody NormalFloat]])
 
-    vim.notify = require("notify")
+    local banned_messages = { "No information available" }
+
+    vim.notify = function(msg, ...)
+      for _, banned in ipairs(banned_messages) do
+        if msg == banned then
+          return
+        end
+      end
+      require("notify")(msg, ...)
+    end
   end,
 }

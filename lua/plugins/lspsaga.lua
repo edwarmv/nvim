@@ -22,6 +22,10 @@ return {
       finder = {
         default = "ref+def+imp",
       },
+      hover = {
+        max_width = 0.5,
+        max_height = 0.5,
+      },
     })
   end,
   dependencies = {

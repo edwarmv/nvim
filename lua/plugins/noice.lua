@@ -74,5 +74,15 @@ return {
       inc_rename = false,
       lsp_doc_border = true,
     },
+    routes = {
+      {
+        -- avoid annoying message
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      },
+    },
   },
 }
