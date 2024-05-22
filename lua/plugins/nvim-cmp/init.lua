@@ -223,8 +223,8 @@ return {
       sources = cmp.config.sources({
         { name = "spell" },
       }, {
-        { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "luasnip" },
       }, {
         { name = "buffer" },
       }),
