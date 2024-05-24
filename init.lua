@@ -69,20 +69,17 @@ opt.breakindent = true
 opt.showbreak = "…"
 opt.linebreak = true
 opt.colorcolumn = "80"
+opt.smoothscroll = true
 
-if vim.fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true
-end
-
-vim.api.nvim_create_autocmd({ "BufLeave" }, {
-  pattern = "{}",
-  callback = function()
-    if vim.fn.line("$") == 1 and vim.fn.getline(1) == "" then
-      vim.bo.buftype = "nofile"
-      vim.bo.bufhidden = "wipe"
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufLeave" }, {
+--   pattern = "{}",
+--   callback = function()
+--     if vim.fn.line("$") == 1 and vim.fn.getline(1) == "" then
+--       vim.bo.buftype = "nofile"
+--       vim.bo.bufhidden = "wipe"
+--     end
+--   end,
+-- })
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
@@ -156,20 +153,20 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 
 vim.diagnostic.config({
   -- underline = false,
-  virtual_text = true,
+  virtual_text = false,
   update_in_insert = true,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
-      -- [vim.diagnostic.severity.ERROR] = "",
-      -- [vim.diagnostic.severity.WARN] = "",
-      -- [vim.diagnostic.severity.INFO] = "",
-      -- [vim.diagnostic.severity.HINT] = "",
+      -- [vim.diagnostic.severity.ERROR] = "",
+      -- [vim.diagnostic.severity.WARN] = "",
+      -- [vim.diagnostic.severity.INFO] = "",
+      -- [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
     },
   },
   -- float = {

@@ -17,7 +17,7 @@ return {
       },
       diagnostic = {
         show_code_action = false,
-        diagnostic_only_current = false,
+        diagnostic_only_current = true,
       },
       finder = {
         default = "ref+def+imp",
