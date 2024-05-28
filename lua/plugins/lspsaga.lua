@@ -7,7 +7,9 @@ return {
         border = "rounded",
       },
       lightbulb = {
-        enable = false,
+        enable = true,
+        sign = false,
+        debounce = 200,
       },
       symbol_in_winbar = {
         enable = false,
@@ -16,8 +18,7 @@ return {
         in_select = false,
       },
       diagnostic = {
-        show_code_action = false,
-        diagnostic_only_current = true,
+        diagnostic_only_current = false,
       },
       finder = {
         default = "ref+def+imp",
