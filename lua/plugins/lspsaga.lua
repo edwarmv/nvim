@@ -9,7 +9,7 @@ return {
       lightbulb = {
         enable = true,
         sign = false,
-        debounce = 200,
+        debounce = 300,
       },
       symbol_in_winbar = {
         enable = false,
@@ -18,7 +18,7 @@ return {
         in_select = false,
       },
       diagnostic = {
-        diagnostic_only_current = false,
+        diagnostic_only_current = true,
       },
       finder = {
         default = "ref+def+imp",

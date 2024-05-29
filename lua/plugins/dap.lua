@@ -124,6 +124,11 @@ return {
       "Joakker/lua-json5",
       build = "./install.sh",
     },
+    {
+
+      "LiadOz/nvim-dap-repl-highlights",
+      config = true,
+    },
   },
 
   -- stylua: ignore

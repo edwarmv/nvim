@@ -7,8 +7,8 @@ return {
     },
     {
       "windwp/nvim-ts-autotag",
+      config = true,
     },
-    "LiadOz/nvim-dap-repl-highlights",
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -50,6 +50,7 @@ return {
         "angular",
         "astro",
         "rust",
+        "xml",
         -- "norg",
         -- "norg_meta",
         -- "norg_table",
@@ -93,9 +94,6 @@ return {
         disable_virtual_text = true,
         enable_quotes = true,
         include_match_words = true,
-      },
-      autotag = {
-        enable = true,
       },
     })
   end,
