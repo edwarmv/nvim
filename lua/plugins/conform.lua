@@ -18,20 +18,11 @@ return {
       typescript = { { "prettierd", "prettier" } },
       javascriptreact = { { "prettierd", "prettier" } },
       typescriptreact = { { "prettierd", "prettier" } },
-      python = { "black" },
+      python = { "ruff_organize_imports", "ruff_format" },
       sql = { "sql_formatter" },
       rust = { "rustfmt" },
     },
-    -- format_on_save = function(bufnr)
-    --   -- Disable with a global or buffer-local variable
-    --   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-    --     return
-    --   end
-    --   if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
-    --     return { timeout_ms = 500, lsp_fallback = true }
-    --   end
-    -- end,
-    format_after_save = function(bufnr)
+    format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
@@ -40,6 +31,15 @@ return {
         return { lsp_fallback = true, async = true, bufnr = bufnr }
       end
     end,
+    -- format_after_save = function(bufnr)
+    --   -- Disable with a global or buffer-local variable
+    --   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+    --     return
+    --   end
+    --   if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
+    --     return { lsp_fallback = true, async = true, bufnr = bufnr }
+    --   end
+    -- end,
   },
   keys = {
     {

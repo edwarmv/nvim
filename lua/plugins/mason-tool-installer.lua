@@ -33,6 +33,7 @@ return {
       "autopep8",
       "eslint-lsp",
       "eslint_d",
+      "ruff",
     },
   },
 }
