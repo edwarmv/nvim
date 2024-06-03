@@ -1,4 +1,8 @@
 return {
   "luckasRanarison/tailwind-tools.nvim",
-  opts = {}, -- your configuration
+  opts = {
+    document_color = {
+      enabled = false,
+    },
+  }, -- your configuration
 }

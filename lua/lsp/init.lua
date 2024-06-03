@@ -1,5 +1,5 @@
 require("lsp.bashls")
-require('lsp.tsserver')
+require("lsp.tsserver")
 require("lsp.angularls")
 require("lsp.html")
 require("lsp.cssls")
