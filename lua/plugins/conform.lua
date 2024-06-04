@@ -28,7 +28,7 @@ return {
         return
       end
       if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
-        return { lsp_fallback = true, async = true, bufnr = bufnr }
+        return { lsp_fallback = true, bufnr = bufnr }
       end
     end,
     -- format_after_save = function(bufnr)

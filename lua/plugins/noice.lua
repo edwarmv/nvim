@@ -85,6 +85,7 @@ return {
       },
       {
         filter = {
+          event = "msg_show",
           error = true,
         },
         opts = { skip = true },
