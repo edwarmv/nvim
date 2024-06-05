@@ -18,7 +18,7 @@ return {
         in_select = false,
       },
       diagnostic = {
-        diagnostic_only_current = true,
+        diagnostic_only_current = false,
       },
       finder = {
         default = "ref+def+imp",

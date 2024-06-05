@@ -6,7 +6,7 @@ return {
     require("toggleterm").setup({
       size = function(term)
         if term.direction == "horizontal" then
-          return 0.2 * (vim.o.lines - vim.o.cmdheight)
+          return (1 / 3) * (vim.o.lines - vim.o.cmdheight)
         elseif term.direction == "vertical" then
           return vim.o.columns * 0.5
         end
@@ -34,7 +34,7 @@ return {
         end,
       },
       winbar = {
-        enabled = true,
+        enabled = false,
       },
     })
   end,

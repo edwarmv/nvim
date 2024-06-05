@@ -5,10 +5,6 @@ return {
     {
       "nvim-treesitter/playground",
     },
-    {
-      "windwp/nvim-ts-autotag",
-      config = true,
-    },
   },
   config = function()
     require("nvim-treesitter.configs").setup({
