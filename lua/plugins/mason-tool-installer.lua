@@ -24,6 +24,8 @@ return {
       "rust-analyzer",
       "basedpyright",
       "css-variables-language-server",
+      "dockerfile-language-server",
+      "docker-compose-language-service",
       -- formatters
       "black",
       "sql-formatter",
