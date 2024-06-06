@@ -125,7 +125,6 @@ return {
       build = "./install.sh",
     },
     {
-
       "LiadOz/nvim-dap-repl-highlights",
       config = true,
     },

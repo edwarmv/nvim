@@ -1,7 +1,6 @@
 return {
   "folke/flash.nvim",
   event = "VeryLazy",
-  ---@type Flash.Config
   opts = {
     modes = {
       search = {
@@ -58,6 +57,30 @@ return {
         require("flash").treesitter_search()
       end,
       desc = "Treesitter Search",
+    },
+    {
+      "zk",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump({
+          search = { forward = false, wrap = false, mode = "search", max_length = 0 },
+          label = { after = { 0, 0 } },
+          pattern = "^",
+        })
+      end,
+      desc = "Jump to a line",
+    },
+    {
+      "zj",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump({
+          search = { forward = true, wrap = false, mode = "search", max_length = 0 },
+          label = { after = { 0, 0 } },
+          pattern = "^",
+        })
+      end,
+      desc = "Jump to a line",
     },
   },
 }
