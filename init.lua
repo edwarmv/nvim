@@ -169,7 +169,10 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 
 vim.diagnostic.config({
   -- underline = false,
-  virtual_text = true,
+  virtual_text = false,
+  virtual_improved = {
+    current_line = "only",
+  },
   update_in_insert = false,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
