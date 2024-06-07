@@ -65,7 +65,7 @@ return {
         require("flash").jump({
           search = { forward = false, wrap = false, mode = "search", max_length = 0 },
           label = { after = { 0, 0 } },
-          pattern = "^",
+          pattern = "^\\s*\\zs\\S",
         })
       end,
       desc = "Jump to a line",
@@ -77,7 +77,7 @@ return {
         require("flash").jump({
           search = { forward = true, wrap = false, mode = "search", max_length = 0 },
           label = { after = { 0, 0 } },
-          pattern = "^",
+          pattern = "^\\s*\\zs\\S",
         })
       end,
       desc = "Jump to a line",
