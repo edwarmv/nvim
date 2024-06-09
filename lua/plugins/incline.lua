@@ -19,25 +19,6 @@ return {
         focused_win = false,
         only_win = false,
       },
-      highlight = {
-        groups = {
-          InclineNormal = {
-            default = true,
-            group = "NormalFloat",
-          },
-          InclineNormalNC = {
-            default = true,
-            group = "NormalFloat",
-          },
-        },
-      },
-      ignore = {
-        buftypes = "special",
-        filetypes = {},
-        floating_wins = true,
-        unlisted_buffers = true,
-        wintypes = "special",
-      },
       render = function(props)
         local bufname = vim.api.nvim_buf_get_name(props.buf)
         local filename = bufname ~= "" and filename_and_parent(vim.fn.fnamemodify(bufname, "%:p:~"), "/") or "[No Name]"
@@ -58,30 +39,6 @@ return {
       window = {
         margin = {
           horizontal = 0,
-          vertical = 0,
-        },
-        options = {
-          signcolumn = "no",
-          wrap = false,
-        },
-        padding = 1,
-        padding_char = " ",
-        placement = {
-          horizontal = "right",
-          vertical = "top",
-        },
-        width = "fit",
-        winhighlight = {
-          active = {
-            EndOfBuffer = "None",
-            Normal = "Statusline",
-            Search = "None",
-          },
-          inactive = {
-            EndOfBuffer = "None",
-            Normal = "StatuslineNC",
-            Search = "None",
-          },
         },
         zindex = 1,
       },

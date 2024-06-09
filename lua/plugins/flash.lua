@@ -7,6 +7,11 @@ return {
         enabled = false,
       },
     },
+    label = {
+      rainbow = {
+        enabled = true,
+      },
+    },
   },
   keys = {
     {

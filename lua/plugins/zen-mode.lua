@@ -7,7 +7,7 @@ return {
       enabled = false,
     },
   },
-  enabled = false,
+  enabled = true,
   opts = {
     window = {
       width = 0.9,
@@ -17,6 +17,6 @@ return {
     end,
   },
   keys = {
-    { "<leader>Z", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
+    { "<cr>", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
   },
 }

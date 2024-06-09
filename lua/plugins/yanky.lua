@@ -1,7 +1,7 @@
 return {
   "gbprod/yanky.nvim",
   dependencies = {
-    -- "kkharji/sqlite.lua",
+    "kkharji/sqlite.lua",
     {
       "gbprod/cutlass.nvim",
       opts = {
@@ -17,7 +17,11 @@ return {
     local utils = require("yanky.utils")
     require("yanky").setup({
       ring = {
-        storage = "shada",
+        storage = "sqlite",
+      },
+      highlight = {
+        on_put = false,
+        on_yank = false,
       },
     })
     require("telescope").load_extension("yank_history")

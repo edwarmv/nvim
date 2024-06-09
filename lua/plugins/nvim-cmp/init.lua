@@ -222,8 +222,10 @@ return {
       }, --}}}
       sources = cmp.config.sources({
         { name = "spell" },
+      }, {
         { name = "nvim_lsp" },
         { name = "luasnip" },
+      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -253,7 +255,7 @@ return {
         }),
       },
       experimental = {
-        ghost_text = false,
+        ghost_text = true,
       },
     })
 
