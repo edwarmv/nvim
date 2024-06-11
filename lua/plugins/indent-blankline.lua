@@ -41,7 +41,7 @@ return {
     },
     indent = {
       char = "▏",
-      tab_char = "▎",
+      tab_char = "▏",
     },
     scope = {
       enabled = true,

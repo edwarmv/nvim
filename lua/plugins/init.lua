@@ -37,7 +37,7 @@ return {
   },
   "fladson/vim-kitty",
   "imsnif/kdl.vim",
-  "tpope/vim-sleuth",
+  -- "tpope/vim-sleuth",
   "tpope/vim-repeat",
   -- "tpope/vim-scriptease",
   "farmergreg/vim-lastplace",
