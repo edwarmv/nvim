@@ -3,14 +3,7 @@ local defaults = require("config.defaults")
 return {
   "folke/trouble.nvim",
   opts = {
-    signs = {
-      error = " ",
-      warning = " ",
-      hint = " ",
-      information = " ",
-      other = " ",
-    },
-    win_config = { border = defaults.border },
+    win = { border = defaults.border },
   },
   keys = {
     {

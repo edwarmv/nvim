@@ -1,6 +1,6 @@
 return {
   "luozhiya/lsp-virtual-improved.nvim",
-  enabled = false,
+  enabled = true,
   event = { "LspAttach" },
   config = function()
     require("lsp-virtual-improved").setup()

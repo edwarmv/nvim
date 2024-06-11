@@ -1,7 +1,6 @@
 return {
   "luukvbaal/statuscol.nvim",
   enabled = true,
-  branch = "0.10",
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -19,10 +18,10 @@ return {
           sign = { name = { "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
           click = "v:lua.ScLa",
         },
-        -- {
-        --   sign = { namespace = { "diagnostic", "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
-        --   click = "v:lua.ScSa",
-        -- },
+        {
+          sign = { namespace = { "diagnostic", "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
+          click = "v:lua.ScSa",
+        },
         {
           text = {
             builtin.lnumfunc,
