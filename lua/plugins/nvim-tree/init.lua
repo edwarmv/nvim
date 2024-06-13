@@ -3,31 +3,14 @@ return {
   enabled = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    { "b0o/nvim-tree-preview.lua", dependencies = { "nvim-lua/plenary.nvim" } },
-    {
-      "antosha417/nvim-lsp-file-operations",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-tree.lua",
-      },
-      config = function()
-        require("lsp-file-operations").setup()
-      end,
-    },
+    "b0o/nvim-tree-preview.lua",
+    "antosha417/nvim-lsp-file-operations",
+    "nvim-lua/plenary.nvim",
   },
   config = function()
     local icons = require("config.icons")
     local preview = require("nvim-tree-preview")
-    preview.setup({
-      keymaps = {
-        ["<Esc>"] = { action = "close", unwatch = true },
-        ["<Tab>"] = { action = "toggle_focus" },
-        ["<CR>"] = { open = "edit" },
-        ["<C-t>"] = { open = "tab" },
-        ["<C-v>"] = { open = "vertical" },
-        ["<C-s>"] = { open = "horizontal" },
-      },
-    })
+    require("lsp-file-operations").setup()
 
     require("nvim-tree").setup({
       on_attach = function(bufnr)

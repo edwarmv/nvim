@@ -13,6 +13,7 @@ return {
       },
       symbol_in_winbar = {
         enable = false,
+        show_file = false,
       },
       rename = {
         in_select = false,
