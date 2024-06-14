@@ -6,20 +6,21 @@ return {
     require("statuscol").setup({
       relculright = false,
       segments = {
-        {
-          text = { builtin.foldfunc },
-          click = "v:lua.ScFa",
-          sign = { colwidth = 1, auto = true },
-        },
         -- {
         --   sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
         -- },
+        -- {
+        --   sign = { name = { "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
+        --   click = "v:lua.ScLa",
+        -- },
         {
-          sign = { name = { "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
-          click = "v:lua.ScLa",
-        },
-        {
-          sign = { namespace = { "diagnostic", "Dap*" }, maxwidth = 1, colwidth = 2, auto = true },
+          sign = {
+            namespace = { "diagnostic/signs" },
+            name = { "Dap*", ".*" },
+            maxwidth = 1,
+            colwidth = 2,
+            auto = true,
+          },
           click = "v:lua.ScSa",
         },
         {
@@ -30,16 +31,22 @@ return {
           click = "v:lua.ScLa",
         },
         {
-          sign = { namespace = { "gitsigns" }, maxwidth = 1, colwidth = 1, auto = true },
+          sign = {
+            namespace = { "gitsigns" },
+            maxwidth = 1,
+            colwidth = 1,
+            auto = false,
+          },
           click = "v:lua.ScSa",
         },
-        -- {
-        --   sign = { name = { ".*" }, auto = true },
-        --   click = "v:lua.ScSa",
-        -- },
         {
-          text = { " " },
+          text = { builtin.foldfunc },
+          click = "v:lua.ScFa",
+          sign = { colwidth = 1, auto = true },
         },
+        -- {
+        --   text = { " " },
+        -- },
       },
     })
   end,

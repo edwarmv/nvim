@@ -20,7 +20,7 @@ return {
           link = "FloatBorder",
         },
       },
-      direction = "horizontal", -- 'vertical' | 'horizontal' | 'window' | 'float',
+      direction = "float", -- 'vertical' | 'horizontal' | 'window' | 'float',
       shade_terminals = false,
       float_opts = {
         border = defaults.border,

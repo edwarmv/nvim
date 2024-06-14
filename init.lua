@@ -168,6 +168,8 @@ vim.keymap.set("i", "<c-l>", "<c-f>")
 
 vim.keymap.set("i", "<s-tab>", "<c-d>")
 
+local defaults = require("config.defaults")
+
 vim.diagnostic.config({
   -- underline = false,
   virtual_text = false,
@@ -189,12 +191,10 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT] = "",
     },
   },
-  -- float = {
-  --   source = "always",  -- Or "if_many"
-  -- },
+  float = {
+    border = defaults.border,
+  },
 })
-
-local defaults = require("config.defaults")
 
 local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
