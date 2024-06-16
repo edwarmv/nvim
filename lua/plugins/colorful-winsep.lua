@@ -1,7 +1,8 @@
 return {
   "nvim-zh/colorful-winsep.nvim",
-  enabled = false,
+  enabled = true,
   opts = {
+    smooth = false,
     highlight = {
       fg = "#29a4bd",
       bg = "#24283b",
