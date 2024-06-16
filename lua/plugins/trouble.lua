@@ -4,6 +4,12 @@ return {
   "folke/trouble.nvim",
   opts = {
     win = { border = defaults.border },
+    icons = {
+      indent = {
+        fold_open = "▾ ",
+        fold_closed = "▸ ",
+      },
+    },
   },
   keys = {
     {

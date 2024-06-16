@@ -49,9 +49,9 @@ return {
         width = {
           min = 30,
           max = -1,
-          padding = 1,
+          padding = 0,
         },
-        signcolumn = "auto",
+        signcolumn = "yes",
       },
       renderer = {
         indent_markers = {

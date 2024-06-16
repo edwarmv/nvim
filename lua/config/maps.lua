@@ -109,7 +109,7 @@ M.lsp = function(buffer)
   )
   vim.keymap.set(
     "n",
-    "gli",
+    "gLi",
     "<cmd>Glance implementations<cr>",
     { desc = "[LSP - Glance] Implementations", buffer = buffer }
   )
@@ -157,7 +157,7 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
 
-  vim.keymap.set("n", "gLi", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
+  vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
   vim.keymap.set({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
 

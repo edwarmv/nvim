@@ -1,8 +1,9 @@
 return {
   "dnlhc/glance.nvim",
-  config = function()
-    require("glance").setup({
-      -- your configuration
-    })
-  end,
+  opts = {
+    folds = {
+      fold_closed = "▸",
+      fold_open = "▾",
+    },
+  },
 }

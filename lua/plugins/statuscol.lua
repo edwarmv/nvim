@@ -4,7 +4,7 @@ return {
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
-      relculright = false,
+      ft_ignore = { "NvimTree", "NeogitStatus" },
       segments = {
         -- {
         --   sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },
@@ -19,7 +19,7 @@ return {
             name = { "Dap*", ".*" },
             maxwidth = 1,
             colwidth = 2,
-            auto = true,
+            auto = false,
           },
           click = "v:lua.ScSa",
         },
@@ -44,9 +44,6 @@ return {
           click = "v:lua.ScFa",
           sign = { colwidth = 1, auto = true },
         },
-        -- {
-        --   text = { " " },
-        -- },
       },
     })
   end,
