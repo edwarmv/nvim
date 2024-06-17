@@ -101,13 +101,6 @@ return {
               fallback()
             end
           end,
-          s = function(fallback)
-            if luasnip.jumpable(1) then
-              luasnip.jump(1)
-            else
-              fallback()
-            end
-          end,
           c = function(fallback)
             fallback()
           end,
@@ -116,13 +109,6 @@ return {
           i = function(fallback)
             if cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-            else
-              fallback()
-            end
-          end,
-          s = function(fallback)
-            if luasnip.jumpable(-1) then
-              luasnip.jump(-1)
             else
               fallback()
             end
@@ -155,10 +141,6 @@ return {
           i = function(fallback)
             if luasnip.locally_jumpable(1) then
               luasnip.jump(1)
-            elseif cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            elseif utils.has_words_before() then
-              cmp.complete()
             else
               fallback()
             end
@@ -183,8 +165,6 @@ return {
           i = function(fallback)
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
-            elseif cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
             end
