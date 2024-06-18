@@ -39,6 +39,14 @@ return {
           fg = c.fg,
           bg = c.bg,
         }
+        hl.InclineNormal = {
+          fg = c.blue,
+          bg = utils.blend(c.blue, c.bg, 0.15),
+        }
+        hl.InclineNormalNC = {
+          fg = c.blue0,
+          bg = utils.blend(c.blue0, c.bg, 0.15),
+        }
         hl.WhichKeyFloat = {
           fg = c.fg,
           bg = c.bg,

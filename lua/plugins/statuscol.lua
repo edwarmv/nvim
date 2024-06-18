@@ -4,7 +4,7 @@ return {
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
-      ft_ignore = { "NvimTree", "NeogitStatus" },
+      ft_ignore = { "NvimTree", "NeogitStatus", "toggleterm" },
       segments = {
         -- {
         --   sign = { name = { "todo*" }, maxwidth = 1, colwidth = 2, auto = true },

@@ -16,7 +16,7 @@ return {
     require("incline").setup({
       hide = {
         cursorline = "focused_win",
-        focused_win = true,
+        focused_win = false,
         only_win = false,
       },
       render = function(props)

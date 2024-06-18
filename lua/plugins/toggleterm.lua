@@ -37,5 +37,10 @@ return {
         enabled = false,
       },
     })
+
+    vim.api.nvim_create_user_command("FTerm", "ToggleTerm direction=float", {})
+    vim.api.nvim_create_user_command("VTerm", "ToggleTerm direction=vertical", {})
+    vim.api.nvim_create_user_command("STerm", "ToggleTerm direction=horizontal", {})
+    vim.api.nvim_create_user_command("TTerm", "ToggleTerm direction=tab", {})
   end,
 }

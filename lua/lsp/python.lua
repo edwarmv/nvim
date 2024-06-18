@@ -14,7 +14,7 @@ require("lspconfig").basedpyright.setup({
         autoSearchPaths = true,
         diagnosticMode = "openFilesOnly",
         useLibraryCodeForTypes = true,
-        typeCheckingMode = "standard", -- ["off", "basic", "standard", "strict", "all"]
+        typeCheckingMode = "basic", -- ["off", "basic", "standard", "strict", "all"]
         -- diagnosticSeverityOverrides = {
         --   reportMissingTypeStubs = "warning",
         --   reportUnknownMemberType = "warning",
