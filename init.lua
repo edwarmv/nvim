@@ -176,7 +176,7 @@ vim.diagnostic.config({
   virtual_improved = {
     current_line = "only",
   },
-  update_in_insert = true,
+  update_in_insert = false,
   severity_sort = true,
   virtual_lines = { only_current_line = true },
   signs = {

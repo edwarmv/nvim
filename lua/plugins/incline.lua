@@ -11,7 +11,7 @@ end
 
 return {
   "b0o/incline.nvim",
-  enabled = true,
+  enabled = false,
   config = function()
     require("incline").setup({
       hide = {
@@ -30,7 +30,24 @@ return {
         if vim.api.nvim_get_option_value("modified", { buf = props.buf }) then
           filename = filename .. " [+]"
         end
+
+        local function get_diagnostic_label()
+          local icons = { error = " ", warn = " ", info = " ", hint = " " }
+          local label = {}
+
+          for severity, icon in pairs(icons) do
+            local n = #vim.diagnostic.count(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
+            if n > 0 then
+              table.insert(label, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
+            end
+          end
+          -- if #label > 0 then
+          --   table.insert(label, { "┊ " })
+          -- end
+          return label
+        end
         return {
+          -- { get_diagnostic_label() },
           { icon, guifg = color },
           { " " },
           { filename },

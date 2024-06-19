@@ -11,7 +11,7 @@ return {
   opts = {
     messages = {
       enabled = true,
-      view_search = false,
+      view_search = "virtualtext",
     },
     lsp = {
       override = {
@@ -106,13 +106,13 @@ return {
       --   },
       --   opts = { skip = true },
       -- },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     kind = "",
-      --   },
-      --   opts = { skip = true },
-      -- },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
+        },
+        opts = { skip = true },
+      },
     },
   },
 }
