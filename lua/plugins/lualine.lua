@@ -140,10 +140,9 @@ return {
           -- },
         },
         lualine_x = {
-          Harpoonline.format,
           {
             "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
+            sources = { "nvim_workspace_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
             symbols = {
               error = icons.diagnostic.error,
               warn = icons.diagnostic.warn,
@@ -152,6 +151,7 @@ return {
             },
             update_in_insert = false, -- Update diagnostics in insert mode
           },
+          Harpoonline.format,
           "zoom#statusline",
           "ObsessionStatus",
           "searchcount",
