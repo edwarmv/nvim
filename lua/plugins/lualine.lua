@@ -11,50 +11,6 @@ local function diff_source()
   end
 end
 
-local nnn = {
-  sections = {
-    lualine_a = {
-      {
-        function()
-          return "nnn"
-        end,
-      },
-    },
-  },
-  inactive_sections = {
-    lualine_c = {
-      {
-        function()
-          return "nnn"
-        end,
-      },
-    },
-  },
-  filetypes = { "nnn" },
-}
-
-local telescope = {
-  sections = {
-    lualine_a = {
-      {
-        function()
-          return "Telescope"
-        end,
-      },
-    },
-  },
-  inactive_sections = {
-    lualine_a = {
-      {
-        function()
-          return "Telescope"
-        end,
-      },
-    },
-  },
-  filetypes = { "TelescopePrompt" },
-}
-
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -102,6 +58,8 @@ return {
             "aerial",
             "trouble",
             "noice",
+            "lazy",
+            "mason",
             "qf",
             "DiffviewFileHistory",
             "toggleterm",
@@ -250,14 +208,24 @@ return {
         lualine_z = {},
       },
       extensions = {
-        "fzf",
-        "nvim-tree",
-        "neo-tree",
-        "quickfix",
         "aerial",
-        nnn,
-        telescope,
+        "chadtree",
+        "ctrlspace",
+        "fern",
+        "fugitive",
+        "fzf",
         "lazy",
+        "man",
+        "mason",
+        "mundo",
+        "neo-tree",
+        "nerdtree",
+        "nvim-dap-ui",
+        "nvim-tree",
+        "oil",
+        "overseer",
+        "quickfix",
+        "symbols-outline",
         "toggleterm",
         "trouble",
       },

@@ -126,7 +126,7 @@ return {
         },
       },
       mode = { "n", "x" },
-      body = "<space>o",
+      body = "<space>O",
       heads = {
         {
           "n",
