@@ -90,7 +90,7 @@ return {
           },
         },
       },
-      hijack_cursor = true,
+      hijack_cursor = false,
       diagnostics = {
         enable = false,
       },
