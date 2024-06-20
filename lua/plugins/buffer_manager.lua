@@ -24,7 +24,7 @@ return {
       end
       return string.format("%s │ %s", vim.fn.fnamemodify(file, ":t"), vim.fn.fnamemodify(file, ":p:."))
     end,
-    order_buffers = "lastused",
+    order_buffers = "filename", -- filename, lastused
     win_extra_options = {
       cursorline = true,
       wrap = false,
