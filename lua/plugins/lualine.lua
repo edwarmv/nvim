@@ -159,8 +159,8 @@ return {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { "filename", file_status = true, separator = "", padding = { left = 1, right = 0 }, path = 4 },
+          { "filetype", icon_only = true, separator = "", padding = 0 },
+          { "filename", file_status = true, separator = "", padding = 0, path = 4 },
           { "diff", source = diff_source },
           { conflict_count, color = { fg = "#b2555b" } },
           {
