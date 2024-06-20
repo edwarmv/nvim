@@ -3,6 +3,7 @@ local defaults = require("config.defaults")
 return {
   "folke/trouble.nvim",
   opts = {
+    focus = true,
     win = { border = defaults.border },
     icons = {
       indent = {
