@@ -1,7 +1,7 @@
 return {
   "NTBBloodbath/rest.nvim",
   dependencies = { "luarocks.nvim" },
-  enabled = true,
+  enabled = false,
   config = function()
     require("rest-nvim").setup({
       keybinds = {
