@@ -19,11 +19,7 @@ return {
         ["core.concealer"] = {}, -- Adds pretty icons to your documents
         ["core.dirman"] = { -- Manages Neorg workspaces
           config = {
-            workspaces = vim.fn.has("macunix") == 1 and {
-              main = "~/Library/CloudStorage/CloudMounter-EdwarMartinezVale/neorg",
-              knowledge = "~/Library/CloudStorage/CloudMounter-EdwarMartinezVale/neorg/knowledge",
-              work = "~/Library/CloudStorage/CloudMounter-EdwarMartinezVale/neorg/work",
-            } or {
+            workspaces = {
               main = "~/neorg",
               knowledge = "~/neorg/knowledge",
               work = "~/neorg/work",
@@ -39,4 +35,8 @@ return {
       },
     })
   end,
+  keys = {
+    { "<space>n", "<cmd>Neorg index<cr>", desc = "Neorg" },
+    { "<space>N", "<cmd>Neorg return<cr>", desc = "Neorg - Return" },
+  },
 }

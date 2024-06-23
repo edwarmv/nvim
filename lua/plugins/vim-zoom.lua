@@ -1,13 +1,13 @@
 return {
   "dhruvasagar/vim-zoom",
   -- dependencies = { "nvim-zh/colorful-winsep.nvim" },
-  enabled = true,
+  enabled = false,
   init = function()
     vim.g["zoom#statustext"] = "[Z]"
     vim.g.zoom_tmux_z = false
   end,
   keys = {
-    { "<cr>", "<Plug>(zoom-toggle)", desc = "Toggle Zoom" },
+    { "<leader>z", "<Plug>(zoom-toggle)", desc = "Toggle Zoom" },
   },
   -- config = function()
   -- local utils = require("utils.init")
