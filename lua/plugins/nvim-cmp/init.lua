@@ -66,7 +66,7 @@ return {
       },
       view = {
         entries = {
-          follow_cursor = true,
+          follow_cursor = false,
         },
         docs = {
           auto_open = true,
@@ -210,8 +210,8 @@ return {
       }),
       formatting = {
         fields = {
-          cmp.ItemField.Kind,
           cmp.ItemField.Abbr,
+          cmp.ItemField.Kind,
           cmp.ItemField.Menu,
         },
         format = require("lspkind").cmp_format({
