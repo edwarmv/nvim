@@ -235,7 +235,7 @@ return {
         }),
       },
       experimental = {
-        ghost_text = false,
+        ghost_text = true,
       },
     })
 

@@ -65,6 +65,7 @@ return {
             "toggleterm",
             "NeogitStatus",
             "NeogitPopup",
+            "NeogitDiffView",
             "",
           },
         },

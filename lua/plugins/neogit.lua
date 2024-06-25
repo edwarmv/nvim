@@ -14,7 +14,7 @@ return {
       item = { "▸", "▾" },
       section = { "▸", "▾" },
     },
-    auto_show_console = false,
+    auto_show_console = true,
     graph_style = "unicode",
   },
   keys = {
