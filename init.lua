@@ -227,13 +227,13 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Fix conceallevel for json files
--- vim.api.nvim_create_autocmd({ "FileType" }, {
---   group = augroup("json_conceal"),
---   pattern = { "json", "jsonc", "json5" },
---   callback = function()
---     vim.opt_local.conceallevel = 0
---   end,
--- })
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = augroup("json_conceal"),
+  pattern = { "json", "jsonc", "json5" },
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
 
 -- wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
