@@ -44,6 +44,23 @@ return {
       return count > 0 and " " .. count or ""
     end
 
+    local function global_diagnostics_status()
+      local count = vim.diagnostic.count(nil)
+      if count[vim.diagnostic.severity.ERROR] then
+        return ""
+      end
+      if count[vim.diagnostic.severity.WARN] then
+        return ""
+      end
+      if count[vim.diagnostic.severity.INFO] then
+        return ""
+      end
+      if count[vim.diagnostic.severity.HINT] then
+        return ""
+      end
+      return ""
+    end
+
     require("lualine").setup({
       options = {
         section_separators = { left = "", right = "" },
@@ -88,8 +105,8 @@ return {
               return ""
             end,
           },
-          -- { "diff", source = diff_source },
-          -- { conflict_count, color = { fg = "#b2555b" } },
+          { "diff", source = diff_source },
+          { conflict_count, color = { fg = "#b2555b" } },
         },
         lualine_c = {
           -- { "filename", file_status = true, path = 4 },
@@ -116,7 +133,7 @@ return {
         lualine_x = {
           {
             "diagnostics",
-            sources = { "nvim_workspace_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
+            sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
             symbols = {
               error = icons.diagnostic.error,
               warn = icons.diagnostic.warn,
@@ -125,6 +142,7 @@ return {
             },
             update_in_insert = false, -- Update diagnostics in insert mode
           },
+          { global_diagnostics_status },
           Harpoonline.format,
           "zoom#statusline",
           "ObsessionStatus",
@@ -159,58 +177,58 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          { "filetype", icon_only = true, separator = "", padding = 0 },
-          { "filename", file_status = true, separator = "", padding = 0, path = 4 },
-          { "diff", source = diff_source },
-          { conflict_count, color = { fg = "#b2555b" } },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-          },
-        },
-        lualine_x = {
-          -- "filetype",
-        },
-        lualine_y = {},
-        lualine_z = {},
-      },
-      inactive_winbar = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          { "filetype", icon_only = true, separator = "", padding = 0 },
-          { "filename", file_status = true, separator = "", padding = 0, path = 4 },
-          { "diff", source = diff_source },
-          { conflict_count, color = { fg = "#b2555b" } },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-          },
-        },
-        lualine_x = {
-          -- "filetype",
-        },
-        lualine_y = {},
-        lualine_z = {},
-      },
+      -- winbar = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {
+      --     { "filetype", icon_only = true, separator = "", padding = 0 },
+      --     { "filename", file_status = true, separator = "", padding = 0, path = 4 },
+      --     { "diff", source = diff_source },
+      --     { conflict_count, color = { fg = "#b2555b" } },
+      --     {
+      --       "diagnostics",
+      --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+      --       symbols = {
+      --         error = icons.diagnostic.error,
+      --         warn = icons.diagnostic.warn,
+      --         info = icons.diagnostic.info,
+      --         hint = icons.diagnostic.hint,
+      --       },
+      --       update_in_insert = false, -- Update diagnostics in insert mode
+      --     },
+      --   },
+      --   lualine_x = {
+      --     -- "filetype",
+      --   },
+      --   lualine_y = {},
+      --   lualine_z = {},
+      -- },
+      -- inactive_winbar = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {
+      --     { "filetype", icon_only = true, separator = "", padding = 0 },
+      --     { "filename", file_status = true, separator = "", padding = 0, path = 4 },
+      --     { "diff", source = diff_source },
+      --     { conflict_count, color = { fg = "#b2555b" } },
+      --     {
+      --       "diagnostics",
+      --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+      --       symbols = {
+      --         error = icons.diagnostic.error,
+      --         warn = icons.diagnostic.warn,
+      --         info = icons.diagnostic.info,
+      --         hint = icons.diagnostic.hint,
+      --       },
+      --       update_in_insert = false, -- Update diagnostics in insert mode
+      --     },
+      --   },
+      --   lualine_x = {
+      --     -- "filetype",
+      --   },
+      --   lualine_y = {},
+      --   lualine_z = {},
+      -- },
       extensions = {
         "aerial",
         "chadtree",
