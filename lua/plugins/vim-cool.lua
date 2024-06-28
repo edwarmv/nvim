@@ -1,4 +1,4 @@
 return {
   "romainl/vim-cool",
-  enabled = true,
+  enabled = false,
 }
