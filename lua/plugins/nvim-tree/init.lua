@@ -91,7 +91,7 @@ return {
           },
         },
       },
-      hijack_cursor = false,
+      hijack_cursor = true,
       diagnostics = {
         enable = false,
       },
