@@ -66,7 +66,7 @@ return {
       },
       view = {
         entries = {
-          follow_cursor = false,
+          follow_cursor = true,
         },
         docs = {
           auto_open = true,
@@ -210,8 +210,8 @@ return {
       }),
       formatting = {
         fields = {
-          cmp.ItemField.Abbr,
           cmp.ItemField.Kind,
+          cmp.ItemField.Abbr,
           cmp.ItemField.Menu,
         },
         format = require("lspkind").cmp_format({
@@ -235,7 +235,7 @@ return {
         }),
       },
       experimental = {
-        ghost_text = true,
+        ghost_text = false,
       },
     })
 

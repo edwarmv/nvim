@@ -126,7 +126,6 @@ return {
             color_correction = "dynamic",
             navic_opts = {
               click = true,
-              lazy_update_context = true,
             },
           },
         },
@@ -142,7 +141,7 @@ return {
             },
             update_in_insert = false, -- Update diagnostics in insert mode
           },
-          { global_diagnostics_status },
+          -- { global_diagnostics_status },
           Harpoonline.format,
           "zoom#statusline",
           "ObsessionStatus",
