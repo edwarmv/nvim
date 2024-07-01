@@ -141,6 +141,10 @@ return {
           i = function(fallback)
             if luasnip.locally_jumpable(1) then
               luasnip.jump(1)
+            elseif cmp.visible() then
+              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            elseif utils.has_words_before() then
+              cmp.complete()
             else
               fallback()
             end
@@ -165,6 +169,8 @@ return {
           i = function(fallback)
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
+            elseif cmp.visible() then
+              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
             end
@@ -202,10 +208,8 @@ return {
       }, --}}}
       sources = cmp.config.sources({
         { name = "spell" },
-      }, {
         { name = "nvim_lsp" },
         { name = "luasnip" },
-      }, {
         { name = "buffer" },
       }),
       formatting = {
