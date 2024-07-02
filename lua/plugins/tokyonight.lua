@@ -5,7 +5,7 @@ return {
   priority = 1000,
   config = function()
     local colors = require("tokyonight.colors").setup()
-    local utils = require("tokyonight.util")
+    local util = require("tokyonight.util")
 
     require("tokyonight").setup({
       style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -41,11 +41,11 @@ return {
         }
         hl.InclineNormal = {
           fg = c.blue,
-          bg = utils.blend(c.blue, c.bg, 0.15),
+          bg = util.blend(c.blue, 0.15, c.bg),
         }
         hl.InclineNormalNC = {
           fg = c.blue0,
-          bg = utils.blend(c.blue0, c.bg, 0.15),
+          bg = util.blend(c.blue0, 0.15, c.bg),
         }
         hl.WhichKeyFloat = {
           fg = c.fg,
@@ -53,7 +53,7 @@ return {
         }
         hl.ExtraWhitespace = {
           fg = c.red,
-          bg = utils.blend(c.red, c.bg, 0.15),
+          bg = util.blend(c.red, 0.15, c.bg),
         }
         hl.CmpBorder = {
           fg = c.fg,
