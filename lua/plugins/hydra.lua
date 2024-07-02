@@ -108,6 +108,7 @@ return {
   _c_ %{cul} cursor line
   _n_ %{nu} number
   _r_ %{rnu} relative number
+  _S_ scroll bind
   ^
        ^^^^                _<Esc>_
 ]]
@@ -219,6 +220,17 @@ return {
             end
           end,
           { desc = "cursor line" },
+        },
+        {
+          "S",
+          function()
+            if vim.o.scrollbind == true then
+              vim.o.scrollbind = false
+            else
+              vim.o.scrollbind = true
+            end
+          end,
+          { desc = "scroll bind", exit = true },
         },
         { "<Esc>", nil, { exit = true } },
       },
