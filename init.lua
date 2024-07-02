@@ -141,10 +141,6 @@ vim.opt.listchars = {
 -- =========================================================
 -- Mappings
 -- =========================================================
-vim.keymap.set("n", "<m-H>", "<c-w>h")
-vim.keymap.set("n", "<m-J>", "<c-w>j")
-vim.keymap.set("n", "<m-K>", "<c-w>k")
-vim.keymap.set("n", "<m-L>", "<c-w>l")
 vim.keymap.set("i", "<c-b>", "<left>")
 vim.keymap.set("i", "<c-f>", "<right>")
 vim.keymap.set("i", "<c-n>", "<down>")
@@ -167,6 +163,8 @@ vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
 vim.keymap.set("i", "<c-l>", "<c-f>")
 
 vim.keymap.set("i", "<s-tab>", "<c-d>")
+
+vim.keymap.set("n", "<c-w>z", ":resize | vertical resize<CR>")
 
 local defaults = require("config.defaults")
 
