@@ -7,7 +7,7 @@ return {
       enabled = false,
     },
   },
-  enabled = false,
+  enabled = true,
   opts = {
     window = {
       width = 0.9,
