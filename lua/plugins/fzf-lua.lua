@@ -98,11 +98,23 @@ return {
     { "<space>ft", "<cmd>FzfLua tabs<cr>", desc = "FZF - Tabs" },
 
     { "<space>fgf", "<cmd>FzfLua git_files<cr>", desc = "FZF - Git Files" },
-    { "<space>fgs", "<cmd>FzfLua git_status<cr>", desc = "FZF - Git Status" },
+    { "<space>fgS", "<cmd>FzfLua git_status<cr>", desc = "FZF - Git Status" },
+    {
+      "<space>fgs",
+      function()
+        local current_buffer = vim.api.nvim_buf_get_name(0)
+        local buffer_dir = vim.fn.fnamemodify(current_buffer, ":p:h")
+
+        -- Change to the buffer directory and execute the git command
+        local git_root = vim.fn.systemlist("cd " .. buffer_dir .. " && git rev-parse --show-toplevel")[1]
+        require("fzf-lua").git_status({ cwd = git_root })
+      end,
+      desc = "FZF - Git Status",
+    },
     { "<space>fgc", "<cmd>FzfLua git_commits<cr>", desc = "FZF - Git Commit (Project)" },
     { "<space>fgC", "<cmd>FzfLua git_bcommits<cr>", desc = "FZF - Git Commit (Buffer)" },
     { "<space>fgb", "<cmd>FzfLua git_branches<cr>", desc = "FZF - Git Branches" },
-    { "<space>fgS", "<cmd>FzfLua git_stash<cr>", desc = "FZF - Git Stash" },
+    { "<space>fgt", "<cmd>FzfLua git_stash<cr>", desc = "FZF - Git Stash" },
 
     { "<space>fls", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "FZF - LSP Document Symbols" },
     { "<space>flS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "FZF - LSP Workspace Symbols" },
