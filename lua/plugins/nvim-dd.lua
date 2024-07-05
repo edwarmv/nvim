@@ -1,7 +1,9 @@
+local defaults = require("config.defaults")
+
 return {
   "yorickpeterse/nvim-dd",
-  enabled = false,
+  enabled = true,
   opts = {
-    timeout = 100,
+    timeout = defaults.lsp_debounce,
   },
 }

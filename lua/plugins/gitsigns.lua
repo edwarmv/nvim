@@ -41,20 +41,20 @@ return {
   },
   opts = {
     signs = {
-      add = { text = "▌" },
-      change = { text = "▌" },
-      delete = { text = "▌" },
-      topdelete = { text = "▌" },
-      changedelete = { text = "▌" },
-      untracked = { text = "▌" },
+      add = { text = "┃" },
+      change = { text = "┃" },
+      delete = { text = "┃" },
+      topdelete = { text = "┃" },
+      changedelete = { text = "┃" },
+      untracked = { text = "┃" },
     },
     signs_staged = {
-      add = { text = "▌" },
-      change = { text = "▌" },
-      delete = { text = "▌" },
-      topdelete = { text = "▌" },
-      changedelete = { text = "▌" },
-      untracked = { text = "▌" },
+      add = { text = "┃" },
+      change = { text = "┃" },
+      delete = { text = "┃" },
+      topdelete = { text = "┃" },
+      changedelete = { text = "┃" },
+      untracked = { text = "┃" },
     },
     signcolumn = true,
     preview_config = {
@@ -106,6 +106,9 @@ return {
       map("n", "<leader>gP", gs.preview_hunk_inline, { desc = "[Gitsigns] Preview Hunk Inline" })
       map("n", "<leader>gq", "<cmd>Gitsigns setloclist<cr>", { desc = "[Gitsigns] Quifix" })
       map("n", "<leader>gb", "<cmd>GitBlameToggle<cr>", { desc = "[GitBlame] - Toggle" })
+      map("n", "<leader>gBch", "<cmd>GitBlameCopySHA<cr>", { desc = "[GitBlame] - Copy Hash" })
+      map("n", "<leader>gBcf", "<cmd>GitBlameCopyFileURL<cr>", { desc = "[GitBlame] - Copy File URL" })
+      map("n", "<leader>gBcc", "<cmd>GitBlameCopyCommitURL<cr>", { desc = "[GitBlame] - Copy Commit URL" })
       map("n", "<leader>gcq", "<cmd>GitConflictListQf<cr>", { desc = "Git Conflict - Quickfix" })
       map("n", "<leader>gcr", "<cmd>GitConflictRefresh<cr>", { desc = "Git Conflict - Refresh" })
       map("n", "<leader>gco", "<Plug>(git-conflict-ours)", { desc = "Git Conflict - Choose Ours" })
