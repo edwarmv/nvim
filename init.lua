@@ -166,6 +166,24 @@ vim.keymap.set("i", "<s-tab>", "<c-d>")
 
 vim.keymap.set("n", "<c-w>z", ":resize | vertical resize<CR>")
 
+local function highlight_word_under_cursor()
+  -- Clear existing highlight
+  vim.cmd("match none")
+
+  -- Get the word under the cursor
+  local word = vim.fn.expand("<cword>")
+
+  -- Highlight the word
+  vim.cmd("match Search /\\<" .. word .. "\\>/")
+end
+
+vim.keymap.set(
+  "n",
+  "<leader>h",
+  "<Cmd>let @/='\\<'.expand('<cword>').'\\>'<bar>set hlsearch<CR>",
+  { noremap = true, silent = true, desc = "Highlight word under cursor" }
+)
+
 local defaults = require("config.defaults")
 
 vim.diagnostic.config({

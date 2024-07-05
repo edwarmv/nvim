@@ -32,7 +32,7 @@ return {
     },
     highlight = true,
     separator = "  ",
-    lazy_update_context = true,
+    lazy_update_context = false,
     click = true,
     lsp = {
       auto_attach = true,

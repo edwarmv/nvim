@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "nvimdev/lspsaga.nvim",
   enabled = true,
@@ -9,7 +11,7 @@ return {
       lightbulb = {
         enable = true,
         sign = false,
-        debounce = 300,
+        debounce = defaults.lsp_debounce,
       },
       symbol_in_winbar = {
         enable = false,
