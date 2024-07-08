@@ -99,8 +99,8 @@ local function lspFormat()
 end
 
 M.lsp = function(buffer)
-  vim.keymap.set("n", "gLR", "<cmd>Glance references<cr>", { desc = "[LSP - Glance] References", buffer = buffer })
-  vim.keymap.set("n", "gLd", "<cmd>Glance definitions<cr>", { desc = "[LSP - Glance] Definitions", buffer = buffer })
+  vim.keymap.set("n", "glR", "<cmd>Glance references<cr>", { desc = "[LSP - Glance] References", buffer = buffer })
+  vim.keymap.set("n", "gld", "<cmd>Glance definitions<cr>", { desc = "[LSP - Glance] Definitions", buffer = buffer })
   vim.keymap.set(
     "n",
     "glt",
@@ -109,7 +109,7 @@ M.lsp = function(buffer)
   )
   vim.keymap.set(
     "n",
-    "gLi",
+    "gli",
     "<cmd>Glance implementations<cr>",
     { desc = "[LSP - Glance] Implementations", buffer = buffer }
   )
@@ -153,11 +153,11 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "glD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
 
-  vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
+  -- vim.keymap.set("n", "gld", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
   -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
 
-  vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
+  -- vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
   vim.keymap.set({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
 
@@ -169,7 +169,7 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
 
-  vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
+  -- vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
   -- vim.keymap.set({ "n", "v" }, "<leader>f", function()
   --   require("conform").format({ async = true, lsp_fallback = true })
