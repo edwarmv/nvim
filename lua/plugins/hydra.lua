@@ -29,21 +29,21 @@ return {
       },
     })
 
-    Hydra({
-      config = {
-        hint = {
-          type = "statusline",
-        },
-        timeout = true,
-      },
-      name = "Move cursor by display lines",
-      mode = "n",
-      body = "g",
-      heads = {
-        { "j", "gj" },
-        { "k", "gk", { desc = "↓/↑" } },
-      },
-    })
+    -- Hydra({
+    --   config = {
+    --     hint = {
+    --       type = "statusline",
+    --     },
+    --     timeout = true,
+    --   },
+    --   name = "Move cursor by display lines",
+    --   mode = "n",
+    --   body = "g",
+    --   heads = {
+    --     { "j", "gj" },
+    --     { "k", "gk", { desc = "↓/↑" } },
+    --   },
+    -- })
 
     -- Hydra({
     --   config = {
