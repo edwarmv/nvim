@@ -15,6 +15,22 @@ return {
     require("luasnip.config").setup({
       history = true,
       update_events = { "TextChanged", "TextChangedI" },
+      ext_opts = {
+        [types.insertNode] = {
+          unvisited = {
+            virt_text = { { "•", "Conceal" } },
+            virt_text_pos = "inline",
+          },
+        },
+        -- Add this to also have a placeholder in the final tabstop.
+        -- See the discussion below for more context.
+        [types.exitNode] = {
+          unvisited = {
+            virt_text = { { "•", "Conceal" } },
+            virt_text_pos = "inline",
+          },
+        },
+      },
       -- ext_opts = {
       --   [types.choiceNode] = {
       --     active = {

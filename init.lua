@@ -309,7 +309,7 @@ vim.api.nvim_create_user_command("CloseAllFloatingWindows", function()
   end
 end, {})
 
-vim.keymap.set("n", "<esc>", "<cmd>CloseAllFloatingWindows<cr>", { desc = "Quit all windows", remap = true })
+-- vim.keymap.set("n", "<esc>", "<cmd>CloseAllFloatingWindows<cr>", { desc = "Quit all windows", remap = true })
 
 local fn = vim.fn
 

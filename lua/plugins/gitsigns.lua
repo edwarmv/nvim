@@ -58,13 +58,13 @@ return {
     },
     signcolumn = true,
     preview_config = {
-      border = defaults.border,
+      border = { "", "─", "", "", "", "─", "", "" },
       style = "minimal",
       relative = "cursor",
       row = 1,
       col = 0,
-      width = vim.opt.columns:get() + 2,
-      height = math.floor(vim.opt.lines:get() / 4),
+      width = vim.opt.columns:get(),
+      height = math.floor(vim.opt.lines:get() / 3),
     },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns

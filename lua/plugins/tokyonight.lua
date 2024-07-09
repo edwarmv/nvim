@@ -8,37 +8,18 @@ return {
     local util = require("tokyonight.util")
 
     require("tokyonight").setup({
-      style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-      light_style = "day", -- The theme is used when the background is set to light
-      transparent = false, -- Enable this to disable setting the background color
-      terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-      styles = {
-        -- Style to be applied to different syntax groups
-        -- Value is any valid attr-list value for `:help nvim_set_hl`
-        comments = { italic = true },
-        keywords = { italic = true },
-        functions = {},
-        variables = {},
-        -- Background styles. Can be "dark", "transparent" or "normal"
-        sidebars = "normal", -- style for sidebars, see below
-        floats = "normal", -- style for floating windows
-      },
-      sidebars = { "qf", "help", "neo-tree" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-      -- day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-      hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-      dim_inactive = false, -- dims inactive windows
-      lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
-
-      on_colors = function(colors) end,
-
+      style = "storm",
+      light_style = "day",
+      dim_inactive = true,
+      lualine_bold = true,
       on_highlights = function(hl, c)
         hl.TabLineFill = {
           bg = c.bg_dark,
         }
-        hl.NormalFloat = {
-          fg = c.fg,
-          bg = c.bg,
-        }
+        -- hl.NormalFloat = {
+        --   fg = c.fg,
+        --   bg = c.bg,
+        -- }
         hl.InclineNormal = {
           fg = c.blue,
           bg = util.blend(c.blue, 0.15, c.bg),
@@ -47,10 +28,10 @@ return {
           fg = c.blue0,
           bg = util.blend(c.blue0, 0.15, c.bg),
         }
-        hl.WhichKeyFloat = {
-          fg = c.fg,
-          bg = c.bg,
-        }
+        -- hl.WhichKeyFloat = {
+        --   fg = c.fg,
+        --   bg = c.bg,
+        -- }
         hl.ExtraWhitespace = {
           fg = c.red,
           bg = util.blend(c.red, 0.15, c.bg),

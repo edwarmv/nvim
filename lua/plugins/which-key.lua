@@ -27,7 +27,7 @@ return {
       --   n = { "y", "v" },
       -- },
       window = {
-        border = defaults.border,
+        border = "none",
       },
     })
     -- local presets = require("which-key.plugins.presets")
