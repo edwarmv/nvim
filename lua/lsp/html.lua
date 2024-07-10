@@ -14,6 +14,7 @@ require("lspconfig").html.setup({
       css = true,
       javascript = true,
     },
+    filetypes = { "html", "templ", "htmlangular" },
     autoClosingTags = true,
   },
   settings = {

@@ -18,8 +18,9 @@ require("lspconfig").angularls.setup({
   on_new_config = function(new_config, _)
     new_config.cmd = cmd
   end,
+  filetypes = { "typescript", "html", "htmlangular", "typescriptreact", "typescript.tsx" },
   capabilities = capabilities,
-  on_attach = function (client, buffer)
+  on_attach = function(client, buffer)
     client.server_capabilities.renameProvider = true
-  end
+  end,
 })

@@ -12,6 +12,7 @@ return {
       json = { { "prettierd", "prettier" } },
       jsonc = { { "prettierd", "prettier" } },
       html = { { "prettierd", "prettier" } },
+      htmlangular = { { "prettierd", "prettier" } },
       css = { { "prettierd", "prettier" } },
       scss = { { "prettierd", "prettier" } },
       javascript = { { "prettierd", "prettier" } },

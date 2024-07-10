@@ -92,5 +92,7 @@ return {
         include_match_words = true,
       },
     })
+
+    vim.treesitter.language.register("angular", "htmlangular")
   end,
 }
