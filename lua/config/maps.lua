@@ -161,7 +161,7 @@ M.lsp = function(buffer)
 
   vim.keymap.set({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
 
-  vim.keymap.set("n", "gLt", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
+  -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
   -- vim.keymap.set("n", "glr", vim.lsp.buf.rename, { desc = "[LSP] Rename", buffer = buffer })
 
