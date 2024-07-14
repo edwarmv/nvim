@@ -1,4 +1,8 @@
 return {
   "windwp/nvim-ts-autotag",
-  config = true,
+  opts = {
+    aliases = {
+      ["htmlangular"] = "html",
+    },
+  },
 }
