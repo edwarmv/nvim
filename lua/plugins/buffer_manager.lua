@@ -38,7 +38,7 @@ return {
       function()
         require("buffer_manager.ui").toggle_quick_menu()
       end,
-      desc = "Telescope - Commands",
+      desc = "Buffer Manager",
     },
   },
 }
