@@ -15,11 +15,11 @@ return {
         -- },
         {
           sign = {
-            -- namespace = { "diagnostic/signs" },
+            namespace = { "diagnostic/signs" },
             name = { "Dap*", ".*" },
             maxwidth = 1,
             colwidth = 2,
-            auto = true,
+            auto = false,
           },
           click = "v:lua.ScSa",
         },
