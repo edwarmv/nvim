@@ -52,6 +52,10 @@ return {
         --   fg = c.fg,
         --   bg = c.bg_float,
         -- }
+        hl.CmpBorder = {
+          fg = util.blend(c.fg, 0.15, c.bg_float),
+          bg = c.bg_float,
+        }
         hl.CmpItemAbbr = {
           fg = c.comment,
           bg = c.none,
