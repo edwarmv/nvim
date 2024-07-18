@@ -6,7 +6,7 @@ return {
     "sindrets/diffview.nvim", -- optional
     "ibhagwan/fzf-lua", -- optional
   },
-  enabled = false,
+  enabled = true,
   opts = {
     disable_signs = true,
     signs = {
