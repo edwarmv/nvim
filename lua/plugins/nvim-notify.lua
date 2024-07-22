@@ -102,6 +102,7 @@ return {
       -- Default timeout for notifications
       timeout = 3000,
 
+      minimum_width = 1,
       -- Max number of columns for messages
       max_width = function()
         return math.floor(vim.opt.columns:get() * 0.3)
