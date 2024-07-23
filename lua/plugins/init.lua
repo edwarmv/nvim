@@ -4,7 +4,7 @@ local plugins = {
   -- "winresizer.vim",
   "vim-visual-multi.vim",
   "emmet-vim.vim",
-  "vim-markdown.vim",
+  -- "vim-markdown.vim",
   "init.vim",
 }
 
@@ -17,15 +17,15 @@ return {
   "seandewar/killersheep.nvim",
   { "chrisbra/csv.vim", ft = "csv" },
   { "chrisbra/recover.vim" },
+  -- {
+  --   "preservim/vim-markdown",
+  -- },
   {
-    "preservim/vim-markdown",
-    dependencies = {
-      "godlygeek/tabular",
-      {
-        "iamcco/markdown-preview.nvim",
-        build = "cd app && yarn install",
-      },
-    },
+    "godlygeek/tabular",
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && yarn install",
   },
   "tpope/vim-fugitive",
   {

@@ -11,7 +11,7 @@ require("lsp.clangd")
 require("lsp.taplo") -- TOML
 require("lsp.tailwindcss") -- TOML
 require("lsp.python")
--- require("lsp.marksman")
+require("lsp.marksman")
 require("lsp.astro")
 require("lsp.rust_analizer")
 require("lsp.css_variables")
