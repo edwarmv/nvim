@@ -33,6 +33,7 @@ return {
         "regex",
         "markdown",
         "markdown_inline",
+        "mermaid",
         "python",
         "sql",
         "gitcommit",
