@@ -18,7 +18,7 @@ return {
     "SmiteshP/nvim-navic",
     "folke/noice.nvim",
     "ecthelionvi/NeoComposer.nvim",
-    "abeldekat/harpoonline",
+    "letieu/harpoon-lualine",
     "akinsho/git-conflict.nvim",
     -- {
     --   "linrongbin16/lsp-progress.nvim",
@@ -29,14 +29,6 @@ return {
     -- },
   },
   config = function()
-    local Harpoonline = require("harpoonline")
-    Harpoonline.setup({
-      on_update = function()
-        require("lualine").refresh()
-      end,
-      formatter = "short",
-    })
-
     vim.opt.cmdheight = 0
 
     local function conflict_count()
@@ -143,7 +135,7 @@ return {
             padding = { left = 0, right = 1 },
           },
           -- { global_diagnostics_status },
-          { Harpoonline.format, padding = { left = 0, right = 1 } },
+          { "harpoon2", padding = { left = 0, right = 1 } },
           { "zoom#statusline", padding = { left = 0, right = 1 } },
           { "ObsessionStatus", padding = { left = 0, right = 1 } },
           -- "searchcount",
