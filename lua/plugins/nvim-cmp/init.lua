@@ -428,12 +428,14 @@ return {
       },
     })
 
-    -- cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
-    --   sources = cmp.config.sources({
-    --     { name = "vim-dadbod-completion" },
-    --     { name = "buffer" },
-    --   }),
-    -- })
+    cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+      sources = cmp.config.sources({
+        { name = "vim-dadbod-completion" },
+        { name = "luasnip" },
+      }, {
+        { name = "buffer" },
+      }),
+    })
 
     -- https://github.com/hrsh7th/nvim-cmp/issues/598#issuecomment-984930668
     -- vim.cmd([[
