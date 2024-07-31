@@ -9,7 +9,7 @@ return {
     },
     label = {
       rainbow = {
-        enabled = true,
+        enabled = false,
       },
     },
   },
