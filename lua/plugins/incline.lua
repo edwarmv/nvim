@@ -11,7 +11,7 @@ end
 
 return {
   "b0o/incline.nvim",
-  enabled = true,
+  enabled = false,
   config = function()
     require("incline").setup({
       hide = {
