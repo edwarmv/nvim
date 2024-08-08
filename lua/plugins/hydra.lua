@@ -4,11 +4,14 @@ return {
   "nvimtools/hydra.nvim",
   config = function()
     local Hydra = require("hydra")
+    local splits = require("smart-splits")
+    local timeout = 1000
 
     Hydra({
       config = {
         hint = {
-          type = "statusline",
+          type = "window",
+          offset = -1,
         },
         on_enter = function()
           vim.api.nvim_command("IBLDisable")
@@ -16,7 +19,7 @@ return {
         on_exit = function()
           vim.api.nvim_command("IBLEnable")
         end,
-        timeout = true,
+        timeout = timeout,
       },
       name = "Side scroll",
       mode = "n",
@@ -80,21 +83,22 @@ return {
     Hydra({
       config = {
         hint = {
-          type = "statusline",
+          type = "window",
+          offset = -1,
         },
-        timeout = false,
+        timeout = timeout,
       },
       mode = "n",
       body = "<c-w>",
       heads = {
-        { ">", "<c-w>>" },
-        { "<", "<c-w><" },
-        { "+", "<c-w>+" },
-        { "-", "<c-w>-" },
-        -- { "h", "<c-w>h" },
-        -- { "j", "<c-w>j" },
-        -- { "k", "<c-w>k" },
-        -- { "l", "<c-w>l" },
+        -- { "h", splits.move_cursor_left },
+        -- { "j", splits.move_cursor_down },
+        -- { "k", splits.move_cursor_up },
+        -- { "l", splits.move_cursor_right },
+        { "H", splits.resize_left },
+        { "J", splits.resize_down },
+        { "K", splits.resize_up },
+        { "L", splits.resize_right },
       },
     })
 
