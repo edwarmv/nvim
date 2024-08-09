@@ -98,9 +98,9 @@ return {
     { "<space>ft", "<cmd>FzfLua tabs<cr>", desc = "FZF - Tabs" },
 
     { "<space>fgf", "<cmd>FzfLua git_files<cr>", desc = "FZF - Git Files" },
-    { "<space>fgS", "<cmd>FzfLua git_status<cr>", desc = "FZF - Git Status" },
+    { "<space>fgs", "<cmd>FzfLua git_status<cr>", desc = "FZF - Git Status" },
     {
-      "<space>fgs",
+      "<space>fgS",
       function()
         local current_buffer = vim.api.nvim_buf_get_name(0)
         local buffer_dir = vim.fn.fnamemodify(current_buffer, ":p:h")
