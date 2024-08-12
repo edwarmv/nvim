@@ -119,9 +119,16 @@ M.lsp = function(buffer)
   -- vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
   vim.keymap.set(
     "n",
-    "<leader>d",
+    "<c-w>d",
     "<cmd>Lspsaga show_line_diagnostics<cr>",
     { desc = "[Diagnostic] Current Line", buffer = buffer }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<c-w><c-d>",
+    "<cmd>Lspsaga show_cursor_diagnostics<cr>",
+    { desc = "[Diagnostic] Cursor", buffer = buffer }
   )
 
   vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "[Diagnostic] Prev", buffer = buffer })
