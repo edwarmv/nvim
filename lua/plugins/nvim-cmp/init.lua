@@ -54,13 +54,13 @@ return {
       },
       window = {
         completion = {
-          border = defaults.border,
+          -- border = defaults.border,
           winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
         },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
-          border = defaults.border,
+          -- border = defaults.border,
           winhighlight = "FloatBorder:CmpBorder,Search:None",
         },
       },
