@@ -1,10 +1,12 @@
+local defaults = require("config.defaults")
+
 local exclude_ft = {
   "oil",
 }
 
 return {
   "Bekaboo/dropbar.nvim",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "nvim-telescope/telescope-fzf-native.nvim",
   },
@@ -18,48 +20,7 @@ return {
           and vim.api.nvim_buf_get_name(buf) ~= ""
           and not vim.tbl_contains(exclude_ft, vim.bo[buf].ft)
       end,
-      update_interval = 250,
-    },
-    update_events = {
-      win = {
-        "CursorMoved",
-        "WinEnter",
-        "WinResized",
-      },
-      buf = {
-        "BufWinEnter",
-        "BufModifiedSet",
-        "FileChangedShellPost",
-        "TextChanged",
-      },
-      global = {
-        "DirChanged",
-        "VimResized",
-      },
-    },
-    bar = {
-      sources = function(buf, _)
-        local sources = require("dropbar.sources")
-        local utils = require("dropbar.utils")
-        if vim.bo[buf].ft == "markdown" then
-          return {
-            sources.path,
-            sources.markdown,
-          }
-        end
-        if vim.bo[buf].buftype == "terminal" then
-          return {
-            sources.terminal,
-          }
-        end
-        return {
-          sources.path,
-          utils.source.fallback({
-            sources.lsp,
-            -- sources.treesitter,
-          }),
-        }
-      end,
+      update_interval = defaults.lsp_debounce,
     },
     icons = {
       kinds = {
@@ -89,14 +50,6 @@ return {
           Event = " ",
           Operator = " ",
           TypeParameter = " ",
-        },
-      },
-      ui = {
-        bar = {
-          separator = "  ",
-        },
-        menu = {
-          indicator = "  ",
         },
       },
     },
