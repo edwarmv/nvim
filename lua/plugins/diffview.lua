@@ -17,12 +17,12 @@ return {
       enhanced_diff_hl = true,
     })
 
-    vim.keymap.set("n", "<space>Do", "<cmd>DiffviewOpen<cr>", { desc = "Diffview - Open" })
-    vim.keymap.set("n", "<space>Dc", "<cmd>DiffviewClose<cr>", { desc = "Diffview - Close" })
-    vim.keymap.set("n", "<space>DH", "<cmd>DiffviewFileHistory<cr>", { desc = "Diffview - File History" })
+    vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { desc = "Diffview - Open" })
+    vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>", { desc = "Diffview - Close" })
+    vim.keymap.set("n", "<leader>dH", "<cmd>DiffviewFileHistory<cr>", { desc = "Diffview - File History" })
     vim.keymap.set(
       "n",
-      "<space>Dh",
+      "<leader>dh",
       "<cmd>DiffviewFileHistory %<cr>",
       { desc = "Diffview - File History Current File" }
     )
