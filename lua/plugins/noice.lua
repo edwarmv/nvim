@@ -83,13 +83,13 @@ return {
         },
         opts = { skip = true },
       },
-      {
-        filter = {
-          event = "msg_show",
-          error = true,
-        },
-        opts = { skip = true },
-      },
+      -- {
+      --   filter = {
+      --     event = "msg_show",
+      --     error = true,
+      --   },
+      --   opts = { skip = true },
+      -- },
       -- {
       --   filter = {
       --     event = "msg_show",
