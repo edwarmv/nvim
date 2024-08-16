@@ -56,12 +56,12 @@ opt.number = true -- Print line number
 opt.pumblend = 0 -- Popup blend
 opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
-opt.scrolloff = 4 -- Lines of context
+-- opt.scrolloff = 4 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", "winpos" }
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
-opt.sidescrolloff = 8 -- Columns of context
+-- opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "auto" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.numberwidth = 1
 opt.smartcase = true -- Don't ignore case with capitals
