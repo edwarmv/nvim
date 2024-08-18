@@ -129,8 +129,8 @@ return {
         TRACE = "✎ ",
       },
     })
-    require("telescope").load_extension("notify")
-    vim.api.nvim_create_user_command("Notify", "Telescope notify", {})
+    -- require("telescope").load_extension("notify")
+    -- vim.api.nvim_create_user_command("Notify", "Telescope notify", {})
     -- vim.cmd([[hi link NotifyERRORBody NormalFloat]])
     -- vim.cmd([[hi link NotifyWARNBody NormalFloat]])
     -- vim.cmd([[hi link NotifyINFOBody NormalFloat]])

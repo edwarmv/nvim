@@ -14,7 +14,7 @@ return {
     require("nvim-tree").setup({
       on_attach = function(bufnr)
         local api = require("nvim-tree.api")
-        local treeutils = require("plugins.nvim-tree.treeutils")
+        -- local treeutils = require("plugins.nvim-tree.treeutils")
 
         local function opts(desc)
           return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
@@ -22,9 +22,9 @@ return {
 
         api.config.mappings.default_on_attach(bufnr)
 
-        vim.keymap.set("n", "<leader>tf", treeutils.launch_find_files, opts("Launch Find Files"))
-        vim.keymap.set("n", "<leader>tg", treeutils.launch_live_grep, opts("Launch Live Grep"))
-        vim.keymap.set("n", "<leader>td", treeutils.find_directory_and_focus, opts("Focus Directory With Telescope"))
+        -- vim.keymap.set("n", "<leader>tf", treeutils.launch_find_files, opts("Launch Find Files"))
+        -- vim.keymap.set("n", "<leader>tg", treeutils.launch_live_grep, opts("Launch Live Grep"))
+        -- vim.keymap.set("n", "<leader>td", treeutils.find_directory_and_focus, opts("Focus Directory With Telescope"))
 
         vim.keymap.del("n", "<C-]>", { buffer = bufnr })
         vim.keymap.del("n", "<C-x>", { buffer = bufnr })
