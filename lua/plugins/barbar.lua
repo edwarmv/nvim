@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   {
     "romgrk/barbar.nvim",
@@ -5,7 +7,7 @@ return {
       "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
       "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
     },
-    enabled = false,
+    enabled = true,
     init = function()
       vim.g.barbar_auto_setup = false
     end,
@@ -14,6 +16,12 @@ return {
       icons = {
         button = "",
         separator_at_end = false,
+        diagnostics = {
+          [vim.diagnostic.severity.ERROR] = { enabled = true, icon = defaults.icons.diagnostics.error },
+          [vim.diagnostic.severity.WARN] = { enabled = true, icon = defaults.icons.diagnostics.warn },
+          [vim.diagnostic.severity.INFO] = { enabled = true, icon = defaults.icons.diagnostics.info },
+          [vim.diagnostic.severity.HINT] = { enabled = true, icon = defaults.icons.diagnostics.hint },
+        },
       },
       animation = false,
     },
