@@ -8,6 +8,7 @@ return {
     local util = require("tokyonight.util")
 
     require("tokyonight").setup({
+      plugins = { markdown = true },
       style = "storm",
       light_style = "day",
       dim_inactive = true,
