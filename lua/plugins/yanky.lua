@@ -1,7 +1,7 @@
 return {
   "gbprod/yanky.nvim",
   dependencies = {
-    -- "kkharji/sqlite.lua",
+    "kkharji/sqlite.lua",
     {
       "gbprod/cutlass.nvim",
       opts = {
@@ -17,12 +17,17 @@ return {
     local utils = require("yanky.utils")
     require("yanky").setup({
       ring = {
-        storage = "shada",
+        storage = "sqlite",
+      },
+      highlight = {
+        on_put = false,
+        on_yank = false,
+        timer = 500,
       },
     })
     -- require("telescope").load_extension("yank_history")
 
-    -- vim.keymap.set("n", "<space>y", "<cmd>YankyRingHistory<cr>", {})
+    vim.keymap.set("n", "<space>y", "<cmd>YankyRingHistory<cr>", {})
     -- vim.keymap.set("n", "<space>y", "<cmd>Telescope yank_history<cr>")
 
     -- vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", {})
