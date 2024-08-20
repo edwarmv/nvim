@@ -41,14 +41,14 @@ return {
           fg = c.fg,
           bg = c.bg_float,
         }
-        hl.WinBar = {
-          fg = c.fg_sidebar,
-          bg = c.none,
-        }
-        hl.WinBarNC = {
-          fg = c.fg_gutter,
-          bg = c.none,
-        }
+        -- hl.WinBar = {
+        --   fg = c.fg_sidebar,
+        --   bg = c.none,
+        -- }
+        -- hl.WinBarNC = {
+        --   fg = c.fg_gutter,
+        --   bg = c.none,
+        -- }
         -- hl.CmpFloat = {
         --   fg = c.fg,
         --   bg = c.bg_float,
