@@ -64,7 +64,7 @@ return {
       enabled = true,
 
       -- Priority list of preferred vim.select implementations
-      backend = { "builtin", "fzf_lua", "fzf", "telescope", "nui" },
+      backend = { "fzf_lua", "fzf", "builtin", "telescope", "nui" },
 
       -- Options for telescope selector
       -- These are passed into the telescope picker directly. Can be used like:
@@ -75,7 +75,7 @@ return {
       fzf = {
         window = {
           width = 0.5,
-          height = 0.4,
+          height = 0.5,
         },
       },
 
@@ -83,7 +83,7 @@ return {
       fzf_lua = {
         winopts = {
           width = 0.5,
-          height = 0.4,
+          height = 0.5,
         },
       },
 
