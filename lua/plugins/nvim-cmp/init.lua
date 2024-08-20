@@ -287,7 +287,8 @@ return {
     Hydra({
       config = {
         hint = {
-          type = "statusline",
+          type = "window",
+          offset = -1,
         },
         invoke_on_body = true,
         timeout = false,
