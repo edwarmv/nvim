@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "folke/zen-mode.nvim",
   dependencies = {
@@ -9,8 +11,9 @@ return {
   },
   enabled = true,
   opts = {
+    border = defaults.border,
     window = {
-      width = 0.9,
+      width = 1,
     },
     on_open = function(_win)
       vim.opt_local.winbar = [[%{%v:lua.dropbar.get_dropbar_str()%}]]
