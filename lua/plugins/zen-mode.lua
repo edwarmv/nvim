@@ -15,6 +15,11 @@ return {
     window = {
       width = 1,
     },
+    plugins = {
+      options = {
+        laststatus = 3,
+      },
+    },
     on_open = function(_win)
       vim.opt_local.winbar = [[%{%v:lua.dropbar.get_dropbar_str()%}]]
     end,
