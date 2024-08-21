@@ -11,9 +11,9 @@ return {
   },
   enabled = true,
   opts = {
-    border = defaults.border,
+    border = "none",
     window = {
-      width = 1,
+      width = 0.9,
     },
     plugins = {
       options = {
