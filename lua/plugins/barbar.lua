@@ -24,6 +24,7 @@ return {
         },
       },
       animation = false,
+      insert_at_end = true,
     },
     config = function(_, opts)
       require("barbar").setup(opts)
