@@ -95,7 +95,9 @@ return {
         }),
         ["<c-n>"] = cmp.mapping({
           i = function(fallback)
-            if cmp.visible() then
+            if luasnip.locally_jumpable(1) then
+              luasnip.jump(1)
+            elseif cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
@@ -107,7 +109,9 @@ return {
         }),
         ["<c-p>"] = cmp.mapping({
           i = function(fallback)
-            if cmp.visible() then
+            if luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            elseif cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
@@ -139,9 +143,7 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         ["<tab>"] = cmp.mapping({
           i = function(fallback)
-            if luasnip.locally_jumpable(1) then
-              luasnip.jump(1)
-            elseif cmp.visible() then
+            if cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif utils.has_words_before() then
               cmp.complete()
@@ -167,9 +169,7 @@ return {
         }),
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            elseif cmp.visible() then
+            if cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
