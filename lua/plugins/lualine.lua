@@ -101,18 +101,18 @@ return {
           { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
         },
         lualine_c = {
-          -- { "filename", file_status = true },
-          -- {
-          --   "diagnostics",
-          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          --   symbols = {
-          --     error = icons.diagnostic.error,
-          --     warn = icons.diagnostic.warn,
-          --     info = icons.diagnostic.info,
-          --     hint = icons.diagnostic.hint,
-          --   },
-          --   update_in_insert = false, -- Update diagnostics in insert mode
-          -- },
+          { "filename", file_status = true },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostic.error,
+              warn = icons.diagnostic.warn,
+              info = icons.diagnostic.info,
+              hint = icons.diagnostic.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
           -- {
           --   "navic",
           --   color_correction = "dynamic",
@@ -122,18 +122,18 @@ return {
           -- },
         },
         lualine_x = {
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
-            symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-            padding = { left = 0, right = 1 },
-          },
+          -- {
+          --   "diagnostics",
+          --   sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
+          --   symbols = {
+          --     error = icons.diagnostic.error,
+          --     warn = icons.diagnostic.warn,
+          --     info = icons.diagnostic.info,
+          --     hint = icons.diagnostic.hint,
+          --   },
+          --   update_in_insert = false, -- Update diagnostics in insert mode
+          --   padding = { left = 0, right = 1 },
+          -- },
           -- { global_diagnostics_status },
           { "harpoon2", padding = { left = 0, right = 1 } },
           { "zoom#statusline", padding = { left = 0, right = 1 } },
