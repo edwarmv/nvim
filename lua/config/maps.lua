@@ -234,6 +234,12 @@ M.lsp = function(buffer)
     goto_preview.goto_preview_references,
     { desc = "[LSP] Goto Preview References", buffer = buffer }
   )
+  vim.keymap.set(
+    "n",
+    "glpq",
+    goto_preview.close_all_win,
+    { desc = "[LSP] Goto Preview Close All Win", buffer = buffer }
+  )
 
   vim.keymap.set(
     "n",
