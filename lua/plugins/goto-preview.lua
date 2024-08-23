@@ -7,6 +7,9 @@ return {
       height = math.ceil(vim.o.lines * 0.3), -- Height of the floating window
       default_mappings = false, -- Bind default mappings
       border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      post_open_hook = function(buf, win)
+        vim.api.nvim_win_set_option(win, "winbar", "")
+      end,
       -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
       -- border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" },
       -- border = { "", "", "", "", "", "", "", "" },
