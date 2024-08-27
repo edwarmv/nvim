@@ -1,14 +1,14 @@
 return {
   "nvim-neorg/neorg",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "luarocks.nvim",
-    {
-      "nvim-neorg/neorg-telescope",
-      keys = {
-        { "<space>tn", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
-      },
-    },
+    -- {
+    --   "nvim-neorg/neorg-telescope",
+    --   keys = {
+    --     { "<space>tn", "<cmd>Telescope neorg switch_workspace<cr>", desc = "Telescope - Neorg Switch Workspaces" },
+    --   },
+    -- },
   },
   lazy = false,
   config = function()
