@@ -208,10 +208,8 @@ return {
       }, --}}}
       sources = cmp.config.sources({
         { name = "spell" },
-      }, {
         { name = "nvim_lsp" },
         { name = "luasnip" },
-      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -253,7 +251,6 @@ return {
       },
       sources = cmp.config.sources({
         { name = "path" },
-      }, {
         { name = "cmdline" },
       }),
       matching = { disallow_symbol_nonprefix_matching = false },
@@ -272,7 +269,6 @@ return {
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp_document_symbol" },
-      }, {
         { name = "buffer" },
       }),
       -- formatting = {
@@ -434,7 +430,6 @@ return {
       sources = cmp.config.sources({
         { name = "vim-dadbod-completion" },
         { name = "luasnip" },
-      }, {
         { name = "buffer" },
       }),
     })

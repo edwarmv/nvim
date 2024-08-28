@@ -17,11 +17,12 @@ return {
     },
     plugins = {
       options = {
-        laststatus = 3,
+        laststatus = 0,
       },
     },
     on_open = function(_win)
-      vim.opt_local.winbar = [[%{%v:lua.dropbar.get_dropbar_str()%}]]
+      -- vim.opt_local.winbar = [[%{%v:lua.dropbar.get_dropbar_str()%}]]
+      vim.api.nvim_win_set_option(_win, "winbar", "")
     end,
   },
   keys = {
