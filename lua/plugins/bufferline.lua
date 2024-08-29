@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "akinsho/bufferline.nvim",
   enabled = true,
@@ -7,13 +9,14 @@ return {
     bufferline.setup({
       options = {
         show_buffer_close_icons = false,
-        style_preset = bufferline.style_preset.minimal, -- or ,
+        -- style_preset = bufferline.style_preset.minimal, -- or ,
         show_close_icon = false,
         separator_style = "thin",
         diagnostics = "nvim_lsp",
-        diagnostics_update_in_insert = false,
+        truncate_names = false,
+        sort_by = "insert_at_end",
         hover = {
-          enabled = true,
+          enabled = false,
           delay = 200,
           reveal = { "close" },
         },
