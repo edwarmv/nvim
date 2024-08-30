@@ -11,7 +11,7 @@ end
 
 return {
   "b0o/incline.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     require("incline").setup({
       hide = {
@@ -21,8 +21,8 @@ return {
       },
       render = function(props)
         local bufname = vim.api.nvim_buf_get_name(props.buf)
-        local filename = bufname ~= "" and filename_and_parent(vim.fn.fnamemodify(bufname, "%:p:~"), "/") or "[No Name]"
-        -- local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+        -- local filename = bufname ~= "" and filename_and_parent(vim.fn.fnamemodify(bufname, "%:p:~"), "/") or "[No Name]"
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
         if vim.api.nvim_get_option_value("readonly", { buf = props.buf }) then
           filename = filename .. " [-]"

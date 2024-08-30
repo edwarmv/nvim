@@ -1,8 +1,8 @@
 local defaults = require("config.defaults")
 
 return {
-  "edwarmv/nvim-lightbulb",
-  enabled = false,
+  "kosayoda/nvim-lightbulb",
+  enabled = true,
   opts = {
     autocmd = { enabled = true, updatetime = defaults.lsp_debounce },
     sign = {

@@ -9,7 +9,7 @@ return {
         border = "rounded",
       },
       lightbulb = {
-        enable = true,
+        enable = false,
         sign = false,
         debounce = defaults.lsp_debounce,
       },
@@ -24,7 +24,14 @@ return {
         diagnostic_only_current = false,
       },
       finder = {
-        default = "ref+def+imp",
+        default = "ref+def+imp+tyd",
+        keys = {
+          vsplit = "v",
+          split = "s",
+        },
+        methods = {
+          tyd = "textDocument/typeDefinition",
+        },
       },
       hover = {
         max_width = 0.5,
