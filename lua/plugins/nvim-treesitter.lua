@@ -65,7 +65,7 @@ return {
         end,
       },
       indent = {
-        enable = true,
+        enable = false,
         disable = { "dart" },
       },
       playground = {
@@ -94,6 +94,6 @@ return {
       },
     })
 
-    vim.treesitter.language.register("angular", "htmlangular")
+    -- vim.treesitter.language.register("angular", "htmlangular")
   end,
 }
