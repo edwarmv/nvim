@@ -1,6 +1,6 @@
 return {
   "glepnir/dashboard-nvim",
-  enabled = false,
+  enabled = true,
   event = "VimEnter",
   opts = {
     theme = "hyper",
@@ -22,9 +22,7 @@ return {
     {
       "folke/drop.nvim",
       event = "VimEnter",
-      config = function()
-        require("drop").setup()
-      end,
+      opts = {},
     },
   },
 }
