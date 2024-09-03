@@ -44,6 +44,7 @@ return {
   "vim-scripts/restore_view.vim",
   -- "simeji/winresizer",
   "moll/vim-bbye",
+  "dstein64/vim-startuptime",
   {
     "gcmt/taboo.vim",
     config = function()
