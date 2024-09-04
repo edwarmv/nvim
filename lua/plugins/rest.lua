@@ -1,6 +1,6 @@
 return {
   "NTBBloodbath/rest.nvim",
-  enabled = true,
+  enabled = false,
   config = function()
     require("rest-nvim").setup({
       keybinds = {
