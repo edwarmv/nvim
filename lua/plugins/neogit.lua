@@ -6,7 +6,7 @@ return {
     "sindrets/diffview.nvim", -- optional
     "ibhagwan/fzf-lua", -- optional
   },
-  enabled = true,
+  enabled = false,
   config = function()
     local neogit = require("neogit")
     neogit.setup({
