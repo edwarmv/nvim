@@ -165,7 +165,6 @@ return {
     { "<space>dt", function() require("dap").terminate() end, desc = "Terminate" },
     { "<space>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
   },
-
   config = function()
     local dap = require("dap")
     require("dap.ext.vscode").json_decode = require("json5").parse

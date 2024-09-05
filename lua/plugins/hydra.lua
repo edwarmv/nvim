@@ -4,7 +4,6 @@ return {
   "nvimtools/hydra.nvim",
   config = function()
     local Hydra = require("hydra")
-    local splits = require("smart-splits")
     local timeout = 1000
 
     Hydra({
@@ -79,28 +78,6 @@ return {
     --     { "t", "<cmd>tabprevious<cr>", { desc = "Prev tab" } },
     --   },
     -- })
-
-    Hydra({
-      config = {
-        hint = {
-          type = "window",
-          offset = -1,
-        },
-        timeout = timeout,
-      },
-      mode = "n",
-      body = "<c-w>",
-      heads = {
-        -- { "h", splits.move_cursor_left },
-        -- { "j", splits.move_cursor_down },
-        -- { "k", splits.move_cursor_up },
-        -- { "l", splits.move_cursor_right },
-        { "H", splits.resize_left },
-        { "J", splits.resize_down },
-        { "K", splits.resize_up },
-        { "L", splits.resize_right },
-      },
-    })
 
     local hint = [[
   ^ ^        Options

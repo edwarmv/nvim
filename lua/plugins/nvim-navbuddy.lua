@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "SmiteshP/nvim-navbuddy",
   dependencies = {
@@ -7,57 +9,41 @@ return {
     "numToStr/Comment.nvim", -- Optional
     "nvim-telescope/telescope.nvim", -- Optional
   },
-  config = function()
-    local defaults = require("config.defaults")
-    local navbuddy = require("nvim-navbuddy")
-    local actions = require("nvim-navbuddy.actions")
-    navbuddy.setup({
-      icons = {
-        File = " ",
-        Module = " ",
-        Namespace = " ",
-        Package = " ",
-        Class = " ",
-        Method = " ",
-        Property = " ",
-        Field = " ",
-        Constructor = " ",
-        Enum = " ",
-        Interface = " ",
-        Function = " ",
-        Variable = " ",
-        Constant = " ",
-        String = " ",
-        Number = " ",
-        Boolean = " ",
-        Array = " ",
-        Object = " ",
-        Key = " ",
-        Null = " ",
-        EnumMember = " ",
-        Struct = " ",
-        Event = " ",
-        Operator = " ",
-        TypeParameter = " ",
-      },
-      mappings = {
-        ["t"] = actions.telescope({ -- Fuzzy finder at current level.
-          layout_config = { -- All options that can be
-            height = 0.90, -- passed to telescope.nvim's
-            width = 0.90, -- default can be passed here.
-            prompt_position = "top",
-            preview_width = 0.50,
-          },
-          layout_strategy = "horizontal",
-        }),
-      },
-      window = {
-        border = defaults.border,
-        size = { height = "90%", width = "90%" },
-      },
-      lsp = {
-        auto_attach = true,
-      },
-    })
-  end,
+  config = {
+    icons = {
+      File = " ",
+      Module = " ",
+      Namespace = " ",
+      Package = " ",
+      Class = " ",
+      Method = " ",
+      Property = " ",
+      Field = " ",
+      Constructor = " ",
+      Enum = " ",
+      Interface = " ",
+      Function = " ",
+      Variable = " ",
+      Constant = " ",
+      String = " ",
+      Number = " ",
+      Boolean = " ",
+      Array = " ",
+      Object = " ",
+      Key = " ",
+      Null = " ",
+      EnumMember = " ",
+      Struct = " ",
+      Event = " ",
+      Operator = " ",
+      TypeParameter = " ",
+    },
+    window = {
+      border = defaults.border,
+      size = { height = "90%", width = "90%" },
+    },
+    lsp = {
+      auto_attach = true,
+    },
+  },
 }
