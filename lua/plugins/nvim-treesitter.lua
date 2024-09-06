@@ -65,7 +65,7 @@ return {
         end,
       },
       indent = {
-        enable = false,
+        enable = true,
         disable = { "dart" },
       },
       playground = {
