@@ -2,6 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "nvimtools/hydra.nvim",
+  dependencies = { "hrsh7th/nvim-cmp" },
   config = function()
     local Hydra = require("hydra")
     local timeout = 1000
@@ -12,12 +13,12 @@ return {
           type = "window",
           offset = -1,
         },
-        on_enter = function()
-          vim.api.nvim_command("IBLDisable")
-        end,
-        on_exit = function()
-          vim.api.nvim_command("IBLEnable")
-        end,
+        -- on_enter = function()
+        --   vim.cmd("IBLDisable")
+        -- end,
+        -- on_exit = function()
+        --   vim.cmd("IBLEnable")
+        -- end,
         timeout = timeout,
       },
       name = "Side scroll",
@@ -214,6 +215,124 @@ return {
           { desc = "scroll bind", exit = true },
         },
         { "<Esc>", nil, { exit = true } },
+      },
+    })
+
+    local cmp = require("cmp")
+
+    Hydra({
+      name = "cmp",
+      config = {
+        hint = {
+          type = "window",
+          offset = -1,
+        },
+        invoke_on_body = true,
+        timeout = false,
+      },
+      mode = "i",
+      body = "<c-z>",
+      heads = {
+        {
+          "s",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "luasnip" },
+                },
+              },
+            })
+          end,
+          { desc = "snippets", exit = true },
+        },
+        {
+          "p",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "path" },
+                },
+              },
+            })
+          end,
+          { desc = "path", exit = true },
+        },
+        {
+          "c",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  { name = "calc" },
+                },
+              },
+            })
+          end,
+          { desc = "calc", exit = true },
+        },
+        {
+          "y",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  {
+                    name = "cmp_yanky",
+                  },
+                },
+              },
+            })
+          end,
+          { desc = "yanky", exit = true },
+        },
+        {
+          "e",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  {
+                    name = "emmet_vim",
+                    option = {
+                      filetypes = {
+                        "html",
+                        "xml",
+                        "typescriptreact",
+                        "javascriptreact",
+                        "javascript",
+                        "css",
+                        "sass",
+                        "scss",
+                        "less",
+                        "heex",
+                        "tsx",
+                        "jsx",
+                      },
+                    },
+                  },
+                },
+              },
+            })
+          end,
+          { desc = "emmet", exit = true },
+        },
       },
     })
   end,
