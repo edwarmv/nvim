@@ -6,27 +6,32 @@ return {
     "sindrets/diffview.nvim", -- optional
     "ibhagwan/fzf-lua", -- optional
   },
-  enabled = false,
-  config = function()
-    local neogit = require("neogit")
-    neogit.setup({
-      disable_signs = true,
-      signs = {
-        -- { CLOSED, OPENED }
-        hunk = { "▸", "▾" },
-        item = { "▸", "▾" },
-        section = { "▸", "▾" },
-      },
-      auto_show_console = true,
-      graph_style = "unicode",
-    })
-
-    vim.keymap.set("n", "<leader>n", function()
-      require("neogit").open()
-    end, { desc = "[Neogit] - Open" })
-
-    vim.keymap.set("n", "<leader>N", function()
-      require("neogit").open({ cwd = "%:p:h" })
-    end, { desc = "[Neogit] - Open Relative" })
-  end,
+  enabled = true,
+  opts = {
+    disable_signs = true,
+    signs = {
+      -- { CLOSED, OPENED }
+      hunk = { "▸", "▾" },
+      item = { "▸", "▾" },
+      section = { "▸", "▾" },
+    },
+    auto_show_console = true,
+    graph_style = "unicode",
+  },
+  keys = {
+    {
+      "<leader>n",
+      function()
+        require("neogit").open()
+      end,
+      desc = "[Neogit] - Open",
+    },
+    {
+      "<leader>N",
+      function()
+        require("neogit").open({ cwd = "%:p:h" })
+      end,
+      desc = "[Neogit] - Open Relative",
+    },
+  },
 }
