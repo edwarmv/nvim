@@ -1,6 +1,5 @@
 return {
-  -- "andymass/vim-matchup",
-  "edwarmv/vim-matchup",
+  "andymass/vim-matchup",
   enabled = true,
   init = function()
     vim.g.matchup_matchparen_offscreen = { method = "" }
