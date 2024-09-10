@@ -28,6 +28,7 @@ return {
         "Navbuddy",
         "dashboard",
         "diff",
+        "fugitive",
       },
       buftypes = {
         "terminal",
