@@ -12,6 +12,8 @@ return {
       },
     })
     require("oil-git-status").setup()
-    vim.keymap.set("n", "<space>o", "<cmd>Oil<cr>", { desc = "Oil" })
   end,
+  keys = {
+    { "<space>o", "<cmd>Oil<cr>", desc = "Oil" },
+  },
 }
