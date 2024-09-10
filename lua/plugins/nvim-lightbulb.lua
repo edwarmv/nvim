@@ -17,6 +17,7 @@ return {
     },
     virtual_text = {
       enabled = true,
+      hl = "",
     },
   },
 }

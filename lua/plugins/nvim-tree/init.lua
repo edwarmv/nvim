@@ -1,3 +1,6 @@
+local defaults = require("config.defaults")
+local icons = defaults.icons
+
 return {
   "nvim-tree/nvim-tree.lua",
   enabled = true,
@@ -7,7 +10,6 @@ return {
     "nvim-lua/plenary.nvim",
   },
   config = function()
-    local icons = require("config.icons")
     local preview = require("nvim-tree-preview")
     require("lsp-file-operations").setup()
 

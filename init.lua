@@ -186,6 +186,7 @@ vim.keymap.set(
 )
 
 local defaults = require("config.defaults")
+local icons = defaults.icons
 
 vim.diagnostic.config({
   -- underline = false,
@@ -202,10 +203,10 @@ vim.diagnostic.config({
       -- [vim.diagnostic.severity.WARN] = "",
       -- [vim.diagnostic.severity.INFO] = "",
       -- [vim.diagnostic.severity.HINT] = "",
-      [vim.diagnostic.severity.ERROR] = "",
-      [vim.diagnostic.severity.WARN] = "",
-      [vim.diagnostic.severity.INFO] = "",
-      [vim.diagnostic.severity.HINT] = "",
+      [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
+      [vim.diagnostic.severity.WARN] = icons.diagnostics.warn,
+      [vim.diagnostic.severity.INFO] = icons.diagnostics.info,
+      [vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
     },
   },
   float = {

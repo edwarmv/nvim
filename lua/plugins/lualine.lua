@@ -1,4 +1,5 @@
-local icons = require("config.icons")
+local defaults = require("config.defaults")
+local icons = defaults.icons
 
 local function diff_source()
   local gitsigns = vim.b.gitsigns_status_dict
@@ -125,10 +126,10 @@ return {
             "diagnostics",
             sources = { "nvim_diagnostic" }, -- coc, nvim_diagnostic, nvim_workspace_diagnostic
             symbols = {
-              error = icons.diagnostic.error,
-              warn = icons.diagnostic.warn,
-              info = icons.diagnostic.info,
-              hint = icons.diagnostic.hint,
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
             },
             update_in_insert = false, -- Update diagnostics in insert mode
             padding = { left = 0, right = 1 },
