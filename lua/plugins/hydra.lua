@@ -32,54 +32,6 @@ return {
       },
     })
 
-    -- Hydra({
-    --   config = {
-    --     hint = {
-    --       type = "statusline",
-    --     },
-    --     timeout = true,
-    --   },
-    --   name = "Move cursor by display lines",
-    --   mode = "n",
-    --   body = "g",
-    --   heads = {
-    --     { "j", "gj" },
-    --     { "k", "gk", { desc = "↓/↑" } },
-    --   },
-    -- })
-
-    -- Hydra({
-    --   config = {
-    --     hint = {
-    --       type = "statusline",
-    --     },
-    --   },
-    --   mode = "n",
-    --   body = "]",
-    --   heads = {
-    --     { "d", "]d", { desc = "Next diagnostic" } },
-    --     -- { "c", "]c", { desc = "Next hunk" } },
-    --     { "w", "]w", { desc = "Next trailing whitespace" } },
-    --     { "t", "<cmd>tabnext<cr>", { desc = "Next tab" } },
-    --   },
-    -- })
-
-    -- Hydra({
-    --   config = {
-    --     hint = {
-    --       type = "statusline",
-    --     },
-    --   },
-    --   mode = "n",
-    --   body = "[",
-    --   heads = {
-    --     { "d", "[d", { desc = "Prev diagnostic" } },
-    --     -- { "c", "[c", { desc = "Prev hunk" } },
-    --     { "w", "[w", { desc = "Prev trailing whitespace" } },
-    --     { "t", "<cmd>tabprevious<cr>", { desc = "Prev tab" } },
-    --   },
-    -- })
-
     local hint = [[
   ^ ^        Options
   ^
