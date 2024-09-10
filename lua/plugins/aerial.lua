@@ -3,7 +3,7 @@ local defaults = require("config.defaults")
 return {
   "stevearc/aerial.nvim",
   opts = {
-    backends = { "lsp", "markdown", "man" },
+    backends = { "lsp", "treesitter", "markdown", "man" },
     layout = {
       -- Determines the default direction to open the aerial window. The 'prefer'
       -- options will open the window in the other direction *if* there is a
