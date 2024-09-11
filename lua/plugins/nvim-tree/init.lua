@@ -109,8 +109,9 @@ return {
         git_ignored = false,
       },
     })
-
-    vim.keymap.set("n", "<space>e", "<cmd>NvimTreeToggle<cr>", { desc = "NvimTree - Toggle" })
-    vim.keymap.set("n", "<space>E", "<cmd>NvimTreeFindFile<cr>", { desc = "NvimTree - FindFile" })
   end,
+  keys = {
+    { "<space>e", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree - Toggle" },
+    { "<space>E", "<cmd>NvimTreeFindFile<cr>", desc = "NvimTree - FindFile" },
+  },
 }
