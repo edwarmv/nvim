@@ -135,7 +135,7 @@ return {
             padding = { left = 0, right = 1 },
           },
           -- { global_diagnostics_status },
-          { "harpoon2", padding = { left = 0, right = 1 } },
+          { "harpoon2", no_harpoon = "", padding = { left = 0, right = 1 } },
           { "zoom#statusline", padding = { left = 0, right = 1 } },
           { "ObsessionStatus", padding = { left = 0, right = 1 } },
           -- "searchcount",
