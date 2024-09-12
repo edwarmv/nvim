@@ -9,7 +9,7 @@ return {
     "numToStr/Comment.nvim", -- Optional
     "nvim-telescope/telescope.nvim", -- Optional
   },
-  config = {
+  opts = {
     icons = {
       File = " ",
       Module = " ",
