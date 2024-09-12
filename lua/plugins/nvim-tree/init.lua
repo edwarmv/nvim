@@ -112,7 +112,26 @@ return {
     })
   end,
   keys = {
-    { "<space>e", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree - Toggle" },
-    { "<space>E", "<cmd>NvimTreeFindFile<cr>", desc = "NvimTree - FindFile" },
+    {
+      "<space>e",
+      function()
+        require("nvim-tree.api").tree.toggle({
+          find_file = false,
+          focus = true,
+          update_root = false,
+        })
+      end,
+      desc = "NvimTree - Toggle",
+    },
+    {
+      "<space>E",
+      function()
+        require("nvim-tree.api").tree.find_file({
+          open = true,
+          focus = true,
+        })
+      end,
+      desc = "NvimTree - FindFile",
+    },
   },
 }
