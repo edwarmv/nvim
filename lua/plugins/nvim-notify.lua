@@ -37,6 +37,7 @@ end
 
 return {
   "rcarriga/nvim-notify",
+  enabled = false,
   config = function()
     require("notify").setup({
       -- Animation style (see below for details)

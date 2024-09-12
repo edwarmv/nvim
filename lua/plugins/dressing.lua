@@ -10,6 +10,7 @@ return {
       min_width = 0.1,
     },
     select = {
+      enabled = true,
       backend = { "builtin" },
       builtin = {
         border = defaults.border,
