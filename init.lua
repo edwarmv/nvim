@@ -134,8 +134,8 @@ vim.opt.listchars = {
   -- tab = "-->",
   -- trail = "⋅", -- ␣
   trail = " ", -- ␣
-  extends = "…",
-  precedes = "…",
+  -- extends = "…",
+  -- precedes = "…",
 }
 
 -- =========================================================
