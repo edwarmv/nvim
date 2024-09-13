@@ -10,8 +10,14 @@ return {
       min_width = 0.1,
     },
     select = {
-      enabled = true,
-      backend = { "builtin" },
+      enabled = false,
+      backend = { "fzf_lua" },
+      fzf_lua = {
+        winopts = {
+          height = 0.2,
+          width = 0.3,
+        },
+      },
       builtin = {
         border = defaults.border,
         relative = "cursor",
