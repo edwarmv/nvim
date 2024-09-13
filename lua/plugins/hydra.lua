@@ -183,7 +183,7 @@ return {
         timeout = false,
       },
       mode = "i",
-      body = "<c-z>",
+      body = "<c-x>",
       heads = {
         {
           "s",
@@ -250,6 +250,24 @@ return {
             })
           end,
           { desc = "yanky", exit = true },
+        },
+        {
+          "E",
+          function()
+            if cmp.visible() then
+              cmp.close()
+            end
+            cmp.complete({
+              config = {
+                sources = {
+                  {
+                    name = "emoji",
+                  },
+                },
+              },
+            })
+          end,
+          { desc = "Emoji", exit = true },
         },
         {
           "e",
