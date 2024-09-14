@@ -79,7 +79,10 @@ return {
         -- avoid annoying message
         filter = {
           event = "notify",
-          find = "No information available",
+          any = {
+            { find = "No information available" },
+            { find = "WARNING: vim.treesitter.get_parser will return nil instead of raising an error in Neovim 0.12" },
+          },
         },
         opts = { skip = true },
       },
