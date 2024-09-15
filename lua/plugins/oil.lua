@@ -1,20 +1,25 @@
 return {
-  "stevearc/oil.nvim",
-  lazy = false,
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    "refractalize/oil-git-status.nvim",
-  },
-  config = function()
-    require("oil").setup({
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    dependencies = {
+      "echasnovski/mini.icons",
+    },
+    opts = {
       win_options = {
         signcolumn = "yes:2",
         number = false,
       },
-    })
-    require("oil-git-status").setup()
-  end,
-  keys = {
-    { "<space>o", "<cmd>Oil<cr>", desc = "Oil" },
+    },
+    keys = {
+      { "<space>o", "<cmd>Oil<cr>", desc = "Oil" },
+    },
+  },
+  {
+    "refractalize/oil-git-status.nvim",
+    dependencies = {
+      "stevearc/oil.nvim",
+    },
+    opts = {},
   },
 }
