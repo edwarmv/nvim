@@ -2,5 +2,5 @@
 require("config.lazy")
 require("config.maps")
 require("custom")
-require("lsp")
+-- require("lsp")
 -- vim: foldmethod=marker
