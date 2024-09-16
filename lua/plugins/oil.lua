@@ -10,6 +10,9 @@ return {
         signcolumn = "yes:2",
         number = false,
       },
+      view_options = {
+        show_hidden = true,
+      },
     },
     keys = {
       { "<space>o", "<cmd>Oil<cr>", desc = "Oil" },
