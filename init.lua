@@ -376,4 +376,9 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
   border = defaults.border,
 })
--- vim: foldmethod=marker
+
+vim.env.PATH = vim.env.HOME
+  .. "/.asdf/installs/nodejs/22.2.0/bin:"
+  .. vim.env.HOME
+  .. "/.asdf/installs/python/3.11.5/bin:"
+  .. vim.env.PATH
