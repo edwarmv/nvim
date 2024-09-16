@@ -6,6 +6,9 @@ return {
       "nvim-treesitter/playground",
     },
   },
+  init = function()
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end,
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
