@@ -70,6 +70,16 @@ return {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({})
         end,
+        ["jsonls"] = function()
+          require("lspconfig").jsonls.setup({
+            settings = {
+              json = {
+                schemas = require("schemastore").json.schemas(),
+                validate = { enable = true },
+              },
+            },
+          })
+        end,
       },
     },
   },
