@@ -38,7 +38,7 @@ return {
       function()
         require("smart-splits").start_resize_mode()
       end,
-      desc = "Move Cursor Right",
+      desc = "Start Resize Mode",
     },
     -- vim.keymap.set("n", "<leader><leader>H", require("smart-splits").swap_buf_left, { desc = "Swap Buf Left" })
     -- vim.keymap.set("n", "<leader><leader>J", require("smart-splits").swap_buf_down, { desc = "Swap Buf Down" })
