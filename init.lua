@@ -57,7 +57,7 @@ opt.pumblend = 0 -- Popup blend
 opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
 -- opt.scrolloff = 4 -- Lines of context
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", "winpos" }
+-- opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", "winpos" }
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
@@ -105,14 +105,14 @@ vim.keymap.set({ "n", "v" }, "j", function()
   return vim.v.count > 0 and "j" or "gj"
 end, { expr = true, desc = "j or gj" })
 
--- Folding
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
-
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
-vim.opt.foldcolumn = "auto"
+-- Folding
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.foldcolumn = "1"
 vim.opt.viewoptions = { "folds", "cursor" }
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 vim.opt.fillchars = {

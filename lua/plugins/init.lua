@@ -41,14 +41,14 @@ return {
   "tpope/vim-repeat",
   -- "tpope/vim-scriptease",
   "farmergreg/vim-lastplace",
-  "vim-scripts/restore_view.vim",
+  -- "vim-scripts/restore_view.vim",
   -- "simeji/winresizer",
   "moll/vim-bbye",
   "dstein64/vim-startuptime",
-  {
-    "gcmt/taboo.vim",
-    config = function()
-      vim.g.taboo_tabline = 0
-    end,
-  },
+  -- {
+  --   "gcmt/taboo.vim",
+  --   init = function()
+  --     vim.g.taboo_tabline = 0
+  --   end,
+  -- },
 }

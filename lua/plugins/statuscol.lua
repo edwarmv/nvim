@@ -42,7 +42,6 @@ return {
         {
           text = { builtin.foldfunc },
           click = "v:lua.ScFa",
-          sign = { colwidth = 1, auto = true },
         },
       },
     })
