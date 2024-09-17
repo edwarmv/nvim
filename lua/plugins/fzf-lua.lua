@@ -116,6 +116,8 @@ return {
     { "<space>fgb", "<cmd>FzfLua git_branches<cr>", desc = "FZF - Git Branches" },
     { "<space>fgt", "<cmd>FzfLua git_stash<cr>", desc = "FZF - Git Stash" },
 
+    { "<space>fn", "<cmd>Noice fzf<cr>", desc = "FZF - Noice Messages" },
+
     { "<space>fls", "<cmd>FzfLua lsp_document_symbols<cr>", desc = "FZF - LSP Document Symbols" },
     { "<space>flS", "<cmd>FzfLua lsp_workspace_symbols<cr>", desc = "FZF - LSP Workspace Symbols" },
     { "<space>fld", "<cmd>FzfLua diagnostics_document<cr>", desc = "FZF - Document Diagnostics" },
