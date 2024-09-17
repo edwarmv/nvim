@@ -32,6 +32,24 @@ return {
       },
     })
 
+    Hydra({
+      config = {
+        hint = {
+          type = "window",
+          offset = -1,
+        },
+        timeout = false,
+      },
+      mode = "n",
+      body = "<c-w>",
+      heads = {
+        { ">", "<c-w>>" },
+        { "<", "<c-w><" },
+        { "+", "<c-w>+" },
+        { "-", "<c-w>-" },
+      },
+    })
+
     local hint = [[
   ^ ^        Options
   ^
