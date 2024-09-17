@@ -1,4 +1,9 @@
 local defaults = require("config.defaults")
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
 
 return {
   {
@@ -68,7 +73,9 @@ return {
       ensure_installed = { "angularls" },
       handlers = {
         function(server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup({})
+          require("lspconfig")[server_name].setup({
+            capabilities = capabilities,
+          })
         end,
         ["jsonls"] = function()
           require("lspconfig").jsonls.setup({
