@@ -48,7 +48,10 @@ return {
       end,
       view = {
         width = {
-          min = 30,
+          min = function()
+            local width = math.floor(vim.o.columns * 0.2)
+            return width
+          end,
           max = -1,
           padding = 0,
         },
