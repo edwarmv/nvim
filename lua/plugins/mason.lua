@@ -87,6 +87,11 @@ return {
             },
           })
         end,
+        ["html"] = function()
+          require("lspconfig").html.setup({
+            filetypes = { "html", "templ", "htmlangular" },
+          })
+        end,
       },
     },
   },
