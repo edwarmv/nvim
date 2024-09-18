@@ -80,6 +80,7 @@ return {
         filter = {
           event = "notify",
           any = {
+            { find = "No signature help available" },
             { find = "No information available" },
             { find = "WARNING: vim.treesitter.get_parser will return nil instead of raising an error in Neovim 0.12" },
           },
