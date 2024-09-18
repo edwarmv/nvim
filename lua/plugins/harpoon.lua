@@ -11,17 +11,45 @@ return {
   },
   keys = {
     {
-      "gh",
+      "<m-1>",
       function()
-        return '<cmd>lua require("harpoon"):list():select(vim.v.count)<cr>'
+        return require("harpoon"):list():select(1)
       end,
-      expr = true,
-      desc = "[Harpoon] - Navigate to File",
+      desc = "[Harpoon] - Navigate to File(1)",
     },
     {
-      "gah",
+      "<m-2>",
+      function()
+        return require("harpoon"):list():select(2)
+      end,
+      desc = "[Harpoon] - Navigate to File(2)",
+    },
+    {
+      "<m-3>",
+      function()
+        return require("harpoon"):list():select(3)
+      end,
+      desc = "[Harpoon] - Navigate to File(3)",
+    },
+    {
+      "<m-4>",
+      function()
+        return require("harpoon"):list():select(4)
+      end,
+      desc = "[Harpoon] - Navigate to File(4)",
+    },
+    {
+      "<m-5>",
+      function()
+        return require("harpoon"):list():select(5)
+      end,
+      desc = "[Harpoon] - Navigate to File(5)",
+    },
+    {
+      "gh",
       function()
         require("harpoon"):list():add()
+        print("[Harpoon] - Added File")
       end,
       expr = true,
       desc = "[Harpoon] - Add File",
@@ -37,6 +65,7 @@ return {
       "gch",
       function()
         require("harpoon"):list():clear()
+        print("[Harpoon] - Cleared items")
       end,
       desc = "[Harpoon] - Clear items",
     },

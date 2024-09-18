@@ -43,7 +43,8 @@ return {
   "farmergreg/vim-lastplace",
   -- "vim-scripts/restore_view.vim",
   -- "simeji/winresizer",
-  "moll/vim-bbye",
+  -- "moll/vim-bbye",
+  "famiu/bufdelete.nvim",
   "dstein64/vim-startuptime",
   -- {
   --   "gcmt/taboo.vim",
