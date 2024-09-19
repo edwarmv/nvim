@@ -205,7 +205,7 @@ return {
             cmp.complete()
           end,
         }),
-      }, --}}}
+      },
       sources = cmp.config.sources({
         { name = "spell" },
       }, {
