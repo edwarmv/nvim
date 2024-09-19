@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
@@ -57,7 +59,10 @@ return {
     {
       "gH",
       function()
-        require("harpoon").ui:toggle_quick_menu(require("harpoon"):list(), { border = "rounded" })
+        require("harpoon").ui:toggle_quick_menu(
+          require("harpoon"):list(),
+          { border = defaults.border, ui_width_ratio = 0.3 }
+        )
       end,
       desc = "[Harpoon] - Toggle Quick Menu",
     },
