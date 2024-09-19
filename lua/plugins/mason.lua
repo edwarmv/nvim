@@ -43,7 +43,7 @@ return {
         -- "efm",
         "vue-language-server",
         "marksman",
-        "emmet-language-server",
+        -- "emmet-language-server",
         "astro-language-server",
         "rust-analyzer",
         "basedpyright",
