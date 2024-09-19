@@ -30,43 +30,6 @@ return {
         enabled = false,
       },
     },
-    popupmenu = {
-      backend = "cmp",
-    },
-    views = {
-      split = {
-        enter = true,
-      },
-      cmdline_popup = {
-        border = {
-          style = defaults.border,
-        },
-        size = {
-          min_width = 0,
-          width = "70%",
-          height = "auto",
-        },
-      },
-      popup = {
-        border = {
-          style = defaults.border,
-        },
-        size = {
-          width = "70%",
-          height = "auto",
-        },
-      },
-      confirm = {
-        border = {
-          style = defaults.border,
-        },
-      },
-      hover = {
-        border = {
-          padding = { 0, 0 },
-        },
-      },
-    },
     presets = {
       long_message_to_split = true,
       bottom_search = true,
