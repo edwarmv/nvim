@@ -1,5 +1,5 @@
 local defaults = require("config.defaults")
----@diagnostic disable: missing-fields
+
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
@@ -16,7 +16,6 @@ return {
     "hrsh7th/cmp-calc",
     "chrisgrieser/cmp_yanky",
     "hrsh7th/cmp-emoji",
-    { "dcampos/cmp-emmet-vim", dependencies = { "mattn/emmet-vim" } },
     -- "ray-x/cmp-treesitter",
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
     {

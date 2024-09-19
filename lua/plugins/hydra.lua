@@ -270,7 +270,7 @@ return {
           { desc = "yanky", exit = true },
         },
         {
-          "E",
+          "e",
           function()
             if cmp.visible() then
               cmp.close()
@@ -286,40 +286,6 @@ return {
             })
           end,
           { desc = "Emoji", exit = true },
-        },
-        {
-          "e",
-          function()
-            if cmp.visible() then
-              cmp.close()
-            end
-            cmp.complete({
-              config = {
-                sources = {
-                  {
-                    name = "emmet_vim",
-                    option = {
-                      filetypes = {
-                        "html",
-                        "xml",
-                        "typescriptreact",
-                        "javascriptreact",
-                        "javascript",
-                        "css",
-                        "sass",
-                        "scss",
-                        "less",
-                        "heex",
-                        "tsx",
-                        "jsx",
-                      },
-                    },
-                  },
-                },
-              },
-            })
-          end,
-          { desc = "emmet", exit = true },
         },
       },
     })
