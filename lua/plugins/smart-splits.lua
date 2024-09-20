@@ -40,9 +40,33 @@ return {
       end,
       desc = "Start Resize Mode",
     },
-    -- vim.keymap.set("n", "<leader><leader>H", require("smart-splits").swap_buf_left, { desc = "Swap Buf Left" })
-    -- vim.keymap.set("n", "<leader><leader>J", require("smart-splits").swap_buf_down, { desc = "Swap Buf Down" })
-    -- vim.keymap.set("n", "<leader><leader>K", require("smart-splits").swap_buf_up, { desc = "Swap Buf Up" })
-    -- vim.keymap.set("n", "<leader><leader>L", require("smart-splits").swap_buf_right, { desc = "Swap Buf Right" })
+    {
+      "<leader><leader>H",
+      function()
+        require("smart-splits").swap_buf_left()
+      end,
+      desc = "Swap Buf Left",
+    },
+    {
+      "<leader><leader>J",
+      function()
+        require("smart-splits").swap_buf_down()
+      end,
+      desc = "Swap Buf Down",
+    },
+    {
+      "<leader><leader>K",
+      function()
+        require("smart-splits").swap_buf_up()
+      end,
+      desc = "Swap Buf Up",
+    },
+    {
+      "<leader><leader>L",
+      function()
+        require("smart-splits").swap_buf_right()
+      end,
+      desc = "Swap Buf Right",
+    },
   },
 }
