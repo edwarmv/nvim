@@ -10,12 +10,10 @@ return {
   opts = {
     disable_signs = true,
     signs = {
-      -- { CLOSED, OPENED }
       hunk = { "▸", "▾" },
       item = { "▸", "▾" },
       section = { "▸", "▾" },
     },
-    auto_show_console = true,
     graph_style = "unicode",
   },
   keys = {
