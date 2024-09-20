@@ -12,8 +12,9 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    -- setting the keybinding for LazyGit with 'keys' is recommended in
-    -- order to load the plugin when the command is run for the first time
+    init = function()
+      vim.g.lazygit_floating_window_border_chars = { "", "", "", "", "", "", "", "" }
+    end,
     keys = {
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
       { "<leader>lG", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit" },
