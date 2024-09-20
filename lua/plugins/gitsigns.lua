@@ -67,7 +67,7 @@ return {
       height = math.floor(vim.opt.lines:get() / 3),
     },
     on_attach = function(bufnr)
-      local gs = package.loaded.gitsigns
+      local gitsigns = require("gitsigns")
 
       local function map(mode, l, r, opts)
         opts = opts or {}
@@ -78,43 +78,54 @@ return {
       -- Navigation
       map("n", "]c", function()
         if vim.wo.diff then
-          return "]c"
+          vim.cmd.normal({ "]c", bang = true })
+        else
+          gitsigns.nav_hunk("next")
         end
-        vim.schedule(function()
-          gs.next_hunk()
-        end)
-        return "<Ignore>"
-      end, { expr = true, desc = "[Gitsigns] Next Hunk" })
+      end, { desc = "[Gitsigns] Next Hunk" })
 
       map("n", "[c", function()
         if vim.wo.diff then
-          return "[c"
+          vim.cmd.normal({ "[c", bang = true })
+        else
+          gitsigns.nav_hunk("prev")
         end
-        vim.schedule(function()
-          gs.prev_hunk()
-        end)
-        return "<Ignore>"
-      end, { expr = true, desc = "[Gitsigns] Prev Hunk" })
+      end, { desc = "[Gitsigns] Prev Hunk" })
 
       -- Actions
-      map({ "n", "v" }, "<leader>gs", ":Gitsigns stage_hunk<CR>", { desc = "[Gitsigns] Stage Hunk" })
-      map({ "n", "v" }, "<leader>gr", ":Gitsigns reset_hunk<CR>", { desc = "[Gitsigns] Reset Hunk" })
-      map("n", "<leader>gS", gs.stage_buffer, { desc = "[Gitsigns] Stage Buffer" })
-      map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "[Gitsigns] Undo Stage Hunk" })
-      map("n", "<leader>gR", gs.reset_buffer, { desc = "[Gitsigns] Reset Buffer" })
-      map("n", "<leader>gp", gs.preview_hunk, { desc = "[Gitsigns] Preview Hunk" })
-      map("n", "<leader>gP", gs.preview_hunk_inline, { desc = "[Gitsigns] Preview Hunk Inline" })
-      map("n", "<leader>gq", "<cmd>Gitsigns setloclist<cr>", { desc = "[Gitsigns] Quifix" })
+      map("n", "<leader>gs", gitsigns.stage_hunk)
+      map("n", "<leader>gr", gitsigns.reset_hunk)
+      map("v", "<leader>gs", function()
+        gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      end)
+      map("v", "<leader>gr", function()
+        gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+      end)
+      map("n", "<leader>gS", gitsigns.stage_buffer, { desc = "[Gitsigns] Stage Buffer" })
+      map("n", "<leader>gu", gitsigns.undo_stage_hunk, { desc = "[Gitsigns] Undo Stage Hunk" })
+      map("n", "<leader>gR", gitsigns.reset_buffer, { desc = "[Gitsigns] Reset Buffer" })
+      map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "[Gitsigns] Preview Hunk" })
+      map("n", "<leader>gP", gitsigns.preview_hunk_inline, { desc = "[Gitsigns] Preview Hunk Inline" })
+      map("n", "<leader>gq", gitsigns.setloclist, { desc = "[Gitsigns] Quifix" })
+      map("n", "<leader>gd", gitsigns.diffthis, { desc = "[Gitsigns] Diff This" })
+      map("n", "<leader>gD", function()
+        gitsigns.diffthis("~")
+      end, { desc = "[Gitsigns] Diff This" })
+
+      -- git blame
       map("n", "<leader>gb", "<cmd>GitBlameToggle<cr>", { desc = "[GitBlame] - Toggle" })
       map("n", "<leader>gBch", "<cmd>GitBlameCopySHA<cr>", { desc = "[GitBlame] - Copy Hash" })
       map("n", "<leader>gBcf", "<cmd>GitBlameCopyFileURL<cr>", { desc = "[GitBlame] - Copy File URL" })
       map("n", "<leader>gBcc", "<cmd>GitBlameCopyCommitURL<cr>", { desc = "[GitBlame] - Copy Commit URL" })
+
+      -- git conflict
       map("n", "<leader>gcq", "<cmd>GitConflictListQf<cr>", { desc = "Git Conflict - Quickfix" })
       map("n", "<leader>gcr", "<cmd>GitConflictRefresh<cr>", { desc = "Git Conflict - Refresh" })
       map("n", "<leader>gco", "<Plug>(git-conflict-ours)", { desc = "Git Conflict - Choose Ours" })
       map("n", "<leader>gct", "<Plug>(git-conflict-theirs)", { desc = "Git Conflict - Choose Theirs" })
       map("n", "<leader>gcb", "<Plug>(git-conflict-both)", { desc = "Git Conflict - Choose Both" })
       map("n", "<leader>gc0", "<Plug>(git-conflict-none)", { desc = "Git Conflict - Choose None" })
+
       map("n", "[x", "<Plug>(git-conflict-prev-conflict)", { desc = "Git Conflict - Prev" })
       map("n", "]x", "<Plug>(git-conflict-next-conflict)", { desc = "Git Conflict - Next" })
       -- map("n", "<leader>hb", function()
