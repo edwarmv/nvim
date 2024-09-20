@@ -48,9 +48,6 @@ return {
       "astro",
       "rust",
       "xml",
-      -- "norg",
-      -- "norg_meta",
-      -- "norg_table",
     },
     highlight = {
       enable = true,
