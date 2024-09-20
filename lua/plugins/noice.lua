@@ -5,6 +5,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
+    "ibhagwan/fzf-lua",
     -- "rcarriga/nvim-notify",
   },
   enabled = true,
@@ -50,36 +51,9 @@ return {
         },
         opts = { skip = true },
       },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     error = true,
-      --   },
-      --   opts = { skip = true },
-      -- },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     kind = "",
-      --     find = "written",
-      --   },
-      --   opts = { skip = true },
-      -- },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     kind = "",
-      --     find = "changes",
-      --   },
-      --   opts = { skip = true },
-      -- },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     kind = "",
-      --   },
-      --   opts = { skip = true },
-      -- },
     },
+  },
+  keys = {
+    { "<space>fn", "<cmd>Noice fzf<cr>", desc = "FZF - Noice Messages" },
   },
 }

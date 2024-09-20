@@ -1,12 +1,10 @@
 return {
   "folke/todo-comments.nvim",
-  dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
-  config = function()
-    require("todo-comments").setup({
-      signs = false,
-    })
-
-    vim.keymap.set("n", "<space>tt", "<cmd>TodoTelescope<cr>")
-    vim.keymap.set("n", "<leader>xt", "<cmd>TodoTrouble<cr>")
-  end,
+  event = "VimEnter",
+  dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim", "ibhagwan/fzf-lua" },
+  opts = {},
+  keys = {
+    { "<space>ft", "<cmd>TodoFzfLua<cr>" },
+    { "<leader>xt", "<cmd>TodoTrouble<cr>" },
+  },
 }
