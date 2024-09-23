@@ -16,6 +16,11 @@ return {
   { "chrisbra/csv.vim", ft = "csv" },
   { "chrisbra/recover.vim" },
   {
+    "tummetott/reticle.nvim",
+    event = "VeryLazy", -- optionally lazy load the plugin
+    opts = {},
+  },
+  {
     init = function()
       vim.g.user_emmet_leader_key = "<m-e>"
     end,
