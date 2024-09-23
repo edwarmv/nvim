@@ -170,7 +170,7 @@ M.neotree_zx = function(state)
 end
 
 --- Update all open/closed folders by depthlevel.
-M.neotree_zX= function(state)
+M.neotree_zX = function(state)
   set_depthlevel(state, vim.b.neotree_depthlevel or MIN_DEPTH)
   redraw_after_depthlevel_change(state, false)
 end

@@ -20,9 +20,17 @@ return {
         laststatus = 0,
       },
     },
-    on_open = function(_win)
+    on_open = function(win)
       -- vim.opt_local.winbar = [[%{%v:lua.dropbar.get_dropbar_str()%}]]
-      vim.api.nvim_win_set_option(_win, "winbar", "")
+      vim.api.nvim_win_set_option(win, "winbar", "")
+      vim.opt_local.fillchars = {
+        diff = "╱",
+        eob = " ",
+        fold = "·",
+        foldopen = "▾",
+        foldsep = " ",
+        foldclose = "▸",
+      }
     end,
   },
   keys = {

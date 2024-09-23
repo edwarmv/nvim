@@ -3,28 +3,33 @@ local defaults = require("config.defaults")
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
       { "s1n7ax/nvim-window-picker", name = "window-picker" },
+      -- "saifulapm/neotree-file-nesting-config",
     },
     config = function()
       local fold_commands = require("plugins.neo-tree.fold-commands")
       local commands = require("plugins.neo-tree.commands")
 
       require("neo-tree").setup({
+        -- nesting_rules = require("neotree-file-nesting-config").nesting_rules,
+        hide_root_node = true,
+        retain_hidden_root_indent = true,
         popup_border_style = defaults.border,
         enable_diagnostics = false,
-        use_default_mappings = true,
         use_popups_for_input = true,
-        enable_cursor_hijack = true,
         default_component_configs = {
           container = {
             enable_character_fade = true,
           },
           indent = {
+            with_expanders = true,
+            expander_collapsed = "",
+            expander_expanded = "",
             padding = 0,
           },
           git_status = {
@@ -77,7 +82,7 @@ return {
             ["zM"] = fold_commands.neotree_zM,
             ["zr"] = fold_commands.neotree_zr,
             ["zR"] = fold_commands.neotree_zR,
-            ["P"] = { "toggle_preview", config = { use_float = false } },
+            ["P"] = { "toggle_preview", config = { use_float = true } },
             ["h"] = function(state)
               local node = state.tree:get_node()
               if node.type == "directory" and node:is_expanded() then
@@ -102,6 +107,7 @@ return {
           filtered_items = {
             hide_dotfiles = false,
             hide_gitignored = false,
+            show_hidden_count = false,
           },
           follow_current_file = {
             enabled = true, -- This will find and focus the file in the active buffer every time
@@ -123,6 +129,25 @@ return {
             system_open = commands.system_open,
             trash = commands.trash,
             trash_visual = commands.trash_visual,
+          },
+        },
+        event_handlers = {
+          {
+            event = "neo_tree_window_after_open",
+            handler = function(args)
+              vim.opt_local.foldcolumn = "0"
+              if args.position == "left" or args.position == "right" then
+                vim.cmd("wincmd =")
+              end
+            end,
+          },
+          {
+            event = "neo_tree_window_after_close",
+            handler = function(args)
+              if args.position == "left" or args.position == "right" then
+                vim.cmd("wincmd =")
+              end
+            end,
           },
         },
       })
