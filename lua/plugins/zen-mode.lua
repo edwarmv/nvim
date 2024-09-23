@@ -26,7 +26,7 @@ return {
       vim.opt_local.fillchars = {
         diff = "╱",
         eob = " ",
-        fold = "·",
+        fold = " ",
         foldopen = "▾",
         foldsep = " ",
         foldclose = "▸",
