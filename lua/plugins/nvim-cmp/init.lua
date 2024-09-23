@@ -237,6 +237,7 @@ return {
             calc = "[Calc]",
             nvim_lsp_document_symbol = "[Symbols]",
             emoji = "[Emoji]",
+            nvim_lsp_signature_help = "[Signature]",
           },
         }),
       },
