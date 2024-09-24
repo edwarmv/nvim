@@ -4,6 +4,7 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
+local filter_fold_servers = { "angularls", "tailwindcss", "emmet_language_server" }
 
 return {
   {
@@ -75,6 +76,9 @@ return {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({
             capabilities = capabilities,
+            on_attach = function(client, buffer)
+              client.server_capabilities.foldingRangeProvider = not vim.tbl_contains(filter_fold_servers, client.name)
+            end,
           })
         end,
         ["jsonls"] = function()
