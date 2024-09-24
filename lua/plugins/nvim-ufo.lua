@@ -66,7 +66,7 @@ end
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = { "kevinhwang91/promise-async" },
-  enabled = true,
+  event = "VeryLazy",
   opts = {
     fold_virt_text_handler = handler_alt,
     provider_selector = function(bufnr, filetype, buftype)

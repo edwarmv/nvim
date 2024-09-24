@@ -57,7 +57,8 @@ opt.pumblend = 0 -- Popup blend
 opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
 -- opt.scrolloff = 4 -- Lines of context
--- opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds", "winpos" }
+opt.sessionoptions = { "tabpages", "winsize" }
+opt.viewoptions = { "cursor" }
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
