@@ -1,6 +1,6 @@
 return {
   "matze/vim-move",
-  config = function()
+  init = function()
     vim.g.move_key_modifier = "m"
   end,
 }
