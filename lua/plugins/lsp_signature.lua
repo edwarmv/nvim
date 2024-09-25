@@ -2,7 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "ray-x/lsp_signature.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   opts = {
     max_height = math.floor(vim.o.lines * 0.3), -- max height of signature floating_window
