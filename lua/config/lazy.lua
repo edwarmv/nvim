@@ -31,4 +31,9 @@ require("lazy").setup({
     enabled = true,
     frequency = 3600 * 24 * 7,
   },
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = false,
+    notify = false, -- get a notification when changes are found
+  },
 })
