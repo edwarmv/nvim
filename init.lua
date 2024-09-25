@@ -57,8 +57,7 @@ opt.pumblend = 0 -- Popup blend
 opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
 -- opt.scrolloff = 4 -- Lines of context
-opt.sessionoptions = { "tabpages", "winsize" }
-opt.viewoptions = { "cursor" }
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
@@ -68,6 +67,7 @@ opt.numberwidth = 1
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
 opt.spelllang = { "en" }
+opt.spelloptions:append("noplainbuffer")
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
