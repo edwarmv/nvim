@@ -114,9 +114,6 @@ M.lsp = function(buffer)
     { desc = "[LSP - Glance] Implementations", buffer = buffer }
   )
   -- lspsaga
-  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
-  -- vim.keymap.set("n", "gld", "<cmd>Lspsaga peek_definition<cr>", opts)
-  -- vim.keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
   vim.keymap.set(
     "n",
     "<c-w>d",
@@ -156,12 +153,12 @@ M.lsp = function(buffer)
   vim.keymap.set("n", "gra", "<cmd>Lspsaga code_action<cr>", { desc = "[LSP] Code Action", buffer = buffer })
   -- vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "[Diagnostic] Next", buffer = buffer })
   -- vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "[Diagnostic] Prev", buffer = buffer })
-  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++silent<cr>", { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++silent<cr>", { desc = "[LSP] Hover", buffer = buffer })
 
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
+  -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
 
   -- vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 

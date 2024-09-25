@@ -32,10 +32,6 @@ return {
   {
     "godlygeek/tabular",
   },
-  {
-    "iamcco/markdown-preview.nvim",
-    build = "cd app && yarn install",
-  },
   "machakann/vim-highlightedyank",
   "tpope/vim-fugitive",
   {

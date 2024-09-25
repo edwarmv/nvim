@@ -63,6 +63,6 @@ return {
     },
   },
   keys = {
-    { "<space>fn", "<cmd>Noice fzf<cr>", desc = "FZF - Noice Messages" },
+    { "<space>fn", "<cmd>NoiceFzf<cr>", desc = "FZF - Noice Messages" },
   },
 }
