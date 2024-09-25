@@ -4,7 +4,7 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
-local filter_fold_servers = { "angularls", "tailwindcss", "emmet_language_server" }
+local filter_fold_servers = { "angularls", "tailwindcss", "emmet_language_server", "bashls" }
 
 return {
   {
