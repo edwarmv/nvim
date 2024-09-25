@@ -1,7 +1,6 @@
 return {
   "jinzhongjia/LspUI.nvim",
   enabled = false,
-  branch = "main",
   config = function()
     require("LspUI").setup({
       hover = {

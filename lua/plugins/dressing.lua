@@ -10,7 +10,7 @@ return {
       min_width = 0.1,
     },
     select = {
-      enabled = false,
+      enabled = true,
       backend = { "fzf_lua" },
       fzf_lua = {
         winopts = {

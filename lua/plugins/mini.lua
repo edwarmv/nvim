@@ -51,27 +51,27 @@ return {
   --     },
   --   },
   -- },
-  {
-    "echasnovski/mini.pick",
-    version = false,
-    config = function()
-      require("mini.pick").setup({
-        window = {
-          config = function()
-            local height = math.floor(0.2 * vim.o.lines)
-            local width = math.floor(0.3 * vim.o.columns)
-            return {
-              anchor = "NW",
-              height = height,
-              width = width,
-              row = math.floor(0.5 * (vim.o.lines - height)),
-              col = math.floor(0.5 * (vim.o.columns - width)),
-              border = defaults.border,
-            }
-          end,
-        },
-      })
-      vim.ui.select = require("mini.pick").ui_select
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.pick",
+  --   version = false,
+  --   config = function()
+  --     require("mini.pick").setup({
+  --       window = {
+  --         config = function()
+  --           local height = math.floor(0.2 * vim.o.lines)
+  --           local width = math.floor(0.3 * vim.o.columns)
+  --           return {
+  --             anchor = "NW",
+  --             height = height,
+  --             width = width,
+  --             row = math.floor(0.5 * (vim.o.lines - height)),
+  --             col = math.floor(0.5 * (vim.o.columns - width)),
+  --             border = defaults.border,
+  --           }
+  --         end,
+  --       },
+  --     })
+  --     vim.ui.select = require("mini.pick").ui_select
+  --   end,
+  -- },
 }

@@ -11,7 +11,7 @@ return {
   config = function()
     require("luasnip.loaders.from_vscode").lazy_load()
     local types = require("luasnip.util.types")
-    require("plugins.luasnip.snippets")
+    require("plugins.lsp.luasnip.snippets")
     require("luasnip.config").setup({
       history = true,
       update_events = { "TextChanged", "TextChangedI" },
