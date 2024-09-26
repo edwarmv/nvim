@@ -231,6 +231,7 @@ return {
           maxwidth = function()
             return math.floor(vim.o.columns / 4)
           end,
+          show_labelDetails = true,
           ellipsis_char = "…",
           before = require("tailwind-tools.cmp").lspkind_format,
           menu = {
