@@ -4,7 +4,7 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
-local filter_fold_servers = { "angularls", "tailwindcss", "emmet_language_server", "bashls" }
+local filter_fold_servers = { "angularls", "tailwindcss", "emmet_language_server", "bashls", "marksman" }
 
 return {
   {
@@ -82,6 +82,7 @@ return {
             end,
           })
         end,
+        ["vtsls"] = function() end,
         ["jsonls"] = function()
           require("lspconfig").jsonls.setup({
             settings = {

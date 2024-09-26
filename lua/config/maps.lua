@@ -1,5 +1,45 @@
 local defaults = require("config.defaults")
 
+local function custom_hover_handler()
+  local config = {
+    border = defaults.border,
+    focus_id = "textDocument/hover",
+    max_width = math.floor(vim.o.columns / 3),
+    max_height = math.floor(vim.o.lines / 4),
+  }
+  local bufnr = vim.api.nvim_get_current_buf()
+  local markdown_lines = {}
+
+  -- Function to process different types of hover content
+  local function process_hover_contents(contents)
+    if type(contents) == "string" then
+      local lines = vim.lsp.util.convert_input_to_markdown_lines({ contents })
+      lines = vim.lsp.util.trim_empty_lines(lines)
+      vim.list_extend(markdown_lines, lines)
+    elseif type(contents) == "table" then
+      local lines = vim.lsp.util.convert_input_to_markdown_lines(contents)
+      lines = vim.lsp.util.trim_empty_lines(lines)
+      vim.list_extend(markdown_lines, lines)
+    end
+  end
+
+  -- Request hover info from all attached LSP clients
+  vim.lsp.buf_request_all(bufnr, "textDocument/hover", vim.lsp.util.make_position_params(), function(responses)
+    for _, response in pairs(responses) do
+      if response.result and response.result.contents then
+        process_hover_contents(response.result.contents)
+      end
+    end
+
+    -- Show the results after processing all responses
+    if not vim.tbl_isempty(markdown_lines) then
+      vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
+    else
+      vim.notify("No hover information from any server", vim.log.levels.WARN)
+    end
+  end)
+end
+
 local M = {}
 
 local function lspRename()
@@ -153,12 +193,12 @@ M.lsp = function(buffer)
   vim.keymap.set("n", "gra", "<cmd>Lspsaga code_action<cr>", { desc = "[LSP] Code Action", buffer = buffer })
   -- vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "[Diagnostic] Next", buffer = buffer })
   -- vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "[Diagnostic] Prev", buffer = buffer })
-  vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++silent<cr>", { desc = "[LSP] Hover", buffer = buffer })
+  -- vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc ++silent<cr>", { desc = "[LSP] Hover", buffer = buffer })
 
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
-  -- vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "K", custom_hover_handler, { desc = "[LSP] Hover", buffer = buffer })
 
   -- vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
