@@ -2,7 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "kosayoda/nvim-lightbulb",
-  enabled = true,
+  enabled = false,
   opts = {
     autocmd = { enabled = true, updatetime = defaults.lsp_debounce },
     sign = {
