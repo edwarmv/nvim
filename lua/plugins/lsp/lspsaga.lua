@@ -9,7 +9,7 @@ return {
         border = "rounded",
       },
       lightbulb = {
-        enable = false,
+        enable = true,
         sign = false,
         debounce = defaults.lsp_debounce,
       },
