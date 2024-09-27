@@ -113,13 +113,13 @@ return {
           --   },
           --   update_in_insert = false, -- Update diagnostics in insert mode
           -- },
-          -- {
-          --   "navic",
-          --   color_correction = "dynamic",
-          --   navic_opts = {
-          --     click = true,
-          --   },
-          -- },
+          {
+            "navic",
+            color_correction = "dynamic",
+            navic_opts = {
+              click = true,
+            },
+          },
         },
         lualine_x = {
           -- {
