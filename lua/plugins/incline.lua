@@ -1,6 +1,6 @@
 return {
   "b0o/incline.nvim",
-  enabled = true,
+  enabled = false,
   opts = {
     hide = {
       cursorline = "focused_win",

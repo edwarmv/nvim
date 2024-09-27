@@ -113,13 +113,13 @@ return {
           --   },
           --   update_in_insert = false, -- Update diagnostics in insert mode
           -- },
-          {
-            "navic",
-            color_correction = "dynamic",
-            navic_opts = {
-              click = true,
-            },
-          },
+          -- {
+          --   "navic",
+          --   color_correction = "dynamic",
+          --   navic_opts = {
+          --     click = true,
+          --   },
+          -- },
         },
         lualine_x = {
           {
@@ -165,7 +165,7 @@ return {
       --   lualine_a = {},
       --   lualine_b = {},
       --   lualine_c = {
-      --     { "filetype", icon_only = true, separator = "", padding = 0 },
+      --     { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
       --     { "filename", file_status = true, separator = "", padding = 0 },
       --     { "diff", source = diff_source },
       --     { conflict_count, color = { fg = "#b2555b" } },
@@ -173,10 +173,10 @@ return {
       --       "diagnostics",
       --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
       --       symbols = {
-      --         error = icons.diagnostic.error,
-      --         warn = icons.diagnostic.warn,
-      --         info = icons.diagnostic.info,
-      --         hint = icons.diagnostic.hint,
+      --         error = icons.diagnostics.error,
+      --         warn = icons.diagnostics.warn,
+      --         info = icons.diagnostics.info,
+      --         hint = icons.diagnostics.hint,
       --       },
       --       update_in_insert = false, -- Update diagnostics in insert mode
       --     },
@@ -191,7 +191,7 @@ return {
       --   lualine_a = {},
       --   lualine_b = {},
       --   lualine_c = {
-      --     { "filetype", icon_only = true, separator = "", padding = 0 },
+      --     { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
       --     { "filename", file_status = true, separator = "", padding = 0 },
       --     { "diff", source = diff_source },
       --     { conflict_count, color = { fg = "#b2555b" } },
@@ -199,10 +199,10 @@ return {
       --       "diagnostics",
       --       sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
       --       symbols = {
-      --         error = icons.diagnostic.error,
-      --         warn = icons.diagnostic.warn,
-      --         info = icons.diagnostic.info,
-      --         hint = icons.diagnostic.hint,
+      --         error = icons.diagnostics.error,
+      --         warn = icons.diagnostics.warn,
+      --         info = icons.diagnostics.info,
+      --         hint = icons.diagnostics.hint,
       --       },
       --       update_in_insert = false, -- Update diagnostics in insert mode
       --     },
