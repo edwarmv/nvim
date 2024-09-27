@@ -360,10 +360,6 @@ vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
 require("config")
 
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = defaults.border,
-})
-
 vim.env.PATH = vim.env.HOME
   .. "/.asdf/installs/nodejs/22.2.0/bin:"
   .. vim.env.HOME
