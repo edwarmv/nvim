@@ -18,14 +18,14 @@ return {
   },
   keys = {
     {
-      "<leader>n",
+      "<leader>gn",
       function()
         require("neogit").open()
       end,
       desc = "[Neogit] - Open",
     },
     {
-      "<leader>N",
+      "<leader>gN",
       function()
         require("neogit").open({ cwd = "%:p:h" })
       end,
