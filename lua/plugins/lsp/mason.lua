@@ -1,5 +1,8 @@
 local defaults = require("config.defaults")
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local filter_fold_servers = {
+  "yamlls",
+}
 
 return {
   {
@@ -72,6 +75,11 @@ return {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({
             capabilities = capabilities,
+            on_attach = function(client, buffer)
+              if vim.tbl_contains(filter_fold_servers, client.name) then
+                client.server_capabilities.foldingRangeProvider = false
+              end
+            end,
           })
         end,
         ["vtsls"] = function() end,
