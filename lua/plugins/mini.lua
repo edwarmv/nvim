@@ -75,6 +75,7 @@ return {
     opts = {
       windows = {
         border = defaults.border,
+        preview = true,
       },
     },
     keys = {

@@ -46,6 +46,7 @@ return {
             { find = "No signature help available" },
             { find = "No information available" },
             { find = "WARNING: vim.treesitter.get_parser will return nil instead of raising an error in Neovim 0.12" },
+            { find = "No parser for the given buffer." },
           },
         },
         opts = { skip = true },
