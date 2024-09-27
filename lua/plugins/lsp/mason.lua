@@ -1,10 +1,5 @@
 local defaults = require("config.defaults")
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
-local filter_fold_servers = { "angularls", "tailwindcss", "emmet_language_server", "bashls", "marksman" }
 
 return {
   {
@@ -77,9 +72,6 @@ return {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({
             capabilities = capabilities,
-            on_attach = function(client, buffer)
-              client.server_capabilities.foldingRangeProvider = not vim.tbl_contains(filter_fold_servers, client.name)
-            end,
           })
         end,
         ["vtsls"] = function() end,
