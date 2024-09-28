@@ -82,7 +82,6 @@ return {
             end,
           })
         end,
-        ["vtsls"] = function() end,
         ["jsonls"] = function()
           require("lspconfig").jsonls.setup({
             settings = {
