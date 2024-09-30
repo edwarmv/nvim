@@ -18,7 +18,10 @@ return {
         show_file = false,
       },
       rename = {
-        in_select = false,
+        in_select = true,
+        keys = {
+          quit = "q",
+        },
       },
       diagnostic = {
         diagnostic_only_current = false,
