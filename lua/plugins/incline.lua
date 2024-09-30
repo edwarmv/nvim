@@ -1,6 +1,9 @@
 local defaults = require("config.defaults")
 return {
   "b0o/incline.nvim",
+  dependencies = {
+    "akinsho/git-conflict.nvim",
+  },
   enabled = true,
   init = function()
     vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
@@ -59,7 +62,7 @@ return {
       end
 
       local function conflict_count()
-        local count = require("git-conflict").conflict_count()
+        local count = require("git-conflict").conflict_count(props.buf)
         return { count > 0 and "  " .. count or "", group = "Error" }
       end
 
