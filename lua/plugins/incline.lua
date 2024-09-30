@@ -1,6 +1,14 @@
+local defaults = require("config.defaults")
 return {
   "b0o/incline.nvim",
-  enabled = false,
+  enabled = true,
+  init = function()
+    vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
+      callback = function()
+        require("incline").refresh()
+      end,
+    })
+  end,
   opts = {
     hide = {
       cursorline = "focused_win",
@@ -14,16 +22,54 @@ return {
         filename = "[No Name]"
       end
       local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-      if vim.api.nvim_get_option_value("readonly", { buf = props.buf }) then
-        filename = filename .. " [-]"
+
+      local function get_git_diff()
+        local icons = { removed = "-", changed = "~", added = "+" }
+        local signs = vim.b[props.buf].gitsigns_status_dict
+        local labels = {}
+        if signs == nil then
+          return labels
+        end
+        for name, icon in pairs(icons) do
+          if tonumber(signs[name]) and signs[name] > 0 then
+            table.insert(labels, { " " .. icon .. signs[name], group = "Diff" .. name })
+          end
+        end
+
+        return labels
       end
-      if vim.api.nvim_get_option_value("modified", { buf = props.buf }) then
-        filename = filename .. " [+]"
+
+      local function get_diagnostic_label()
+        local icons = {
+          error = defaults.icons.diagnostics.error,
+          warn = defaults.icons.diagnostics.warn,
+          info = defaults.icons.diagnostics.info,
+          hint = defaults.icons.diagnostics.hint,
+        }
+        local label = {}
+
+        for severity, icon in pairs(icons) do
+          local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
+          if n > 0 then
+            table.insert(label, { " " .. icon .. n, group = "DiagnosticSign" .. severity })
+          end
+        end
+
+        return label
       end
+
+      local function conflict_count()
+        local count = require("git-conflict").conflict_count()
+        return count > 0 and " " .. count or ""
+      end
+
       return {
         { icon, guifg = color },
         { " " },
-        { filename },
+        { filename, gui = vim.bo[props.buf].modified and "italic" or "" },
+        { get_git_diff() },
+        { conflict_count() },
+        { get_diagnostic_label() },
       }
     end,
     window = {

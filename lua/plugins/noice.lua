@@ -67,6 +67,11 @@ return {
           padding = { 0, 0 },
         },
       },
+      mini = {
+        win_options = {
+          winblend = 0,
+        },
+      },
     },
     presets = {
       long_message_to_split = true,

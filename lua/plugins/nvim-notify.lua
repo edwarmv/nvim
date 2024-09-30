@@ -89,6 +89,7 @@ return {
     max_height = function()
       return math.floor(vim.opt.lines:get() * 0.2)
     end,
+    top_down = false,
   },
   config = function(_, opts)
     require("notify").setup(opts)
