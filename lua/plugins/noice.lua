@@ -31,6 +31,40 @@ return {
         enabled = false,
       },
     },
+    views = {
+      split = {
+        enter = true,
+      },
+      cmdline_popup = {
+        border = {
+          style = defaults.border,
+        },
+        size = {
+          min_width = 0,
+          width = "70%",
+          height = "auto",
+        },
+      },
+      popup = {
+        border = {
+          style = defaults.border,
+        },
+        size = {
+          width = "70%",
+          height = "auto",
+        },
+      },
+      confirm = {
+        border = {
+          style = defaults.border,
+        },
+      },
+      hover = {
+        border = {
+          padding = { 0, 0 },
+        },
+      },
+    },
     presets = {
       long_message_to_split = true,
       bottom_search = true,
@@ -42,25 +76,48 @@ return {
       {
         filter = {
           event = "notify",
-          any = {
-            { find = "No signature help available" },
-            { find = "No information available" },
-            { find = "WARNING: vim.treesitter.get_parser will return nil instead of raising an error in Neovim 0.12" },
-            { find = "No parser for the given buffer." },
-          },
+          kind = "warn",
         },
         opts = { skip = true },
       },
       {
         filter = {
-          event = "notify",
-          kind = "warn",
-          cond = function(message)
-            return message.opts.title == "Neogit"
-          end,
+          event = "msg_show",
+          kind = "lua_error",
         },
         opts = { skip = true },
       },
+      {
+        filter = {
+          event = "msg_show",
+          any = {
+            { find = "deprecated" },
+          },
+        },
+        opts = { skip = true },
+      },
+      -- {
+      --   filter = {
+      --     event = "notify",
+      --     any = {
+      --       { find = "No signature help available" },
+      --       { find = "No information available" },
+      --       { find = "WARNING: vim.treesitter.get_parser will return nil instead of raising an error in Neovim 0.12" },
+      --       { find = "No parser for the given buffer." },
+      --     },
+      --   },
+      --   opts = { skip = true },
+      -- },
+      -- {
+      --   filter = {
+      --     event = "notify",
+      --     kind = "warn",
+      --     cond = function(message)
+      --       return message.opts.title == "Neogit"
+      --     end,
+      --   },
+      --   opts = { skip = true },
+      -- },
     },
   },
   keys = {

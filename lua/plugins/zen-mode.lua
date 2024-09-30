@@ -34,6 +34,6 @@ return {
     end,
   },
   keys = {
-    { "Z", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
+    { "<cr>", "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
   },
 }

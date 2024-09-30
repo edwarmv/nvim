@@ -76,6 +76,8 @@ return {
             "NeogitPopup",
             "NeogitDiffView",
             "",
+            "undotree",
+            "diff",
           },
         },
         globalstatus = true,
