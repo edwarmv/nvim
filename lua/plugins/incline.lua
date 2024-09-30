@@ -60,7 +60,7 @@ return {
 
       local function conflict_count()
         local count = require("git-conflict").conflict_count()
-        return count > 0 and " " .. count or ""
+        return { count > 0 and "  " .. count or "", group = "Error" }
       end
 
       return {
