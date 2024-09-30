@@ -11,7 +11,7 @@ return {
     },
     select = {
       enabled = true,
-      backend = { "fzf_lua" },
+      backend = { "builtin" },
       fzf_lua = {
         winopts = {
           height = 0.5,

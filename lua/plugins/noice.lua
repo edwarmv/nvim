@@ -14,9 +14,9 @@ return {
       enabled = true,
       view_search = "virtualtext",
     },
-    cmdline = {
-      view = "cmdline",
-    },
+    -- cmdline = {
+    --   view = "cmdline",
+    -- },
     lsp = {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -42,20 +42,20 @@ return {
         border = {
           style = defaults.border,
         },
-        -- size = {
-        --   min_width = 0,
-        --   width = "70%",
-        --   height = "auto",
-        -- },
+        size = {
+          min_width = 0,
+          width = "50%",
+          height = "auto",
+        },
       },
       popup = {
         border = {
           style = defaults.border,
         },
-        -- size = {
-        --   width = "70%",
-        --   height = "auto",
-        -- },
+        size = {
+          width = "50%",
+          height = "auto",
+        },
       },
       confirm = {
         border = {
