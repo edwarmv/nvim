@@ -13,16 +13,8 @@ return {
     {
       "akinsho/git-conflict.nvim",
       enabled = true,
-      config = function()
-        require("git-conflict").setup({
-          default_mappings = false, -- disable buffer local mapping created by this plugin
-          disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
-          highlights = { -- They must have background color, otherwise the default color will be used
-            current = "DiffAdd",
-            incoming = "DiffChange",
-            ancestor = "Visual",
-          },
-        })
+      lazy = false,
+      init = function()
         vim.api.nvim_create_autocmd("User", {
           pattern = "GitConflictDetected",
           callback = function()
@@ -36,6 +28,15 @@ return {
           end,
         })
       end,
+      opts = {
+        default_mappings = false, -- disable buffer local mapping created by this plugin
+        disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
+        highlights = { -- They must have background color, otherwise the default color will be used
+          current = "DiffAdd",
+          incoming = "DiffChange",
+          ancestor = "Visual",
+        },
+      },
     },
     -- { "ruifm/gitlinker.nvim" },
   },
