@@ -69,7 +69,6 @@ return {
     matchup = {
       enable = true,
       disable_virtual_text = true,
-      enable_quotes = true,
       include_match_words = true,
     },
   },

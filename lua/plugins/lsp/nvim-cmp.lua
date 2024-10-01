@@ -224,14 +224,14 @@ return {
         fields = {
           cmp.ItemField.Kind,
           cmp.ItemField.Abbr,
-          cmp.ItemField.Menu,
+          -- cmp.ItemField.Menu,
         },
         format = require("lspkind").cmp_format({
           mode = "symbol",
           maxwidth = function()
             return math.floor(vim.o.columns / 4)
           end,
-          show_labelDetails = true,
+          show_labelDetails = false,
           ellipsis_char = "…",
           before = require("tailwind-tools.cmp").lspkind_format,
           menu = {

@@ -80,7 +80,7 @@ opt.updatetime = 300 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
--- opt.wrap = false -- Disable line wrap
+opt.wrap = false -- Disable line wrap
 opt.breakindent = true
 opt.showbreak = "…"
 -- opt.linebreak = true
@@ -358,8 +358,8 @@ vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
 
 require("config")
 
-vim.env.PATH = vim.env.HOME
-  .. "/.asdf/installs/nodejs/22.2.0/bin:"
-  .. vim.env.HOME
-  .. "/.asdf/installs/python/3.11.5/bin:"
-  .. vim.env.PATH
+-- vim.env.PATH = vim.env.HOME
+--   .. "/.asdf/installs/nodejs/22.2.0/bin:"
+--   .. vim.env.HOME
+--   .. "/.asdf/installs/python/3.11.5/bin:"
+--   .. vim.env.PATH
