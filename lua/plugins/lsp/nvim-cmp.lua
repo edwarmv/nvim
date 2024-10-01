@@ -31,6 +31,7 @@ return {
       dependencies = { "L3MON4D3/LuaSnip" },
     },
     "luckasRanarison/tailwind-tools.nvim",
+    "onsails/lspkind-nvim",
     -- {
     --   "max397574/better-escape.nvim",
     --   config = function()
@@ -43,6 +44,7 @@ return {
   config = function()
     local luasnip = require("luasnip")
     local cmp = require("cmp")
+    local lspkind = require("lspkind")
     local types = require("cmp.types")
 
     cmp.setup({
@@ -222,16 +224,16 @@ return {
       }),
       formatting = {
         fields = {
-          cmp.ItemField.Kind,
-          cmp.ItemField.Abbr,
-          -- cmp.ItemField.Menu,
+          "kind",
+          "abbr",
+          "menu",
         },
-        format = require("lspkind").cmp_format({
+        format = lspkind.cmp_format({
           mode = "symbol",
           maxwidth = function()
-            return math.floor(vim.o.columns / 4)
+            return math.floor(vim.o.columns / 5)
           end,
-          show_labelDetails = false,
+          show_labelDetails = true,
           ellipsis_char = "…",
           before = require("tailwind-tools.cmp").lspkind_format,
           -- menu = {
