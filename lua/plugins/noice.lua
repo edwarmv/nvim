@@ -2,7 +2,6 @@ local defaults = require("config.defaults")
 
 return {
   "folke/noice.nvim",
-  event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
     "ibhagwan/fzf-lua",
@@ -81,20 +80,20 @@ return {
       lsp_doc_border = true,
     },
     routes = {
-      {
-        filter = {
-          event = "notify",
-          kind = "warn",
-        },
-        opts = { skip = true },
-      },
-      {
-        filter = {
-          event = "msg_show",
-          kind = "lua_error",
-        },
-        opts = { skip = true },
-      },
+      -- {
+      --   filter = {
+      --     event = "notify",
+      --     kind = "warn",
+      --   },
+      --   opts = { skip = true },
+      -- },
+      -- {
+      --   filter = {
+      --     event = "msg_show",
+      --     kind = "lua_error",
+      --   },
+      --   opts = { skip = true },
+      -- },
       {
         filter = {
           event = "msg_show",

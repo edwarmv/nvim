@@ -84,11 +84,11 @@ return {
     timeout = 3000,
     minimum_width = 1,
     max_width = function()
-      return math.floor(vim.opt.columns:get() * 0.2)
+      return math.floor(vim.opt.columns:get() / 5)
     end,
-    max_height = function()
-      return math.floor(vim.opt.lines:get() * 0.2)
-    end,
+    -- max_height = function()
+    --   return math.floor(vim.opt.lines:get() * 0.2)
+    -- end,
     top_down = false,
   },
   config = function(_, opts)
