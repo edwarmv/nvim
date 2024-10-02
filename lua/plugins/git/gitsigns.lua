@@ -1,15 +1,18 @@
 local defaults = require("config.defaults")
 
-vim.g.gitblame_enabled = 0
-vim.g.gitblame_set_extmark_options = {
-  hl_mode = "combine",
-}
-vim.g.gitblame_set_extmark_options = { priority = 7 }
-
 return {
   "lewis6991/gitsigns.nvim",
   dependencies = {
-    "f-person/git-blame.nvim",
+    {
+      "f-person/git-blame.nvim",
+      init = function()
+        vim.g.gitblame_enabled = 0
+        vim.g.gitblame_set_extmark_options = {
+          hl_mode = "combine",
+        }
+        vim.g.gitblame_set_extmark_options = { priority = 7 }
+      end,
+    },
     {
       "akinsho/git-conflict.nvim",
       enabled = true,

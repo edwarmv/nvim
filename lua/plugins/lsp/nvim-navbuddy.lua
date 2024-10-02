@@ -7,7 +7,6 @@ return {
     "SmiteshP/nvim-navic",
     "MunifTanjim/nui.nvim",
     "numToStr/Comment.nvim", -- Optional
-    "nvim-telescope/telescope.nvim", -- Optional
   },
   opts = {
     icons = {
