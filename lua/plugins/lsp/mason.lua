@@ -60,6 +60,8 @@ return {
         "eslint-lsp",
         "eslint_d",
         "ruff",
+        -- DAP
+        "js-debug-adapter",
       },
     },
   },
