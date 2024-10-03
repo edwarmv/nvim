@@ -1,6 +1,5 @@
 return {
   "akinsho/toggleterm.nvim",
-  version = "*",
   config = function()
     local defaults = require("config.defaults")
     require("toggleterm").setup({
@@ -32,9 +31,6 @@ return {
           local height = math.floor(vim.o.lines * 0.8)
           return height
         end,
-      },
-      winbar = {
-        enabled = false,
       },
     })
 
