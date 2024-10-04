@@ -17,6 +17,7 @@ return {
   { "chrisbra/recover.vim" },
   {
     "tummetott/reticle.nvim",
+    enabled = false,
     event = "VeryLazy", -- optionally lazy load the plugin
     opts = {},
   },
