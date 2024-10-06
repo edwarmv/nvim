@@ -50,6 +50,7 @@ return {
         "css-variables-language-server",
         "dockerfile-language-server",
         "docker-compose-language-service",
+        "nomicfoundation-solidity-language-server",
         -- formatters
         "black",
         "sql-formatter",

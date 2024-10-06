@@ -1,7 +1,5 @@
 return {
   "rachartier/tiny-inline-diagnostic.nvim",
-  enabled = true,
-  event = "LspAttach",
   opts = {
     signs = {
       left = " ",
