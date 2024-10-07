@@ -5,7 +5,7 @@ return {
   enabled = true,
   opts = {
     stages = "static",
-    render = "compact",
+    render = "minimal",
     on_open = function(win)
       local config = vim.api.nvim_win_get_config(win)
       config.border = defaults.border
