@@ -87,19 +87,26 @@ return {
       --   },
       --   opts = { skip = true },
       -- },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     kind = "lua_error",
-      --   },
-      --   opts = { skip = true },
-      -- },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "lua_error",
+        },
+        opts = { skip = true },
+      },
       {
         filter = {
           event = "msg_show",
           any = {
             { find = "deprecated" },
           },
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
         },
         opts = { skip = true },
       },
