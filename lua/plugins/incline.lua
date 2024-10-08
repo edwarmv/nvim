@@ -69,7 +69,11 @@ return {
       return {
         { icon, guifg = color },
         { " " },
-        { filename, gui = vim.bo[props.buf].modified and "italic" or "" },
+        {
+          filename,
+          gui = vim.bo[props.buf].modified and "italic" or "",
+          guifg = vim.bo[props.buf].modified and "#9ece6a" or "#7aa2f7",
+        },
         { get_git_diff() },
         { conflict_count() },
         { get_diagnostic_label() },
