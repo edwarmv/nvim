@@ -11,8 +11,6 @@ end
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
-  enabled = true,
-  pin = false,
   dependencies = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -28,7 +26,9 @@ return {
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
     {
       "saadparwaiz1/cmp_luasnip",
-      dependencies = { "L3MON4D3/LuaSnip" },
+      dependencies = {
+        "L3MON4D3/LuaSnip",
+      },
     },
     "luckasRanarison/tailwind-tools.nvim",
     "onsails/lspkind-nvim",
@@ -103,9 +103,7 @@ return {
         }),
         ["<c-n>"] = cmp.mapping({
           i = function(fallback)
-            if luasnip.locally_jumpable(1) then
-              luasnip.jump(1)
-            elseif cmp.visible() then
+            if cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
@@ -117,9 +115,7 @@ return {
         }),
         ["<c-p>"] = cmp.mapping({
           i = function(fallback)
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            elseif cmp.visible() then
+            if cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
@@ -151,7 +147,9 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         ["<tab>"] = cmp.mapping({
           i = function(fallback)
-            if cmp.visible() then
+            if luasnip.locally_jumpable(1) then
+              luasnip.jump(1)
+            elseif cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             elseif has_words_before() then
               cmp.complete()
@@ -177,7 +175,9 @@ return {
         }),
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
-            if cmp.visible() then
+            if luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
+            elseif cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
@@ -217,8 +217,8 @@ return {
       sources = cmp.config.sources({
         { name = "spell" },
       }, {
-        { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "nvim_lsp" },
       }, {
         { name = "buffer" },
       }),
@@ -300,108 +300,5 @@ return {
         { name = "buffer" },
       }),
     })
-
-    -- https://github.com/hrsh7th/nvim-cmp/issues/598#issuecomment-984930668
-    -- vim.cmd([[
-    --   augroup CmpDebounceAuGroup
-    --     au!
-    --     au TextChangedI * lua require("config.nvim-cmp").debounce()
-    --   augroup end
-    -- ]])
-    -- vim.api.nvim_create_augroup("CmpDebounceAuGroup", { clear = true })
-    -- vim.api.nvim_create_autocmd("TextChangedI", {
-    --   group = "CmpDebounceAuGroup",
-    --   callback = function()
-    --     debounce.cancel_autocomplete = false
-    --     debounce.debounce()
-    --   end,
-    -- })
-
-    -- vim.cmd([[
-    --   augroup CmpCmdlineDebounceAuGroup
-    --     au!
-    --     au CmdlineChanged * lua require("config.nvim-cmp").debounce()
-    --   augroup end
-    -- ]])
-    -- vim.api.nvim_create_autocmd({ "CmdlineChanged" }, {
-    --   -- group = vim.api.nvim_create_augroup("CmpDebounceAuGroup", {}),
-    --   callback = function()
-    --     debounce.cancel_autocomplete = true
-    --     debounce.debounce()
-    --   end,
-    -- })
-
-    -- cmp.setup.filetype({ "norg" }, {
-    --   sources = {
-    --     { name = "neorg" },
-    --     { name = "buffer" },
-    --   },
-    -- })
-    -- cmp.setup.filetype({ "markdown" }, {
-    --   sources = cmp.config.sources({
-    --     { name = "spell" },
-    --     { name = "luasnip" },
-    --     { name = "nvim_lsp" },
-    --   }, {
-    --     { name = "buffer" },
-    --   }),
-    -- })
-
-    -- cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
-    --   sources = cmp.config.sources({
-    --     { name = "spell" },
-    --     { name = "luasnip" },
-    --   }, {
-    --     { name = "buffer" },
-    --   }),
-    -- })
-
-    -- cmp.event:on("confirm_done", function()
-    --   print('confirm_done')
-    --   debounce.cancel_autocomplete = true
-    -- end)
-
-    -- cmp.event:on("complete_done", function()
-    --   print('confirm_done')
-    --   debounce.cancel_autocomplete = true
-    -- end)
-
-    -- cmp.event:on("menu_closed", function()
-    --   debounce.cancel_autocomplete = true
-    -- end)
-
-    -- cmp.event:on("menu_opened", function()
-    --   debounce.cancel_autocomplete = false
-    -- end)
-
-    -- local group = vim.api.nvim_create_augroup("CmpUserAuGroup", { clear = false })
-
-    -- vim.api.nvim_create_autocmd("OptionSet", {
-    --   group = group,
-    --   pattern = "spell",
-    --   callback = function()
-    --     local is_spell_on = vim.opt.spell:get()
-    --     if is_spell_on then
-    --       cmp.setup.buffer({
-    --         sources = cmp.config.sources({
-    --           {
-    --             name = "spell",
-    --             option = {
-    --               keep_all_entries = false,
-    --             },
-    --           },
-    --         }),
-    --       })
-    --     else
-    --       cmp.setup.buffer({
-    --         sources = cmp.config.sources({
-    --           { name = "nvim_lsp" },
-    --           { name = "luasnip" },
-    --           { name = "buffer" },
-    --         }),
-    --       })
-    --     end
-    --   end,
-    -- })
   end,
 }
