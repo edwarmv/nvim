@@ -2,12 +2,13 @@ return {
   "akinsho/toggleterm.nvim",
   config = function()
     local defaults = require("config.defaults")
-    require("toggleterm").setup({
+    local toggleterm = require("toggleterm")
+    toggleterm.setup({
       size = function(term)
         if term.direction == "horizontal" then
-          return (1 / 3) * (vim.o.lines - vim.o.cmdheight)
+          return math.floor((vim.o.lines - vim.o.cmdheight) / 3)
         elseif term.direction == "vertical" then
-          return vim.o.columns * 0.5
+          return math.floor(vim.o.columns / 3)
         end
       end,
       open_mapping = [[<m-\>]],
@@ -35,8 +36,12 @@ return {
     })
 
     vim.api.nvim_create_user_command("FTerm", "ToggleTerm direction=float", {})
-    vim.api.nvim_create_user_command("VTerm", "ToggleTerm direction=vertical", {})
-    vim.api.nvim_create_user_command("STerm", "ToggleTerm direction=horizontal", {})
+    vim.api.nvim_create_user_command("VTerm", function(opts)
+      vim.fn.execute(opts.count .. "ToggleTerm direction=vertical")
+    end, { count = true })
+    vim.api.nvim_create_user_command("STerm", function(opts)
+      vim.fn.execute(opts.count .. "ToggleTerm direction=horizontal")
+    end, { count = true })
     vim.api.nvim_create_user_command("TTerm", "ToggleTerm direction=tab", {})
   end,
 }
