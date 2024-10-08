@@ -31,7 +31,7 @@ return {
       TypeParameter = " ",
     },
     highlight = true,
-    separator = "  ",
+    separator = " ",
     lazy_update_context = false,
     click = true,
     lsp = {
