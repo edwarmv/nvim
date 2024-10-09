@@ -91,6 +91,7 @@ return {
   "dstein64/vim-startuptime",
   {
     "gcmt/taboo.vim",
+    enabled = false,
     init = function()
       vim.g.taboo_tabline = 0
       vim.keymap.set("n", "<leader>tr", function()

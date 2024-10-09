@@ -24,7 +24,15 @@ return {
   keys = {
     { "<leader>bb", "<cmd>BufferLinePick<cr>", desc = "[Buffer] Pick" },
     { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "[Buffer] Pick" },
-    { "<leader>br", ":BufferLineTabRename ", desc = "[Buffer] Tab Rename" },
+    {
+      "<leader>tr",
+      function()
+        vim.ui.input({ prompt = "Enter The Tab Name: " }, function(name)
+          vim.cmd("BufferLineTabRename " .. name)
+        end)
+      end,
+      desc = "[Buffer] Tab Rename",
+    },
     { "<leader>bst", "<cmd>BufferLineSortByTabs<cr>", desc = "[Buffer] Sort by Tabs" },
     { "<leader>bsd", "<cmd>BufferLineSortByDirectory<cr>", desc = "[Buffer] Sort by Directory" },
     { "<leader>bse", "<cmd>BufferLineSortByExtension<cr>", desc = "[Buffer] Sort by Extension" },
