@@ -35,7 +35,7 @@ return {
         end
         for name, icon in pairs(icons) do
           if tonumber(signs[name]) and signs[name] > 0 then
-            table.insert(labels, { " " .. icon .. signs[name], group = "Diff" .. name })
+            table.insert(labels, { icon .. signs[name] .. " ", group = "Diff" .. name })
           end
         end
 
@@ -54,7 +54,7 @@ return {
         for severity, icon in pairs(icons) do
           local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
           if n > 0 then
-            table.insert(label, { " " .. icon .. n, group = "DiagnosticSign" .. severity })
+            table.insert(label, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
           end
         end
 
@@ -63,10 +63,13 @@ return {
 
       local function conflict_count()
         local count = require("git-conflict").conflict_count(props.buf)
-        return { count > 0 and "  " .. count or "", group = "Error" }
+        return { count > 0 and " " .. count .. " " or "", group = "Error" }
       end
 
       return {
+        { get_git_diff() },
+        { conflict_count() },
+        { get_diagnostic_label() },
         { icon, guifg = color },
         { " " },
         {
@@ -74,9 +77,6 @@ return {
           gui = vim.bo[props.buf].modified and "italic" or "",
           guifg = vim.bo[props.buf].modified and "#9ece6a" or "#7aa2f7",
         },
-        { get_git_diff() },
-        { conflict_count() },
-        { get_diagnostic_label() },
       }
     end,
     window = {
