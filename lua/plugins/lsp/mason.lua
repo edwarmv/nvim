@@ -56,7 +56,7 @@ return {
         -- formatters
         "black",
         "sql-formatter",
-        "prettier",
+        -- "prettier",
         "prettierd",
         "stylua",
         "autopep8",
