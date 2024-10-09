@@ -1,32 +1,16 @@
 return {
   "rmagatti/goto-preview",
-  config = function()
-    local goto_preview = require("goto-preview")
-    goto_preview.setup({
-      width = math.ceil(vim.o.columns * 0.5), -- Width of the floating window
-      height = math.ceil(vim.o.lines * 0.3), -- Height of the floating window
-      default_mappings = false, -- Bind default mappings
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      post_open_hook = function(buf, win)
-        vim.api.nvim_win_set_option(win, "winbar", "")
-      end,
-      -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-      -- border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" },
-      -- border = { "", "", "", "", "", "", "", "" },
-    })
-
-    -- vim.api.nvim_set_keymap(
-    --   "n",
-    --   "gpd",
-    --   "<cmd>lua require('goto-preview').goto_preview_definition()<CR>",
-    --   { noremap = true }
-    -- )
-    -- vim.api.nvim_set_keymap(
-    --   "n",
-    --   "gpi",
-    --   "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
-    --   { noremap = true }
-    -- )
-    -- vim.api.nvim_set_keymap("n", "gpq", "<cmd>lua require('goto-preview').close_all_win()<CR>", { noremap = true })
-  end,
+  opts = {
+    width = math.floor(vim.o.columns / 2), -- Width of the floating window
+    height = math.floor(vim.o.lines / 3), -- Height of the floating window
+    default_mappings = false, -- Bind default mappings
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    post_open_hook = function(buf, win)
+      vim.api.nvim_win_set_option(win, "winbar", "")
+      vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = buf, silent = true })
+    end,
+    -- border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+    -- border = { "↖", "─", "┐", "│", "┘", "─", "└", "│" },
+    -- border = { "", "", "", "", "", "", "", "" },
+  },
 }
