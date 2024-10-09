@@ -178,13 +178,6 @@ local function highlight_word_under_cursor()
   vim.cmd("match Search /\\<" .. word .. "\\>/")
 end
 
-vim.keymap.set(
-  "n",
-  "<leader>h",
-  "<Cmd>let @/='\\<'.expand('<cword>').'\\>'<bar>set hlsearch<CR>",
-  { noremap = true, silent = true, desc = "Highlight word under cursor" }
-)
-
 local defaults = require("config.defaults")
 local icons = defaults.icons
 

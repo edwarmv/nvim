@@ -11,7 +11,7 @@ return {
   opts = {
     messages = {
       enabled = true,
-      view_search = "virtualtext",
+      view_search = false,
     },
     -- cmdline = {
     --   view = "cmdline",
