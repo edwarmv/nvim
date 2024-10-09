@@ -13,39 +13,32 @@ return {
   },
   keys = {
     {
-      "<m-1>",
+      "<m-a>",
       function()
         return require("harpoon"):list():select(1)
       end,
       desc = "[Harpoon] - Navigate to File(1)",
     },
     {
-      "<m-2>",
+      "<m-s>",
       function()
         return require("harpoon"):list():select(2)
       end,
       desc = "[Harpoon] - Navigate to File(2)",
     },
     {
-      "<m-3>",
+      "<m-q>",
       function()
         return require("harpoon"):list():select(3)
       end,
       desc = "[Harpoon] - Navigate to File(3)",
     },
     {
-      "<m-4>",
+      "<m-w>",
       function()
         return require("harpoon"):list():select(4)
       end,
       desc = "[Harpoon] - Navigate to File(4)",
-    },
-    {
-      "<m-5>",
-      function()
-        return require("harpoon"):list():select(5)
-      end,
-      desc = "[Harpoon] - Navigate to File(5)",
     },
     {
       "gh",
