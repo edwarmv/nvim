@@ -19,24 +19,15 @@ return {
         return
       end
       if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
-        return { lsp_fallback = true, bufnr = bufnr }
+        return { lsp_format = "fallback", name = "null-ls", bufnr = bufnr }
       end
     end,
-    -- format_after_save = function(bufnr)
-    --   -- Disable with a global or buffer-local variable
-    --   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-    --     return
-    --   end
-    --   if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
-    --     return { lsp_fallback = true, async = true, bufnr = bufnr }
-    --   end
-    -- end,
   },
   keys = {
     {
       "<leader>f",
       function()
-        require("conform").format({ async = true, lsp_fallback = true })
+        require("conform").format({ async = true, lsp_format = "fallback", name = "null-ls" })
       end,
       mode = "",
       desc = "[LSP] Format",
@@ -54,7 +45,7 @@ return {
           ["end"] = { args.line2, end_line:len() },
         }
       end
-      require("conform").format({ async = true, lsp_fallback = true, range = range })
+      require("conform").format({ async = true, lsp_format = "fallback", range = range, name = "null-ls" })
     end, { range = true })
 
     vim.api.nvim_create_user_command("FormatDisable", function(args)
