@@ -13,11 +13,9 @@ return {
     local types = require("luasnip.util.types")
     require("plugins.lsp.luasnip.snippets")
     require("luasnip.config").setup({
-      history = true,
-      update_events = { "TextChanged", "TextChangedI" },
       ext_opts = {
         [types.insertNode] = {
-          snippet_passive = {
+          unvisited = {
             virt_text = { { "$", "Conceal" } },
             virt_text_pos = "inline",
           },
@@ -25,7 +23,7 @@ return {
         -- Add this to also have a placeholder in the final tabstop.
         -- See the discussion below for more context.
         [types.exitNode] = {
-          snippet_passive = {
+          unvisited = {
             virt_text = { { "$", "Conceal" } },
             virt_text_pos = "inline",
           },
