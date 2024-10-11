@@ -24,7 +24,7 @@ return {
         -- See the discussion below for more context.
         [types.exitNode] = {
           unvisited = {
-            virt_text = { { "$", "Conceal" } },
+            virt_text = { { "$0", "Conceal" } },
             virt_text_pos = "inline",
           },
         },
