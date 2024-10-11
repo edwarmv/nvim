@@ -212,7 +212,7 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
 
-  -- vim.keymap.set("n", "glR", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
+  vim.keymap.set("n", "glr", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
   -- vim.keymap.set({ "n", "v" }, "<leader>f", function()
   --   require("conform").format({ async = true, lsp_fallback = true })
@@ -295,29 +295,6 @@ M.lsp = function(buffer)
     "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>",
     { desc = "[LSP] List Workspace Folders", buffer = buffer }
   )
-
-  -- local wk = require("which-key")
-  --
-  -- wk.register({
-  --   g = {
-  --     D = "LSP Declaration",
-  --     d = "LSP Definition",
-  --     t = "LSP Type Definition",
-  --     r = "LSP Rename",
-  --     i = "LSP Implementation",
-  --     R = "LSP References",
-  --   },
-  --   ["<leader>"] = {
-  --     f = "LSP Format",
-  --     d = "Diagnostic Open",
-  --   },
-  --   ["]"] = {
-  --     d = "Diagnostic Next",
-  --   },
-  --   ["["] = {
-  --     d = "Diagnostic Prev",
-  --   },
-  -- })
 end
 
 local group = vim.api.nvim_create_augroup("LspMappings", { clear = false })
