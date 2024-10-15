@@ -40,7 +40,7 @@ return {
         "clangd",
         "taplo",
         "tailwindcss-language-server",
-        -- "pyright",
+        "pyright",
         -- "diagnostic-languageserver",
         -- "efm",
         "vue-language-server",
@@ -48,7 +48,6 @@ return {
         "emmet-language-server",
         "astro-language-server",
         "rust-analyzer",
-        "basedpyright",
         "css-variables-language-server",
         "dockerfile-language-server",
         "docker-compose-language-service",
@@ -100,24 +99,6 @@ return {
         ["html"] = function()
           require("lspconfig").html.setup({
             filetypes = { "html", "templ", "htmlangular" },
-          })
-        end,
-        ["basedpyright"] = function()
-          require("lspconfig").basedpyright.setup({
-            settings = {
-              basedpyright = {
-                analysis = {
-                  autoSearchPaths = true,
-                  diagnosticMode = "openFilesOnly",
-                  useLibraryCodeForTypes = true,
-                  typeCheckingMode = "basic", -- ["off", "basic", "standard", "strict", "all"]
-                  -- diagnosticSeverityOverrides = {
-                  --   reportMissingTypeStubs = "warning",
-                  --   reportUnknownMemberType = "warning",
-                  -- },
-                },
-              },
-            },
           })
         end,
       },
