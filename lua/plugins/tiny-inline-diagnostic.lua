@@ -1,5 +1,6 @@
 return {
   "rachartier/tiny-inline-diagnostic.nvim",
+  enabled = false,
   opts = {
     signs = {
       left = " ",
