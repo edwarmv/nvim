@@ -4,7 +4,7 @@ return {
   dependencies = {
     "akinsho/git-conflict.nvim",
   },
-  enabled = true,
+  enabled = false,
   init = function()
     vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
       callback = function()

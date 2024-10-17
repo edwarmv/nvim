@@ -12,6 +12,11 @@ local function diff_source()
   end
 end
 
+local function conflict_count()
+  local count = require("git-conflict").conflict_count()
+  return count > 0 and " " .. count or ""
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -101,15 +106,43 @@ return {
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
+      winbar = {
         lualine_c = {
-          { "filename", file_status = true },
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          { "filename", file_status = true, separator = "", padding = 0 },
+          { "diff", source = diff_source },
+          { conflict_count, color = { fg = "#b2555b" } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
         },
-        lualine_x = { "location" },
-        lualine_y = {},
-        lualine_z = {},
+      },
+      inactive_winbar = {
+        lualine_c = {
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          { "filename", file_status = true, separator = "", padding = 0 },
+          { "diff", source = diff_source },
+          { conflict_count, color = { fg = "#b2555b" } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
+        },
       },
       extensions = {
         "aerial",
