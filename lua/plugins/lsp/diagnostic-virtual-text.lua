@@ -14,10 +14,18 @@ return {
         left = " ",
         right = " ",
       },
+      hi = {
+        error = "DiagnosticVirtualTextError",
+        warn = "DiagnosticVirtualTextWarn",
+        info = "DiagnosticVirtualTextInfo",
+        hint = "DiagnosticVirtualTextHint",
+        arrow = "NonText",
+        background = "Normal",
+        mixing_color = "None",
+      },
+      blend = {
+        factor = 0.3,
+      },
     },
-    config = function(_, opts)
-      require("tiny-inline-diagnostic.highlights").setup_highlights = function() end
-      require("tiny-inline-diagnostic").setup(opts)
-    end,
   },
 }

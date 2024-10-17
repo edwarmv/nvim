@@ -75,10 +75,6 @@ return {
         hl.Folded = { fg = c.comment, bg = util.blend(c.comment, 0.10, c.bg) }
       end,
     })
-    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextError", { link = "DiagnosticVirtualTextError" })
-    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextWarn", { link = "DiagnosticVirtualTextWarn" })
-    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextInfo", { link = "DiagnosticVirtualTextInfo" })
-    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextHint", { link = "DiagnosticVirtualTextHint" })
     -- vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = colors.error })
     -- vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn", { fg = colors.warning })
     -- vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo", { fg = colors.info })
