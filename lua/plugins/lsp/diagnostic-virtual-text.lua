@@ -6,9 +6,8 @@ return {
     opts = {},
   },
   {
-    -- "rachartier/tiny-inline-diagnostic.nvim",
-    "edwarmv/tiny-inline-diagnostic.nvim",
-    enabled = true,
+    "rachartier/tiny-inline-diagnostic.nvim",
+    enabled = false,
     opts = {
       signs = {
         left = " ",
