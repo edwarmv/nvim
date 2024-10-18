@@ -6,8 +6,9 @@ return {
     opts = {},
   },
   {
-    "rachartier/tiny-inline-diagnostic.nvim",
-    enabled = false,
+    -- "rachartier/tiny-inline-diagnostic.nvim",
+    "edwarmv/tiny-inline-diagnostic.nvim",
+    enabled = true,
     opts = {
       signs = {
         left = " ",
@@ -26,6 +27,10 @@ return {
         factor = 0.3,
       },
     },
+    config = function(_, opts)
+      require("tiny-inline-diagnostic.highlights").setup_highlights = function() end
+      require("tiny-inline-diagnostic").setup(opts)
+    end,
   },
   {
     "dgagn/diagflow.nvim",
@@ -38,7 +43,7 @@ return {
   },
   {
     "luozhiya/lsp-virtual-improved.nvim",
-    enabled = true,
+    enabled = false,
     event = { "LspAttach" },
     init = function()
       local diagnostics = {

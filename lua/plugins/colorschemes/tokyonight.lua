@@ -81,6 +81,16 @@ return {
     -- vim.api.nvim_set_hl(0, "DiagnosticFloatingHint", { fg = colors.hint })
     -- vim.api.nvim_set_hl(0, "DiagnosticFloatingOk", { fg = colors.green })
 
+    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextError", { link = "DiagnosticVirtualTextError" })
+    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextWarn", { link = "DiagnosticVirtualTextWarn" })
+    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextInfo", { link = "DiagnosticVirtualTextInfo" })
+    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextHint", { link = "DiagnosticVirtualTextHint" })
+    vim.api.nvim_set_hl(0, "TinyInlineInvDiagnosticVirtualTextError", { link = "DiagnosticVirtualTextError" })
+    vim.api.nvim_set_hl(0, "TinyInlineInvDiagnosticVirtualTextWarn", { link = "DiagnosticVirtualTextWarn" })
+    vim.api.nvim_set_hl(0, "TinyInlineInvDiagnosticVirtualTextInfo", { link = "DiagnosticVirtualTextInfo" })
+    vim.api.nvim_set_hl(0, "TinyInlineInvDiagnosticVirtualTextHint", { link = "DiagnosticVirtualTextHint" })
+    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextArrow", { fg = "#737aa2", bg = "#292e42" })
+
     vim.api.nvim_set_hl(0, "MasonHighlightBlock", { fg = colors.bg_dark, bg = colors.blue })
     vim.api.nvim_set_hl(0, "MasonLink", { fg = colors.blue })
     vim.api.nvim_set_hl(0, "MasonHighlight", { fg = colors.blue })
