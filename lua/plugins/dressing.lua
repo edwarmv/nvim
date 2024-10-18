@@ -8,6 +8,10 @@ return {
       prefer_width = 0.1,
       max_width = 0.8,
       min_width = 0.1,
+      win_options = {
+        list = false,
+        sidescrolloff = 8,
+      },
     },
     select = {
       enabled = true,
