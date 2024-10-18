@@ -27,4 +27,28 @@ return {
       },
     },
   },
+  {
+    "dgagn/diagflow.nvim",
+    event = "LspAttach",
+    enabled = false,
+    opts = {
+      gap_size = 0,
+      toggle_event = { "InsertEnter" },
+    },
+  },
+  {
+    "luozhiya/lsp-virtual-improved.nvim",
+    enabled = true,
+    event = { "LspAttach" },
+    init = function()
+      local diagnostics = {
+        virtual_improved = {
+          current_line = "only",
+          spacing = 0,
+        },
+      }
+      vim.diagnostic.config(diagnostics)
+    end,
+    opts = {},
+  },
 }
