@@ -6,9 +6,9 @@ return {
     opts = {},
   },
   {
-    -- "rachartier/tiny-inline-diagnostic.nvim",
-    "edwarmv/tiny-inline-diagnostic.nvim",
-    enabled = true,
+    "rachartier/tiny-inline-diagnostic.nvim",
+    -- "edwarmv/tiny-inline-diagnostic.nvim",
+    enabled = false,
     opts = {
       signs = {
         left = " ",
@@ -43,7 +43,7 @@ return {
   },
   {
     "luozhiya/lsp-virtual-improved.nvim",
-    enabled = false,
+    enabled = true,
     event = { "LspAttach" },
     init = function()
       local diagnostics = {
