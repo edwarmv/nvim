@@ -7,7 +7,7 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    enabled = false,
+    enabled = true,
     opts = {
       signs = {
         left = " ",
