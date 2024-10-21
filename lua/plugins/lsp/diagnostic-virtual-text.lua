@@ -7,7 +7,7 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    enabled = true,
+    enabled = false,
     opts = {
       signs = {
         left = " ",
@@ -42,7 +42,7 @@ return {
   },
   {
     "luozhiya/lsp-virtual-improved.nvim",
-    enabled = false,
+    enabled = true,
     event = { "LspAttach" },
     init = function()
       local diagnostics = {
