@@ -78,13 +78,13 @@ return {
           { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
         },
         lualine_c = {
-          -- {
-          --   "navic",
-          --   color_correction = "dynamic",
-          --   navic_opts = {
-          --     click = true,
-          --   },
-          -- },
+          {
+            "navic",
+            color_correction = "dynamic",
+            navic_opts = {
+              click = true,
+            },
+          },
         },
         lualine_x = {
           {
