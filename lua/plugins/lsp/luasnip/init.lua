@@ -9,10 +9,12 @@ return {
   },
   build = "make install_jsregexp",
   config = function()
+    local luasnip = require("luasnip")
     require("luasnip.loaders.from_vscode").lazy_load()
     local types = require("luasnip.util.types")
     require("plugins.lsp.luasnip.snippets")
-    require("luasnip.config").setup({
+    luasnip.setup({
+      delete_check_events = "TextChanged",
       ext_opts = {
         [types.insertNode] = {
           unvisited = {
@@ -31,13 +33,18 @@ return {
       },
     })
 
-    -- https://github.com/L3MON4D3/LuaSnip/issues/258
     vim.api.nvim_create_autocmd("ModeChanged", {
+      group = vim.api.nvim_create_augroup("mariasolos/unlink_snippet", { clear = true }),
+      desc = "Cancel the snippet session when leaving insert mode",
       pattern = { "s:n", "i:*" },
-      callback = function()
-        local ls = require("luasnip")
-        if ls.session.current_nodes[vim.api.nvim_get_current_buf()] and not ls.session.jump_active then
-          ls.unlink_current()
+      callback = function(args)
+        if
+          luasnip.session
+          and luasnip.session.current_nodes[args.buf]
+          and not luasnip.session.jump_active
+          -- and not luasnip.choice_active()
+        then
+          luasnip.unlink_current()
         end
       end,
     })

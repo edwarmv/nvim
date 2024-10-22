@@ -131,8 +131,18 @@ return {
         ["<c-b>"] = cmp.mapping.scroll_docs(-1),
         ["<c-e>"] = cmp.mapping({
           i = function(fallback)
+            if luasnip.choice_active() then
+              luasnip.change_choice(1)
+            end
             if cmp.visible() then
               cmp.close()
+            else
+              fallback()
+            end
+          end,
+          s = function(fallback)
+            if luasnip.choice_active() then
+              luasnip.change_choice(1)
             else
               fallback()
             end
