@@ -74,8 +74,8 @@ return {
               return ""
             end,
           },
-          { "diff", source = diff_source, padding = { left = 0, right = 1 } },
-          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
+          -- { "diff", source = diff_source, padding = { left = 0, right = 1 } },
+          -- { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
         },
         lualine_c = {
           {
