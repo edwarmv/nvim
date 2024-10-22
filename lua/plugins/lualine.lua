@@ -73,19 +73,18 @@ return {
               end
               return ""
             end,
-            padding = { left = 1, right = 0 },
           },
-          { "diff", source = diff_source },
+          { "diff", source = diff_source, padding = { left = 0, right = 1 } },
           { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
         },
         lualine_c = {
-          {
-            "navic",
-            color_correction = "dynamic",
-            navic_opts = {
-              click = true,
-            },
-          },
+          -- {
+          --   "navic",
+          --   color_correction = "dynamic",
+          --   navic_opts = {
+          --     click = true,
+          --   },
+          -- },
         },
         lualine_x = {
           {
