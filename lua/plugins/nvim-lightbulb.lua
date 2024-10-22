@@ -5,6 +5,7 @@ return {
   enabled = true,
   opts = {
     autocmd = { enabled = true, updatetime = defaults.lsp_debounce },
+    priority = 2048,
     sign = {
       enabled = false,
     },

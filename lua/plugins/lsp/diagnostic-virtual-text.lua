@@ -7,11 +7,13 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    enabled = false,
+    enabled = true,
     opts = {
       signs = {
         left = " ",
         right = " ",
+        arrow = "  ←  ",
+        up_arrow = " ↑   ",
       },
       hi = {
         error = "DiagnosticVirtualTextError",
@@ -42,7 +44,7 @@ return {
   },
   {
     "luozhiya/lsp-virtual-improved.nvim",
-    enabled = true,
+    enabled = false,
     event = { "LspAttach" },
     init = function()
       local diagnostics = {
