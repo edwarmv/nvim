@@ -12,8 +12,8 @@ return {
       signs = {
         left = " ",
         right = " ",
-        arrow = "  ←  ",
-        up_arrow = " ↑   ",
+        arrow = "    ",
+        up_arrow = "    ",
       },
       hi = {
         error = "DiagnosticVirtualTextError",
