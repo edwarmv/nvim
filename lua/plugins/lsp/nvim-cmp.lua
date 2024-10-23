@@ -70,7 +70,7 @@ return {
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
           max_height = math.floor(vim.opt.lines:get() / 3),
-          border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+          -- border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
           winhighlight = "FloatBorder:CmpBorder,Search:None",
         },
       },
