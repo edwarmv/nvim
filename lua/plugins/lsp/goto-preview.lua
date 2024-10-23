@@ -1,5 +1,6 @@
 return {
   "rmagatti/goto-preview",
+  enabled = false,
   opts = {
     width = math.floor(vim.o.columns / 2), -- Width of the floating window
     height = math.floor(vim.o.lines / 3), -- Height of the floating window
