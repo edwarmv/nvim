@@ -32,8 +32,8 @@ function! VM_Exit()
 endfunction
 
 let g:VM_maps = {}
-let g:VM_maps['Find Under']         = '<M-d>'
-let g:VM_maps['Find Subword Under'] = '<M-d>'
+let g:VM_maps['Find Under']         = '<M-D>'
+let g:VM_maps['Find Subword Under'] = '<M-D>'
 let g:VM_maps["Select Cursor Down"] = '<M-J>'
 let g:VM_maps["Select Cursor Up"]   = '<M-K>'
 

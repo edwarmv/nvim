@@ -3,6 +3,7 @@ local defaults = require("config.defaults")
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
+  event = "VimEnter",
   enabled = true,
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
@@ -27,18 +28,46 @@ return {
       desc = "[Harpoon] - Navigate to File(2)",
     },
     {
-      "<m-q>",
+      "<m-d>",
       function()
         return require("harpoon"):list():select(3)
       end,
       desc = "[Harpoon] - Navigate to File(3)",
     },
     {
-      "<m-w>",
+      "<m-f>",
       function()
         return require("harpoon"):list():select(4)
       end,
       desc = "[Harpoon] - Navigate to File(4)",
+    },
+    {
+      "<m-q>",
+      function()
+        return require("harpoon"):list():select(5)
+      end,
+      desc = "[Harpoon] - Navigate to File(5)",
+    },
+    {
+      "<m-w>",
+      function()
+        return require("harpoon"):list():select(6)
+      end,
+      desc = "[Harpoon] - Navigate to File(6)",
+    },
+    {
+      "<m-e>",
+      function()
+        return require("harpoon"):list():select(7)
+      end,
+      desc = "[Harpoon] - Navigate to File(7)",
+    },
+    {
+      "<m-r>",
+      function()
+        return require("harpoon"):list():select(8)
+      end,
+      desc = "[Harpoon] - Navigate to File(8)",
     },
     {
       "gh",
