@@ -87,18 +87,18 @@ return {
           },
         },
         lualine_x = {
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostics.error,
-              warn = icons.diagnostics.warn,
-              info = icons.diagnostics.info,
-              hint = icons.diagnostics.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-            padding = { left = 0, right = 1 },
-          },
+          -- {
+          --   "diagnostics",
+          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+          --   symbols = {
+          --     error = icons.diagnostics.error,
+          --     warn = icons.diagnostics.warn,
+          --     info = icons.diagnostics.info,
+          --     hint = icons.diagnostics.hint,
+          --   },
+          --   update_in_insert = false, -- Update diagnostics in insert mode
+          --   padding = { left = 0, right = 1 },
+          -- },
           {
             require("noice").api.status.mode.get,
             cond = require("noice").api.status.mode.has,
