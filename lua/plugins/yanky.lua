@@ -25,10 +25,10 @@ return {
         timer = 500,
       },
     })
-    -- require("telescope").load_extension("yank_history")
+    require("telescope").load_extension("yank_history")
 
-    vim.keymap.set("n", "<space>y", "<cmd>YankyRingHistory<cr>", {})
-    -- vim.keymap.set("n", "<space>y", "<cmd>Telescope yank_history<cr>")
+    -- vim.keymap.set("n", "<space>y", "<cmd>YankyRingHistory<cr>", {})
+    vim.keymap.set("n", "<space>y", "<cmd>Telescope yank_history<cr>")
 
     -- vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", {})
     -- vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", {})
