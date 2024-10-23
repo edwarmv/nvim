@@ -67,9 +67,9 @@ return {
       end
 
       return {
+        { get_diagnostic_label() },
         { get_git_diff() },
         { conflict_count() },
-        { get_diagnostic_label() },
         { icon, guifg = color },
         { " " },
         {
