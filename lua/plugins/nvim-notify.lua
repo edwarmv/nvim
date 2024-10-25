@@ -2,7 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "rcarriga/nvim-notify",
-  enabled = true,
+  enabled = false,
   opts = {
     stages = "static",
     render = "minimal",

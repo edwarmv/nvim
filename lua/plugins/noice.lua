@@ -4,7 +4,7 @@ return {
   "folke/noice.nvim",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "ibhagwan/fzf-lua",
+    -- "ibhagwan/fzf-lua",
     -- "rcarriga/nvim-notify",
   },
   enabled = true,
@@ -66,11 +66,11 @@ return {
           padding = { 0, 0 },
         },
       },
-      mini = {
-        win_options = {
-          winblend = 0,
-        },
-      },
+      -- mini = {
+      --   win_options = {
+      --     winblend = 0,
+      --   },
+      -- },
     },
     presets = {
       long_message_to_split = true,
@@ -135,6 +135,7 @@ return {
     },
   },
   keys = {
-    { "<space>fn", "<cmd>NoiceFzf<cr>", desc = "FZF - Noice Messages" },
+    -- { "<space>fn", "<cmd>NoiceFzf<cr>", desc = "FZF - Noice Messages" },
+    { "<space>tn", "<cmd>Noice telescope<cr>", desc = "Telescope - Noice Messages" },
   },
 }
