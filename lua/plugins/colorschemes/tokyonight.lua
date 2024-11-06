@@ -90,6 +90,7 @@ return {
     vim.api.nvim_set_hl(0, "TinyInlineInvDiagnosticVirtualTextInfo", { link = "CursorLine" })
     vim.api.nvim_set_hl(0, "TinyInlineInvDiagnosticVirtualTextHint", { link = "CursorLine" })
     vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextArrow", { fg = "#737aa2", bg = "#292e42" })
+    vim.api.nvim_set_hl(0, "TinyInlineDiagnosticVirtualTextArrowNoBg", { fg = "#737aa2", bg = "None" })
 
     vim.api.nvim_set_hl(0, "MasonHighlightBlock", { fg = colors.bg_dark, bg = colors.blue })
     vim.api.nvim_set_hl(0, "MasonLink", { fg = colors.blue })

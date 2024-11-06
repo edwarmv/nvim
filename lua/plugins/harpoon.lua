@@ -73,7 +73,6 @@ return {
       "gh",
       function()
         require("harpoon"):list():add()
-        print("[Harpoon] - Added File")
       end,
       expr = true,
       desc = "[Harpoon] - Add File",
@@ -92,7 +91,6 @@ return {
       "gch",
       function()
         require("harpoon"):list():clear()
-        print("[Harpoon] - Cleared items")
       end,
       desc = "[Harpoon] - Clear items",
     },

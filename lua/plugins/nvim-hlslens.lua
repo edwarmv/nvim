@@ -2,6 +2,7 @@ return {
   "kevinhwang91/nvim-hlslens",
   dependencies = {
     "haya14busa/vim-asterisk",
+    "romainl/vim-cool",
   },
   opts = {
     nearest_float_when = "never",
