@@ -10,7 +10,6 @@ return {
       min_width = 0.1,
       win_options = {
         list = false,
-        sidescrolloff = 8,
       },
     },
     select = {
