@@ -31,18 +31,6 @@ return {
     config = function(_, opts)
       require("tiny-inline-diagnostic.highlights").setup_highlights = function() end
       require("tiny-inline-diagnostic").setup(opts)
-      vim.api.nvim_create_autocmd("InsertEnter", {
-        pattern = "*",
-        callback = function()
-          require("tiny-inline-diagnostic").disable()
-        end,
-      })
-      vim.api.nvim_create_autocmd("InsertLeave", {
-        pattern = "*",
-        callback = function()
-          require("tiny-inline-diagnostic").enable()
-        end,
-      })
     end,
   },
   {

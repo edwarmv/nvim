@@ -4,7 +4,7 @@ return {
   "kosayoda/nvim-lightbulb",
   enabled = true,
   opts = {
-    autocmd = { enabled = true, updatetime = defaults.lsp_debounce },
+    autocmd = { enabled = true, updatetime = defaults.lsp_debounce, events = { "CursorHold" } },
     sign = {
       enabled = false,
     },

@@ -37,7 +37,7 @@ end
 
 return {
   "rcarriga/nvim-notify",
-  enabled = true,
+  enabled = false,
   opts = {
     stages = "static", -- fade_in_slide_out, fade, slide, static
     on_open = function(win, record)

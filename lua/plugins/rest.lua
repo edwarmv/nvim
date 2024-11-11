@@ -1,5 +1,5 @@
 return {
   "NTBBloodbath/rest.nvim",
-  enabled = true,
+  enabled = false,
   ft = "http",
 }
