@@ -54,8 +54,8 @@ opt.number = true -- Print line number
 opt.pumblend = 0 -- Popup blend
 opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
--- opt.scrolloff = 4 -- Lines of context
--- opt.sidescrolloff = 8 -- Columns of context
+opt.scrolloff = 4 -- Lines of context
+opt.sidescrolloff = 8 -- Columns of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
@@ -85,7 +85,7 @@ opt.breakindent = true
 -- opt.showbreak = "…"
 opt.colorcolumn = "80"
 opt.linebreak = true
-opt.smoothscroll = true
+opt.smoothscroll = false
 
 -- vim.api.nvim_create_autocmd({ "BufLeave" }, {
 --   pattern = "{}",

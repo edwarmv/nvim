@@ -30,6 +30,7 @@ return {
         "bash-language-server",
         -- "typescript-language-server",
         "vtsls",
+        "angularls",
         "html-lsp",
         "css-lsp",
         "vim-language-server",

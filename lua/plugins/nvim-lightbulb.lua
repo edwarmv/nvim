@@ -5,6 +5,7 @@ return {
   enabled = true,
   opts = {
     autocmd = { enabled = true, updatetime = defaults.lsp_debounce, events = { "CursorHold" } },
+    code_lenses = true,
     sign = {
       enabled = false,
     },

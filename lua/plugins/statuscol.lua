@@ -1,7 +1,7 @@
 return {
   "luukvbaal/statuscol.nvim",
   lazy = false,
-  enabled = false,
+  enabled = true,
   config = function()
     local builtin = require("statuscol.builtin")
     require("statuscol").setup({
@@ -27,8 +27,8 @@ return {
         -- },
         {
           sign = {
-            namespace = { "diagnostic/signs", ".*" },
-            name = { "Dap*", ".*" },
+            namespace = { ".*" },
+            name = { ".*" },
             maxwidth = 1,
             colwidth = 2,
             auto = false,
