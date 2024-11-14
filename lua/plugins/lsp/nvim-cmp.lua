@@ -14,12 +14,16 @@ return {
   name = "nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lsp",
+    { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
+    { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
+    { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
+    "https://codeberg.org/FelipeLema/cmp-async-path",
+    -- "hrsh7th/cmp-buffer",
+    -- "hrsh7th/cmp-path",
+    -- "hrsh7th/cmp-nvim-lsp",
     -- "hrsh7th/cmp-nvim-lua",
     -- "f3fora/cmp-spell",
-    "hrsh7th/cmp-cmdline",
+    -- "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "hrsh7th/cmp-calc",
     "chrisgrieser/cmp_yanky",
@@ -231,6 +235,11 @@ return {
         { name = "nvim_lsp" },
       }, {
         { name = "buffer" },
+        { name = "cmp_yanky" },
+        { name = "async_path", option = { show_hidden_files_by_default = true } },
+      }, {
+        { name = "calc" },
+        { name = "emoji" },
       }),
       formatting = {
         fields = {
@@ -273,8 +282,8 @@ return {
         },
       },
       sources = cmp.config.sources({
-        { name = "path" },
         { name = "cmdline" },
+        { name = "async_path", option = { show_hidden_files_by_default = true } },
       }),
       matching = { disallow_symbol_nonprefix_matching = false },
       formatting = {

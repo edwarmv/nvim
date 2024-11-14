@@ -2,7 +2,6 @@ local defaults = require("config.defaults")
 
 return {
   "nvimtools/hydra.nvim",
-  dependencies = { "hrsh7th/nvim-cmp" },
   config = function()
     local Hydra = require("hydra")
     local timeout = 1000
@@ -185,108 +184,6 @@ return {
           { desc = "scroll bind", exit = true },
         },
         { "<Esc>", nil, { exit = true } },
-      },
-    })
-
-    local cmp = require("cmp")
-
-    Hydra({
-      name = "cmp",
-      config = {
-        hint = {
-          type = "window",
-          offset = -1,
-        },
-        invoke_on_body = true,
-        timeout = false,
-      },
-      mode = "i",
-      body = "<c-x>",
-      heads = {
-        {
-          "s",
-          function()
-            if cmp.visible() then
-              cmp.close()
-            end
-            cmp.complete({
-              config = {
-                sources = {
-                  { name = "luasnip" },
-                },
-              },
-            })
-          end,
-          { desc = "snippets", exit = true },
-        },
-        {
-          "p",
-          function()
-            if cmp.visible() then
-              cmp.close()
-            end
-            cmp.complete({
-              config = {
-                sources = {
-                  { name = "path" },
-                },
-              },
-            })
-          end,
-          { desc = "path", exit = true },
-        },
-        {
-          "c",
-          function()
-            if cmp.visible() then
-              cmp.close()
-            end
-            cmp.complete({
-              config = {
-                sources = {
-                  { name = "calc" },
-                },
-              },
-            })
-          end,
-          { desc = "calc", exit = true },
-        },
-        {
-          "y",
-          function()
-            if cmp.visible() then
-              cmp.close()
-            end
-            cmp.complete({
-              config = {
-                sources = {
-                  {
-                    name = "cmp_yanky",
-                  },
-                },
-              },
-            })
-          end,
-          { desc = "yanky", exit = true },
-        },
-        {
-          "e",
-          function()
-            if cmp.visible() then
-              cmp.close()
-            end
-            cmp.complete({
-              config = {
-                sources = {
-                  {
-                    name = "emoji",
-                  },
-                },
-              },
-            })
-          end,
-          { desc = "Emoji", exit = true },
-        },
       },
     })
   end,
