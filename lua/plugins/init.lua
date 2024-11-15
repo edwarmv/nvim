@@ -1,16 +1,3 @@
-local utils = require("utils.init")
-
-local plugins = {
-  -- "winresizer.vim",
-  "vim-visual-multi.vim",
-  -- "vim-markdown.vim",
-  "init.vim",
-}
-
-for _, v in ipairs(plugins) do
-  utils.sourceVim(v)
-end
-
 return {
   "b0o/SchemaStore.nvim",
   { "chrisbra/csv.vim", ft = "csv" },
@@ -69,7 +56,6 @@ return {
   {
     "godlygeek/tabular",
   },
-  "machakann/vim-highlightedyank",
   "tpope/vim-fugitive",
   {
     "weirongxu/plantuml-previewer.vim",
