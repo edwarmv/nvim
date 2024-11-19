@@ -11,7 +11,7 @@ return {
       plugins = { markdown = true },
       style = "storm",
       light_style = "day",
-      dim_inactive = true,
+      dim_inactive = false,
       lualine_bold = true,
       on_highlights = function(hl, c)
         hl.TabLineFill = {

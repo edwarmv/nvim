@@ -154,19 +154,19 @@ M.lsp = function(buffer)
     { desc = "[LSP - Glance] Implementations", buffer = buffer }
   )
   -- lspsaga
-  vim.keymap.set(
-    "n",
-    "<c-w>d",
-    "<cmd>Lspsaga show_line_diagnostics<cr>",
-    { desc = "[Diagnostic] Current Line", buffer = buffer }
-  )
-
-  vim.keymap.set(
-    "n",
-    "<c-w><c-d>",
-    "<cmd>Lspsaga show_cursor_diagnostics<cr>",
-    { desc = "[Diagnostic] Cursor", buffer = buffer }
-  )
+  -- vim.keymap.set(
+  --   "n",
+  --   "<c-w>d",
+  --   "<cmd>Lspsaga show_line_diagnostics<cr>",
+  --   { desc = "[Diagnostic] Current Line", buffer = buffer }
+  -- )
+  --
+  -- vim.keymap.set(
+  --   "n",
+  --   "<c-w><c-d>",
+  --   "<cmd>Lspsaga show_cursor_diagnostics<cr>",
+  --   { desc = "[Diagnostic] Cursor", buffer = buffer }
+  -- )
 
   vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "[Diagnostic] Prev", buffer = buffer })
 
@@ -189,7 +189,7 @@ M.lsp = function(buffer)
   vim.keymap.set("n", "glF", "<cmd>Lspsaga finder<cr>", { desc = "[LSP - Saga] Finder", buffer = buffer })
   vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
   vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Outgoing Calls", buffer = buffer })
-  -- vim.keymap.set("n", "grn", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Rename", buffer = buffer })
+  vim.keymap.set("n", "grn", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Rename", buffer = buffer })
   vim.keymap.set("n", "gra", "<cmd>Lspsaga code_action<cr>", { desc = "[LSP] Code Action", buffer = buffer })
   -- vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "[Diagnostic] Next", buffer = buffer })
   -- vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "[Diagnostic] Prev", buffer = buffer })
@@ -202,13 +202,15 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
-  vim.keymap.set({ "n", "i" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
+  vim.keymap.set({ "n", "i", "s" }, "<c-s>", function(functionfunctionfunctionfunctionfunctionfunctionfunction)
+    vim.lsp.buf.signature_help({ border = defaults.border })
+  end, { desc = "[LSP] Signature Help" })
 
   -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
   -- vim.keymap.set("n", "glr", vim.lsp.buf.rename, { desc = "[LSP] Rename", buffer = buffer })
 
-  vim.keymap.set("n", "grn", lspRename, { desc = "[LSP] Rename", buffer = buffer })
+  -- vim.keymap.set("n", "grn", lspRename, { desc = "[LSP] Rename", buffer = buffer })
 
   -- vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
 

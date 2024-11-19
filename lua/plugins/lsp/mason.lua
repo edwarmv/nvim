@@ -1,5 +1,5 @@
 local defaults = require("config.defaults")
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local filter_fold_servers = {
   "yamlls",
   "eslint",

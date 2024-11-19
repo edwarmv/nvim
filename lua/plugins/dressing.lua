@@ -13,8 +13,24 @@ return {
       },
     },
     select = {
+      get_config = function(opts)
+        if opts.kind == "codeaction" or opts.kind == "luasnip" then
+          return {
+            backend = { "builtin" },
+            builtin = {
+              relative = "cursor",
+            },
+          }
+        end
+
+        return {
+          backend = { "builtin" },
+          builtin = {
+            relative = "editor",
+          },
+        }
+      end,
       enabled = true,
-      backend = { "builtin" },
       fzf_lua = {
         winopts = {
           height = 0.5,

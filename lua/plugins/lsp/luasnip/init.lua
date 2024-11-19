@@ -14,8 +14,8 @@ return {
     local types = require("luasnip.util.types")
     require("plugins.lsp.luasnip.snippets")
     luasnip.setup({
-      delete_check_events = { "TextChanged", "InsertLeave" },
-      region_check_events = { "CursorMoved", "CursorHold", "InsertEnter" },
+      delete_check_events = { "TextChanged" },
+      -- region_check_events = { "CursorMoved", "CursorHold", "InsertEnter" },
       ext_opts = {
         [types.insertNode] = {
           unvisited = {
@@ -40,20 +40,26 @@ return {
       },
     })
 
-    -- vim.api.nvim_create_autocmd("ModeChanged", {
-    --   group = vim.api.nvim_create_augroup("mariasolos/unlink_snippet", { clear = true }),
-    --   desc = "Cancel the snippet session when leaving insert mode",
-    --   pattern = { "s:n", "i:*" },
-    --   callback = function(args)
-    --     if
-    --       luasnip.session
-    --       and luasnip.session.current_nodes[args.buf]
-    --       and not luasnip.session.jump_active
-    --       -- and not luasnip.choice_active()
-    --     then
-    --       luasnip.unlink_current()
-    --     end
-    --   end,
-    -- })
+    vim.keymap.set({ "i", "s" }, "<C-c>", function()
+      if luasnip.choice_active() then
+        require("luasnip.extras.select_choice")()
+      end
+    end, { desc = "Select choice" })
+
+    vim.api.nvim_create_autocmd("ModeChanged", {
+      group = vim.api.nvim_create_augroup("mariasolos/unlink_snippet", { clear = true }),
+      desc = "Cancel the snippet session when leaving insert mode",
+      pattern = { "s:n", "i:*" },
+      callback = function(args)
+        if
+          luasnip.session
+          and luasnip.session.current_nodes[args.buf]
+          and not luasnip.session.jump_active
+          and not luasnip.choice_active()
+        then
+          luasnip.unlink_current()
+        end
+      end,
+    })
   end,
 }

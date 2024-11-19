@@ -60,7 +60,7 @@ return {
       },
       sections = {
         lualine_a = {
-          "mode",
+          { "mode" },
         },
         lualine_b = {
           {
