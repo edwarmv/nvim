@@ -1,7 +1,7 @@
 return {
   "gbprod/yanky.nvim",
   dependencies = {
-    -- "kkharji/sqlite.lua",
+    "kkharji/sqlite.lua",
     {
       "gbprod/cutlass.nvim",
       opts = {
@@ -12,7 +12,19 @@ return {
     },
   },
   config = function()
-    require("yanky").setup({})
+    require("yanky").setup({
+      ring = {
+        storage = "sqlite",
+      },
+      system_clipboard = {
+        sync_with_ring = false,
+      },
+      picker = {
+        select = {
+          action = require("yanky.picker").actions.set_register(""),
+        },
+      },
+    })
     -- require("telescope").load_extension("yank_history")
 
     -- vim.keymap.set("n", "<space>y", "<cmd>Telescope yank_history<cr>")
