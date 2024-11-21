@@ -1,4 +1,5 @@
 vim.deprecate = function() end
+vim.notify_once = function() end
 -- =========================================================
 -- vim-settings
 -- =========================================================
@@ -37,7 +38,7 @@ local opt = vim.opt
 opt.autowrite = false -- Enable auto write
 -- opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
+opt.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = false -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.cursorcolumn = true -- Enable highlighting of the current line
@@ -48,7 +49,7 @@ opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 3 -- global statusline
-opt.list = true -- Show some invisible characters (tabs...
+opt.list = false -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
 opt.mousemoveevent = true
 opt.number = true -- Print line number
@@ -83,7 +84,7 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = true -- Disable line wrap
 opt.breakindent = true
--- opt.showbreak = "…"
+opt.showbreak = "↳"
 opt.colorcolumn = "80"
 opt.linebreak = true
 opt.smoothscroll = false

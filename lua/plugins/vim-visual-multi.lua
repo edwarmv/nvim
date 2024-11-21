@@ -6,6 +6,7 @@ return {
 
     vim.g.VM_set_statusline = 1
     vim.g.VM_silent_exit = 1
+    vim.g.VM_show_warnings = 0
     vim.g.VM_mouse_mappings = 1
 
     vim.api.nvim_create_autocmd("User", {
