@@ -37,7 +37,7 @@ return {
         return
       end
       if vim.g.disable_autoformat == false or vim.b[bufnr].disable_autoformat == false then
-        return { lsp_format = "fallback", name = "null-ls", bufnr = bufnr }
+        return { lsp_format = "fallback", bufnr = bufnr }
       end
     end,
   },
@@ -45,7 +45,7 @@ return {
     {
       "<leader>f",
       function()
-        require("conform").format({ async = true, lsp_format = "fallback", name = "null-ls" })
+        require("conform").format({ async = true, lsp_format = "fallback" })
       end,
       mode = "",
       desc = "[LSP] Format",

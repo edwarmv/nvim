@@ -15,19 +15,6 @@ return {
       section = { "▸", "▾" },
     },
     graph_style = "unicode",
-    kind = "replace",
-    commit_editor = {
-      kind = "replace",
-    },
-    commit_select_view = {
-      kind = "replace",
-    },
-    log_view = {
-      kind = "tab",
-    },
-    reflog_view = {
-      kind = "replace",
-    },
   },
   keys = {
     {

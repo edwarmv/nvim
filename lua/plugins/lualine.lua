@@ -68,25 +68,17 @@ return {
             icon = "",
             fmt = function(value)
               if value ~= "" then
-                local max_width = vim.o.columns * 1 / 8
+                local max_width = vim.o.columns * 1 / 6
                 return string.len(value) <= max_width and value or string.sub(value, 1, max_width) .. "…"
               end
               return ""
             end,
           },
-          -- { "diff", source = diff_source, padding = { left = 0, right = 1 } },
-          -- { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
         },
         lualine_c = {
-          {
-            "navic",
-            color_correction = "dynamic",
-            navic_opts = {
-              click = true,
-            },
-          },
-        },
-        lualine_x = {
+          -- { "filename", file_status = false },
+          -- { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
+          -- { "diff", source = diff_source, padding = { left = 0, right = 1 } },
           -- {
           --   "diagnostics",
           --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
@@ -99,6 +91,15 @@ return {
           --   update_in_insert = false, -- Update diagnostics in insert mode
           --   padding = { left = 0, right = 1 },
           -- },
+          {
+            "navic",
+            color_correction = "dynamic",
+            navic_opts = {
+              click = true,
+            },
+          },
+        },
+        lualine_x = {
           {
             require("noice").api.status.mode.get,
             cond = require("noice").api.status.mode.has,

@@ -69,6 +69,9 @@ return {
   opts = {
     fold_virt_text_handler = handler,
     provider_selector = function(bufnr, filetype, buftype)
+      if filetype == "snacks_dashboard" then
+        return ""
+      end
       if buftype == "nofile" then
         return ""
       end

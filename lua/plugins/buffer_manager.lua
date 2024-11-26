@@ -37,7 +37,7 @@ return {
       cursorline = true,
       wrap = false,
     },
-    width = 0.3,
+    width = 0.4,
     height = 0.2,
   },
   keys = {

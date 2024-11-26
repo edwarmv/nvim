@@ -6,23 +6,24 @@ return {
       "echasnovski/mini.icons",
     },
     opts = {
-      win_options = {
-        signcolumn = "yes:2",
-        number = false,
-      },
+      -- win_options = {
+      --   signcolumn = "yes:2",
+      --   number = false,
+      -- },
       view_options = {
         show_hidden = true,
       },
+      watch_for_changes = true,
     },
     keys = {
       { "<space>o", "<cmd>Oil<cr>", desc = "Oil" },
     },
   },
-  {
-    "refractalize/oil-git-status.nvim",
-    dependencies = {
-      "stevearc/oil.nvim",
-    },
-    opts = {},
-  },
+  -- {
+  --   "refractalize/oil-git-status.nvim",
+  --   dependencies = {
+  --     "stevearc/oil.nvim",
+  --   },
+  --   opts = {},
+  -- },
 }

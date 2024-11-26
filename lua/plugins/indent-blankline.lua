@@ -27,6 +27,7 @@ return {
         "notify",
         "Navbuddy",
         "dashboard",
+        "snacks_dashboard",
         "diff",
         "fugitive",
       },

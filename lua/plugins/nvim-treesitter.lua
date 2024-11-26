@@ -3,6 +3,7 @@ return {
   build = ":TSUpdate",
   main = "nvim-treesitter.configs",
   opts = {
+    auto_install = true,
     ensure_installed = {
       "cpp",
       "graphql",
@@ -44,6 +45,7 @@ return {
       "rust",
       "xml",
     },
+    additional_vim_regex_highlighting = { "scss" },
     highlight = {
       enable = true,
       disable = function(lang, buf)

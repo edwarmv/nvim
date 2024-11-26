@@ -74,6 +74,7 @@ return {
     { "<space><space>fbl", "<cmd>FzfLua blines<cr>", desc = "FZF - Current Buffer Lines" },
     { "<space><space>fbL", "<cmd>FzfLua lines<cr>", desc = "FZF - Open Buffers Lines" },
     { "<space>fr", "<cmd>FzfLua live_grep<cr>", desc = "FZF - Grep" },
+    { "<space>fr", "<cmd>FzfLua grep_visual<cr>", desc = "FZF - Grep", mode = { "x" } },
     { "<space>fR", "<cmd>FzfLua grep_cword<cr>", desc = "FZF - Grep" },
     { "<space>fk", "<cmd>FzfLua keymaps<cr>", desc = "FZF - Key Mappings" },
     { "<space>fm", "<cmd>FzfLua marks<cr>", desc = "FZF - Key Mappings" },

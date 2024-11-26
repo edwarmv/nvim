@@ -44,7 +44,7 @@ return {
         -- "diagnostic-languageserver",
         -- "efm",
         "vue-language-server",
-        "marksman",
+        -- "marksman",
         "emmet-language-server",
         "astro-language-server",
         "rust-analyzer",

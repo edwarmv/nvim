@@ -10,12 +10,12 @@ return {
         git_hl = true,
       },
     },
-    words = { enabled = false },
     bigfile = { enabled = true },
     notifier = {
       enabled = true,
       timeout = 3000,
     },
     quickfile = { enabled = true },
+    dashboard = { enabled = false },
   },
 }

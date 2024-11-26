@@ -2,7 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   lazy = false,
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
@@ -22,8 +22,8 @@ return {
     },
   },
   keys = {
-    { "<leader>bb", "<cmd>BufferLinePick<cr>", desc = "[Buffer] Pick" },
-    { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "[Buffer] Pick" },
+    { "<leader>b", "<cmd>BufferLinePick<cr>", desc = "[Buffer] Pick" },
+    { "<leader><leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "[Buffer] Pick" },
     {
       "<leader>tr",
       function()
@@ -33,10 +33,14 @@ return {
       end,
       desc = "[Buffer] Tab Rename",
     },
-    { "<leader>bst", "<cmd>BufferLineSortByTabs<cr>", desc = "[Buffer] Sort by Tabs" },
-    { "<leader>bsd", "<cmd>BufferLineSortByDirectory<cr>", desc = "[Buffer] Sort by Directory" },
-    { "<leader>bse", "<cmd>BufferLineSortByExtension<cr>", desc = "[Buffer] Sort by Extension" },
-    { "<leader>bsr", "<cmd>BufferLineSortByRelativeDirectory<cr>", desc = "[Buffer] Sort by Relative Directory" },
+    { "<leader><leader>bst", "<cmd>BufferLineSortByTabs<cr>", desc = "[Buffer] Sort by Tabs" },
+    { "<leader><leader>bsd", "<cmd>BufferLineSortByDirectory<cr>", desc = "[Buffer] Sort by Directory" },
+    { "<leader><leader>bse", "<cmd>BufferLineSortByExtension<cr>", desc = "[Buffer] Sort by Extension" },
+    {
+      "<leader><leader>bsr",
+      "<cmd>BufferLineSortByRelativeDirectory<cr>",
+      desc = "[Buffer] Sort by Relative Directory",
+    },
     { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "[Buffer] Cycle Next" },
     { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "[Buffer] Cycle Prev" },
     { "]B", "<cmd>BufferLineMoveNext<cr>", desc = "[Buffer] Move Next" },

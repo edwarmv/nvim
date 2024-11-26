@@ -135,7 +135,7 @@ return {
     },
   },
   keys = {
-    { "<space>fn", "<cmd>NoiceFzf<cr>", desc = "FZF - Noice Messages" },
-    -- { "<space>tn", "<cmd>Noice telescope<cr>", desc = "Telescope - Noice Messages" },
+    -- { "<space>fn", "<cmd>NoiceFzf<cr>", desc = "FZF - Noice Messages" },
+    { "<space>tn", "<cmd>Noice telescope<cr>", desc = "Telescope - Noice Messages" },
   },
 }
