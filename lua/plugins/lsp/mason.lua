@@ -1,10 +1,4 @@
 local defaults = require("config.defaults")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local filter_fold_servers = {
-  "yamlls",
-  "eslint",
-  "angularls",
-}
 
 return {
   {
@@ -73,18 +67,14 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
+      "cmp-nvim-lsp",
     },
     opts = {
       ensure_installed = { "angularls" },
       handlers = {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-            on_attach = function(client, buffer)
-              if vim.tbl_contains(filter_fold_servers, client.name) then
-                client.server_capabilities.foldingRangeProvider = false
-              end
-            end,
+            capabilities = require("cmp_nvim_lsp").default_capabilities(),
           })
         end,
         ["jsonls"] = function()

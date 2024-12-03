@@ -25,8 +25,8 @@ return {
         },
       },
       highlight = {
-        on_put = false,
-        on_yank = false,
+        on_put = true,
+        on_yank = true,
         timer = 500,
       },
     })

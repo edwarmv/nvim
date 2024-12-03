@@ -173,7 +173,7 @@ local defaults = require("config.defaults")
 local icons = defaults.icons
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
@@ -236,114 +236,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_user_command("CloseAllFloatingWindows", function()
-  if vim.fn.expand("%:t") == "[Command Line]" then
-    return
-  end
-
-  if vim.api.nvim_get_option_value("filetype", { buf = 0 }) == "neo-tree" then
-    return
-  end
-
-  local filter_rules = {
-    -- filter using buffer options
-    bo = {
-      -- if the file type is one of following, the window will be ignored
-      filetype = { "neo-tree", "incline", "neo-tree-preview", "fidget", "noice", "NvimSeparator" }, -- "notify",
-
-      -- if the buffer type is one of following, the window will be ignored
-      buftype = { "terminal" },
-    },
-  }
-
-  local window_ids = vim.api.nvim_list_wins()
-
-  local filtered_windows = vim.tbl_filter(function(winid)
-    local bufid = vim.api.nvim_win_get_buf(winid)
-
-    for opt_key, opt_values in pairs(filter_rules.bo) do
-      local actual_opt = vim.api.nvim_get_option_value(opt_key, { buf = bufid })
-
-      local has_value = vim.tbl_contains(opt_values, actual_opt)
-
-      if has_value then
-        return false
-      end
-    end
-
-    return true
-  end, window_ids)
-
-  for _, win in ipairs(filtered_windows) do
-    if vim.api.nvim_win_is_valid(win) then
-      local config = vim.api.nvim_win_get_config(win)
-      if config.relative ~= "" then
-        vim.api.nvim_win_close(win, false)
-      end
-    end
-  end
-end, {})
-
--- vim.keymap.set("n", "<esc>", "<cmd>CloseAllFloatingWindows<cr>", { desc = "Quit all windows", remap = true })
-
-local fn = vim.fn
-
-function _G.qftf(info)
-  local items
-  local ret = {}
-  -- The name of item in list is based on the directory of quickfix window.
-  -- Change the directory for quickfix window make the name of item shorter.
-  -- It's a good opportunity to change current directory in quickfixtextfunc :)
-  --
-  -- local alterBufnr = fn.bufname('#') -- alternative buffer is the buffer before enter qf window
-  -- local root = getRootByAlterBufnr(alterBufnr)
-  -- vim.cmd(('noa lcd %s'):format(fn.fnameescape(root)))
-  --
-  if info.quickfix == 1 then
-    items = fn.getqflist({ id = info.id, items = 0 }).items
-  else
-    items = fn.getloclist(info.winid, { id = info.id, items = 0 }).items
-  end
-  local limit = 31
-  local fnameFmt1, fnameFmt2 = "%-" .. limit .. "s", "…%." .. (limit - 1) .. "s"
-  local validFmt = "%s │%5d:%-3d│%s %s"
-  for i = info.start_idx, info.end_idx do
-    local e = items[i]
-    local fname = ""
-    local str
-    if e.valid == 1 then
-      if e.bufnr > 0 then
-        fname = fn.bufname(e.bufnr)
-        if fname == "" then
-          fname = "[No Name]"
-        else
-          fname = fname:gsub("^" .. vim.env.HOME, "~")
-        end
-        -- char in fname may occur more than 1 width, ignore this issue in order to keep performance
-        if #fname <= limit then
-          fname = fnameFmt1:format(fname)
-        else
-          fname = fnameFmt2:format(fname:sub(1 - limit))
-        end
-      end
-      local lnum = e.lnum > 99999 and -1 or e.lnum
-      local col = e.col > 999 and -1 or e.col
-      local qtype = e.type == "" and "" or " " .. e.type:sub(1, 1):upper()
-      str = validFmt:format(fname, lnum, col, qtype, e.text)
-    else
-      str = e.text
-    end
-    table.insert(ret, str)
-  end
-  return ret
-end
-
-vim.o.qftf = "{info -> v:lua._G.qftf(info)}"
-
 require("config")
 
--- vim.env.PATH = vim.env.HOME
---   .. "/.asdf/installs/nodejs/22.2.0/bin:"
---   .. vim.env.HOME
---   .. "/.asdf/installs/python/3.11.5/bin:"
---   .. vim.env.PATH
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client:supports_method("textDocument/foldingRange") then
+      vim.wo.foldmethod = "expr"
+      vim.wo.foldexpr = "v:lua.vim.lsp.foldexpr()"
+    end
+  end,
+})

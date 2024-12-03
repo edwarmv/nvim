@@ -2,10 +2,9 @@ local defaults = require("config.defaults")
 
 return {
   "folke/noice.nvim",
+  event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    -- "ibhagwan/fzf-lua",
-    -- "rcarriga/nvim-notify",
   },
   enabled = true,
   opts = {
@@ -23,7 +22,7 @@ return {
         ["cmp.entry.get_documentation"] = true,
       },
       progress = {
-        enabled = false,
+        enabled = true,
       },
       hover = {
         enabled = false,

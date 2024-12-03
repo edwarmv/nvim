@@ -106,6 +106,8 @@ return {
             color = { fg = "#ff9e64" },
             padding = { left = 0, right = 1 },
           },
+          { "searchcount", padding = { left = 0, right = 1 } },
+          { "selectioncount", padding = { left = 0, right = 1 } },
           { "filetype", padding = { left = 0, right = 1 } },
           {
             "harpoon2",
