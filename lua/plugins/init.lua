@@ -33,4 +33,9 @@ return {
       { mode = { "n", "x" }, "z*", "<Plug>(asterisk-z*)" },
     },
   },
+  {
+    "chentoast/marks.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
 }
