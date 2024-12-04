@@ -5,8 +5,7 @@ return {
   dependencies = {
     {
       "folke/twilight.nvim",
-      opts = true,
-      enabled = false,
+      opts = {},
     },
   },
   enabled = true,
