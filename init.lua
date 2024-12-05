@@ -87,7 +87,6 @@ opt.breakindent = true
 opt.showbreak = "" -- ↳
 opt.colorcolumn = "80"
 opt.linebreak = false
-opt.smoothscroll = true
 
 -- vim.api.nvim_create_autocmd({ "BufLeave" }, {
 --   pattern = "{}",

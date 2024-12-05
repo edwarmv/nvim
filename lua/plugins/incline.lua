@@ -43,6 +43,10 @@ return {
       end
 
       local function get_diagnostic_label()
+        if vim.fn.mode() == "i" then
+          return {}
+        end
+
         local icons = {
           error = defaults.icons.diagnostics.error,
           warn = defaults.icons.diagnostics.warn,

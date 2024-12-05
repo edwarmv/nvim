@@ -25,9 +25,9 @@ return {
     -- "f3fora/cmp-spell",
     -- "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
-    "hrsh7th/cmp-calc",
+    -- "hrsh7th/cmp-calc",
     -- "chrisgrieser/cmp_yanky",
-    "hrsh7th/cmp-emoji",
+    -- "hrsh7th/cmp-emoji",
     -- "ray-x/cmp-treesitter",
     -- "hrsh7th/cmp-nvim-lsp-signature-help",
     {
@@ -70,6 +70,7 @@ return {
         completion = {
           -- border = defaults.border,
           winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+          col_offset = -2,
         },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
@@ -80,7 +81,7 @@ return {
       },
       view = {
         entries = {
-          follow_cursor = true,
+          follow_cursor = false,
         },
         docs = {
           auto_open = true,
@@ -231,13 +232,13 @@ return {
         }),
       },
       sources = cmp.config.sources({
-        { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "async_path", option = { show_hidden_files_by_default = true } },
         { name = "buffer" },
         -- { name = "cmp_yanky" },
-        { name = "async_path", option = { show_hidden_files_by_default = true } },
-        { name = "calc" },
-        { name = "emoji" },
+        -- { name = "calc" },
+        -- { name = "emoji" },
       }),
       formatting = {
         fields = {
@@ -275,6 +276,11 @@ return {
     })
 
     cmp.setup.cmdline(":", {
+      window = {
+        completion = {
+          col_offset = 0,
+        },
+      },
       completion = {
         autocomplete = {
           types.cmp.TriggerEvent.TextChanged,
