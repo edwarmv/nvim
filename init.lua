@@ -172,7 +172,7 @@ local defaults = require("config.defaults")
 local icons = defaults.icons
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
