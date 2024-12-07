@@ -86,7 +86,7 @@ opt.wrap = true -- Disable line wrap
 opt.breakindent = true
 opt.showbreak = "" -- ↳
 opt.colorcolumn = "80"
-opt.linebreak = false
+opt.linebreak = true
 
 -- vim.api.nvim_create_autocmd({ "BufLeave" }, {
 --   pattern = "{}",
@@ -172,7 +172,7 @@ local defaults = require("config.defaults")
 local icons = defaults.icons
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
@@ -184,6 +184,17 @@ vim.diagnostic.config({
   float = {
     border = defaults.border,
   },
+})
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  callback = function()
+    vim.diagnostic.disable()
+  end,
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.diagnostic.enable()
+  end,
 })
 
 local function augroup(name)
