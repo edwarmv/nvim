@@ -3,7 +3,7 @@ local defaults = require("config.defaults")
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
@@ -57,7 +57,7 @@ return {
         },
         window = {
           position = "right",
-          width = "20%",
+          width = "25%",
           same_level = true, -- Create and paste/move files/directories on the same level as the directory under cursor (as opposed to within the directory under cursor).
           insert_as = "sibling",
           mappings = {
