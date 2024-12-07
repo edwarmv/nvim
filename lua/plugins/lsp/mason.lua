@@ -22,8 +22,8 @@ return {
     opts = {
       ensure_installed = {
         "bash-language-server",
-        -- "typescript-language-server",
-        "vtsls",
+        "ts_ls",
+        -- "vtsls",
         "angularls",
         "html-lsp",
         "css-lsp",
