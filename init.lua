@@ -65,7 +65,6 @@ opt.showmode = false -- Dont show mode since we have a statusline
 opt.signcolumn = "auto" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.numberwidth = 1
 opt.smartcase = true -- Don't ignore case with capitals
-opt.smartindent = true -- Insert indents automatically
 opt.spelllang = { "en" }
 opt.spelloptions:append("noplainbuffer")
 opt.splitbelow = true -- Put new windows below current
