@@ -232,8 +232,8 @@ return {
         }),
       },
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "nvim_lsp" },
         { name = "async_path", option = { show_hidden_files_by_default = true } },
         { name = "buffer" },
         -- { name = "cmp_yanky" },
