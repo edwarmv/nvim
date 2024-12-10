@@ -24,8 +24,6 @@ return {
   "tpope/vim-sleuth",
   "tpope/vim-repeat",
   "farmergreg/vim-lastplace",
-  "famiu/bufdelete.nvim",
-  "dstein64/vim-startuptime",
   {
     "haya14busa/vim-asterisk",
     keys = {
@@ -42,8 +40,4 @@ return {
     "sphamba/smear-cursor.nvim",
     opts = {},
   },
-  -- {
-  --   "karb94/neoscroll.nvim",
-  --   opts = {},
-  -- },
 }
