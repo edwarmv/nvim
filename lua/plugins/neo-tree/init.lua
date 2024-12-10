@@ -8,7 +8,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
-      { "s1n7ax/nvim-window-picker", name = "window-picker" },
       -- "saifulapm/neotree-file-nesting-config",
     },
     config = function()
@@ -69,8 +68,8 @@ return {
             ["v"] = "none",
             ["s"] = "none",
             ["t"] = "none",
-            ["<c-v>"] = "vsplit_with_window_picker",
-            ["<c-s>"] = "split_with_window_picker",
+            ["<c-v>"] = "open_vsplit",
+            ["<c-s>"] = "open_split",
             ["<c-t>"] = "open_tabnew",
             ["z"] = "none",
             ["zo"] = fold_commands.neotree_zo,
