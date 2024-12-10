@@ -14,9 +14,6 @@ return {
     local types = require("luasnip.util.types")
     require("plugins.lsp.luasnip.snippets")
     luasnip.setup({
-      update_events = { "TextChangedI" },
-      delete_check_events = "TextChanged, InsertEnter, CursorMovedI",
-      region_check_events = { "CursorHold", "InsertLeave" },
       ext_opts = {
         [types.insertNode] = {
           unvisited = {

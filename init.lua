@@ -49,7 +49,7 @@ opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 3 -- global statusline
-opt.list = false -- Show some invisible characters (tabs...
+opt.list = true -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
 opt.mousemoveevent = true
 opt.number = true -- Print line number
@@ -83,7 +83,7 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = true -- Disable line wrap
 opt.breakindent = true
-opt.showbreak = "" -- ↳
+opt.showbreak = "↳" -- ↳
 opt.colorcolumn = "80"
 opt.linebreak = true
 
@@ -132,8 +132,8 @@ vim.opt.listchars = {
   -- tab = "-->",
   -- trail = "⋅", -- ␣
   trail = " ", -- ␣
-  -- extends = "…",
-  -- precedes = "…",
+  extends = "…",
+  precedes = "…",
 }
 
 -- =========================================================
