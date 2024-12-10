@@ -14,9 +14,12 @@ return {
     config = function()
       local fold_commands = require("plugins.neo-tree.fold-commands")
       local commands = require("plugins.neo-tree.commands")
+      local function on_move(data)
+        Snacks.rename.on_rename_file(data.source, data.destination)
+      end
+      local events = require("neo-tree.events")
 
       require("neo-tree").setup({
-        -- nesting_rules = require("neotree-file-nesting-config").nesting_rules,
         hide_root_node = true,
         retain_hidden_root_indent = true,
         popup_border_style = defaults.border,
@@ -149,6 +152,8 @@ return {
               end
             end,
           },
+          { event = events.FILE_MOVED, handler = on_move },
+          { event = events.FILE_RENAMED, handler = on_move },
         },
       })
     end,

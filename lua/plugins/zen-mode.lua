@@ -8,7 +8,7 @@ return {
       opts = {},
     },
   },
-  enabled = true,
+  enabled = false,
   opts = {
     border = "none",
     window = {

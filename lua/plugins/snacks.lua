@@ -4,18 +4,55 @@ return {
   lazy = false,
   opts = {
     statuscolumn = {
-      enabled = false,
       folds = {
         open = true,
         git_hl = true,
       },
     },
-    bigfile = { enabled = true },
-    notifier = {
-      enabled = true,
-      timeout = 3000,
+    bigfile = {},
+    notifier = {},
+    quickfile = {},
+    input = {},
+    scroll = {},
+    zen = {},
+    rename = {},
+    scratch = {},
+  },
+  keys = {
+    {
+      "<leader>z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen Mode",
     },
-    quickfile = { enabled = true },
-    dashboard = { enabled = false },
+    {
+      "<leader>Z",
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = "Toggle Zoom",
+    },
+    {
+      "<leader>.",
+      function()
+        Snacks.scratch()
+      end,
+      desc = "Toggle Scratch Buffer",
+    },
+    {
+      "<leader>S",
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = "Select Scratch Buffer",
+    },
+    {
+      "<leader>bd",
+      function()
+        Snacks.bufdelete()
+      end,
+      desc = "Delete Buffer",
+    },
   },
 }

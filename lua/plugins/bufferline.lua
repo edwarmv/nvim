@@ -22,8 +22,8 @@ return {
     },
   },
   keys = {
-    { "<leader>b", "<cmd>BufferLinePick<cr>", desc = "[Buffer] Pick" },
-    { "<leader><leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "[Buffer] Pick" },
+    { "<leader>bb", "<cmd>BufferLinePick<cr>", desc = "[Buffer] Pick" },
+    { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "[Buffer] Pick" },
     {
       "<leader>tr",
       function()
@@ -33,11 +33,11 @@ return {
       end,
       desc = "[Buffer] Tab Rename",
     },
-    { "<leader><leader>bst", "<cmd>BufferLineSortByTabs<cr>", desc = "[Buffer] Sort by Tabs" },
-    { "<leader><leader>bsd", "<cmd>BufferLineSortByDirectory<cr>", desc = "[Buffer] Sort by Directory" },
-    { "<leader><leader>bse", "<cmd>BufferLineSortByExtension<cr>", desc = "[Buffer] Sort by Extension" },
+    { "<leader>bst", "<cmd>BufferLineSortByTabs<cr>", desc = "[Buffer] Sort by Tabs" },
+    { "<leader>bsd", "<cmd>BufferLineSortByDirectory<cr>", desc = "[Buffer] Sort by Directory" },
+    { "<leader>bse", "<cmd>BufferLineSortByExtension<cr>", desc = "[Buffer] Sort by Extension" },
     {
-      "<leader><leader>bsr",
+      "<leader>bsr",
       "<cmd>BufferLineSortByRelativeDirectory<cr>",
       desc = "[Buffer] Sort by Relative Directory",
     },
