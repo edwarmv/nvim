@@ -61,6 +61,10 @@ return {
           fg = c.comment,
           bg = c.none,
         }
+        hl.BlinkCmpLabel = {
+          fg = c.comment,
+          bg = c.none,
+        }
         -- hl.IlluminatedWordText = {
         --   underline = true,
         -- }
