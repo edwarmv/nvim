@@ -3,22 +3,6 @@ vim.notify_once = function() end
 -- =========================================================
 -- vim-settings
 -- =========================================================
-vim.g.neovide_padding_top = 28
-vim.g.neovide_padding_bottom = 28
-vim.g.neovide_padding_right = 28
-vim.g.neovide_padding_left = 28
-vim.g.neovide_floating_shadow = false
--- vim.g.neovide_transparency = 0.8
--- vim.g.neovide_window_blurred = true
-vim.g.neovide_hide_mouse_when_typing = true
-vim.g.neovide_refresh_rate = 120
-vim.g.neovide_cursor_smooth_blink = true
-vim.g.neovide_no_idle = false
-vim.g.neovide_input_macos_option_key_is_meta = "both"
-
--- =========================================================
--- vim-settings
--- =========================================================
 -- This file is automatically loaded by plugins.core
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","

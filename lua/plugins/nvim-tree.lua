@@ -3,15 +3,11 @@ local icons = defaults.icons
 
 return {
   "nvim-tree/nvim-tree.lua",
-  enabled = false,
   dependencies = {
     "b0o/nvim-tree-preview.lua",
-    "antosha417/nvim-lsp-file-operations",
-    "nvim-lua/plenary.nvim",
   },
   config = function()
     local preview = require("nvim-tree-preview")
-    require("lsp-file-operations").setup()
 
     require("nvim-tree").setup({
       on_attach = function(bufnr)
@@ -83,20 +79,6 @@ return {
           git_placement = "after",
         },
       },
-      actions = {
-        open_file = {
-          window_picker = {
-            enable = true,
-            picker = function()
-              return require("window-picker").pick_window({
-                filter_rules = {
-                  file_path_contains = { "nvim-tree-preview://" },
-                },
-              })
-            end,
-          },
-        },
-      },
       hijack_cursor = true,
       diagnostics = {
         enable = false,
@@ -113,6 +95,20 @@ return {
       filters = {
         git_ignored = false,
       },
+    })
+
+    local prev = { new_name = "", old_name = "" } -- Prevents duplicate events
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "NvimTreeSetup",
+      callback = function()
+        local events = require("nvim-tree.api").events
+        events.subscribe(events.Event.NodeRenamed, function(data)
+          if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
+            data = data
+            Snacks.rename.on_rename_file(data.old_name, data.new_name)
+          end
+        end)
+      end,
     })
   end,
   keys = {

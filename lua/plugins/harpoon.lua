@@ -28,46 +28,18 @@ return {
       desc = "[Harpoon] - Navigate to File(2)",
     },
     {
-      "<m-d>",
+      "<m-q>",
       function()
         return require("harpoon"):list():select(3)
       end,
       desc = "[Harpoon] - Navigate to File(3)",
     },
     {
-      "<m-f>",
+      "<m-w>",
       function()
         return require("harpoon"):list():select(4)
       end,
       desc = "[Harpoon] - Navigate to File(4)",
-    },
-    {
-      "<m-q>",
-      function()
-        return require("harpoon"):list():select(5)
-      end,
-      desc = "[Harpoon] - Navigate to File(5)",
-    },
-    {
-      "<m-w>",
-      function()
-        return require("harpoon"):list():select(6)
-      end,
-      desc = "[Harpoon] - Navigate to File(6)",
-    },
-    {
-      "<m-e>",
-      function()
-        return require("harpoon"):list():select(7)
-      end,
-      desc = "[Harpoon] - Navigate to File(7)",
-    },
-    {
-      "<m-r>",
-      function()
-        return require("harpoon"):list():select(8)
-      end,
-      desc = "[Harpoon] - Navigate to File(8)",
     },
     {
       "gh",

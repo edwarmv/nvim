@@ -79,13 +79,13 @@ return {
       lsp_doc_border = true,
     },
     routes = {
-      -- {
-      --   filter = {
-      --     event = "notify",
-      --     kind = "warn",
-      --   },
-      --   opts = { skip = true },
-      -- },
+      {
+        filter = {
+          event = "notify",
+          kind = "warn",
+        },
+        opts = { skip = true },
+      },
       {
         filter = {
           event = "msg_show",

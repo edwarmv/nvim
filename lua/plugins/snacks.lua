@@ -14,6 +14,11 @@ return {
     notifier = {},
     quickfile = {},
     input = {},
+    scroll = {
+      animate = {
+        duration = { step = 15, total = 100 },
+      },
+    },
     zen = {},
     rename = {},
     scratch = {},

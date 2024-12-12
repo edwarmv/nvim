@@ -2,10 +2,11 @@ local defaults = require("config.defaults")
 
 return {
   "saghen/blink.cmp",
+  enabled = false,
   lazy = false, -- lazy loading handled internally
   dependencies = {
-    "rafamadriz/friendly-snippets",
     "folke/lazydev.nvim",
+    "rafamadriz/friendly-snippets",
   },
   version = "v0.*",
   opts = {
@@ -42,9 +43,9 @@ return {
       },
     },
     sources = {
-      default = { "snippets", "lsp", "path", "buffer" },
+      default = { "lsp", "path", "snippets", "buffer" },
       per_filetype = {
-        lua = { "snippets", "lsp", "path", "buffer", "lazydev" },
+        lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
       },
       providers = {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },

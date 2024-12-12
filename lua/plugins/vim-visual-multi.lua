@@ -28,14 +28,14 @@ return {
       end,
     })
 
-    vim.g.VM_maps = nil
-    vim.g.VM_maps = {
-      ["Find Under"] = "<M-C-d>",
-      ["Find Subword Under"] = "<M-C-d>",
-      ["Select Cursor Down"] = "<M-C-j>",
-      ["Select Cursor Up"] = "<M-C-k>",
-      ["Goto Next"] = "]]",
-      ["Goto Prev"] = "[[",
-    }
+    -- vim.g.VM_maps = nil
+    -- vim.g.VM_maps = {
+    --   ["Find Under"] = "<M-C-d>",
+    --   ["Find Subword Under"] = "<M-C-d>",
+    --   ["Select Cursor Down"] = "<M-C-j>",
+    --   ["Select Cursor Up"] = "<M-C-k>",
+    --   ["Goto Next"] = "]]",
+    --   ["Goto Prev"] = "[[",
+    -- }
   end,
 }

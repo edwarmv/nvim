@@ -40,10 +40,4 @@ return {
     "sphamba/smear-cursor.nvim",
     opts = {},
   },
-  {
-    "karb94/neoscroll.nvim",
-    opts = {
-      duration_multiplier = 0.5,
-    },
-  },
 }
