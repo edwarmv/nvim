@@ -14,12 +14,19 @@ return {
     notifier = {},
     quickfile = {},
     input = {},
-    scroll = {},
     zen = {},
     rename = {},
     scratch = {},
+    lazygit = {},
   },
   keys = {
+    {
+      "<leader>gl",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "Lazygit",
+    },
     {
       "<leader>z",
       function()

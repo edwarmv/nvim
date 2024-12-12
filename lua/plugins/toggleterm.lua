@@ -11,7 +11,7 @@ return {
           return math.floor(vim.o.columns / 3)
         end
       end,
-      open_mapping = [[<m-\>]],
+      open_mapping = [[<c-\>]],
       highlights = {
         NormalFloat = {
           link = "NormalFloat",
