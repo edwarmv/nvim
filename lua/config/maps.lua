@@ -265,7 +265,6 @@ M.lsp = function(buffer)
     { desc = "[LSP] Goto Preview Implementation", buffer = buffer }
   )
   vim.keymap.set("n", "glP", goto_preview.close_all_win, { desc = "[LSP] Goto Preview Close All Win", buffer = buffer })
-  -- Only set if you have telescope installed
   vim.keymap.set(
     "n",
     "glpr",

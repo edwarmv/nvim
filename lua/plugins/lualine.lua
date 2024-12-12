@@ -21,7 +21,6 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    "SmiteshP/nvim-navic",
     "folke/noice.nvim",
     "letieu/harpoon-lualine",
     "akinsho/git-conflict.nvim",
@@ -76,27 +75,20 @@ return {
           },
         },
         lualine_c = {
-          -- { "filename", file_status = false },
-          -- { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
-          -- { "diff", source = diff_source, padding = { left = 0, right = 1 } },
-          -- {
-          --   "diagnostics",
-          --   sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          --   symbols = {
-          --     error = icons.diagnostics.error,
-          --     warn = icons.diagnostics.warn,
-          --     info = icons.diagnostics.info,
-          --     hint = icons.diagnostics.hint,
-          --   },
-          --   update_in_insert = false, -- Update diagnostics in insert mode
-          --   padding = { left = 0, right = 1 },
-          -- },
+          { "filename", file_status = false },
+          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
+          { "diff", source = diff_source, padding = { left = 0, right = 1 } },
           {
-            "navic",
-            color_correction = "dynamic",
-            navic_opts = {
-              click = true,
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
             },
+            update_in_insert = false, -- Update diagnostics in insert mode
+            padding = { left = 0, right = 1 },
           },
         },
         lualine_x = {
