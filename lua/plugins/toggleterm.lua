@@ -43,5 +43,19 @@ return {
       vim.fn.execute(opts.count .. "ToggleTerm direction=horizontal")
     end, { count = true })
     vim.api.nvim_create_user_command("TTerm", "ToggleTerm direction=tab", {})
+    function _G.set_terminal_keymaps()
+      local esc_timer
+      vim.keymap.set("t", "<esc>", function(self)
+        esc_timer = esc_timer or (vim.uv or vim.loop).new_timer()
+        if esc_timer:is_active() then
+          esc_timer:stop()
+          vim.cmd("stopinsert")
+        else
+          esc_timer:start(200, 0, function() end)
+          return "<esc>"
+        end
+      end, { buffer = 0, expr = true, desc = "Double escape to normal mode" })
+    end
+    vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
   end,
 }
