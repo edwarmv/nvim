@@ -138,7 +138,7 @@ return {
             if luasnip.locally_jumpable(1) then
               luasnip.jump(1)
             elseif cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+              cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
             elseif has_words_before() then
               cmp.complete()
             else
@@ -165,8 +165,6 @@ return {
           i = function(fallback)
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
-            elseif cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
             end
