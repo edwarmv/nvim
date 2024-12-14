@@ -9,6 +9,11 @@ return {
     vim.g.VM_show_warnings = 0
     vim.g.VM_mouse_mappings = 1
 
+    vim.g.VM_maps = {
+      ["Goto Next"] = "]]",
+      ["Goto Prev"] = "[[",
+    }
+
     vim.api.nvim_create_autocmd("User", {
       pattern = "visual_multi_start",
       callback = function()
@@ -27,15 +32,5 @@ return {
         vim.cmd("IBLEnable")
       end,
     })
-
-    -- vim.g.VM_maps = nil
-    -- vim.g.VM_maps = {
-    --   ["Find Under"] = "<M-C-d>",
-    --   ["Find Subword Under"] = "<M-C-d>",
-    --   ["Select Cursor Down"] = "<M-C-j>",
-    --   ["Select Cursor Up"] = "<M-C-k>",
-    --   ["Goto Next"] = "]]",
-    --   ["Goto Prev"] = "[[",
-    -- }
   end,
 }
