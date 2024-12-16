@@ -28,14 +28,14 @@ return {
       desc = "[Harpoon] - Navigate to File(2)",
     },
     {
-      "<m-q>",
+      "<m-d>",
       function()
         return require("harpoon"):list():select(3)
       end,
       desc = "[Harpoon] - Navigate to File(3)",
     },
     {
-      "<m-w>",
+      "<m-f>",
       function()
         return require("harpoon"):list():select(4)
       end,

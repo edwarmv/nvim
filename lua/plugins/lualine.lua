@@ -104,8 +104,8 @@ return {
           {
             "harpoon2",
             no_harpoon = "",
-            indicators = { "a", "s", "q", "w" },
-            active_indicators = { "A", "S", "Q", "W" },
+            indicators = { "a", "s", "d", "f" },
+            active_indicators = { "A", "S", "D", "F" },
             padding = { left = 0, right = 1 },
           },
           { "zoom#statusline", padding = { left = 0, right = 1 } },

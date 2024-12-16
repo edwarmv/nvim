@@ -27,7 +27,6 @@ return {
       pattern = "visual_multi_exit",
       callback = function()
         require("lualine").hide({ unhide = true })
-        require("nvim-autopairs").force_attach()
         vim.cmd("nohlsearch")
         vim.cmd("IBLEnable")
       end,

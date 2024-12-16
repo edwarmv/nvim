@@ -30,6 +30,7 @@ return {
         "snacks_dashboard",
         "diff",
         "fugitive",
+        "buffer_manager",
       },
       buftypes = {
         "terminal",

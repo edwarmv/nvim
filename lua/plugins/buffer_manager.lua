@@ -16,26 +16,14 @@ return {
         command = "tabnew",
       },
     },
+    short_term_names = true,
     format_function = function(file)
-      if not file then
-        return
-      end
-      -- for java jar class
-      if vim.startswith(file, "jdt:/") then
-        local package, name = file:match("/([^/]+)/([^/]+.class)?=")
-        return string.format("%s %s", name, package)
-      end
-
-      local filename = file:match(".+/([^/]-)$")
-
-      local directory = file:match("(.+)/[^/]-$")
-      return string.format("%s %s", filename, directory)
+      return vim.fn.fnamemodify(file, ":t")
     end,
-    show_indicators = "before",
     order_buffers = "filename", -- filename, lastused
     win_extra_options = {
       cursorline = true,
-      wrap = false,
+      wrap = true,
     },
     width = 0.4,
     height = 0.2,
