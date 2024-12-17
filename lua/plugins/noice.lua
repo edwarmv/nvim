@@ -78,60 +78,6 @@ return {
       inc_rename = false,
       lsp_doc_border = true,
     },
-    routes = {
-      {
-        filter = {
-          event = "notify",
-          kind = "warn",
-        },
-        opts = { skip = true },
-      },
-      {
-        filter = {
-          event = "msg_show",
-          kind = "lua_error",
-        },
-        opts = { skip = true },
-      },
-      {
-        filter = {
-          event = "msg_show",
-          any = {
-            { find = "deprecated" },
-          },
-        },
-        opts = { skip = true },
-      },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     kind = "",
-      --   },
-      --   opts = { skip = true },
-      -- },
-      -- {
-      --   filter = {
-      --     event = "notify",
-      --     any = {
-      --       { find = "No signature help available" },
-      --       { find = "No information available" },
-      --       { find = "WARNING: vim.treesitter.get_parser will return nil instead of raising an error in Neovim 0.12" },
-      --       { find = "No parser for the given buffer." },
-      --     },
-      --   },
-      --   opts = { skip = true },
-      -- },
-      -- {
-      --   filter = {
-      --     event = "notify",
-      --     kind = "warn",
-      --     cond = function(message)
-      --       return message.opts.title == "Neogit"
-      --     end,
-      --   },
-      --   opts = { skip = true },
-      -- },
-    },
   },
   keys = {
     { "<space>fn", "<cmd>NoiceFzf<cr>", desc = "FZF - Noice Messages" },

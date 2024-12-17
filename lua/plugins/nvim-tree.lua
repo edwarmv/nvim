@@ -84,7 +84,7 @@ return {
         enable = false,
       },
       update_focused_file = {
-        enable = false,
+        enable = true,
       },
       hijack_directories = {
         enable = false,
