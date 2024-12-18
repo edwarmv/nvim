@@ -4,6 +4,7 @@ return {
   lazy = false,
   opts = {
     statuscolumn = {
+      enabled = false,
       folds = {
         open = true,
         git_hl = true,

@@ -7,10 +7,6 @@ local exclude_ft = {
 return {
   "Bekaboo/dropbar.nvim",
   event = "VimEnter",
-  dependencies = {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "make",
-  },
   opts = {
     bar = {
       -- enable = function(buf, win)

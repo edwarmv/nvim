@@ -2,8 +2,6 @@ return {
   "mg979/vim-visual-multi",
   event = "VimEnter",
   init = function()
-    vim.keymap.set("n", "<Plug>(VM-Exit)", '<cmd>lua vim.fn["vm#reset"]()<cr>', { silent = true })
-
     vim.g.VM_set_statusline = 1
     vim.g.VM_silent_exit = 1
     vim.g.VM_show_warnings = 0
@@ -18,8 +16,6 @@ return {
       pattern = "visual_multi_start",
       callback = function()
         require("lualine").hide({ place = { "statusline" } })
-        vim.keymap.set("n", "<leader>e", "<cmd>VMClear<cr>", { silent = true, buffer = true })
-        vim.cmd("IBLDisable")
       end,
     })
 
@@ -28,7 +24,6 @@ return {
       callback = function()
         require("lualine").hide({ unhide = true })
         vim.cmd("nohlsearch")
-        vim.cmd("IBLEnable")
       end,
     })
   end,

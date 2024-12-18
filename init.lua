@@ -65,9 +65,9 @@ opt.updatetime = 300 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
+opt.wrap = true -- Disable line wrap
 opt.breakindent = true
-opt.showbreak = "" -- ↳
+opt.showbreak = "↳" -- ↳
 opt.colorcolumn = "80"
 opt.linebreak = true
 
@@ -171,7 +171,7 @@ vim.diagnostic.config({
 
 vim.api.nvim_create_autocmd("InsertEnter", {
   callback = function()
-    vim.diagnostic.disable()
+    vim.diagnostic.enable(false)
   end,
 })
 vim.api.nvim_create_autocmd("InsertLeave", {
