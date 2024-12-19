@@ -11,8 +11,8 @@ return {
   config = function()
     local luasnip = require("luasnip")
     require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.env.HOME .. "/.config/nvim/snippets" })
     local types = require("luasnip.util.types")
-    require("plugins.lsp.luasnip.snippets")
     vim.api.nvim_set_hl(0, "LuaSnipPlace", { bg = "#3b4261", italic = true })
     luasnip.setup({
       ext_opts = {

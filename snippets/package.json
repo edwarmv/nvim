@@ -1,0 +1,16 @@
+{
+  "name": "edwar-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "typescript",
+          "typescriptreact",
+          "javascript",
+          "javascriptreact"
+        ],
+        "path": "./javascript.json"
+      }
+    ]
+  }
+}
