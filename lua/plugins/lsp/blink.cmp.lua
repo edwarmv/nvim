@@ -2,7 +2,6 @@ local defaults = require("config.defaults")
 
 return {
   "saghen/blink.cmp",
-  enabled = false,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",

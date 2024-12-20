@@ -3,5 +3,10 @@
     "prefix": ["af"],
     "body": "() => $0",
     "description": "Arrow function"
+  },
+  "console.log": {
+    "prefix": ["clg"],
+    "body": "console.log($0)",
+    "description": "Console log"
   }
 }

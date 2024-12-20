@@ -67,14 +67,14 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
-      "cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     opts = {
       ensure_installed = { "angularls" },
       handlers = {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({
-            capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            capabilities = require("blink.cmp").get_lsp_capabilities(),
           })
         end,
         ["jsonls"] = function()
