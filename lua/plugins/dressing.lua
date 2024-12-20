@@ -4,11 +4,11 @@ return {
   "stevearc/dressing.nvim",
   opts = {
     input = {
-      enabled = false,
+      enabled = true,
       border = defaults.border,
-      prefer_width = 0.1,
+      prefer_width = 0.4,
       max_width = 0.8,
-      min_width = 0.1,
+      min_width = 0.3,
       win_options = {
         list = false,
       },
@@ -21,6 +21,10 @@ return {
             builtin = {
               relative = "cursor",
             },
+          }
+        elseif opts.prompt == "Ring history" then
+          return {
+            backend = { "fzf_lua" },
           }
         end
 
