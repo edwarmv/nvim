@@ -28,7 +28,6 @@ return {
       graphql = { "prettierd" },
       handlebars = { "prettierd" },
       svelte = { "prettierd" },
-      astro = { "prettierd" },
       htmlangular = { "prettierd" },
     },
     format_on_save = function(bufnr)
