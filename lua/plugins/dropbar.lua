@@ -20,16 +20,6 @@ return {
       update_interval = defaults.lsp_debounce,
     },
     icons = {
-      ui = {
-        menu = {
-          separator = " ",
-          indicator = "󰅂",
-        },
-        bar = {
-          separator = "󰅂",
-          extends = "…",
-        },
-      },
       kinds = {
         symbols = {
           Text = " ",
