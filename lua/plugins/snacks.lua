@@ -22,7 +22,6 @@ return {
     zen = {},
     rename = {},
     scratch = {},
-    lazygit = {},
     indent = {
       indent = {
         char = "▏",
@@ -34,13 +33,6 @@ return {
     },
   },
   keys = {
-    {
-      "<leader>gl",
-      function()
-        Snacks.lazygit()
-      end,
-      desc = "Lazygit",
-    },
     {
       "<leader>z",
       function()
