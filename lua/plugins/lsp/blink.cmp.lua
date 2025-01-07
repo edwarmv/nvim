@@ -85,13 +85,15 @@ return {
         },
       },
       completion = {
-        accept = { auto_brackets = { enabled = true } },
         documentation = {
           auto_show = true,
-          auto_show_delay_ms = defaults.lsp_debounce,
+          window = {
+            winhighlight = "Normal:Pmenu,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
+          },
         },
-        list = {
-          max_items = 6,
+        menu = {
+          max_height = 6,
+          winhighlight = "Normal:Pmenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:PmenuSel,Search:None",
         },
       },
     },

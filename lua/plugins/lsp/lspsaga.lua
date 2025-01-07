@@ -19,6 +19,9 @@ return {
       },
       rename = {
         in_select = true,
+        keys = {
+          quit = "<c-c>",
+        },
       },
       diagnostic = {
         diagnostic_only_current = false,
