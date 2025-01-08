@@ -18,37 +18,8 @@ return {
     vim.api.nvim_set_hl(0, "LuasnipChoiceNodePassive", { underdotted = true })
     ls.setup({
       update_events = { "TextChanged", "TextChangedI", "TextChangedP" },
-      ext_opts = {
-        [types.insertNode] = {
-          active = {
-            virt_text = { { "" } },
-          },
-          passive = {
-            virt_text = { { "•", "Conceal" } },
-            virt_text_pos = "inline",
-          },
-        },
-        [types.choiceNode] = {
-          active = {
-            virt_text = { { "" } },
-          },
-          passive = {
-            virt_text = { { "•", "Conceal" } },
-            virt_text_pos = "inline",
-          },
-        },
-        -- Add this to also have a placeholder in the final tabstop.
-        -- See the discussion below for more context.
-        [types.exitNode] = {
-          active = {
-            virt_text = { { "" } },
-          },
-          passive = {
-            virt_text = { { "∎", "Conceal" } },
-            virt_text_pos = "inline",
-          },
-        },
-      },
+      region_check_events = "CursorHold,InsertLeave",
+      delete_check_events = "TextChanged,InsertEnter",
     })
 
     ls.filetype_extend("typescript", { "javascript" })
@@ -58,21 +29,5 @@ return {
         require("luasnip.extras.select_choice")()
       end
     end, { desc = "Select choice" })
-
-    vim.api.nvim_create_autocmd("ModeChanged", {
-      group = vim.api.nvim_create_augroup("mariasolos/unlink_snippet", { clear = true }),
-      desc = "Cancel the snippet session when leaving insert mode",
-      pattern = { "s:n", "i:*" },
-      callback = function(args)
-        if
-          ls.session
-          and ls.session.current_nodes[args.buf]
-          and not ls.session.jump_active
-          and not ls.choice_active()
-        then
-          ls.unlink_current()
-        end
-      end,
-    })
   end,
 }
