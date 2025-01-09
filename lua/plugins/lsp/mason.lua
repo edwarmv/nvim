@@ -67,15 +67,12 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
-      "cmp-nvim-lsp",
     },
     opts = {
       ensure_installed = { "angularls" },
       handlers = {
         function(server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup({
-            capabilities = require("cmp_nvim_lsp").default_capabilities(),
-          })
+          require("lspconfig")[server_name].setup({})
         end,
         ["jsonls"] = function()
           require("lspconfig").jsonls.setup({

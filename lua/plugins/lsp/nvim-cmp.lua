@@ -8,6 +8,7 @@ end
 
 return {
   "iguanacucumber/magazine.nvim",
+  enabled = false,
   name = "nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
