@@ -4,7 +4,7 @@ return {
   "stevearc/dressing.nvim",
   opts = {
     input = {
-      enabled = true,
+      enabled = false,
       border = defaults.border,
       prefer_width = 0.4,
       max_width = 0.8,

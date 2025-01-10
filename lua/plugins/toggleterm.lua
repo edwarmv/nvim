@@ -25,11 +25,11 @@ return {
       float_opts = {
         border = defaults.border,
         width = function(_term)
-          local width = math.floor(vim.o.columns * 0.9)
+          local width = math.floor(vim.o.columns * 0.7)
           return width
         end,
         height = function(_term)
-          local height = math.floor(vim.o.lines * 0.8)
+          local height = math.floor(vim.o.lines * 0.7)
           return height
         end,
       },

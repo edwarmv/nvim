@@ -10,8 +10,13 @@ return {
   opts = {
     winopts = {
       border = defaults.border,
-      height = 0.9,
-      width = 0.9,
+      height = 0.8,
+      width = 0.8,
+      row = 0.5,
+      preview = {
+        vertical = "down:50%", -- up|down:size
+        horizontal = "right:50%",
+      },
     },
     lsp = {
       symbols = {
@@ -63,11 +68,24 @@ return {
       desc = "FZF - Files [find]",
     },
     { "<space>fo", "<cmd>FzfLua oldfiles<cr>", desc = "FZF - Files History" },
-    { "<space>fb", "<cmd>FzfLua buffers<cr>", desc = "FZF - Buffers" },
+    {
+      "<space>fb",
+      function()
+        require("fzf-lua").buffers({
+          filename_only = true,
+          fzf_opts = { ["--wrap"] = true },
+        })
+      end,
+      desc = "FZF - Buffers",
+    },
     {
       "<space>fB",
       function()
-        require("fzf-lua").buffers({ cwd = vim.fn.expand("%:p:h") })
+        require("fzf-lua").buffers({
+          filename_only = true,
+          fzf_opts = { ["--wrap"] = true },
+          cwd = vim.fn.expand("%:p:h"),
+        })
       end,
       desc = "FZF - Buffers Relative Path",
     },

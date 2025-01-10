@@ -13,7 +13,7 @@ return {
     bigfile = {},
     notifier = {},
     quickfile = {},
-    -- input = {},
+    input = {},
     scroll = {
       animate = {
         duration = { step = 15, total = 100 },
