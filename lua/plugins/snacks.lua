@@ -32,6 +32,11 @@ return {
     },
     picker = {
       ui_select = true,
+      formatters = {
+        file = {
+          filename_first = true, -- display filename before the file path
+        },
+      },
       win = {
         input = {
           keys = {
