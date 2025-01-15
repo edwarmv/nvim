@@ -53,7 +53,7 @@ return {
       },
       view = {
         entries = {
-          follow_cursor = true,
+          follow_cursor = false,
         },
         docs = {
           auto_open = true,
@@ -200,8 +200,8 @@ return {
         }),
       },
       sources = cmp.config.sources({
-        { name = "luasnip" },
         { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "async_path", option = { show_hidden_files_by_default = true } },
         { name = "buffer" },
       }),

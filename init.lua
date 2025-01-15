@@ -33,7 +33,7 @@ opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 3 -- global statusline
-opt.list = true -- Show some invisible characters (tabs...
+opt.list = false -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
 opt.mousemoveevent = true
 opt.number = true -- Print line number
@@ -65,7 +65,8 @@ opt.updatetime = 300 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = true -- Disable line wrap
+opt.wrap = false -- Disable line wrap
+opt.foldmethod = "manual"
 opt.breakindent = true
 opt.showbreak = "" -- ↳
 opt.colorcolumn = "80"
@@ -131,7 +132,7 @@ vim.keymap.set("c", "<c-a>", "<c-b>")
 vim.keymap.set("c", "<c-l>", "<c-f>")
 vim.keymap.set("c", "<c-b>", "<left>")
 vim.keymap.set("c", "<c-f>", "<right>")
-vim.keymap.set("n", "<c-w><c-l>", "<c-l><cmd>nohl<cr>")
+vim.keymap.set("n", "<c-w><c-l>", "<c-l><cmd>nohl<cr><cmd>lua Snacks.notifier.hide()<cr>")
 vim.keymap.set("n", "<leader>tn", "<cmd>$tabnew<cr>")
 vim.keymap.set("n", "<leader>tm", function()
   vim.ui.input({ prompt = "Enter The Tab Index: " }, function(tab_index)

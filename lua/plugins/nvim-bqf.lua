@@ -3,7 +3,6 @@ local defaults = require("config.defaults")
 return {
   "kevinhwang91/nvim-bqf",
   enabled = true,
-  dependencies = { "junegunn/fzf" },
   ft = "qf",
   opts = {
     auto_enable = true,

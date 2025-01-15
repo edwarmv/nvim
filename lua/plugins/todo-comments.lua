@@ -1,7 +1,7 @@
 return {
   "folke/todo-comments.nvim",
   event = "VimEnter",
-  dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim", "ibhagwan/fzf-lua" },
+  dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
   opts = {},
   keys = {
     { "<space>ft", "<cmd>TodoFzfLua<cr>" },

@@ -6,7 +6,6 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
-  enabled = true,
   opts = {
     messages = {
       enabled = true,
@@ -78,8 +77,5 @@ return {
       inc_rename = false,
       lsp_doc_border = true,
     },
-  },
-  keys = {
-    { "<space>fn", "<cmd>NoiceFzf<cr>", desc = "FZF - Noice Messages" },
   },
 }
