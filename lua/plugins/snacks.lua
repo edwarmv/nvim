@@ -47,6 +47,15 @@ return {
           keys = {
             ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
           },
+          wo = {
+            foldcolumn = "0",
+          },
+        },
+        preview = {
+          wo = {
+            relativenumber = false,
+            foldcolumn = "auto",
+          },
         },
       },
     },
