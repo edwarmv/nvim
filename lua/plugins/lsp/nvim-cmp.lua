@@ -7,15 +7,13 @@ local function has_words_before()
 end
 
 return {
-  "iguanacucumber/magazine.nvim",
-  enabled = true,
-  name = "nvim-cmp",
+  "hrsh7th/nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
-    { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
-    { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
-    "https://codeberg.org/FelipeLema/cmp-async-path",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     {
       "saadparwaiz1/cmp_luasnip",
@@ -89,9 +87,6 @@ return {
               fallback()
             end
           end,
-          c = function(fallback)
-            fallback()
-          end,
         }),
         ["<c-p>"] = cmp.mapping({
           i = function(fallback)
@@ -100,9 +95,6 @@ return {
             else
               fallback()
             end
-          end,
-          c = function(fallback)
-            fallback()
           end,
         }),
         ["<c-f>"] = cmp.mapping.scroll_docs(1),
@@ -121,13 +113,6 @@ return {
           s = function(fallback)
             if luasnip.choice_active() then
               luasnip.change_choice(1)
-            else
-              fallback()
-            end
-          end,
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.close()
             else
               fallback()
             end
@@ -152,14 +137,6 @@ return {
               fallback()
             end
           end,
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-            else
-              -- fallback()
-              cmp.complete()
-            end
-          end,
         }),
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
@@ -176,13 +153,6 @@ return {
               fallback()
             end
           end,
-          c = function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-            else
-              fallback()
-            end
-          end,
         }),
         ["<c-space>"] = cmp.mapping({
           i = function()
@@ -195,15 +165,13 @@ return {
               end
             end
           end,
-          c = function()
-            cmp.complete()
-          end,
         }),
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "async_path", option = { show_hidden_files_by_default = true } },
+        { name = "path" },
+      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -228,14 +196,16 @@ return {
     })
 
     cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
       window = {
         completion = {
           col_offset = 0,
         },
       },
       sources = cmp.config.sources({
+        { name = "path" },
+      }, {
         { name = "cmdline" },
-        { name = "async_path", option = { show_hidden_files_by_default = true } },
       }),
       matching = { disallow_symbol_nonprefix_matching = false },
       formatting = {
@@ -246,6 +216,7 @@ return {
     })
 
     cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
         { name = "nvim_lsp_document_symbol" },
       }, {
