@@ -40,13 +40,13 @@ opt.number = true -- Print line number
 opt.pumblend = 0 -- Popup blend
 opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
-opt.scrolloff = 4 -- Lines of context
-opt.sidescrolloff = 8 -- Columns of context
+-- opt.scrolloff = 4 -- Lines of context
+-- opt.sidescrolloff = 8 -- Columns of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
-opt.signcolumn = "auto" -- Always show the signcolumn, otherwise it would shift the text each time
+opt.signcolumn = "auto:1" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.numberwidth = 1
 opt.smartcase = true -- Don't ignore case with capitals
 opt.spelllang = { "en" }
@@ -65,12 +65,13 @@ opt.updatetime = 300 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
+opt.wrap = true -- Disable line wrap
 opt.foldmethod = "manual"
 opt.breakindent = true
 opt.showbreak = "" -- ↳
 opt.colorcolumn = "80"
 opt.linebreak = true
+opt.smoothscroll = true
 
 -- vim.api.nvim_create_autocmd({ "BufLeave" }, {
 --   pattern = "{}",
@@ -96,7 +97,7 @@ vim.g.markdown_recommended_style = 0
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
-vim.opt.foldcolumn = "1"
+vim.opt.foldcolumn = "auto:1"
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 vim.opt.fillchars = {
   diff = "╱",
@@ -168,17 +169,6 @@ vim.diagnostic.config({
   float = {
     border = defaults.border,
   },
-})
-
-vim.api.nvim_create_autocmd("InsertEnter", {
-  callback = function()
-    vim.diagnostic.enable(false)
-  end,
-})
-vim.api.nvim_create_autocmd("InsertLeave", {
-  callback = function()
-    vim.diagnostic.enable()
-  end,
 })
 
 local function augroup(name)
