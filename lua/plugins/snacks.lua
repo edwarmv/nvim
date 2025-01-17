@@ -10,18 +10,18 @@ return {
         git_hl = true,
       },
     },
-    bigfile = {},
-    notifier = {},
-    quickfile = {},
-    input = {},
+    bigfile = { enabled = true },
+    notifier = { enabled = true },
+    quickfile = { enabled = true },
+    input = { enabled = true },
     scroll = {
       animate = {
         duration = { step = 15, total = 100 },
       },
     },
-    zen = {},
-    rename = {},
-    scratch = {},
+    zen = { enabled = true },
+    rename = { enabled = true },
+    scratch = { enabled = true },
     indent = {
       indent = {
         char = "▏",
@@ -59,9 +59,12 @@ return {
         },
       },
     },
+    words = { enabled = true },
   },
   -- stylua: ignore start
   keys = {
+    { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
+    { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     { "<leader>z", function() Snacks.zen() end, desc = "Toggle Zen Mode", },
     { "<leader>Z", function() Snacks.zen.zoom() end, desc = "Toggle Zoom", },
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
