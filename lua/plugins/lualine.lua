@@ -12,18 +12,12 @@ local function diff_source()
   end
 end
 
-local function conflict_count()
-  local count = require("git-conflict").conflict_count()
-  return count > 0 and " " .. count or ""
-end
-
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "folke/noice.nvim",
     "letieu/harpoon-lualine",
-    "akinsho/git-conflict.nvim",
   },
   config = function()
     vim.opt.cmdheight = 0
@@ -76,7 +70,6 @@ return {
         },
         lualine_c = {
           { "filename", file_status = false },
-          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
           { "diff", source = diff_source, padding = { left = 0, right = 1 } },
           {
             "diagnostics",
