@@ -1,10 +1,10 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
-    "L3MON4D3/LuaSnip",
+    "echasnovski/mini.snippets",
   },
   build = "cargo build --release",
   -- version = "*",
@@ -44,7 +44,7 @@ return {
       },
     },
     snippets = {
-      preset = "luasnip",
+      preset = "mini_snippets",
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
