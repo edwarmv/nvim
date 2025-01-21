@@ -1,13 +1,5 @@
-local function has_words_before()
-  if vim.api.nvim_get_option_value("buftype", { buf = 0 }) == "prompt" then
-    return false
-  end
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 return {
-  "hrsh7th/nvim-cmp",
+  "edwarmv/nvim-cmp",
   enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
@@ -16,25 +8,32 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
+    -- {
+    --   "saadparwaiz1/cmp_luasnip",
+    --   dependencies = {
+    --     "L3MON4D3/LuaSnip",
+    --   },
+    -- },
     {
-      "saadparwaiz1/cmp_luasnip",
-      dependencies = {
-        "L3MON4D3/LuaSnip",
-      },
+      "abeldekat/cmp-mini-snippets",
+      dependencies = "echasnovski/mini.snippets",
     },
     "luckasRanarison/tailwind-tools.nvim",
     "onsails/lspkind-nvim",
     "windwp/nvim-autopairs",
   },
   config = function()
-    local luasnip = require("luasnip")
+    -- local luasnip = require("luasnip")
     local cmp = require("cmp")
     local lspkind = require("lspkind")
 
     cmp.setup({
       snippet = {
         expand = function(args)
-          require("luasnip").lsp_expand(args.body)
+          local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
+          insert({ body = args.body }) -- Insert at cursor
+          cmp.resubscribe({ "TextChangedI", "TextChangedP" })
+          require("cmp.config").set_onetime({ sources = {} })
         end,
       },
       preselect = cmp.PreselectMode.Item, -- None - Item
@@ -102,22 +101,22 @@ return {
         ["<c-b>"] = cmp.mapping.scroll_docs(-1),
         ["<c-e>"] = cmp.mapping({
           i = function(fallback)
-            if luasnip.choice_active() then
-              luasnip.change_choice(1)
-            end
+            -- if luasnip.choice_active() then
+            --   luasnip.change_choice(1)
+            -- end
             if cmp.visible() then
               cmp.close()
             else
               fallback()
             end
           end,
-          s = function(fallback)
-            if luasnip.choice_active() then
-              luasnip.change_choice(1)
-            else
-              fallback()
-            end
-          end,
+          -- s = function(fallback)
+          --   if luasnip.choice_active() then
+          --     luasnip.change_choice(1)
+          --   else
+          --     fallback()
+          --   end
+          -- end,
         }),
         ["<c-y>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
         ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
@@ -125,15 +124,15 @@ return {
           i = function(fallback)
             if cmp.visible() then
               cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-            elseif luasnip.locally_jumpable(1) then
-              luasnip.jump(1)
+            elseif MiniSnippets.session.get() ~= nil then
+              MiniSnippets.session.jump("next")
             else
               fallback()
             end
           end,
           s = function(fallback)
-            if luasnip.jumpable(1) then
-              luasnip.jump(1)
+            if MiniSnippets.session.get() ~= nil then
+              MiniSnippets.session.jump("next")
             else
               fallback()
             end
@@ -141,15 +140,15 @@ return {
         }),
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
-            if luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
+            if MiniSnippets.session.get() ~= nil then
+              MiniSnippets.session.jump("prev")
             else
               fallback()
             end
           end,
           s = function(fallback)
-            if luasnip.jumpable(-1) then
-              luasnip.jump(-1)
+            if MiniSnippets.session.get() ~= nil then
+              MiniSnippets.session.jump("prev")
             else
               fallback()
             end
@@ -170,7 +169,7 @@ return {
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "luasnip" },
+        { name = "mini_snippets" },
         { name = "path" },
       }, {
         { name = "buffer" },
@@ -228,7 +227,7 @@ return {
     cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
       sources = cmp.config.sources({
         { name = "vim-dadbod-completion" },
-        { name = "luasnip" },
+        { name = "mini_snippets" },
       }, {
         { name = "buffer" },
       }),
