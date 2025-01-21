@@ -33,7 +33,7 @@ opt.grepprg = "rg --vimgrep"
 opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.laststatus = 3 -- global statusline
-opt.list = false -- Show some invisible characters (tabs...
+opt.list = true -- Show some invisible characters (tabs...
 opt.mouse = "a" -- Enable mouse mode
 opt.mousemoveevent = true
 opt.number = true -- Print line number
@@ -65,7 +65,7 @@ opt.updatetime = 300 -- Save swap file and trigger CursorHold
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = true -- Disable line wrap
+opt.wrap = false -- Disable line wrap
 opt.foldmethod = "manual"
 opt.breakindent = true
 opt.showbreak = "" -- ↳
@@ -101,25 +101,13 @@ vim.opt.foldcolumn = "auto:1"
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]]
 vim.opt.fillchars = {
   diff = "╱",
-  eob = " ",
-  fold = " ",
   foldopen = "▾",
-  foldsep = " ",
   foldclose = "▸",
 }
 vim.opt.listchars = {
-  -- space = "⋅",
-  -- space = "⋅", -- "·"
-  -- lead = "⋅",
-  -- multispace = "+⋅",
-  -- eol = "↲",
-  -- tab = "→ ",
-  tab = "  ",
-  -- tab = "-->",
-  -- trail = "⋅", -- ␣
-  trail = " ", -- ␣
-  extends = "…",
-  precedes = "…",
+  multispace = "⋅",
+  trail = "⋅",
+  tab = "-->",
 }
 
 -- =========================================================
