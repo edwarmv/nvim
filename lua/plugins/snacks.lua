@@ -23,6 +23,7 @@ return {
     rename = { enabled = true },
     scratch = { enabled = true },
     indent = {
+      enabled = false,
       indent = {
         char = "▏",
       },
@@ -59,12 +60,14 @@ return {
         },
       },
     },
-    words = { enabled = true },
+    words = { enabled = false },
   },
   -- stylua: ignore start
   keys = {
-    { "<m-n>", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
-    { "<m-p>", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
+    { "<leader>gl", function() Snacks.lazygit.open() end, desc = "Open Lazygit" },
+    { "<leader>gL", function() Snacks.lazygit.open({cwd = Snacks.git.get_root()}) end, desc = "Open Lazygit - Current buffer" },
+    -- { "<m-n>", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
+    -- { "<m-p>", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     { "<leader>z", function() Snacks.zen() end, desc = "Toggle Zen Mode", },
     { "<leader>Z", function() Snacks.zen.zoom() end, desc = "Toggle Zoom", },
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
