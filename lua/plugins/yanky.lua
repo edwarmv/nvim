@@ -1,7 +1,7 @@
 return {
   "gbprod/yanky.nvim",
   dependencies = {
-    -- "kkharji/sqlite.lua",
+    "kkharji/sqlite.lua",
     {
       "gbprod/cutlass.nvim",
       opts = {
@@ -13,9 +13,9 @@ return {
   },
   config = function()
     require("yanky").setup({
-      -- ring = {
-      --   storage = "sqlite",
-      -- },
+      ring = {
+        storage = "sqlite",
+      },
       system_clipboard = {
         sync_with_ring = false,
       },
