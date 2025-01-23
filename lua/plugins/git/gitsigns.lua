@@ -2,19 +2,6 @@ local defaults = require("config.defaults")
 
 return {
   "lewis6991/gitsigns.nvim",
-  dependencies = {
-    {
-      "f-person/git-blame.nvim",
-      init = function()
-        vim.g.gitblame_enabled = 0
-        vim.g.gitblame_set_extmark_options = {
-          hl_mode = "combine",
-        }
-        vim.g.gitblame_set_extmark_options = { priority = 7 }
-      end,
-    },
-    -- { "ruifm/gitlinker.nvim" },
-  },
   opts = {
     signs = {
       add = { text = "┃" },
@@ -35,6 +22,9 @@ return {
     signcolumn = true,
     preview_config = {
       border = defaults.border,
+    },
+    current_line_blame_opts = {
+      delay = 300,
     },
     on_attach = function(bufnr)
       local gitsigns = require("gitsigns")
@@ -82,23 +72,8 @@ return {
         gitsigns.diffthis("~")
       end, { desc = "[Gitsigns] Diff This" })
 
-      -- git blame
-      map("n", "<leader>gb", "<cmd>GitBlameToggle<cr>", { desc = "[GitBlame] - Toggle" })
-      map("n", "<leader>gBch", "<cmd>GitBlameCopySHA<cr>", { desc = "[GitBlame] - Copy Hash" })
-      map("n", "<leader>gBcf", "<cmd>GitBlameCopyFileURL<cr>", { desc = "[GitBlame] - Copy File URL" })
-      map("n", "<leader>gBcc", "<cmd>GitBlameCopyCommitURL<cr>", { desc = "[GitBlame] - Copy Commit URL" })
+      map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "[GitSigns] - Toggle Blame" })
 
-      -- map("n", "<leader>hb", function()
-      --   gs.blame_line({ full = true })
-      -- end, { desc = "[Gitsigns] Line Blame" })
-      -- map("n", "<leader>hB", gs.toggle_current_line_blame, { desc = "[Gitsigns] Toggle Current Line Blame" })
-      -- map("n", "<leader>hd", gs.diffthis, {desc="[Gitsigns] Stage Hunk"})
-      -- map("n", "<leader>hD", function()
-      --   gs.diffthis("~")
-      -- end)
-      -- map("n", "<leader>td", gs.toggle_deleted)
-
-      -- Text object
       map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>", { silent = true })
     end,
   },
