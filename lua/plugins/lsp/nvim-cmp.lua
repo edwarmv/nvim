@@ -1,5 +1,5 @@
 return {
-  "edwarmv/nvim-cmp",
+  "hrsh7th/nvim-cmp",
   enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
@@ -41,7 +41,7 @@ return {
         completion = {
           -- border = defaults.border,
           winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-          col_offset = -2,
+          col_offset = -3,
         },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
@@ -181,12 +181,39 @@ return {
           "menu",
         },
         format = lspkind.cmp_format({
+          symbol_map = {
+            Text = " ",
+            Method = " ",
+            Function = " ",
+            Constructor = " ",
+            Field = " ",
+            Variable = " ",
+            Class = " ",
+            Interface = " ",
+            Module = " ",
+            Property = " ",
+            Unit = " ",
+            Value = " ",
+            Enum = " ",
+            Keyword = " ",
+            Snippet = " ",
+            Color = " ",
+            File = " ",
+            Reference = " ",
+            Folder = " ",
+            EnumMember = " ",
+            Constant = " ",
+            Struct = " ",
+            Event = " ",
+            Operator = " ",
+            TypeParameter = " ",
+          },
           mode = "symbol",
           maxwidth = function()
             return math.floor(vim.o.columns / 5)
           end,
-          show_labelDetails = false,
-          ellipsis_char = "…",
+          show_labelDetails = true,
+          ellipsis_char = "… ",
           before = require("tailwind-tools.cmp").lspkind_format,
         }),
       },
