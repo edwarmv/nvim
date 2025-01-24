@@ -1,39 +1,38 @@
 return {
-  "hrsh7th/nvim-cmp",
+  "iguanacucumber/magazine.nvim",
   enabled = true,
+  name = "nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-cmdline",
-    "hrsh7th/cmp-path",
+    { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
+    { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
+    { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
+    -- "hrsh7th/cmp-path",
+    "https://codeberg.org/FelipeLema/cmp-async-path",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
-    -- {
-    --   "saadparwaiz1/cmp_luasnip",
-    --   dependencies = {
-    --     "L3MON4D3/LuaSnip",
-    --   },
-    -- },
     {
-      "abeldekat/cmp-mini-snippets",
-      dependencies = "echasnovski/mini.snippets",
+      "saadparwaiz1/cmp_luasnip",
+      dependencies = {
+        "L3MON4D3/LuaSnip",
+      },
     },
+    -- {
+    --   "abeldekat/cmp-mini-snippets",
+    --   dependencies = "echasnovski/mini.snippets",
+    -- },
     "luckasRanarison/tailwind-tools.nvim",
     "onsails/lspkind-nvim",
     "windwp/nvim-autopairs",
   },
   config = function()
-    -- local luasnip = require("luasnip")
+    local luasnip = require("luasnip")
     local cmp = require("cmp")
     local lspkind = require("lspkind")
 
     cmp.setup({
       snippet = {
         expand = function(args)
-          local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-          insert({ body = args.body }) -- Insert at cursor
-          cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-          require("cmp.config").set_onetime({ sources = {} })
+          require("luasnip").lsp_expand(args.body)
         end,
       },
       preselect = cmp.PreselectMode.Item, -- None - Item
@@ -124,15 +123,15 @@ return {
           i = function(fallback)
             if cmp.visible() then
               cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-            elseif MiniSnippets.session.get() ~= nil then
-              MiniSnippets.session.jump("next")
+            elseif luasnip.locally_jumpable(1) then
+              luasnip.jump(1)
             else
               fallback()
             end
           end,
           s = function(fallback)
-            if MiniSnippets.session.get() ~= nil then
-              MiniSnippets.session.jump("next")
+            if luasnip.jumpable(1) then
+              luasnip.jump(1)
             else
               fallback()
             end
@@ -140,15 +139,15 @@ return {
         }),
         ["<s-tab>"] = cmp.mapping({
           i = function(fallback)
-            if MiniSnippets.session.get() ~= nil then
-              MiniSnippets.session.jump("prev")
+            if luasnip.locally_jumpable(-1) then
+              luasnip.jump(-1)
             else
               fallback()
             end
           end,
           s = function(fallback)
-            if MiniSnippets.session.get() ~= nil then
-              MiniSnippets.session.jump("prev")
+            if luasnip.jumpable(-1) then
+              luasnip.jump(-1)
             else
               fallback()
             end
@@ -169,8 +168,8 @@ return {
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "mini_snippets" },
-        { name = "path" },
+        { name = "luasnip" },
+        { name = "async_path", option = { show_hidden_files_by_default = true } },
       }, {
         { name = "buffer" },
       }),
@@ -230,7 +229,7 @@ return {
         },
       },
       sources = cmp.config.sources({
-        { name = "path" },
+        { name = "async_path", option = { show_hidden_files_by_default = true } },
       }, {
         { name = "cmdline" },
       }),
@@ -254,7 +253,7 @@ return {
     cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
       sources = cmp.config.sources({
         { name = "vim-dadbod-completion" },
-        { name = "mini_snippets" },
+        { name = "luasnip" },
       }, {
         { name = "buffer" },
       }),

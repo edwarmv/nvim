@@ -1,6 +1,6 @@
 return {
   "L3MON4D3/LuaSnip",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "rafamadriz/friendly-snippets",
     {
@@ -19,8 +19,8 @@ return {
     vim.api.nvim_set_hl(0, "LuasnipChoiceNodePassive", { underdotted = true })
     ls.setup({
       update_events = { "TextChanged", "TextChangedI", "TextChangedP" },
-      region_check_events = "CursorHold,InsertLeave",
-      delete_check_events = "TextChanged,InsertEnter",
+      region_check_events = { "CursorHold", "InsertLeave" },
+      delete_check_events = { "TextChangedI", "InsertEnter" },
     })
 
     ls.filetype_extend("typescript", { "javascript" })
