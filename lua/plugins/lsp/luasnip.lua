@@ -5,7 +5,7 @@ return {
     "rafamadriz/friendly-snippets",
     {
       "dsznajder/vscode-es7-javascript-react-snippets",
-      build = "yarn install --frozen-lockfile && yarn compile",
+      build = "npx --yes yarn install --frozen-lockfile && npx yarn compile",
     },
     "louiss0/astro-snippets",
   },
