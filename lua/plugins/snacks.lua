@@ -78,6 +78,7 @@ return {
     { "<space>fF", function() Snacks.picker.files({ cwd = vim.fn.expand("%:p:h") }) end, desc = "FZF - Files Relative Path", },
     { "<space>fo", function() Snacks.picker.recent() end, desc = "FZF - Files History" },
     { "<space>fb", function() Snacks.picker.buffers() end, desc = "FZF - Buffers", },
+    { "<space>fB", function() Snacks.picker.buffers({ pattern = vim.fn.expand("%:p:h") }) end, desc = "FZF - Buffers", },
     { "<space>fr", function() Snacks.picker.grep() end, desc = "FZF - Grep" },
     { "<space>fR", function() Snacks.picker.grep_word() end, desc = "FZF - Grep", mode = { "n", "x" } },
     { "<space>fm", function() Snacks.picker.marks() end, desc = "FZF - Key Mappings" },
