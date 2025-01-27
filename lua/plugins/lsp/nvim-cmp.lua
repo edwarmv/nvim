@@ -40,7 +40,7 @@ return {
         completion = {
           -- border = defaults.border,
           winhighlight = "Normal:Pmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
-          col_offset = -3,
+          col_offset = -2,
         },
         documentation = {
           max_width = math.floor(vim.opt.columns:get() / 3),
@@ -180,33 +180,6 @@ return {
           "menu",
         },
         format = lspkind.cmp_format({
-          symbol_map = {
-            Text = " ",
-            Method = " ",
-            Function = " ",
-            Constructor = " ",
-            Field = " ",
-            Variable = " ",
-            Class = " ",
-            Interface = " ",
-            Module = " ",
-            Property = " ",
-            Unit = " ",
-            Value = " ",
-            Enum = " ",
-            Keyword = " ",
-            Snippet = " ",
-            Color = " ",
-            File = " ",
-            Reference = " ",
-            Folder = " ",
-            EnumMember = " ",
-            Constant = " ",
-            Struct = " ",
-            Event = " ",
-            Operator = " ",
-            TypeParameter = " ",
-          },
           mode = "symbol",
           maxwidth = function()
             return math.floor(vim.o.columns / 5)
