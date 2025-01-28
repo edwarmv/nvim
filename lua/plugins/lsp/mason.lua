@@ -70,7 +70,6 @@ return {
       "cmp-nvim-lsp",
     },
     opts = {
-      ensure_installed = { "angularls" },
       handlers = {
         function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup({
