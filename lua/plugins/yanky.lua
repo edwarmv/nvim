@@ -24,11 +24,6 @@ return {
           action = require("yanky.picker").actions.set_register(""),
         },
       },
-      highlight = {
-        on_put = false,
-        on_yank = false,
-        timer = 500,
-      },
     })
 
     vim.keymap.set("n", "<space>y", "<cmd>YankyRingHistory<cr>")
