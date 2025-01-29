@@ -51,7 +51,7 @@ return {
       },
       view = {
         entries = {
-          follow_cursor = false,
+          follow_cursor = true,
         },
         docs = {
           auto_open = true,
