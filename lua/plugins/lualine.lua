@@ -16,6 +16,7 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
+    "folke/noice.nvim",
     "letieu/harpoon-lualine",
   },
   config = function()
@@ -65,6 +66,12 @@ return {
           },
         },
         lualine_x = {
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+            color = { fg = "#ff9e64" },
+            padding = { left = 0, right = 1 },
+          },
           { "searchcount", padding = { left = 0, right = 1 } },
           { "selectioncount", padding = { left = 0, right = 1 } },
           { "filetype", padding = { left = 0, right = 1 } },
