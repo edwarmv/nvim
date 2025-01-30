@@ -86,8 +86,9 @@ return {
       update_focused_file = {
         enable = true,
       },
+      hijack_netrw = true,
       hijack_directories = {
-        enable = false,
+        enable = true,
       },
       modified = {
         enable = true,

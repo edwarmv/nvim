@@ -6,6 +6,7 @@ return {
       "echasnovski/mini.icons",
     },
     opts = {
+      default_file_explorer = false,
       -- win_options = {
       --   signcolumn = "yes:2",
       --   number = false,
@@ -13,7 +14,6 @@ return {
       view_options = {
         show_hidden = true,
       },
-      watch_for_changes = true,
     },
     keys = {
       { "<space>o", "<cmd>Oil<cr>", desc = "Oil" },
