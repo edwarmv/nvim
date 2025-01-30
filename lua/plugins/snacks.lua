@@ -33,6 +33,10 @@ return {
     },
     picker = {
       ui_select = true,
+      layout = {
+        cycle = true,
+        preset = "vscode",
+      },
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
@@ -42,6 +46,8 @@ return {
         input = {
           keys = {
             ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
+            ["<a-m>"] = nil,
+            ["<a-z>"] = { "toggle_maximize", mode = { "i", "n" } },
           },
         },
         list = {
@@ -55,17 +61,21 @@ return {
         preview = {
           wo = {
             relativenumber = false,
-            foldcolumn = "auto",
+            foldcolumn = "0",
           },
         },
       },
     },
     words = { enabled = false },
+    lazygit = {
+      enabled = true,
+      configure = false,
+    },
   },
   -- stylua: ignore start
   keys = {
-    -- { "<leader>gl", function() Snacks.lazygit.open() end, desc = "Open Lazygit" },
-    -- { "<leader>gL", function() Snacks.lazygit.open({cwd = Snacks.git.get_root()}) end, desc = "Open Lazygit - Current buffer" },
+    { "<leader>gl", function() Snacks.lazygit.open() end, desc = "Open Lazygit" },
+    { "<leader>gL", function() Snacks.lazygit.open({cwd = Snacks.git.get_root()}) end, desc = "Open Lazygit - Current buffer" },
     -- { "<m-n>", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
     -- { "<m-p>", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     { "<leader>z", function() Snacks.zen() end, desc = "Toggle Zen Mode", },
@@ -85,6 +95,8 @@ return {
     { "<space>fc", function() Snacks.picker.commands() end, desc = "FZF - Commands" },
     { "<space>fls", function() Snacks.picker.lsp_symbols() end, desc = "FZF - LSP Document Symbols" },
     { "<space>fld", function() Snacks.picker.diagnostics() end, desc = "FZF - Document Diagnostics" },
+    { "<space>fgl", function() Snacks.picker.git_log() end, desc = "Git Log" },
+    { "<space>fgs", function() Snacks.picker.git_status() end, desc = "Git Status" },
   },
   -- stylua: ignore end
 }
