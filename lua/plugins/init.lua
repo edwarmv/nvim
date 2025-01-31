@@ -49,4 +49,16 @@ return {
     event = "VeryLazy",
     opts = {},
   },
+  {
+    "gcmt/taboo.vim",
+    init = function()
+      vim.g.taboo_tabline = 0
+      vim.keymap.set("n", "<leader>tr", function()
+        vim.ui.input({ prompt = "Enter The Tab Name: " }, function(name)
+          vim.cmd("TabooRename " .. name)
+        end)
+      end, { desc = "Rename Tab" })
+      vim.keymap.set("n", "<leader>tR", "<cmd>TabooReset<cr>", { desc = "Reset Tab Name" })
+    end,
+  },
 }

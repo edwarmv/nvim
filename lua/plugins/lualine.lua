@@ -28,6 +28,7 @@ return {
         component_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = { "dashboard" },
+          winbar = { "" },
         },
         globalstatus = true,
         always_divide_middle = true,
@@ -40,31 +41,9 @@ return {
           {
             "b:gitsigns_head",
             icon = "",
-            fmt = function(value)
-              if value ~= "" then
-                local max_width = vim.o.columns * 1 / 6
-                return string.len(value) <= max_width and value or string.sub(value, 1, max_width) .. "…"
-              end
-              return ""
-            end,
           },
         },
-        lualine_c = {
-          { "filename", file_status = false },
-          { "diff", source = diff_source, padding = { left = 0, right = 1 } },
-          {
-            "diagnostics",
-            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-            symbols = {
-              error = icons.diagnostics.error,
-              warn = icons.diagnostics.warn,
-              info = icons.diagnostics.info,
-              hint = icons.diagnostics.hint,
-            },
-            update_in_insert = false, -- Update diagnostics in insert mode
-            padding = { left = 0, right = 1 },
-          },
-        },
+        lualine_c = {},
         lualine_x = {
           {
             require("noice").api.status.mode.get,
@@ -90,25 +69,57 @@ return {
       },
       extensions = {
         "aerial",
-        "chadtree",
-        "ctrlspace",
-        "fern",
         "fugitive",
         "fzf",
         "lazy",
         "man",
         "mason",
-        "mundo",
         "neo-tree",
-        "nerdtree",
         "nvim-dap-ui",
         "nvim-tree",
         "oil",
         "overseer",
         "quickfix",
-        "symbols-outline",
         "toggleterm",
         "trouble",
+      },
+      winbar = {
+        lualine_c = {
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          { "filename", file_status = true, separator = "", padding = 0 },
+          { "diff", source = diff_source, padding = { left = 1, right = 0 } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+            padding = { left = 1, right = 0 },
+          },
+        },
+      },
+      inactive_winbar = {
+        lualine_c = {
+          { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+          { "filename", file_status = true, separator = "", padding = 0 },
+          { "diff", source = diff_source, padding = { left = 1, right = 0 } },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+            padding = { left = 1, right = 0 },
+          },
+        },
       },
     })
   end,
