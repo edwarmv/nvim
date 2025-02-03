@@ -5,7 +5,7 @@ return {
   },
   enabled = true,
   opts = {
-    disable_signs = true,
+    disable_signs = false,
     signs = {
       hunk = { "▸", "▾" },
       item = { "▸", "▾" },
