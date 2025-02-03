@@ -7,16 +7,6 @@ vim.notify_once = function() end
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
 
--- Enable LazyVim auto format
-vim.g.autoformat = true
-
--- LazyVim root dir detection
--- Each entry can be:
--- * the name of a detector function like `lsp` or `cwd`
--- * a pattern or array of patterns like `.git` or `lua`.
--- * a function with signature `function(buf) -> string|string[]`
-vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
-
 local opt = vim.opt
 
 opt.autowrite = false -- Enable auto write
@@ -54,7 +44,7 @@ opt.spelloptions:append("noplainbuffer")
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
-opt.tabstop = 8 -- Number of spaces tabs count for
+opt.tabstop = 4 -- Number of spaces tabs count for
 opt.softtabstop = -1
 opt.shiftwidth = 2 -- Size of an indent
 opt.termguicolors = true -- True color support
