@@ -76,7 +76,28 @@ return {
     words = { enabled = false },
     lazygit = {
       enabled = true,
-      configure = false,
+      configure = true,
+      config = {
+        os = {
+          edit = '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<CMD>q<CR>" && nvim --server "$NVIM" --remote {{filename}})',
+          editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<CMD>q<CR>" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
+          editAtLineAndWait = "nvim +{{line}} {{filename}}",
+          openDirInEditor = '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "<CMD>q<CR>" && nvim --server "$NVIM" --remote {{dir}})',
+        },
+        promptToReturnFromSubprocess = false,
+        keybinding = {
+          universal = {
+            quit = "",
+          },
+        },
+      },
+    },
+    styles = {
+      lazygit = {
+        keys = {
+          { "q", "hide", mode = { "t", "n" } },
+        },
+      },
     },
   },
   -- stylua: ignore start
