@@ -2,6 +2,8 @@ return {
   "NeogitOrg/neogit",
   dependencies = {
     "nvim-lua/plenary.nvim", -- required
+    "sindrets/diffview.nvim",
+    "lewis6991/gitsigns.nvim",
   },
   enabled = true,
   opts = {
@@ -12,9 +14,6 @@ return {
       section = { "▸", "▾" },
     },
     graph_style = "unicode",
-    integrations = {
-      diffview = false,
-    },
   },
   keys = {
     {
@@ -27,7 +26,7 @@ return {
     {
       "<leader>gN",
       function()
-        require("neogit").open({ cwd = "%:p:h" })
+        require("neogit").open({ cwd = vim.b.gitsigns_status_dict.root })
       end,
       desc = "[Neogit] - Open Relative",
     },
