@@ -1,14 +1,13 @@
 return {
-  "iguanacucumber/magazine.nvim",
+  "hrsh7th/nvim-cmp",
   enabled = true,
   name = "nvim-cmp",
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
-    { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
-    { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
-    -- "hrsh7th/cmp-path",
-    "https://codeberg.org/FelipeLema/cmp-async-path",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     {
       "saadparwaiz1/cmp_luasnip",
@@ -169,7 +168,7 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "async_path", option = { show_hidden_files_by_default = true } },
+        { name = "path" },
       }, {
         { name = "buffer" },
       }),
@@ -202,7 +201,7 @@ return {
         },
       },
       sources = cmp.config.sources({
-        { name = "async_path", option = { show_hidden_files_by_default = true } },
+        { name = "path" },
       }, {
         { name = "cmdline" },
       }),
