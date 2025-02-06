@@ -81,7 +81,13 @@ return {
       },
       hijack_cursor = true,
       diagnostics = {
-        enable = false,
+        enable = true,
+        icons = {
+          hint = icons.diagnostics.hint,
+          info = icons.diagnostics.info,
+          warning = icons.diagnostics.warn,
+          error = icons.diagnostics.error,
+        },
       },
       update_focused_file = {
         enable = true,
