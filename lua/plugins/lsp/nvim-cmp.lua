@@ -169,7 +169,6 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },
-      }, {
         { name = "buffer" },
       }),
       formatting = {
@@ -226,7 +225,6 @@ return {
       sources = cmp.config.sources({
         { name = "vim-dadbod-completion" },
         { name = "luasnip" },
-      }, {
         { name = "buffer" },
       }),
     })
