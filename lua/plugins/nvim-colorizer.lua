@@ -16,6 +16,8 @@ return {
     user_default_options = {
       mode = "virtualtext",
       virtualtext_inline = true,
+      tailwind = true,
+      css = true,
     },
   },
 }
