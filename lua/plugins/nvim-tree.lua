@@ -5,6 +5,7 @@ return {
   "nvim-tree/nvim-tree.lua",
   dependencies = {
     "b0o/nvim-tree-preview.lua",
+    "s1n7ax/nvim-window-picker",
   },
   config = function()
     local preview = require("nvim-tree-preview")
@@ -43,6 +44,13 @@ return {
 
         vim.keymap.set("n", "<Tab>", preview.node_under_cursor, opts("Preview"))
       end,
+      actions = {
+        open_file = {
+          window_picker = {
+            picker = require("window-picker").pick_window,
+          },
+        },
+      },
       view = {
         width = {
           min = function()
@@ -52,7 +60,7 @@ return {
           max = -1,
           padding = 0,
         },
-        signcolumn = "auto",
+        signcolumn = "yes",
         side = "right",
       },
       renderer = {
