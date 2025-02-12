@@ -75,12 +75,6 @@ return {
             foldcolumn = "0",
           },
         },
-        preview = {
-          wo = {
-            relativenumber = false,
-            foldcolumn = "0",
-          },
-        },
       },
     },
     words = { enabled = false },
@@ -117,6 +111,7 @@ return {
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer", },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
     --- FZF
+    { "<space>fe", function() Snacks.picker.explorer() end, desc = "FZF - Explorer" },
     { "<space>ff", function() Snacks.picker.files() end, desc = "FZF - Files" },
     { "<space>fF", function() Snacks.picker.files({ cwd = vim.fn.expand("%:p:h") }) end, desc = "FZF - Files Relative Path", },
     { "<space>fo", function() Snacks.picker.recent() end, desc = "FZF - Files History" },
