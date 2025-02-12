@@ -1,7 +1,8 @@
 return {
   "gbprod/yanky.nvim",
+  event = "VimEnter",
   dependencies = {
-    -- "kkharji/sqlite.lua",
+    "kkharji/sqlite.lua",
     {
       "gbprod/cutlass.nvim",
       opts = {
@@ -13,11 +14,8 @@ return {
   },
   config = function()
     require("yanky").setup({
-      -- ring = {
-      --   storage = "sqlite",
-      -- },
-      system_clipboard = {
-        sync_with_ring = false,
+      ring = {
+        storage = "sqlite",
       },
       picker = {
         select = {
@@ -25,9 +23,10 @@ return {
         },
       },
     })
-
-    vim.keymap.set("n", "<space>y", "<cmd>YankyRingHistory<cr>")
-    vim.keymap.set("n", "]y", "<Plug>(YankyCycleForward)", {})
-    vim.keymap.set("n", "[y", "<Plug>(YankyCycleBackward)", {})
   end,
+  keys = {
+    { "<space>y", "<cmd>YankyRingHistory<cr>" },
+    { "]y", "<Plug>(YankyCycleForward)" },
+    { "[y", "<Plug>(YankyCycleBackward)" },
+  },
 }
