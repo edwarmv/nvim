@@ -34,8 +34,6 @@ return {
       "tyru/open-browser.vim",
     },
   },
-  "fladson/vim-kitty",
-  "imsnif/kdl.vim",
   "farmergreg/vim-lastplace",
   {
     "haya14busa/vim-asterisk",
