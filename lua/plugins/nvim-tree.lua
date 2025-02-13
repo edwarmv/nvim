@@ -69,6 +69,11 @@ return {
           enable = true,
         },
         icons = {
+          web_devicons = {
+            folder = {
+              enable = true,
+            },
+          },
           glyphs = {
             folder = {
               arrow_closed = "",
