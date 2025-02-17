@@ -17,7 +17,7 @@ return {
   },
   {
     "echasnovski/mini.snippets",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
