@@ -32,7 +32,6 @@ opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
 -- opt.scrolloff = 4 -- Lines of context
 -- opt.sidescrolloff = 8 -- Columns of context
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
@@ -204,7 +203,7 @@ require("config")
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client:supports_method("textDocument/foldingRange") then
+    if client ~= nil and client:supports_method("textDocument/foldingRange") then
       vim.wo.foldmethod = "expr"
       vim.wo.foldexpr = "v:lua.vim.lsp.foldexpr()"
     end
