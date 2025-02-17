@@ -14,11 +14,6 @@ return {
     notifier = { enabled = true },
     quickfile = { enabled = true },
     input = { enabled = true },
-    scroll = {
-      animate = {
-        duration = { step = 15, total = 100 },
-      },
-    },
     zen = { enabled = true },
     rename = { enabled = true },
     scratch = { enabled = true },
