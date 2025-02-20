@@ -44,11 +44,11 @@ return {
             "b:gitsigns_head",
             icon = "",
           },
-          { "diff", source = diff_source, padding = { left = 1, right = 0 } },
-          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 1, right = 0 } },
+          { "diff", source = diff_source, padding = { left = 0, right = 1 } },
+          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
         },
         lualine_c = {
-          { "filename", file_status = true, separator = "", padding = { left = 1, right = 0 } },
+          { "filename", file_status = true, separator = "" },
           {
             "diagnostics",
             sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
@@ -59,10 +59,11 @@ return {
               hint = icons.diagnostics.hint,
             },
             update_in_insert = false, -- Update diagnostics in insert mode
-            padding = { left = 1, right = 0 },
+            padding = { left = 0, right = 1 },
           },
         },
         lualine_x = {
+          { "filetype", padding = { left = 0, right = 1 } },
           {
             require("noice").api.status.mode.get,
             cond = require("noice").api.status.mode.has,
@@ -80,7 +81,6 @@ return {
           },
           { "zoom#statusline", padding = { left = 0, right = 1 } },
           { "ObsessionStatus", padding = { left = 0, right = 1 } },
-          { "filetype", padding = { left = 0, right = 1 } },
         },
         lualine_y = { "progress" },
         lualine_z = { "location" },
