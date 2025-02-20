@@ -2,20 +2,6 @@ local defaults = require("config.defaults")
 
 return {
   "lewis6991/gitsigns.nvim",
-  dependencies = {
-    {
-      "akinsho/git-conflict.nvim",
-      opts = {
-        default_mappings = false, -- disable buffer local mapping created by this plugin
-        disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
-        highlights = { -- They must have background color, otherwise the default color will be used
-          current = "DiffAdd",
-          incoming = "DiffChange",
-          ancestor = "Visual",
-        },
-      },
-    },
-  },
   opts = {
     signs = {
       add = { text = "┃" },
@@ -89,19 +75,6 @@ return {
       map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "[GitSigns] - Toggle Blame" })
 
       map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>", { silent = true })
-
-      -- git conflict
-      map("n", "<leader>gcq", "<cmd>GitConflictListQf<cr>", { desc = "Git Conflict - Quickfix" })
-      map("n", "<leader>gcr", "<cmd>GitConflictRefresh<cr>", { desc = "Git Conflict - Refresh" })
-      map("n", "<leader>gco", "<Plug>(git-conflict-ours)", { desc = "Git Conflict - Choose Ours" })
-      map("n", "<leader>gct", "<Plug>(git-conflict-theirs)", { desc = "Git Conflict - Choose Theirs" })
-      map("n", "<leader>gcb", "<Plug>(git-conflict-both)", { desc = "Git Conflict - Choose Both" })
-      map("n", "<leader>gc0", "<Plug>(git-conflict-none)", { desc = "Git Conflict - Choose None" })
-
-      map("n", "[x", "<Plug>(git-conflict-prev-conflict)", { desc = "Git Conflict - Prev" })
-      map("n", "]x", "<Plug>(git-conflict-next-conflict)", { desc = "Git Conflict - Next" })
     end,
   },
 }
-
--- vim: foldmethod=marker
