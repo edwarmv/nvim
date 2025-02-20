@@ -17,24 +17,28 @@ return {
     "https://codeberg.org/FelipeLema/cmp-async-path",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     {
-      "abeldekat/cmp-mini-snippets",
-      dependencies = "echasnovski/mini.snippets",
+      "saadparwaiz1/cmp_luasnip",
+      dependencies = {
+        "L3MON4D3/LuaSnip",
+      },
     },
+    -- {
+    --   "abeldekat/cmp-mini-snippets",
+    --   dependencies = "echasnovski/mini.snippets",
+    -- },
     "luckasRanarison/tailwind-tools.nvim",
     "onsails/lspkind-nvim",
     "windwp/nvim-autopairs",
   },
   config = function()
+    local luasnip = require("luasnip")
     local cmp = require("cmp")
     local lspkind = require("lspkind")
 
     cmp.setup({
       snippet = {
         expand = function(args)
-          local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
-          insert({ body = args.body }) -- Insert at cursor
-          cmp.resubscribe({ "TextChangedI", "TextChangedP" })
-          require("cmp.config").set_onetime({ sources = {} })
+          require("luasnip").lsp_expand(args.body)
         end,
       },
       window = {
@@ -66,6 +70,9 @@ return {
         ["<c-f>"] = cmp.mapping.scroll_docs(4),
         ["<c-b>"] = cmp.mapping.scroll_docs(-4),
         ["<c-e>"] = cmp.mapping(function(fallback)
+          -- if luasnip.choice_active() then
+          --   luasnip.change_choice(1)
+          -- end
           if cmp.visible() then
             cmp.close()
           else
@@ -76,13 +83,9 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         ["<tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            if MiniSnippets.session.get() ~= nil then
-              cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
-            else
-              cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-            end
-          elseif MiniSnippets.session.get() ~= nil then
-            MiniSnippets.session.jump("next")
+            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+          elseif luasnip.locally_jumpable(1) then
+            luasnip.jump(1)
           elseif has_words_before() then
             cmp.complete()
           else
@@ -90,8 +93,8 @@ return {
           end
         end),
         ["<s-tab>"] = cmp.mapping(function(fallback)
-          if MiniSnippets.session.get() ~= nil then
-            MiniSnippets.session.jump("prev")
+          if luasnip.locally_jumpable(-1) then
+            luasnip.jump(-1)
           else
             fallback()
           end
@@ -109,7 +112,7 @@ return {
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "mini_snippets" },
+        { name = "luasnip" },
         { name = "async_path", option = { show_hidden_files_by_default = true } },
         { name = "buffer" },
       }),
@@ -195,7 +198,7 @@ return {
     cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
       sources = cmp.config.sources({
         { name = "vim-dadbod-completion" },
-        { name = "mini_snippets" },
+        { name = "luasnip" },
         { name = "buffer" },
       }),
     })
