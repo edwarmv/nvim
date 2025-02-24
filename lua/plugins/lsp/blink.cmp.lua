@@ -4,7 +4,7 @@ return {
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
-    "echasnovski/mini.snippets",
+    "L3MON4D3/LuaSnip",
   },
   build = "cargo build --release",
   -- version = "*",
@@ -44,7 +44,7 @@ return {
       },
     },
     snippets = {
-      preset = "mini_snippets",
+      preset = "luasnip",
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },

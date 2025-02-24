@@ -9,6 +9,7 @@ end
 return {
   "iguanacucumber/magazine.nvim",
   name = "nvim-cmp",
+  enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },

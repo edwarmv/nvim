@@ -40,6 +40,7 @@ opt.numberwidth = 1
 opt.smartcase = true -- Don't ignore case with capitals
 opt.spelllang = { "en" }
 opt.spelloptions:append("noplainbuffer")
+opt.sessionoptions:remove("blank")
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
@@ -58,12 +59,12 @@ opt.wrap = true -- Disable line wrap
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.breakindent = true
-opt.showbreak = "" -- ↳
+opt.showbreak = "↳" -- ↳
 opt.colorcolumn = "80"
 opt.linebreak = true
 opt.smoothscroll = true
 
--- vim.api.nvim_create_autocmd({ "BufLeave" }, {
+-- vim.api.nvim_create_autocmd({ "Buf↳Leave" }, {
 --   pattern = "{}",
 --   callback = function()
 --     if vim.fn.line("$") == 1 and vim.fn.getline(1) == "" then
