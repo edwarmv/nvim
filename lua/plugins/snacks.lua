@@ -40,18 +40,6 @@ return {
       layouts = {
         vscode = {
           preview = true,
-          layout = {
-            backdrop = true,
-            row = 1,
-            width = 0.4,
-            min_width = 80,
-            height = 0.5,
-            border = "none",
-            box = "vertical",
-            { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
-            { win = "list", border = "hpad" },
-            { win = "preview", title = "{preview}", border = "top" },
-          },
         },
       },
       win = {
