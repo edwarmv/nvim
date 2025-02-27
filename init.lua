@@ -59,9 +59,9 @@ opt.wrap = true -- Disable line wrap
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.breakindent = true
-opt.showbreak = "↳" -- ↳
+-- opt.showbreak = "↳" -- ↳
 opt.colorcolumn = "80"
-opt.linebreak = true
+-- opt.linebreak = true
 opt.smoothscroll = true
 
 -- vim.api.nvim_create_autocmd({ "Buf↳Leave" }, {
