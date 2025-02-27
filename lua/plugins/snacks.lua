@@ -37,11 +37,6 @@ return {
           filename_first = true, -- display filename before the file path
         },
       },
-      layouts = {
-        vscode = {
-          preview = true,
-        },
-      },
       win = {
         input = {
           keys = {
