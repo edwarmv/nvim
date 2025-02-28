@@ -13,8 +13,6 @@ return {
       preset = "super-tab",
     },
     appearance = {
-      use_nvim_cmp_as_default = true,
-      nerd_font_variant = "mono",
       kind_icons = {
         Text = "",
         Method = "",
@@ -53,18 +51,19 @@ return {
       },
       providers = {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+        lsp = {
+          opts = { tailwind_color_icon = "■" },
+        },
       },
     },
     completion = {
       documentation = {
         auto_show = true,
-        window = {
-          winhighlight = "Normal:Pmenu,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc",
-        },
+        auto_show_delay_ms = 200,
+        treesitter_highlighting = true,
       },
       menu = {
         max_height = 6,
-        winhighlight = "Normal:Pmenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:PmenuSel,Search:None",
       },
     },
   },

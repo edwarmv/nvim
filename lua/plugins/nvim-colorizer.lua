@@ -5,6 +5,8 @@ return {
     filetypes = {
       "*", -- Highlight all files, but customize some others.
       "!toggleterm",
+      "!blink-cmp-menu",
+      "!blink-cmp-documentation",
     },
     buftypes = {
       "*",
