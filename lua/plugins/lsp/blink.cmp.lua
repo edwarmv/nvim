@@ -53,6 +53,10 @@ return {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         lsp = {
           opts = { tailwind_color_icon = "■" },
+          fallbacks = {},
+        },
+        path = {
+          fallbacks = {},
         },
       },
     },
