@@ -45,17 +45,8 @@ return {
       win = {
         input = {
           keys = {
-            ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
             ["<a-m>"] = nil,
             ["<a-z>"] = { "toggle_maximize", mode = { "i", "n" } },
-          },
-        },
-        list = {
-          keys = {
-            ["<c-t>"] = { "edit_tab", mode = { "i", "n" } },
-          },
-          wo = {
-            foldcolumn = "0",
           },
         },
       },
