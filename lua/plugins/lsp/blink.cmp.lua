@@ -55,9 +55,6 @@ return {
           opts = { tailwind_color_icon = "■" },
           fallbacks = {},
         },
-        path = {
-          fallbacks = {},
-        },
       },
     },
     completion = {
