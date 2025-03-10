@@ -1,9 +1,3 @@
-vim.deprecate = function() end
-vim.notify_once = function() end
--- =========================================================
--- vim-settings
--- =========================================================
--- This file is automatically loaded by plugins.core
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
 
@@ -30,8 +24,6 @@ opt.number = true -- Print line number
 opt.pumblend = 0 -- Popup blend
 opt.pumheight = 6 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
--- opt.scrolloff = 4 -- Lines of context
--- opt.sidescrolloff = 8 -- Columns of context
 opt.shiftround = true -- Round indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 opt.showmode = false -- Dont show mode since we have a statusline
@@ -41,6 +33,7 @@ opt.smartcase = true -- Don't ignore case with capitals
 opt.spelllang = { "en" }
 opt.spelloptions:append("noplainbuffer")
 opt.sessionoptions:remove("blank")
+-- opt.sessionoptions:append("globals")
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current
@@ -58,21 +51,8 @@ opt.winminwidth = 5 -- Minimum window width
 opt.wrap = true -- Disable line wrap
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.breakindent = true
--- opt.showbreak = "↳" -- ↳
 opt.colorcolumn = "80"
--- opt.linebreak = true
 opt.smoothscroll = true
-
--- vim.api.nvim_create_autocmd({ "Buf↳Leave" }, {
---   pattern = "{}",
---   callback = function()
---     if vim.fn.line("$") == 1 and vim.fn.getline(1) == "" then
---       vim.bo.buftype = "nofile"
---       vim.bo.bufhidden = "wipe"
---     end
---   end,
--- })
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"

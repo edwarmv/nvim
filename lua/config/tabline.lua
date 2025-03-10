@@ -8,12 +8,11 @@ end
 
 local function title(tabpage, sel)
   local id = vim.api.nvim_tabpage_get_number(tabpage)
-  local renamedTabName = vim.fn["TabooTabName"](id)
   if sel then
-    return table.concat({ "%#TabLineSel#", (" %s"):format(renamedTabName == "" and id or id .. ": " .. renamedTabName) })
+    return table.concat({ "%#TabLineSel#", (" %s"):format(id) })
   end
 
-  return table.concat({ "%#TabLine#", (" %s"):format(renamedTabName == "" and id or id .. ": " .. renamedTabName) })
+  return table.concat({ "%#TabLine#", (" %s"):format(id) })
 end
 
 function M.draw()
