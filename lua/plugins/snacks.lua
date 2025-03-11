@@ -27,9 +27,7 @@ return {
       },
     },
     picker = {
-      ui_select = true,
       layout = {
-        cycle = true,
         preset = "vscode",
       },
       formatters = {
