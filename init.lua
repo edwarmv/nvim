@@ -33,7 +33,7 @@ opt.smartcase = true -- Don't ignore case with capitals
 opt.spelllang = { "en" }
 opt.spelloptions:append("noplainbuffer")
 opt.sessionoptions:remove("blank")
--- opt.sessionoptions:append("globals")
+opt.sessionoptions:append("globals")
 opt.splitbelow = true -- Put new windows below current
 opt.splitkeep = "screen"
 opt.splitright = true -- Put new windows right of current

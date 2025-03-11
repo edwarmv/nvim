@@ -49,7 +49,7 @@ return {
   },
   {
     "gcmt/taboo.vim",
-    enabled = false,
+    enabled = true,
     init = function()
       vim.g.taboo_tabline = 0
       vim.keymap.set("n", "<leader>tr", function()
