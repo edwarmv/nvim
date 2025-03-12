@@ -17,7 +17,7 @@ return {
   "tpope/vim-unimpaired",
   "b0o/SchemaStore.nvim",
   { "chrisbra/csv.vim", ft = "csv" },
-  { "chrisbra/recover.vim" },
+  -- { "chrisbra/recover.vim" },
   {
     init = function()
       vim.g.user_emmet_leader_key = "<m-e>"
@@ -62,7 +62,7 @@ return {
   },
   {
     "sphamba/smear-cursor.nvim",
-    enabled = false,
+    enabled = true,
     opts = {
       legacy_computing_symbols_support = true,
     },
