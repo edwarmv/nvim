@@ -52,7 +52,6 @@ opt.wrap = true -- Disable line wrap
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.colorcolumn = "80"
-opt.smoothscroll = true
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
