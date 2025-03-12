@@ -43,7 +43,83 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
-  vim.keymap.set("n", "grn", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Rename", buffer = buffer })
+  local lsp_priority = {
+    rename = {
+      "angularls",
+    },
+  }
+
+  local lsp_have_feature = {
+    rename = function(client)
+      return client.supports_method("textDocument/rename")
+    end,
+    inlay_hint = function(client)
+      return client.supports_method("textDocument/inlayHint")
+    end,
+  }
+
+  local function get_lsp_client_names(have_feature)
+    local client_names = {}
+    local attached_clients = vim.lsp.get_clients({ bufnr = 0 })
+    for _, client in ipairs(attached_clients) do
+      if have_feature(client) then
+        table.insert(client_names, client.name)
+      end
+    end
+    return client_names
+  end
+
+  local function lsp_buf_rename(client_name)
+    vim.lsp.buf.rename(nil, { name = client_name })
+  end
+
+  local function lsp_buf_rename_use_one(fallback)
+    local client_names = get_lsp_client_names(lsp_have_feature.rename)
+    if #client_names == 1 then
+      lsp_buf_rename(client_names[1])
+      return
+    end
+    if fallback then
+      fallback()
+    end
+  end
+
+  local function lsp_buf_rename_use_priority(fallback)
+    local client_names = get_lsp_client_names(lsp_have_feature.rename)
+    for _, client_priority_name in ipairs(lsp_priority.rename) do
+      for _, client_name in ipairs(client_names) do
+        if client_priority_name == client_name then
+          lsp_buf_rename(client_priority_name)
+          return
+        end
+      end
+    end
+    if fallback then
+      fallback()
+    end
+  end
+
+  local function lsp_buf_rename_use_any(fallback)
+    local client_names = get_lsp_client_names(lsp_have_feature.rename)
+    for _, client_name in ipairs(client_names) do
+      lsp_buf_rename(client_name)
+      return
+    end
+    if fallback then
+      fallback()
+    end
+  end
+
+  local function lsp_buf_rename_use_priority_or_any()
+    lsp_buf_rename_use_one(function()
+      lsp_buf_rename_use_priority(function()
+        lsp_buf_rename_use_any()
+      end)
+    end)
+  end
+
+  -- thanks to https://github.com/fightingdreamer/dotfiles/blob/54bb8b90b1741f58e02e1911cb6de73d48160247/lua/nv/lua/core/opts_lsp.lua#L41
+  vim.keymap.set("n", "grn", lsp_buf_rename_use_priority_or_any, { desc = "[LSP] Rename", buffer = buffer })
 
   vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
 
