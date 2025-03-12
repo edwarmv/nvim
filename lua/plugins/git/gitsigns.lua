@@ -3,23 +3,6 @@ local defaults = require("config.defaults")
 return {
   "lewis6991/gitsigns.nvim",
   opts = {
-    signs = {
-      add = { text = "┃" },
-      change = { text = "┃" },
-      delete = { text = "┃" },
-      topdelete = { text = "┃" },
-      changedelete = { text = "┃" },
-      untracked = { text = "┃" },
-    },
-    signs_staged = {
-      add = { text = "┃" },
-      change = { text = "┃" },
-      delete = { text = "┃" },
-      topdelete = { text = "┃" },
-      changedelete = { text = "┃" },
-      untracked = { text = "┃" },
-    },
-    signcolumn = true,
     preview_config = {
       border = defaults.border,
     },
@@ -53,16 +36,15 @@ return {
       end, { desc = "[Gitsigns] Prev Hunk" })
 
       -- Actions
-      map("n", "<leader>gs", gitsigns.stage_hunk)
-      map("n", "<leader>gr", gitsigns.reset_hunk)
+      map("n", "<leader>gs", gitsigns.stage_hunk, { desc = "[Gitsigns] Stage Hunk" })
+      map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "[Gitsigns] Reset Hunk" })
       map("v", "<leader>gs", function()
         gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-      end)
+      end, { desc = "[Gitsigns] Stage Hunk" })
       map("v", "<leader>gr", function()
         gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-      end)
+      end, { desc = "[Gitsigns] Reset Hunk" })
       map("n", "<leader>gS", gitsigns.stage_buffer, { desc = "[Gitsigns] Stage Buffer" })
-      map("n", "<leader>gu", gitsigns.stage_hunk, { desc = "[Gitsigns] Undo Stage Hunk" })
       map("n", "<leader>gR", gitsigns.reset_buffer, { desc = "[Gitsigns] Reset Buffer" })
       map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "[Gitsigns] Preview Hunk" })
       map("n", "<leader>gP", gitsigns.preview_hunk_inline, { desc = "[Gitsigns] Preview Hunk Inline" })
