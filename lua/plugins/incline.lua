@@ -1,10 +1,11 @@
 local defaults = require("config.defaults")
+
 return {
   "b0o/incline.nvim",
   dependencies = {
-    "akinsho/git-conflict.nvim",
+    -- "akinsho/git-conflict.nvim",
   },
-  enabled = false,
+  enabled = true,
   init = function()
     vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
       callback = function()
@@ -35,7 +36,10 @@ return {
         end
         for name, icon in pairs(icons) do
           if tonumber(signs[name]) and signs[name] > 0 then
-            table.insert(labels, { icon .. signs[name] .. " ", group = "Diff" .. name })
+            table.insert(labels, {
+              icon .. signs[name] .. " ",
+              guifg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "diff" .. name }).fg),
+            })
           end
         end
 
@@ -73,7 +77,7 @@ return {
       return {
         { get_diagnostic_label() },
         { get_git_diff() },
-        { conflict_count() },
+        -- { conflict_count() },
         { icon, guifg = color },
         { " " },
         {
