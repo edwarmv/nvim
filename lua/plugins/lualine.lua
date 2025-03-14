@@ -23,7 +23,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "folke/noice.nvim",
     "letieu/harpoon-lualine",
-    "akinsho/git-conflict.nvim",
+    -- "akinsho/git-conflict.nvim",
   },
   config = function()
     vim.opt.cmdheight = 0
@@ -98,7 +98,7 @@ return {
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { "filename", file_status = true, separator = "", padding = 0 },
           { "diff", source = diff_source, padding = { left = 1, right = 0 } },
-          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 1, right = 0 } },
+          -- { conflict_count, color = { fg = "#b2555b" }, padding = { left = 1, right = 0 } },
           {
             "diagnostics",
             sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
@@ -118,7 +118,7 @@ return {
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { "filename", file_status = true, separator = "", padding = 0 },
           { "diff", source = diff_source, padding = { left = 1, right = 0 } },
-          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 1, right = 0 } },
+          -- { conflict_count, color = { fg = "#b2555b" }, padding = { left = 1, right = 0 } },
           {
             "diagnostics",
             sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
