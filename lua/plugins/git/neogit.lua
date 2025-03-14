@@ -26,7 +26,9 @@ return {
     {
       "<leader>gN",
       function()
-        require("neogit").open({ cwd = vim.b.gitsigns_status_dict.root })
+        if vim.b.gitsigns_status_dict then
+          require("neogit").open({ cwd = vim.b.gitsigns_status_dict.root })
+        end
       end,
       desc = "[Neogit] - Open Relative",
     },
