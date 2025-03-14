@@ -15,14 +15,6 @@ return {
       indent_lines = {
         enable = false,
       },
-      border = {
-        enable = true,
-        top_char = "─",
-        bottom_char = "─",
-      },
-      theme = {
-        enable = false,
-      },
       mappings = {
         list = {
           ["v"] = false,
