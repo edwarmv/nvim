@@ -71,6 +71,11 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("snacks").setup(opts)
+    require("snacks.picker.core.preview")
+    vim.api.nvim_del_autocmd(vim.api.nvim_create_augroup("snacks.picker.preview.wo", {}))
+  end,
   -- stylua: ignore start
   keys = {
     { "<leader>gl", function() Snacks.lazygit.open() end, desc = "Open Lazygit" },
