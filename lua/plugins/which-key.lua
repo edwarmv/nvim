@@ -6,6 +6,15 @@ return {
     delay = function(ctx)
       return ctx.plugin and 0 or 500
     end,
+    presets = {
+      operators = false,
+      motions = false,
+      text_objects = false,
+      windows = false,
+      nav = false,
+      z = false,
+      g = false,
+    },
     -- filter = function(mapping)
     --   return mapping.desc and mapping.desc ~= ""
     -- end,
