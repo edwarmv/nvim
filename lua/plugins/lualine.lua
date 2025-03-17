@@ -23,7 +23,7 @@ return {
     "nvim-tree/nvim-web-devicons",
     "folke/noice.nvim",
     "letieu/harpoon-lualine",
-    -- "akinsho/git-conflict.nvim",
+    "akinsho/git-conflict.nvim",
   },
   config = function()
     vim.opt.cmdheight = 0
@@ -51,8 +51,8 @@ return {
               return ""
             end,
           },
-          -- { "diff", source = diff_source, padding = { left = 0, right = 1 } },
-          -- { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
+          { "diff", source = diff_source, padding = { left = 0, right = 1 } },
+          { conflict_count, color = { fg = "#b2555b" }, padding = { left = 0, right = 1 } },
         },
         lualine_c = {
           "aerial",
@@ -71,6 +71,17 @@ return {
           -- },
         },
         lualine_x = {
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
+            symbols = {
+              error = icons.diagnostics.error,
+              warn = icons.diagnostics.warn,
+              info = icons.diagnostics.info,
+              hint = icons.diagnostics.hint,
+            },
+            update_in_insert = false, -- Update diagnostics in insert mode
+          },
           { "filetype", padding = { left = 0, right = 1 } },
           {
             require("noice").api.status.mode.get,
