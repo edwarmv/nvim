@@ -11,6 +11,7 @@ return {
         exclude = { "ns", "nS", "xs", "xS" },
       },
     },
+    "folke/snacks.nvim",
   },
   config = function()
     require("yanky").setup({
@@ -25,7 +26,14 @@ return {
     })
   end,
   keys = {
-    { "<space>y", "<cmd>YankyRingHistory<cr>" },
+    {
+      "<space>y",
+      function()
+        Snacks.picker.yanky()
+      end,
+      mode = { "n", "x" },
+      desc = "Open Yank History",
+    },
     { "]y", "<Plug>(YankyCycleForward)" },
     { "[y", "<Plug>(YankyCycleBackward)" },
   },
