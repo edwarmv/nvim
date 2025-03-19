@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   ui = {
-    border = defaults.border,
+    border = vim.o.winborder,
   },
   spec = {
     -- import your plugins

@@ -1,5 +1,3 @@
-local defaults = require("config.defaults")
-
 return {
   "stevearc/aerial.nvim",
   opts = {
@@ -10,7 +8,7 @@ return {
     end,
     show_guides = true,
     float = {
-      border = defaults.border,
+      border = vim.o.winborder,
     },
     filter_kind = false,
   },

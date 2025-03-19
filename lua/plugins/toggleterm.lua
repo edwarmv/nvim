@@ -1,7 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
   config = function()
-    local defaults = require("config.defaults")
     local toggleterm = require("toggleterm")
     toggleterm.setup({
       size = function(term)
@@ -23,7 +22,7 @@ return {
       direction = "float", -- 'vertical' | 'horizontal' | 'window' | 'float',
       shade_terminals = false,
       float_opts = {
-        border = defaults.border,
+        border = vim.o.winborder,
         width = function(_term)
           local width = math.floor(vim.o.columns * 0.7)
           return width

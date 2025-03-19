@@ -1,10 +1,8 @@
-local defaults = require("config.defaults")
-
 return {
   "lewis6991/gitsigns.nvim",
   opts = {
     preview_config = {
-      border = defaults.border,
+      border = vim.o.winborder,
     },
     current_line_blame_opts = {
       delay = 300,

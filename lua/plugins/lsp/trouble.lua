@@ -1,10 +1,8 @@
-local defaults = require("config.defaults")
-
 return {
   "folke/trouble.nvim",
   opts = {
     focus = true,
-    win = { border = defaults.border },
+    win = { border = vim.o.winborder },
     icons = {
       indent = {
         fold_open = "▾ ",

@@ -1,5 +1,3 @@
-local defaults = require("config.defaults")
-
 return {
   "ibhagwan/fzf-lua",
   enabled = false,
@@ -9,7 +7,7 @@ return {
   },
   opts = {
     winopts = {
-      border = defaults.border,
+      border = vim.o.winborder,
       height = 0.8,
       width = 0.8,
       row = 0.5,

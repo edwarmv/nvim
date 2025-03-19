@@ -1,5 +1,3 @@
-local defaults = require("config.defaults")
-
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
@@ -33,9 +31,6 @@ return {
         enter = true,
       },
       cmdline_popup = {
-        border = {
-          style = defaults.border,
-        },
         size = {
           min_width = 0,
           width = "40%",
@@ -43,19 +38,12 @@ return {
         },
       },
       popup = {
-        border = {
-          style = defaults.border,
-        },
         size = {
           width = "50%",
           height = "auto",
         },
       },
-      confirm = {
-        border = {
-          style = defaults.border,
-        },
-      },
+      confirm = {},
       hover = {
         border = {
           padding = { 0, 0 },
@@ -72,7 +60,6 @@ return {
       bottom_search = true,
       command_palette = true,
       inc_rename = false,
-      lsp_doc_border = true,
     },
   },
 }

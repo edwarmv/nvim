@@ -1,5 +1,3 @@
-local defaults = require("config.defaults")
-
 return {
   {
     "williamboman/mason.nvim",
@@ -8,12 +6,7 @@ return {
     },
     opts = {
       ui = {
-        -- icons = {
-        --   package_installed = "✓",
-        --   package_pending = "➜",
-        --   package_uninstalled = "✗",
-        -- },
-        border = defaults.border,
+        border = vim.o.winborder,
       },
     },
   },

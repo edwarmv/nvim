@@ -31,15 +31,11 @@ M.lsp = function(buffer)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
 
-  vim.keymap.set("n", "K", function()
-    vim.lsp.buf.hover({ border = defaults.border })
-  end, { desc = "[LSP] Hover", buffer = buffer })
+  vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[LSP] Hover", buffer = buffer })
 
   -- vim.keymap.set("n", "gli", vim.lsp.buf.implementation, { desc = "[LSP] Implementation", buffer = buffer })
 
-  vim.keymap.set({ "n", "i", "s" }, "<c-s>", function()
-    vim.lsp.buf.signature_help({ border = defaults.border })
-  end, { desc = "[LSP] Signature Help" })
+  vim.keymap.set({ "n", "i", "s" }, "<c-s>", vim.lsp.buf.signature_help, { desc = "[LSP] Signature Help" })
 
   -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 

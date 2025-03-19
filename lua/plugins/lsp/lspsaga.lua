@@ -6,7 +6,7 @@ return {
   config = function()
     require("lspsaga").setup({
       ui = {
-        border = "rounded",
+        border = vim.o.winborder,
       },
       lightbulb = {
         enable = false,

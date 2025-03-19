@@ -2,58 +2,57 @@ vim.deprecate = function() end
 vim.notify_once = function() end
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
+vim.o.winborder = "none"
 
-local opt = vim.opt
-
-opt.autowrite = false -- Enable auto write
--- opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with substitutions
-opt.confirm = false -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true -- Enable highlighting of the current line
-opt.cursorcolumn = true -- Enable highlighting of the current line
-opt.expandtab = true -- Use spaces instead of tabs
-opt.formatoptions = "jcroqlnt" -- tcqj
-opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg --vimgrep"
-opt.ignorecase = true -- Ignore case
-opt.inccommand = "nosplit" -- preview incremental substitute
-opt.laststatus = 3 -- global statusline
-opt.list = true -- Show some invisible characters (tabs...
-opt.mouse = "a" -- Enable mouse mode
-opt.mousemoveevent = true
-opt.number = true -- Print line number
-opt.pumblend = 0 -- Popup blend
-opt.pumheight = 6 -- Maximum number of entries in a popup
-opt.relativenumber = false -- Relative line numbers
-opt.shiftround = true -- Round indent
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.showmode = false -- Dont show mode since we have a statusline
-opt.signcolumn = "yes:1" -- Always show the signcolumn, otherwise it would shift the text each time
-opt.numberwidth = 1
-opt.smartcase = true -- Don't ignore case with capitals
-opt.spelllang = { "en" }
-opt.spelloptions:append("noplainbuffer")
-opt.sessionoptions:remove("blank")
-opt.sessionoptions:append("globals")
-opt.splitbelow = true -- Put new windows below current
-opt.splitkeep = "screen"
-opt.splitright = true -- Put new windows right of current
-opt.tabstop = 4 -- Number of spaces tabs count for
-opt.softtabstop = -1
-opt.shiftwidth = 2 -- Size of an indent
-opt.termguicolors = true -- True color support
-opt.timeoutlen = 500
-opt.undofile = true
-opt.undolevels = 10000
-opt.updatetime = 300 -- Save swap file and trigger CursorHold
-opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
-opt.wildmode = "longest:full,full" -- Command-line completion mode
-opt.winminwidth = 5 -- Minimum window width
-opt.wrap = true -- Disable line wrap
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-opt.colorcolumn = "80"
+vim.opt.autowrite = false -- Enable auto write
+-- vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
+vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with substitutions
+vim.opt.confirm = false -- Confirm to save changes before exiting modified buffer
+vim.opt.cursorline = true -- Enable highlighting of the current line
+vim.opt.cursorcolumn = true -- Enable highlighting of the current line
+vim.opt.expandtab = true -- Use spaces instead of tabs
+vim.opt.formatoptions = "jcroqlnt" -- tcqj
+vim.opt.grepformat = "%f:%l:%c:%m"
+vim.opt.grepprg = "rg --vimgrep"
+vim.opt.ignorecase = true -- Ignore case
+vim.opt.inccommand = "nosplit" -- preview incremental substitute
+vim.opt.laststatus = 3 -- global statusline
+vim.opt.list = true -- Show some invisible characters (tabs...
+vim.opt.mouse = "a" -- Enable mouse mode
+vim.opt.mousemoveevent = true
+vim.opt.number = true -- Print line number
+vim.opt.pumblend = 0 -- Popup blend
+vim.opt.pumheight = 6 -- Maximum number of entries in a popup
+vim.opt.relativenumber = false -- Relative line numbers
+vim.opt.shiftround = true -- Round indent
+vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+vim.opt.showmode = false -- Dont show mode since we have a statusline
+vim.opt.signcolumn = "yes:1" -- Always show the signcolumn, otherwise it would shift the text each time
+vim.opt.numberwidth = 1
+vim.opt.smartcase = true -- Don't ignore case with capitals
+vim.opt.spelllang = { "en" }
+vim.opt.spelloptions:append("noplainbuffer")
+vim.opt.sessionoptions:remove("blank")
+vim.opt.sessionoptions:append("globals")
+vim.opt.splitbelow = true -- Put new windows below current
+vim.opt.splitkeep = "screen"
+vim.opt.splitright = true -- Put new windows right of current
+vim.opt.tabstop = 4 -- Number of spaces tabs count for
+vim.opt.softtabstop = -1
+vim.opt.shiftwidth = 2 -- Size of an indent
+vim.opt.termguicolors = true -- True color support
+vim.opt.timeoutlen = 500
+vim.opt.undofile = true
+vim.opt.undolevels = 10000
+vim.opt.updatetime = 300 -- Save swap file and trigger CursorHold
+vim.opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
+vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
+vim.opt.winminwidth = 5 -- Minimum window width
+vim.opt.wrap = true -- Disable line wrap
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.colorcolumn = "80"
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
@@ -125,9 +124,6 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.INFO] = icons.diagnostics.info,
       [vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
     },
-  },
-  float = {
-    border = defaults.border,
   },
 })
 

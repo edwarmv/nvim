@@ -1,6 +1,5 @@
 local M = {}
 
-M.border = "rounded"
 M.lsp_debounce = 200
 M.icons = {
   diagnostics = {
@@ -19,6 +18,5 @@ M.icons = {
     ignored = "!",
   },
 }
--- M.border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
 
 return M
