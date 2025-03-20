@@ -11,6 +11,11 @@ return {
   opts = {
     keymap = {
       preset = "super-tab",
+      ["<M-space>"] = {
+        function(cmp)
+          cmp.show({ providers = { "snippets" } })
+        end,
+      },
     },
     appearance = {
       kind_icons = {
