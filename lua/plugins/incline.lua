@@ -14,7 +14,7 @@ local function get_filename(props)
     {
       filename,
       gui = vim.bo[props.buf].modified and "italic" or "",
-      guifg = vim.bo[props.buf].modified and "#9ece6a" or "#7aa2f7",
+      guifg = vim.bo[props.buf].modified and vim.g.terminal_color_2 or vim.g.terminal_color_4,
     },
   }
 end
@@ -71,7 +71,7 @@ end
 return {
   "b0o/incline.nvim",
   dependencies = {
-    -- "akinsho/git-conflict.nvim",
+    "akinsho/git-conflict.nvim",
   },
   enabled = true,
   init = function()
