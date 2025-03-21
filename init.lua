@@ -8,7 +8,7 @@ vim.opt.autowrite = false -- Enable auto write
 -- vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with substitutions
-vim.opt.confirm = false -- Confirm to save changes before exiting modified buffer
+vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.opt.cursorline = true -- Enable highlighting of the current line
 vim.opt.cursorcolumn = true -- Enable highlighting of the current line
 vim.opt.expandtab = true -- Use spaces instead of tabs
@@ -19,7 +19,7 @@ vim.opt.ignorecase = true -- Ignore case
 vim.opt.inccommand = "nosplit" -- preview incremental substitute
 vim.opt.laststatus = 3 -- global statusline
 vim.opt.list = true -- Show some invisible characters (tabs...
-vim.opt.number = true -- Print line number
+vim.o.number = true -- Print line number
 vim.opt.pumblend = 0 -- Popup blend
 vim.opt.pumheight = 6 -- Maximum number of entries in a popup
 vim.opt.relativenumber = false -- Relative line numbers
@@ -47,10 +47,10 @@ vim.opt.updatetime = 300 -- Save swap file and trigger CursorHold
 vim.opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.winminwidth = 5 -- Minimum window width
-vim.opt.wrap = true -- Disable line wrap
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.colorcolumn = "80"
+vim.o.wrap = true -- Disable line wrap
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.colorcolumn = "80"
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
