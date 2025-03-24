@@ -14,7 +14,7 @@ local function get_filename(props)
     {
       filename,
       gui = vim.bo[props.buf].modified and "italic" or "",
-      guifg = vim.bo[props.buf].modified and vim.g.terminal_color_2 or vim.g.terminal_color_4,
+      guifg = vim.bo[props.buf].modified and vim.g.terminal_color_2 or "",
     },
   }
 end
