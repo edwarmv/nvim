@@ -31,7 +31,7 @@ local function get_git_diff(props)
     if tonumber(signs[name]) and signs[name] > 0 then
       table.insert(labels, {
         icon .. signs[name] .. " ",
-        guifg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "diff" .. name }).fg),
+        group = "Diff" .. name,
       })
     end
   end
@@ -72,6 +72,7 @@ return {
   "b0o/incline.nvim",
   dependencies = {
     "akinsho/git-conflict.nvim",
+    "echasnovski/mini.icons",
   },
   enabled = true,
   init = function()
