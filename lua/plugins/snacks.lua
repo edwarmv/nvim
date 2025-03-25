@@ -52,7 +52,6 @@ return {
     words = { enabled = false },
     lazygit = {
       enabled = true,
-      configure = false,
       config = {
         os = {
           edit = '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<CMD>q<CR>" && nvim --server "$NVIM" --remote {{filename}})',
