@@ -15,6 +15,7 @@ return {
     end,
   },
   "tpope/vim-unimpaired",
+  "zhimsel/vim-stay",
   "b0o/SchemaStore.nvim",
   { "chrisbra/csv.vim", ft = "csv" },
   -- { "chrisbra/recover.vim" },
