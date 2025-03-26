@@ -86,7 +86,9 @@ return {
           {
             require("noice").api.status.mode.get,
             cond = require("noice").api.status.mode.has,
-            color = { fg = "#ff9e64" },
+            color = function()
+              return { fg = vim.g.terminal_color_3 }
+            end,
             padding = { left = 0, right = 1 },
           },
           { "searchcount", padding = { left = 0, right = 1 } },
