@@ -66,9 +66,13 @@ return {
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
+        window = {
+          border = "padded",
+        },
       },
       menu = {
         max_height = 6,
+        border = "none",
       },
     },
   },
