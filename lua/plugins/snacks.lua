@@ -67,6 +67,9 @@ return {
         keys = {
           { "Q", "hide", mode = { "t", "n" } },
         },
+        wo = {
+          winhighlight = "NormalFloat:Normal",
+        },
       },
     },
   },
