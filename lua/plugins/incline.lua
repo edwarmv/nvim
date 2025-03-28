@@ -1,4 +1,5 @@
 local defaults = require("config.defaults")
+local utils = require("config.utils")
 
 local function get_filename(props)
   local bufname = vim.api.nvim_buf_get_name(props.buf)
@@ -31,7 +32,7 @@ local function get_git_diff(props)
     if tonumber(signs[name]) and signs[name] > 0 then
       table.insert(labels, {
         icon .. signs[name] .. " ",
-        group = "Diff" .. name,
+        guifg = utils.get_hl("Diff" .. name).fg,
       })
     end
   end
@@ -56,7 +57,7 @@ local function get_diagnostic_label(props)
   for severity, icon in pairs(diagnostic_icons) do
     local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
     if n > 0 then
-      table.insert(label, { icon .. n .. " ", group = "DiagnosticSign" .. severity })
+      table.insert(label, { icon .. n .. " ", guifg = utils.get_hl("DiagnosticSign" .. severity).fg })
     end
   end
 
@@ -65,7 +66,7 @@ end
 
 local function conflict_count(props)
   local count = require("git-conflict").conflict_count(props.buf)
-  return { count > 0 and " " .. count .. " " or "", group = "Error" }
+  return { count > 0 and " " .. count .. " " or "", guifg = utils.get_hl("Error").fg }
 end
 
 return {
