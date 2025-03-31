@@ -187,4 +187,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd.colorscheme("kanagawa")
+vim.cmd.colorscheme("tokyonight-storm")
