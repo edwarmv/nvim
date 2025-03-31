@@ -51,10 +51,23 @@ return {
       map("n", "<leader>gD", function()
         gitsigns.diffthis("~")
       end, { desc = "[Gitsigns] Diff This" })
-
       map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "[GitSigns] - Toggle Blame" })
-
       map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>", { silent = true })
+      map("n", "<leader>gc", function()
+        local all = vim.fn.systemlist({ "git", "rev-parse", "--symbolic", "--branches", "--tags", "--remotes" })
+        local original_base = "Original base"
+        table.insert(all, 1, original_base)
+        vim.ui.select(all, {
+          prompt = "Select branch",
+        }, function(choice)
+          if choice == nil then
+            return
+          elseif choice == original_base then
+            choice = nil
+          end
+          gitsigns.change_base(choice, true)
+        end)
+      end, { desc = "[Gitsigns] Diff This" })
     end,
   },
 }
