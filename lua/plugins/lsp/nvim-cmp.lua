@@ -7,15 +7,14 @@ local function has_words_before()
 end
 
 return {
-  "iguanacucumber/magazine.nvim",
-  name = "nvim-cmp",
-  enabled = false,
+  "hrsh7th/nvim-cmp",
+  enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
-    { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
-    { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
-    "https://codeberg.org/FelipeLema/cmp-async-path",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-path",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     {
       "saadparwaiz1/cmp_luasnip",
@@ -27,7 +26,14 @@ return {
     --   "abeldekat/cmp-mini-snippets",
     --   dependencies = "echasnovski/mini.snippets",
     -- },
-    "luckasRanarison/tailwind-tools.nvim",
+    {
+      "luckasRanarison/tailwind-tools.nvim",
+      opts = {
+        document_color = {
+          enabled = false,
+        },
+      },
+    },
     "onsails/lspkind-nvim",
     "windwp/nvim-autopairs",
   },
@@ -114,7 +120,7 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "async_path", option = { show_hidden_files_by_default = true } },
+        { name = "path" },
         { name = "buffer" },
       }),
       formatting = {
@@ -153,7 +159,7 @@ return {
         },
       },
       sources = cmp.config.sources({
-        { name = "async_path", option = { show_hidden_files_by_default = true } },
+        { name = "path" },
       }, {
         { name = "cmdline" },
       }),

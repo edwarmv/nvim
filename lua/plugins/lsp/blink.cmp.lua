@@ -1,30 +1,10 @@
 return {
   "saghen/blink.cmp",
-  enabled = true,
+  enabled = false,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
     "L3MON4D3/LuaSnip",
-    {
-      "github/copilot.vim",
-      cmd = "Copilot",
-      event = "BufWinEnter",
-      init = function()
-        vim.g.copilot_no_maps = true
-      end,
-      config = function()
-        -- Block the normal Copilot suggestions
-        vim.api.nvim_create_augroup("github_copilot", { clear = true })
-        vim.api.nvim_create_autocmd({ "FileType", "BufUnload" }, {
-          group = "github_copilot",
-          callback = function(args)
-            vim.fn["copilot#On" .. args.event]()
-          end,
-        })
-        vim.fn["copilot#OnFileType"]()
-      end,
-    },
-    "fang2hou/blink-copilot",
   },
   build = "cargo build --release",
   -- version = "*",
@@ -70,7 +50,7 @@ return {
       preset = "luasnip",
     },
     sources = {
-      default = { "lsp", "path", "snippets", "buffer", "copilot" },
+      default = { "lsp", "path", "snippets", "buffer" },
       per_filetype = {
         lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
       },
@@ -79,12 +59,6 @@ return {
         lsp = {
           opts = { tailwind_color_icon = "■" },
           fallbacks = {},
-        },
-        copilot = {
-          name = "copilot",
-          module = "blink-copilot",
-          score_offset = 100,
-          async = true,
         },
       },
     },
