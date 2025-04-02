@@ -2,7 +2,6 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    "letieu/harpoon-lualine",
   },
   opts = {
     options = {
@@ -49,13 +48,6 @@ return {
         },
         { "searchcount", padding = { left = 0, right = 1 } },
         { "selectioncount", padding = { left = 0, right = 1 } },
-        {
-          "harpoon2",
-          no_harpoon = "",
-          indicators = { "a", "s", "d", "f" },
-          active_indicators = { "A", "S", "D", "F" },
-          padding = { left = 0, right = 1 },
-        },
         { "zoom#statusline", padding = { left = 0, right = 1 } },
         { "ObsessionStatus", padding = { left = 0, right = 1 } },
       },
