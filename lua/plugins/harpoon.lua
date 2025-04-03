@@ -12,28 +12,28 @@ return {
   },
   keys = {
     {
-      "<m-a>",
+      "<m-q>",
       function()
         return require("harpoon"):list():select(1)
       end,
       desc = "[Harpoon] - Navigate to File(1)",
     },
     {
-      "<m-s>",
+      "<m-w>",
       function()
         return require("harpoon"):list():select(2)
       end,
       desc = "[Harpoon] - Navigate to File(2)",
     },
     {
-      "<m-d>",
+      "<m-a>",
       function()
         return require("harpoon"):list():select(3)
       end,
       desc = "[Harpoon] - Navigate to File(3)",
     },
     {
-      "<m-f>",
+      "<m-s>",
       function()
         return require("harpoon"):list():select(4)
       end,
@@ -48,7 +48,7 @@ return {
       desc = "[Harpoon] - Add File",
     },
     {
-      "gH",
+      "<space>h",
       function()
         require("harpoon").ui:toggle_quick_menu(
           require("harpoon"):list(),
