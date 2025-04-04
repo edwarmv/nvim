@@ -1,13 +1,12 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
     "L3MON4D3/LuaSnip",
   },
-  build = "cargo build --release",
-  -- version = "*",
+  version = "*",
   opts = {
     keymap = {
       preset = "super-tab",
