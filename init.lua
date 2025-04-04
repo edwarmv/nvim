@@ -187,4 +187,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd.colorscheme("tokyonight-storm")
+vim.cmd.colorscheme("gruvbox-material")
