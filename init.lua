@@ -1,5 +1,3 @@
-vim.deprecate = function() end
-vim.notify_once = function() end
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
 vim.o.winborder = "none"
