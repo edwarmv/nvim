@@ -65,12 +65,15 @@ return {
     opts = {
       handlers = {
         function(server_name) -- default handler (optional)
+          local capabilities = require("cmp_nvim_lsp").default_capabilities()
           require("lspconfig")[server_name].setup({
-            -- capabilities = require("cmp_nvim_lsp").default_capabilities(),
+            capabilities = capabilities,
           })
         end,
         ["jsonls"] = function()
+          local capabilities = require("cmp_nvim_lsp").default_capabilities()
           require("lspconfig").jsonls.setup({
+            capabilities = capabilities,
             settings = {
               json = {
                 schemas = require("schemastore").json.schemas(),
@@ -80,16 +83,26 @@ return {
           })
         end,
         ["html"] = function()
+          local capabilities = require("cmp_nvim_lsp").default_capabilities()
           require("lspconfig").html.setup({
+            capabilities = capabilities,
             filetypes = { "html", "templ", "htmlangular" },
           })
         end,
         ["basedpyright"] = function()
+          local capabilities = require("cmp_nvim_lsp").default_capabilities({
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
+            },
+          })
           require("lspconfig").basedpyright.setup({
+            capabilities = capabilities,
             settings = {
               basedpyright = {
                 analysis = {
-                  typeCheckingMode = "basic", -- ["off", "basic", "standard", "strict", "all"]
+                  typeCheckingMode = "off", -- ["off", "basic", "standard", "strict", "all"]
                 },
               },
             },
