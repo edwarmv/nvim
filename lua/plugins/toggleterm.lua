@@ -2,15 +2,20 @@ local defaults = require("config.defaults")
 
 return {
   "akinsho/toggleterm.nvim",
+  enabled = false,
   init = function()
-    vim.api.nvim_create_user_command("FTerm", "ToggleTerm direction=float", {})
+    vim.api.nvim_create_user_command("FTerm", function(opts)
+      vim.fn.execute(opts.count .. "ToggleTerm direction=float")
+    end, { count = true })
     vim.api.nvim_create_user_command("VTerm", function(opts)
       vim.fn.execute(opts.count .. "ToggleTerm direction=vertical")
     end, { count = true })
     vim.api.nvim_create_user_command("STerm", function(opts)
       vim.fn.execute(opts.count .. "ToggleTerm direction=horizontal")
     end, { count = true })
-    vim.api.nvim_create_user_command("TTerm", "ToggleTerm direction=tab", {})
+    vim.api.nvim_create_user_command("TTerm", function(opts)
+      vim.fn.execute(opts.count .. "ToggleTerm direction=tab")
+    end, { count = true })
 
     function _G.set_terminal_keymaps()
       local esc_timer
