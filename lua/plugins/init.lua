@@ -68,4 +68,9 @@ return {
       legacy_computing_symbols_support = true,
     },
   },
+  {
+    "jake-stewart/auto-cmdheight.nvim",
+    lazy = false,
+    opts = {},
+  },
 }
