@@ -2,8 +2,6 @@ vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
 vim.o.winborder = "none"
 
-vim.opt.autowrite = false -- Enable auto write
--- vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with substitutions
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
@@ -38,7 +36,6 @@ vim.o.splitright = true -- Put new windows right of current
 vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.softtabstop = -1
 vim.o.shiftwidth = 2 -- Size of an indent
-vim.o.termguicolors = true -- True color support
 vim.o.timeoutlen = 500
 vim.o.undofile = true
 vim.o.undolevels = 10000
@@ -46,7 +43,6 @@ vim.o.updatetime = 300 -- Save swap file and trigger CursorHold
 vim.o.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 vim.o.wildmode = "longest:full,full" -- Command-line completion mode
 vim.o.winminwidth = 5 -- Minimum window width
-vim.o.wrap = true -- Disable line wrap
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.colorcolumn = "80"
@@ -184,4 +180,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("tokyonight-storm")
