@@ -60,7 +60,7 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
-      -- "cmp-nvim-lsp",
+      "cmp-nvim-lsp",
     },
     opts = {
       handlers = {
