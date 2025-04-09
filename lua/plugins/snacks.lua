@@ -85,7 +85,7 @@ return {
   end,
   -- stylua: ignore start
   keys = {
-    { "<c-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Term" },
+    -- { "<c-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Term" },
     { "<leader>gl", function() Snacks.lazygit.open() end, desc = "Open Lazygit" },
     { "<leader>gL", function() Snacks.lazygit.open({cwd = Snacks.git.get_root()}) end, desc = "Open Lazygit - Current buffer" },
     -- { "<m-n>", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },

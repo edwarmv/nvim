@@ -2,7 +2,7 @@ local defaults = require("config.defaults")
 
 return {
   "akinsho/toggleterm.nvim",
-  enabled = false,
+  enabled = true,
   init = function()
     vim.api.nvim_create_user_command("FTerm", function(opts)
       vim.fn.execute(opts.count .. "ToggleTerm direction=float")
