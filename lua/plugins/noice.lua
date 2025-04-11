@@ -1,13 +1,13 @@
 return {
   "folke/noice.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
   opts = {
     messages = {
-      enabled = true,
+      enabled = false,
       view_search = false,
     },
     lsp = {
