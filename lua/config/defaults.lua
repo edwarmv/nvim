@@ -18,6 +18,13 @@ M.icons = {
     deleted = "D",
     ignored = "!",
   },
+  dap = {
+    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+    Breakpoint = " ",
+    BreakpointCondition = " ",
+    BreakpointRejected = { " ", "DiagnosticError" },
+    LogPoint = ".>",
+  },
 }
 
 return M
