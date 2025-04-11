@@ -3,7 +3,7 @@ vim.g.maplocalleader = ","
 vim.o.winborder = "none"
 
 vim.o.completeopt = "menu,menuone,noselect"
-vim.o.conceallevel = 0 -- Hide * markup for bold and italic, but not markers with substitutions
+vim.o.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.o.cursorline = true -- Enable highlighting of the current line
 vim.o.cursorcolumn = true -- Enable highlighting of the current line
