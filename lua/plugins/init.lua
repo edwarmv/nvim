@@ -17,6 +17,7 @@ return {
   "tpope/vim-unimpaired",
   "zhimsel/vim-stay",
   "b0o/SchemaStore.nvim",
+  "neoclide/jsonc.vim",
   { "chrisbra/csv.vim", ft = "csv" },
   -- { "chrisbra/recover.vim" },
   {
