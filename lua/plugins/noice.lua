@@ -7,7 +7,7 @@ return {
   },
   opts = {
     messages = {
-      enabled = false,
+      enabled = true,
       view_search = false,
     },
     lsp = {
