@@ -1,6 +1,6 @@
 return {
   "L3MON4D3/LuaSnip",
-  enabled = true,
+  enabled = false,
   dependencies = {
     "rafamadriz/friendly-snippets",
     {

@@ -17,15 +17,20 @@ return {
   },
   {
     "echasnovski/mini.snippets",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
     config = function()
       local gen_loader = require("mini.snippets").gen_loader
 
-      local javascripts_patterns = { "javascript/**/*.json", "**/javascript.json" }
-      local lang_patterns = { typescript = javascripts_patterns }
+      local javascript = "javascript.json"
+      local react = "**/react.json"
+      local lang_patterns = {
+        typescript = { javascript },
+        astro = { javascript },
+        tsx = { react, javascript },
+      }
       require("mini.snippets").setup({
         snippets = {
           -- -- Load custom file with global snippets first (adjust for Windows)
