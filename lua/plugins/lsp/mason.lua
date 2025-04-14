@@ -62,53 +62,56 @@ return {
       "williamboman/mason.nvim",
       "cmp-nvim-lsp",
     },
-    opts = {
-      handlers = {
-        function(server_name) -- default handler (optional)
-          local capabilities = require("cmp_nvim_lsp").default_capabilities()
-          require("lspconfig")[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-        ["jsonls"] = function()
-          local capabilities = require("cmp_nvim_lsp").default_capabilities()
-          require("lspconfig").jsonls.setup({
-            capabilities = capabilities,
-            settings = {
-              json = {
-                schemas = require("schemastore").json.schemas(),
-                validate = { enable = true },
-              },
-            },
-          })
-        end,
-        ["html"] = function()
-          local capabilities = require("cmp_nvim_lsp").default_capabilities()
-          require("lspconfig").html.setup({
-            capabilities = capabilities,
-            filetypes = { "html", "templ", "htmlangular" },
-          })
-        end,
-        ["basedpyright"] = function()
-          local capabilities = require("cmp_nvim_lsp").default_capabilities({
-            workspace = {
-              didChangeWatchedFiles = {
-                dynamicRegistration = true,
-              },
-            },
-          })
-          require("lspconfig").basedpyright.setup({
-            capabilities = capabilities,
-            settings = {
-              basedpyright = {
-                analysis = {
-                  typeCheckingMode = "off", -- ["off", "basic", "standard", "strict", "all"]
+    config = function()
+      local capabilities = vim.tbl_deep_extend(
+        "force",
+        vim.lsp.protocol.make_client_capabilities(),
+        require("cmp_nvim_lsp").default_capabilities()
+      )
+      capabilities.workspace = {
+        didChangeWatchedFiles = {
+          dynamicRegistration = true,
+          relative_pattern_support = true,
+        },
+      }
+      require("mason-lspconfig").setup({
+        handlers = {
+          function(server_name) -- default handler (optional)
+            require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
+          ["jsonls"] = function()
+            require("lspconfig").jsonls.setup({
+              capabilities = capabilities,
+              settings = {
+                json = {
+                  schemas = require("schemastore").json.schemas(),
+                  validate = { enable = true },
                 },
               },
-            },
-          })
-        end,
-      },
-    },
+            })
+          end,
+          ["html"] = function()
+            require("lspconfig").html.setup({
+              capabilities = capabilities,
+              filetypes = { "html", "templ", "htmlangular" },
+            })
+          end,
+          ["basedpyright"] = function()
+            require("lspconfig").basedpyright.setup({
+              capabilities = capabilities,
+              settings = {
+                basedpyright = {
+                  analysis = {
+                    typeCheckingMode = "off", -- ["off", "basic", "standard", "strict", "all"]
+                  },
+                },
+              },
+            })
+          end,
+        },
+      })
+    end,
   },
 }
