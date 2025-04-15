@@ -24,7 +24,7 @@ return {
     config = function()
       local gen_loader = require("mini.snippets").gen_loader
 
-      local javascript = "javascript.json"
+      local javascript = "**/javascript.json"
       local react = "**/react.json"
       local lang_patterns = {
         typescript = { javascript },
