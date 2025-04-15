@@ -3,7 +3,7 @@ local defaults = require("config.defaults")
 return {
   "akinsho/bufferline.nvim",
   enabled = false,
-  lazy = false,
+  event = "VimEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
