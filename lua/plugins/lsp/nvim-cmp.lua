@@ -60,8 +60,7 @@ return {
       },
       view = {
         entries = {
-          name = "custom",
-          follow_cursor = true,
+          follow_cursor = false,
         },
         docs = {
           auto_open = false,
@@ -139,7 +138,6 @@ return {
         { name = "buffer" },
       }),
       formatting = {
-        expandable_indicator = true,
         fields = {
           "kind",
           "abbr",
@@ -178,16 +176,7 @@ return {
       }, {
         { name = "cmdline" },
       }),
-      matching = {
-        disallow_fuzzy_matching = false,
-        disallow_fullfuzzy_matching = false,
-        disallow_partial_fuzzy_matching = true,
-        disallow_partial_matching = false,
-        disallow_prefix_unmatching = false,
-        disallow_symbol_nonprefix_matching = false,
-      },
       formatting = {
-        expandable_indicator = true,
         fields = {
           "abbr",
         },
