@@ -71,7 +71,6 @@ return {
       capabilities.workspace = {
         didChangeWatchedFiles = {
           dynamicRegistration = true,
-          relative_pattern_support = true,
         },
       }
       require("mason-lspconfig").setup({
