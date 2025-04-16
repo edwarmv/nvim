@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    provider = "gemini",
+    provider = "copilot",
     hints = { enabled = false },
   },
   build = "make",
