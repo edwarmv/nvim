@@ -46,7 +46,7 @@ return {
       },
     },
     snippets = {
-      preset = "luasnip",
+      preset = "mini_snippets",
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
