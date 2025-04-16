@@ -3,14 +3,14 @@ return {
   event = "VimEnter",
   dependencies = {
     "kkharji/sqlite.lua",
-    {
-      "gbprod/cutlass.nvim",
-      opts = {
-        cut_key = "x",
-        override_del = nil,
-        exclude = { "ns", "nS", "xs", "xS" },
-      },
-    },
+    -- {
+    --   "gbprod/cutlass.nvim",
+    --   opts = {
+    --     cut_key = "x",
+    --     override_del = nil,
+    --     exclude = { "ns", "nS", "xs", "xS" },
+    --   },
+    -- },
     "folke/snacks.nvim",
   },
   config = function()
