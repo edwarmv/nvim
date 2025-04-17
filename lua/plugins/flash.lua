@@ -30,14 +30,14 @@ return {
         require("flash").jump({ continue = true })
       end,
       desc = "Flash - Continue last search",
-      {
-        "Z",
-        mode = { "x" },
-        function()
-          require("flash").jump({ continue = true })
-        end,
-        desc = "Flash - Continue last search",
-      },
+    },
+    {
+      "Z",
+      mode = { "x" },
+      function()
+        require("flash").jump({ continue = true })
+      end,
+      desc = "Flash - Continue last search",
     },
     -- {
     --   "S",

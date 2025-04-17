@@ -15,7 +15,6 @@ return {
     end,
   },
   "tpope/vim-unimpaired",
-  "zhimsel/vim-stay",
   "b0o/SchemaStore.nvim",
   "neoclide/jsonc.vim",
   { "chrisbra/csv.vim", ft = "csv" },
@@ -36,6 +35,7 @@ return {
       "tyru/open-browser.vim",
     },
   },
+  "zhimsel/vim-stay",
   "farmergreg/vim-lastplace",
   {
     "haya14busa/vim-asterisk",

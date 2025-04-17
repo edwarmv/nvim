@@ -54,7 +54,7 @@ return {
           return true
         end
       end,
-      additional_vim_regex_highlighting = { "astro" },
+      -- additional_vim_regex_highlighting = { "astro" },
     },
     indent = {
       enable = true,

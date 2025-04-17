@@ -1,6 +1,6 @@
 return {
   "mg979/vim-visual-multi",
-  enabled = false,
+  enabled = true,
   event = "VimEnter",
   init = function()
     vim.g.VM_set_statusline = 1

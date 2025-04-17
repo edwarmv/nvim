@@ -24,10 +24,6 @@ return {
     --   },
     -- },
     {
-      "abeldekat/cmp-mini-snippets",
-      dependencies = "echasnovski/mini.snippets",
-    },
-    {
       "luckasRanarison/tailwind-tools.nvim",
       opts = {
         document_color = {
@@ -97,11 +93,7 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         ["<tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            if MiniSnippets.session.get() ~= nil then
-              cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
-            else
-              cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-            end
+            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
           elseif MiniSnippets.session.get() ~= nil then
             MiniSnippets.session.jump("next")
           elseif has_words_before() then
@@ -133,7 +125,6 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         -- { name = "luasnip" },
-        { name = "mini_snippets" },
         { name = "async_path", option = { show_hidden_files_by_default = true } },
         { name = "buffer" },
       }),
@@ -210,7 +201,6 @@ return {
       sources = cmp.config.sources({
         { name = "vim-dadbod-completion" },
         -- { name = "luasnip" },
-        { name = "mini_snippets" },
         { name = "buffer" },
       }),
     })
