@@ -96,8 +96,6 @@ return {
             cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
           elseif MiniSnippets.session.get() ~= nil then
             MiniSnippets.session.jump("next")
-          elseif has_words_before() then
-            cmp.complete()
           else
             fallback()
           end
