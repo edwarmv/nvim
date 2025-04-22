@@ -1,6 +1,6 @@
 return {
   "jake-stewart/multicursor.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     local mc = require("multicursor-nvim")
     mc.setup()
