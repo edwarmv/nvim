@@ -49,8 +49,8 @@ return {
         },
         { "searchcount", padding = { left = 0, right = 1 } },
         { "selectioncount", padding = { left = 0, right = 1 } },
-        { "zoom#statusline", padding = { left = 0, right = 1 } },
-        { "ObsessionStatus", padding = { left = 0, right = 1 } },
+        -- { "zoom#statusline", padding = { left = 0, right = 1 } },
+        -- { "ObsessionStatus", padding = { left = 0, right = 1 } },
         {
           "harpoon2",
           icon = "󰀱",
