@@ -69,4 +69,5 @@ return {
       legacy_computing_symbols_support = true,
     },
   },
+  "wsdjeg/vim-fetch",
 }
