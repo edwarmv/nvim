@@ -12,6 +12,11 @@ return {
         enabled = false,
       },
     },
+    prompt = {
+      win_config = {
+        border = "none",
+      },
+    },
   },
   keys = {
     {
