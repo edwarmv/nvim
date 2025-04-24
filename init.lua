@@ -1,6 +1,6 @@
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = ","
-vim.o.winborder = "rounded"
+vim.o.winborder = "none"
 
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
