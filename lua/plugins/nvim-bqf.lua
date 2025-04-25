@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "kevinhwang91/nvim-bqf",
   enabled = true,
@@ -7,7 +9,7 @@ return {
     auto_resize_height = true,
     delay_syntax = 80,
     preview = {
-      border = vim.o.winborder,
+      border = defaults.border,
       winblend = 0,
       should_preview_cb = function(bufnr, qwinid)
         local ret = true
