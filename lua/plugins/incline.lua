@@ -75,7 +75,7 @@ return {
     "akinsho/git-conflict.nvim",
     "echasnovski/mini.icons",
   },
-  enabled = true,
+  enabled = false,
   init = function()
     vim.api.nvim_create_autocmd({ "DiagnosticChanged" }, {
       callback = function()
