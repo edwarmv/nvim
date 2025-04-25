@@ -8,12 +8,7 @@ return {
       vim.g.eunuch_no_maps = 1
     end,
   },
-  -- {
-  --   "tpope/vim-obsession",
-  --   init = function()
-  --     vim.g.obsession_no_bufenter = true
-  --   end,
-  -- },
+  "tpope/vim-obsession",
   "tpope/vim-unimpaired",
   "b0o/SchemaStore.nvim",
   "neoclide/jsonc.vim",
