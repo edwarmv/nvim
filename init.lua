@@ -28,7 +28,8 @@ vim.o.numberwidth = 1
 vim.o.smartcase = true -- Don't ignore case with capitals
 vim.opt.spelllang = { "en" }
 vim.opt.spelloptions:append("noplainbuffer")
-vim.opt.sessionoptions:remove({ "blank" })
+vim.opt.sessionoptions:remove({ "blank", "folds", "help" })
+vim.opt.sessionoptions:append({ "winpos" })
 vim.o.splitbelow = true -- Put new windows below current
 vim.o.splitkeep = "screen"
 vim.o.splitright = true -- Put new windows right of current
@@ -108,6 +109,9 @@ local defaults = require("config.defaults")
 local icons = defaults.icons
 
 vim.diagnostic.config({
+  virtual_text = {
+    current_line = true,
+  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
@@ -173,8 +177,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     if client ~= nil and client:supports_method("textDocument/foldingRange") then
-      vim.wo.foldmethod = "expr"
-      vim.wo.foldexpr = "v:lua.vim.lsp.foldexpr()"
+      local win = vim.api.nvim_get_current_win()
+      vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
     end
   end,
 })
