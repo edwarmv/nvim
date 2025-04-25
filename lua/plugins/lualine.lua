@@ -99,8 +99,8 @@ return {
           get_filename,
           color = function()
             return {
-              fg = vim.bo.modified and vim.g.terminal_color_2 or utils.get_hl("WinBar").fg,
-              bg = utils.get_hl("WinBar").bg,
+              fg = vim.bo.modified and vim.g.terminal_color_2 or utils.get_hl("lualine_c_normal").fg,
+              bg = utils.get_hl("lualine_c_normal").bg,
               gui = vim.bo.modified and "italic" or "none",
             }
           end,
@@ -135,8 +135,8 @@ return {
           get_filename,
           color = function()
             return {
-              fg = vim.bo.modified and vim.g.terminal_color_2 or utils.get_hl("StatuslineNC").fg,
-              bg = utils.get_hl("StatuslineNC").bg,
+              fg = vim.bo.modified and vim.g.terminal_color_2 or utils.get_hl("lualine_c_inactive").fg,
+              bg = utils.get_hl("lualine_c_inactive").bg,
               gui = vim.bo.modified and "italic" or "none",
             }
           end,
