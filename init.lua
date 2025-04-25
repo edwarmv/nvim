@@ -28,8 +28,7 @@ vim.o.numberwidth = 1
 vim.o.smartcase = true -- Don't ignore case with capitals
 vim.opt.spelllang = { "en" }
 vim.opt.spelloptions:append("noplainbuffer")
-vim.opt.sessionoptions:remove("blank")
-vim.opt.sessionoptions:append("globals")
+vim.opt.sessionoptions:remove({ "blank" })
 vim.o.splitbelow = true -- Put new windows below current
 vim.o.splitkeep = "screen"
 vim.o.splitright = true -- Put new windows right of current
