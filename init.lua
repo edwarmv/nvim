@@ -46,6 +46,8 @@ vim.o.winminwidth = 5 -- Minimum window width
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.colorcolumn = "80"
+vim.o.breakindent = true
+vim.o.showbreak = "↪ "
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
@@ -69,7 +71,7 @@ vim.opt.fillchars = {
   foldclose = "▸",
 }
 vim.opt.listchars = {
-  multispace = "⋅",
+  -- multispace = "⋅",
   trail = "⋅",
   tab = "-->",
 }

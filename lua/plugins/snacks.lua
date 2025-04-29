@@ -18,12 +18,13 @@ return {
     rename = { enabled = true },
     scratch = { enabled = true },
     indent = {
-      enabled = false,
+      enabled = true,
       indent = {
-        char = "▏",
+        char = "│",
       },
       scope = {
-        char = "▏",
+        enabled = false,
+        char = "│",
       },
     },
     picker = {
