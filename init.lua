@@ -3,7 +3,6 @@ vim.g.maplocalleader = ","
 vim.o.winborder = "none"
 
 vim.o.completeopt = "menu,menuone,noselect"
-vim.o.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.o.cursorline = true -- Enable highlighting of the current line
 vim.o.cursorcolumn = true -- Enable highlighting of the current line
@@ -151,15 +150,6 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function(event)
     vim.bo[event.buf].buflisted = false
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-  end,
-})
-
--- Fix conceallevel for json files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = augroup("json_conceal"),
-  pattern = { "json", "jsonc", "json5" },
-  callback = function()
-    vim.opt_local.conceallevel = 0
   end,
 })
 
