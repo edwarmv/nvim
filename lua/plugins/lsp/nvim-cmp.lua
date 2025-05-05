@@ -23,6 +23,7 @@ return {
     --     "L3MON4D3/LuaSnip",
     --   },
     -- },
+    "abeldekat/cmp-mini-snippets",
     {
       "luckasRanarison/tailwind-tools.nvim",
       opts = {
@@ -45,6 +46,8 @@ return {
           -- require("luasnip").lsp_expand(args.body)
           local insert = MiniSnippets.config.expand.insert or MiniSnippets.default_insert
           insert({ body = args.body }) -- Insert at cursor
+          cmp.resubscribe({ "TextChangedI", "TextChangedP" })
+          require("cmp.config").set_onetime({ sources = {} })
         end,
       },
       window = {
@@ -121,6 +124,7 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         -- { name = "luasnip" },
+        { name = "mini_snippets" },
         { name = "async_path", option = { show_hidden_files_by_default = true } },
         { name = "buffer" },
       }),
@@ -197,6 +201,7 @@ return {
       sources = cmp.config.sources({
         { name = "vim-dadbod-completion" },
         -- { name = "luasnip" },
+        { name = "mini_snippets" },
         { name = "buffer" },
       }),
     })
