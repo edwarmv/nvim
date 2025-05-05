@@ -64,6 +64,30 @@ return {
     end,
   },
   { "echasnovski/mini.indentscope", opts = { symbol = "│" } },
+  {
+    "echasnovski/mini.diff",
+    opts = {
+      view = { style = "number" },
+      mappings = {
+        apply = "",
+        reset = "",
+        textobject = "",
+        goto_first = "",
+        goto_prev = "",
+        goto_next = "",
+        goto_last = "",
+      },
+    },
+    keys = {
+      {
+        "<leader>go",
+        function()
+          MiniDiff.toggle_overlay()
+        end,
+        desc = "[MiniDiff] - Toggle Overlay",
+      },
+    },
+  },
   -- {
   --   "echasnovski/mini.notify",
   --   version = false,
