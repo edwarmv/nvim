@@ -18,6 +18,14 @@ local function conflict_count()
   return count > 0 and " " .. count or ""
 end
 
+local function macro()
+  local reg = vim.fn.reg_recording()
+  if reg ~= "" then
+    return "Recording @" .. reg
+  end
+  return ""
+end
+
 local function get_filename()
   local buftype = vim.bo.buftype
   if buftype == "" then
@@ -64,21 +72,34 @@ return {
             return ""
           end,
         },
+        { "diff", source = diff_source, padding = { left = 0, right = 1 } },
+        {
+          conflict_count,
+          color = function()
+            return { fg = utils.get_hl("Error").fg }
+          end,
+          padding = { left = 0, right = 1 },
+        },
       },
       lualine_c = {
         "aerial",
       },
       lualine_x = {
-        { "filetype" },
         {
-          "macro",
-          fmt = function()
-            local reg = vim.fn.reg_recording()
-            if reg ~= "" then
-              return "Recording @" .. reg
-            end
-            return nil
-          end,
+          "diagnostics",
+          sources = { "nvim_diagnostic" },
+          symbols = {
+            error = icons.diagnostics.error,
+            warn = icons.diagnostics.warn,
+            info = icons.diagnostics.info,
+            hint = icons.diagnostics.hint,
+          },
+          update_in_insert = false,
+          padding = { left = 0, right = 1 },
+        },
+        { "filetype", padding = { left = 0, right = 1 } },
+        {
+          macro,
           color = function()
             return { fg = vim.g.terminal_color_3 }
           end,
@@ -98,33 +119,16 @@ return {
         {
           get_filename,
           color = function()
+            local has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
             return {
-              fg = vim.bo.modified and vim.g.terminal_color_2 or utils.get_hl("lualine_c_normal").fg,
+              fg = has_erros and utils.get_hl("Error").fg
+                or vim.bo.modified and vim.g.terminal_color_2
+                or utils.get_hl("lualine_c_normal").fg,
               bg = utils.get_hl("lualine_c_normal").bg,
               gui = vim.bo.modified and "italic" or "none",
             }
           end,
-          padding = 0,
-        },
-        { "diff", source = diff_source, padding = { left = 1, right = 0 } },
-        {
-          conflict_count,
-          color = function()
-            return { fg = utils.get_hl("Error").fg }
-          end,
-          padding = { left = 1, right = 0 },
-        },
-        {
-          "diagnostics",
-          sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          symbols = {
-            error = icons.diagnostics.error,
-            warn = icons.diagnostics.warn,
-            info = icons.diagnostics.info,
-            hint = icons.diagnostics.hint,
-          },
-          update_in_insert = false, -- Update diagnostics in insert mode
-          padding = { left = 1, right = 0 },
+          padding = { left = 0, right = 1 },
         },
       },
     },
@@ -134,33 +138,16 @@ return {
         {
           get_filename,
           color = function()
+            local has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
             return {
-              fg = vim.bo.modified and vim.g.terminal_color_2 or utils.get_hl("lualine_c_inactive").fg,
+              fg = has_erros and utils.get_hl("Error").fg
+                or vim.bo.modified and vim.g.terminal_color_2
+                or utils.get_hl("lualine_c_inactive").fg,
               bg = utils.get_hl("lualine_c_inactive").bg,
               gui = vim.bo.modified and "italic" or "none",
             }
           end,
-          padding = 0,
-        },
-        { "diff", source = diff_source, padding = { left = 1, right = 0 } },
-        {
-          conflict_count,
-          color = function()
-            return { fg = utils.get_hl("Error").fg }
-          end,
-          padding = { left = 1, right = 0 },
-        },
-        {
-          "diagnostics",
-          sources = { "nvim_diagnostic" }, -- coc nvim_diagnostic
-          symbols = {
-            error = icons.diagnostics.error,
-            warn = icons.diagnostics.warn,
-            info = icons.diagnostics.info,
-            hint = icons.diagnostics.hint,
-          },
-          update_in_insert = false, -- Update diagnostics in insert mode
-          padding = { left = 1, right = 0 },
+          padding = { left = 0, right = 1 },
         },
       },
     },
