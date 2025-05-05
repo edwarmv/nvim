@@ -2,6 +2,10 @@ local defaults = require("config.defaults")
 
 return {
   "kevinhwang91/nvim-bqf",
+  dependencies = {
+    "junegunn/fzf",
+    build = "./install --bin",
+  },
   enabled = true,
   ft = "qf",
   opts = {
