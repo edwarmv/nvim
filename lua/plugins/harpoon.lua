@@ -2,7 +2,7 @@ return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
   event = "VimEnter",
-  enabled = true,
+  enabled = false,
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
     settings = {
@@ -40,7 +40,7 @@ return {
       desc = "[Harpoon] - Navigate to File(4)",
     },
     {
-      "gh",
+      "gah",
       function()
         require("harpoon"):list():add()
       end,
