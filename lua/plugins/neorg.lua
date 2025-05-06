@@ -9,7 +9,7 @@ return {
     },
   },
   keys = {
-    { "<space>n", "<cmd>Neorg<cr>", desc = "Neorg - Open" },
-    { "<space>N", "<cmd>Neorg return<cr>", desc = "Neorg - Return" },
+    { "<leader>n", "<cmd>Neorg<cr>", desc = "Neorg - Open" },
+    { "<leader>N", "<cmd>Neorg return<cr>", desc = "Neorg - Return" },
   },
 }

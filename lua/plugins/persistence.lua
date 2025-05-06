@@ -6,28 +6,28 @@ return {
   },
   keys = {
     {
-      "<space>qs",
+      "<leader>qs",
       function()
         require("persistence").load()
       end,
       desc = "Persistence - load the session for the current directory",
     },
     {
-      "<space>qS",
+      "<leader>qS",
       function()
         require("persistence").select()
       end,
       desc = "Persistence - select a session to load",
     },
     {
-      "<space>ql",
+      "<leader>ql",
       function()
         require("persistence").load({ last = true })
       end,
       desc = "Persistence - load the last session",
     },
     {
-      "<space>qd",
+      "<leader>qd",
       function()
         require("persistence").stop()
       end,

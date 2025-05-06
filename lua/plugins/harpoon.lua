@@ -48,7 +48,7 @@ return {
       desc = "[Harpoon] - Add File",
     },
     {
-      "<space>h",
+      "<leader>h",
       function()
         require("harpoon").ui:toggle_quick_menu(
           require("harpoon"):list(),

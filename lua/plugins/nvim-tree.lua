@@ -133,7 +133,7 @@ return {
   end,
   keys = {
     {
-      "<space>e",
+      "<leader>e",
       function()
         require("nvim-tree.api").tree.toggle({
           find_file = false,
@@ -144,7 +144,7 @@ return {
       desc = "NvimTree - Toggle",
     },
     {
-      "<space>E",
+      "<leader>E",
       function()
         require("nvim-tree.api").tree.find_file({
           open = true,

@@ -58,7 +58,7 @@ return {
   },
   keys = {
     {
-      "<space>w",
+      "<leader>w",
       function()
         require("dropbar.api").pick()
       end,

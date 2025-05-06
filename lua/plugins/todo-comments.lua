@@ -4,7 +4,6 @@ return {
   dependencies = { "nvim-lua/plenary.nvim", "folke/trouble.nvim" },
   opts = {},
   keys = {
-    { "<space>ft", "<cmd>TodoFzfLua<cr>" },
     { "<leader>xt", "<cmd>TodoTrouble<cr>" },
     {
       "]t",

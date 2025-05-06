@@ -16,7 +16,7 @@ return {
       },
     },
     keys = {
-      { "<space>o", "<cmd>Oil<cr>", desc = "Oil" },
+      { "<leader>o", "<cmd>Oil<cr>", desc = "Oil" },
     },
   },
   -- {

@@ -52,6 +52,7 @@ return {
         gitsigns.diffthis("~")
       end, { desc = "[Gitsigns] Diff This" })
       map("n", "<leader>gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "[GitSigns] - Toggle Blame" })
+      map("n", "<leader>gw", "<cmd>Gitsigns toggle_word_diff<cr>", { desc = "[GitSigns] - Toggle Word Diff" })
       map({ "o", "x" }, "ig", ":<C-U>Gitsigns select_hunk<CR>", { silent = true })
       map("n", "<leader>gc", function()
         local all = vim.fn.systemlist({ "git", "rev-parse", "--symbolic", "--branches", "--tags", "--remotes" })

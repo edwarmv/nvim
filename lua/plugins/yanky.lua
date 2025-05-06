@@ -27,7 +27,7 @@ return {
   end,
   keys = {
     {
-      "<space>y",
+      "<leader>y",
       function()
         Snacks.picker.yanky()
       end,
