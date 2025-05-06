@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
@@ -63,6 +63,7 @@ return {
     },
     completion = {
       documentation = {
+        auto_show = true,
         window = {
           border = "padded",
         },

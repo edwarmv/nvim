@@ -60,19 +60,27 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
       "williamboman/mason.nvim",
-      "cmp-nvim-lsp",
+      -- "cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     config = function()
-      local capabilities = vim.tbl_deep_extend(
-        "force",
-        vim.lsp.protocol.make_client_capabilities(),
-        require("cmp_nvim_lsp").default_capabilities()
-      )
-      capabilities.workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
+      -- local capabilities = vim.tbl_deep_extend(
+      --   "force",
+      --   vim.lsp.protocol.make_client_capabilities(),
+      --   require("cmp_nvim_lsp").default_capabilities()
+      -- )
+      -- capabilities.workspace = {
+      --   didChangeWatchedFiles = {
+      --     dynamicRegistration = true,
+      --   },
+      -- }
+      local capabilities = require("blink.cmp").get_lsp_capabilities({
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = true,
+          },
         },
-      }
+      })
       require("mason-lspconfig").setup({
         handlers = {
           function(server_name) -- default handler (optional)
