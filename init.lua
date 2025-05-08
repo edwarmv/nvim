@@ -97,7 +97,7 @@ vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>")
 vim.api.nvim_create_autocmd({ "TabLeave" }, {
   command = "let g:lasttab = tabpagenr()",
 })
-vim.keymap.set("n", "<leader>tt", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc = "Last Tab" })
+vim.keymap.set("n", "<M-C-^>", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc = "Last Tab" })
 vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
 vim.keymap.set("i", "<c-l>", "<c-f>")
 vim.keymap.set("i", "<s-tab>", "<c-d>")
