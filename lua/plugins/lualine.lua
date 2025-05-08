@@ -119,7 +119,11 @@ return {
         {
           get_filename,
           color = function()
-            local has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+            local has_erros = false
+            if vim.fn.mode() ~= "i" then
+              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+            end
+
             return {
               fg = has_erros and utils.get_hl("Error").fg
                 or vim.bo.modified and vim.g.terminal_color_2
@@ -138,7 +142,11 @@ return {
         {
           get_filename,
           color = function()
-            local has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+            local has_erros = false
+            if vim.fn.mode() ~= "i" then
+              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+            end
+
             return {
               fg = has_erros and utils.get_hl("Error").fg
                 or vim.bo.modified and vim.g.terminal_color_2
