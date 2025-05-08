@@ -15,6 +15,8 @@ return {
         auto_trigger = true,
         keymap = {
           accept = "<tab>",
+          accept_word = "<right>",
+          accept_line = "<s-right>",
         },
       },
     },
