@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  enabled = true,
+  enabled = false,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
@@ -66,6 +66,7 @@ return {
         auto_show = true,
         window = {
           border = "padded",
+          max_width = math.floor(vim.o.columns / 4),
         },
       },
       menu = {
