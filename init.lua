@@ -47,6 +47,7 @@ vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.colorcolumn = "80"
 vim.o.breakindent = true
 vim.o.showbreak = "↪"
+vim.o.termguicolors = true
 
 vim.keymap.set({ "n", "v" }, "k", function()
   return vim.v.count > 0 and "k" or "gk"
@@ -174,4 +175,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd.colorscheme("kanagawa-wave")
+vim.cmd.colorscheme("gruvbox-material")

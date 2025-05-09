@@ -12,6 +12,7 @@ return {
   enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
+    "zbirenbaum/copilot.lua",
     { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
     { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
     { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
@@ -78,7 +79,15 @@ return {
             fallback()
           end
         end),
-        ["<c-f>"] = cmp.mapping.scroll_docs(4),
+        ["<c-f>"] = cmp.mapping(function(fallback)
+          if cmp.visible_docs() then
+            cmp.scroll_docs(4)
+          elseif require("copilot.suggestion").is_visible() then
+            require("copilot.suggestion").accept()
+          else
+            fallback()
+          end
+        end),
         ["<c-b>"] = cmp.mapping.scroll_docs(-4),
         ["<c-e>"] = cmp.mapping(function(fallback)
           -- if luasnip.choice_active() then
@@ -119,6 +128,15 @@ return {
               cmp.open_docs()
             end
           end
+        end),
+        ["<c-x><c-s>"] = cmp.mapping(function()
+          cmp.complete({
+            config = {
+              sources = {
+                { name = "mini_snippets" },
+              },
+            },
+          })
         end),
       },
       sources = cmp.config.sources({

@@ -8,13 +8,17 @@ return {
   opts = {
     winopts = {
       border = vim.o.winborder,
-      height = 0.8,
-      width = 0.8,
-      row = 0.5,
+      height = 0.4,
+      width = 0.6,
+      row = 0.1,
       preview = {
         vertical = "down:50%", -- up|down:size
         horizontal = "right:50%",
+        layout = "vertical",
       },
+    },
+    files = {
+      formatter = "path.filename_first",
     },
     lsp = {
       symbols = {

@@ -38,7 +38,10 @@ return {
       },
       layouts = {
         vscode = {
-          preview = true,
+          layout = {
+            backdrop = true,
+          },
+          -- preview = true,
         },
       },
       win = {
@@ -83,6 +86,7 @@ return {
     require("snacks").setup(opts)
     require("snacks.picker.core.preview")
     vim.api.nvim_del_autocmd(vim.api.nvim_create_augroup("snacks.picker.preview.wo", {}))
+    Snacks.toggle.option("signcolumn", { on = "yes:1", off = "no", name = "signcolumn" }):map("yoS")
   end,
   -- stylua: ignore start
   keys = {
