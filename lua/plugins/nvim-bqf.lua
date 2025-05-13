@@ -4,6 +4,7 @@ return {
   "kevinhwang91/nvim-bqf",
   dependencies = {
     "junegunn/fzf",
+    version = "*",
     build = "./install --bin",
   },
   enabled = true,
