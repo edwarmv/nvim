@@ -175,4 +175,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd.colorscheme("gruvbox-material")
+vim.cmd.colorscheme("kanagawa-wave")
