@@ -20,11 +20,11 @@ return {
     indent = {
       enabled = true,
       indent = {
-        char = "│",
+        char = "▏",
       },
       scope = {
         enabled = false,
-        char = "│",
+        char = "▏",
       },
     },
     picker = {

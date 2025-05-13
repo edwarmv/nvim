@@ -63,7 +63,7 @@ return {
       vim.api.nvim_create_autocmd("User", opts)
     end,
   },
-  { "echasnovski/mini.indentscope", opts = { symbol = "│" } },
+  { "echasnovski/mini.indentscope", opts = { symbol = "▏" } },
   {
     "echasnovski/mini.diff",
     opts = {
