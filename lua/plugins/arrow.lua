@@ -4,6 +4,7 @@ return {
     { "echasnovski/mini.icons" },
   },
   opts = {
+    show_icons = true,
     hide_handbook = true, -- set to true to hide the shortcuts on menu.
     hide_buffer_handbook = true, --set to true to hide shortcuts on buffer menu
     leader_key = "gh", -- Recommended to be a single key
