@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    provider = "copilot",
+    provider = "gemini",
     hints = { enabled = false },
   },
   build = "make",
@@ -15,7 +15,7 @@ return {
     --- The below dependencies are optional,
     "nvim-cmp", -- autocompletion for avante commands and mentions
     "echasnovski/mini.icons",
-    "github/copilot.vim",
+    -- "github/copilot.vim",
     "MeanderingProgrammer/render-markdown.nvim",
   },
 }

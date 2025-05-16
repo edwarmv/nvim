@@ -1,7 +1,16 @@
 return {
   "olimorris/codecompanion.nvim",
   event = "VeryLazy",
-  opts = {},
+  opts = {
+    strategies = {
+      chat = {
+        adapter = "gemini",
+      },
+      inline = {
+        adapter = "gemini",
+      },
+    },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
