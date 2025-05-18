@@ -63,7 +63,18 @@ return {
       vim.api.nvim_create_autocmd("User", opts)
     end,
   },
-  { "echasnovski/mini.indentscope", opts = { symbol = "▏" } },
+  {
+    "echasnovski/mini.indentscope",
+    init = function()
+      vim.api.nvim_create_autocmd("TermOpen", {
+        desc = "Disable 'mini.indentscope' in terminal buffer",
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end,
+    opts = { symbol = "▏" },
+  },
   {
     "echasnovski/mini.diff",
     opts = {
