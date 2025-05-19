@@ -1,5 +1,9 @@
 return {
   "rose-pine/neovim",
   name = "rose-pine",
-  opts = {},
+  opts = {
+    highlight_groups = {
+      ExtraWhitespace = { fg = "love", bg = "love", blend = 20 },
+    },
+  },
 }
