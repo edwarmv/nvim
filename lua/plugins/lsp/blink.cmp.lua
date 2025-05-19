@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
