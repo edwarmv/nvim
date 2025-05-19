@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    compile = true,
+    compile = false,
     overrides = function(colors)
       local color = require("kanagawa.lib.color")
       local theme = colors.theme
