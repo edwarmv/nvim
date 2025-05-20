@@ -4,6 +4,7 @@ return {
   opts = {
     highlight_groups = {
       ExtraWhitespace = { fg = "love", bg = "love", blend = 20 },
+      ["@markup.link.label"] = {},
     },
   },
 }
