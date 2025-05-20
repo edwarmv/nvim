@@ -9,7 +9,7 @@ end
 return {
   "iguanacucumber/magazine.nvim",
   name = "nvim-cmp",
-  enabled = false,
+  enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     -- "zbirenbaum/copilot.lua",
