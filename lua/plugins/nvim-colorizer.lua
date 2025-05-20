@@ -18,7 +18,7 @@ return {
       "!terminal",
     },
     user_default_options = {
-      mode = "virtualtext",
+      mode = "background", -- background | virtualtext
       virtualtext_inline = "before",
       tailwind = true,
       css = true,
