@@ -18,10 +18,11 @@ return {
       "!terminal",
     },
     user_default_options = {
-      mode = "background", -- background | virtualtext
+      mode = "virtualtext", -- background | virtualtext
       virtualtext_inline = "before",
       tailwind = true,
       css = true,
+      virtualtext = "",
     },
   },
 }
