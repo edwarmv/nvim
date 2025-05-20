@@ -27,6 +27,7 @@ return {
     "abeldekat/cmp-mini-snippets",
     {
       "luckasRanarison/tailwind-tools.nvim",
+      name = "tailwind-tools",
       opts = {
         document_color = {
           enabled = false,
