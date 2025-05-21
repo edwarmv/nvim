@@ -1,5 +1,5 @@
 return {
-  "tpope/vim-sleuth",
+  -- "tpope/vim-sleuth",
   "tpope/vim-repeat",
   "tpope/vim-fugitive",
   {
@@ -12,6 +12,7 @@ return {
   "tpope/vim-unimpaired",
   "b0o/SchemaStore.nvim",
   "neoclide/jsonc.vim",
+  { "NMAC427/guess-indent.nvim", name = "guess-indent", opts = {} },
   { "chrisbra/csv.vim", ft = "csv" },
   -- { "chrisbra/recover.vim" },
   {
