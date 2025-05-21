@@ -176,4 +176,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("kanagawa")
