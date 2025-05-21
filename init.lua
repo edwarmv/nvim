@@ -33,8 +33,7 @@ vim.opt.sessionoptions:append({ "winpos" })
 vim.o.splitbelow = true -- Put new windows below current
 vim.o.splitkeep = "screen"
 vim.o.splitright = true -- Put new windows right of current
-vim.o.tabstop = 4 -- Number of spaces tabs count for
-vim.o.softtabstop = -1
+vim.o.tabstop = 2 -- Number of spaces tabs count for
 vim.o.shiftwidth = 2 -- Size of an indent
 vim.o.timeoutlen = 500
 vim.o.undofile = true
@@ -69,6 +68,7 @@ vim.opt.foldtext = ""
 vim.opt.fillchars = {
   foldopen = "▾",
   foldclose = "▸",
+  diff = "╱",
 }
 vim.opt.listchars = {
   -- multispace = "⋅",
