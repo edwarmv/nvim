@@ -28,11 +28,6 @@ return {
         -- DAP
         "js-debug-adapter",
       },
-      integrations = {
-        ["mason-lspconfig"] = false,
-        ["mason-null-ls"] = true,
-        ["mason-nvim-dap"] = true,
-      },
     },
   },
   {
