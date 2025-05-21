@@ -24,7 +24,6 @@ return {
       json = { "prettierd" },
       jsonc = { "prettierd" },
       yaml = { "prettierd" },
-      markdown = { "prettierd" },
       graphql = { "prettierd" },
       handlebars = { "prettierd" },
       svelte = { "prettierd" },
