@@ -49,7 +49,7 @@ return {
           stop = "<C-c>",
         },
       })
-      -- MiniSnippets.start_lsp_server()
+      MiniSnippets.start_lsp_server()
       local make_stop = function()
         local au_opts = { pattern = "*:n", once = true }
         au_opts.callback = function()
