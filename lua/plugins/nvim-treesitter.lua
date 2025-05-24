@@ -39,7 +39,6 @@ return {
       "gitattributes",
       "dockerfile",
       "dart",
-      "dap_repl",
       "angular",
       "astro",
       "rust",
@@ -54,7 +53,6 @@ return {
           return true
         end
       end,
-      -- additional_vim_regex_highlighting = { "astro" },
     },
     indent = {
       enable = true,
@@ -76,6 +74,6 @@ return {
     },
   },
   dependencies = {
-    "wuelnerdotexe/vim-astro",
+    { "nvim-treesitter/nvim-treesitter-context", opts = {} },
   },
 }
