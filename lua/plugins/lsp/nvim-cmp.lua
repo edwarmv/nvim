@@ -32,6 +32,11 @@ return {
         document_color = {
           enabled = false,
         },
+        keymaps = {
+          smart_increment = {
+            enabled = false,
+          },
+        },
       },
     },
     "onsails/lspkind-nvim",
@@ -179,12 +184,6 @@ return {
           col_offset = 0,
         },
       },
-      view = {
-        entries = {
-          name = "custom",
-          follow_cursor = false,
-        },
-      },
       sources = cmp.config.sources({
         { name = "async_path", option = { show_hidden_files_by_default = true } },
       }, {
@@ -194,22 +193,13 @@ return {
         fields = {
           "abbr",
         },
-        format = function(_, vim_item)
-          return vim_item
-        end,
       },
     })
 
     cmp.setup.cmdline({ "/", "?" }, {
       window = {
         completion = {
-          col_offset = -2,
-        },
-      },
-      view = {
-        entries = {
-          name = "custom",
-          follow_cursor = false,
+          col_offset = 0,
         },
       },
       mapping = cmp.mapping.preset.cmdline(),
@@ -218,6 +208,11 @@ return {
       }, {
         { name = "buffer" },
       }),
+      formatting = {
+        fields = {
+          "abbr",
+        },
+      },
     })
 
     cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
