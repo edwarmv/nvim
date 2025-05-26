@@ -2,6 +2,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
+    init = function()
+      vim.g.loaded_nvim_treesitter = 1
+    end,
     build = ":TSUpdate",
     lazy = false,
     config = function()
@@ -23,6 +26,7 @@ return {
     "lewis6991/ts-install.nvim",
     opts = {
       auto_install = true,
+      install_dir = vim.fn.stdpath("data") .. "/site",
       ensure_install = {
         "cpp",
         "graphql",
