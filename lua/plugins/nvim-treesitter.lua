@@ -1,79 +1,68 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
-  main = "nvim-treesitter.configs",
-  opts = {
-    auto_install = true,
-    ensure_installed = {
-      "cpp",
-      "graphql",
-      "typescript",
-      "javascript",
-      "jsdoc",
-      "tsx",
-      "java",
-      "css",
-      "scss",
-      "json",
-      "jsonc",
-      "json5",
-      "yaml",
-      "http",
-      "html",
-      "lua",
-      "fish",
-      "comment",
-      "vim",
-      "vimdoc",
-      "bash",
-      "regex",
-      "markdown",
-      "markdown_inline",
-      "mermaid",
-      "python",
-      "sql",
-      "gitcommit",
-      "gitignore",
-      "git_rebase",
-      "diff",
-      "gitattributes",
-      "dockerfile",
-      "dart",
-      "angular",
-      "astro",
-      "rust",
-      "xml",
-    },
-    highlight = {
-      enable = true,
-      disable = function(lang, buf)
-        local max_filesize = 100 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-          return true
-        end
-      end,
-    },
-    indent = {
-      enable = true,
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "gnn", -- set to `false` to disable one of the mappings
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = ":TSUpdate",
+    lazy = false,
+    config = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        desc = "Enable Treesitter",
+        group = vim.api.nvim_create_augroup("enable_treesitter", {}),
+        callback = function()
+          if pcall(vim.treesitter.start) then
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.wo.foldmethod = "expr"
+            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          end
+        end,
+      })
+    end,
+  },
+  { "nvim-treesitter/nvim-treesitter-context", opts = {} },
+  {
+    "lewis6991/ts-install.nvim",
+    opts = {
+      auto_install = true,
+      ensure_install = {
+        "cpp",
+        "graphql",
+        "typescript",
+        "javascript",
+        "jsdoc",
+        "tsx",
+        "java",
+        "css",
+        "scss",
+        "json",
+        "jsonc",
+        "json5",
+        "yaml",
+        "http",
+        "html",
+        "lua",
+        "fish",
+        "comment",
+        "vim",
+        "vimdoc",
+        "bash",
+        "regex",
+        "markdown",
+        "markdown_inline",
+        "mermaid",
+        "python",
+        "sql",
+        "gitcommit",
+        "gitignore",
+        "git_rebase",
+        "diff",
+        "gitattributes",
+        "dockerfile",
+        "dart",
+        "angular",
+        "astro",
+        "rust",
+        "xml",
       },
     },
-    matchup = {
-      enable = true,
-      disable_virtual_text = true,
-      enable_quotes = true,
-      include_match_words = true,
-    },
-  },
-  dependencies = {
-    { "nvim-treesitter/nvim-treesitter-context", opts = {} },
   },
 }
