@@ -41,11 +41,6 @@ return {
     },
   },
   {
-    "chentoast/marks.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-  {
     "gcmt/taboo.vim",
     enabled = true,
     init = function()
