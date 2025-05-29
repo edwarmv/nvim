@@ -39,8 +39,8 @@ return {
     opts = {
       ensure_installed = {
         "bashls",
-        "ts_ls",
-        -- "vtsls",
+        -- "ts_ls",
+        "vtsls",
         "angularls",
         "html",
         "cssls",
