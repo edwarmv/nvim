@@ -69,7 +69,7 @@ return {
       desc = "Treesitter Search",
     },
     {
-      "gk",
+      "<leader>k",
       mode = { "n", "x", "o" },
       function()
         require("flash").jump({
@@ -81,7 +81,7 @@ return {
       desc = "Jump to a line",
     },
     {
-      "gj",
+      "<leader>j",
       mode = { "n", "x", "o" },
       function()
         require("flash").jump({
