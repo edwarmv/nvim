@@ -42,10 +42,10 @@ return {
         end
       end,
     },
-    {
-      "LiadOz/nvim-dap-repl-highlights",
-      opts = {},
-    },
+    -- {
+    --   "LiadOz/nvim-dap-repl-highlights",
+    --   opts = {},
+    -- },
     {
       "theHamsta/nvim-dap-virtual-text",
       opts = {},
