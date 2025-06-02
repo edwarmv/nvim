@@ -139,7 +139,7 @@ return {
             end
           end
         end),
-        ["<c-x><c-s>"] = cmp.mapping(function()
+        ["<m-space>"] = cmp.mapping(function()
           cmp.complete({
             config = {
               sources = {
@@ -179,9 +179,14 @@ return {
 
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
+      view = {
+        entries = {
+          follow_cursor = true,
+        },
+      },
       window = {
         completion = {
-          col_offset = 0,
+          col_offset = 1,
         },
       },
       sources = cmp.config.sources({
@@ -197,9 +202,14 @@ return {
     })
 
     cmp.setup.cmdline({ "/", "?" }, {
+      view = {
+        entries = {
+          follow_cursor = true,
+        },
+      },
       window = {
         completion = {
-          col_offset = 0,
+          col_offset = 1,
         },
       },
       mapping = cmp.mapping.preset.cmdline(),
