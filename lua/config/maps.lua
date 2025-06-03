@@ -1,5 +1,3 @@
-local defaults = require("config.defaults")
-
 local M = {}
 
 M.lsp = function(buffer)
@@ -16,6 +14,20 @@ M.lsp = function(buffer)
     "gli",
     "<cmd>Glance implementations<cr>",
     { desc = "[LSP - Glance] Implementations", buffer = buffer }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<c-w>d",
+    "<cmd>Lspsaga show_line_diagnostics<cr>",
+    { desc = "[LSP - Saga] Show line diagnostics", buffer = buffer }
+  )
+
+  vim.keymap.set(
+    "n",
+    "<c-w><c-d>",
+    "<cmd>Lspsaga show_cursor_diagnostics<cr>",
+    { desc = "[LSP - Saga] Show cursor diagnostics", buffer = buffer }
   )
 
   vim.keymap.set(
@@ -39,95 +51,17 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
-  local lsp_priority = {
-    rename = {
-      "angularls",
-    },
-  }
+  vim.keymap.set("n", "grn", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Lspsaga Rename", buffer = buffer })
 
-  local lsp_have_feature = {
-    rename = function(client)
-      return client.supports_method("textDocument/rename")
-    end,
-    inlay_hint = function(client)
-      return client.supports_method("textDocument/inlayHint")
-    end,
-  }
-
-  local function get_lsp_client_names(have_feature)
-    local client_names = {}
-    local attached_clients = vim.lsp.get_clients({ bufnr = 0 })
-    for _, client in ipairs(attached_clients) do
-      if have_feature(client) then
-        table.insert(client_names, client.name)
-      end
-    end
-    return client_names
-  end
-
-  local function lsp_buf_rename(client_name)
-    vim.lsp.buf.rename(nil, { name = client_name })
-  end
-
-  local function lsp_buf_rename_use_one(fallback)
-    local client_names = get_lsp_client_names(lsp_have_feature.rename)
-    if #client_names == 1 then
-      lsp_buf_rename(client_names[1])
-      return
-    end
-    if fallback then
-      fallback()
-    end
-  end
-
-  local function lsp_buf_rename_use_priority(fallback)
-    local client_names = get_lsp_client_names(lsp_have_feature.rename)
-    for _, client_priority_name in ipairs(lsp_priority.rename) do
-      for _, client_name in ipairs(client_names) do
-        if client_priority_name == client_name then
-          lsp_buf_rename(client_priority_name)
-          return
-        end
-      end
-    end
-    if fallback then
-      fallback()
-    end
-  end
-
-  local function lsp_buf_rename_use_any(fallback)
-    local client_names = get_lsp_client_names(lsp_have_feature.rename)
-    for _, client_name in ipairs(client_names) do
-      lsp_buf_rename(client_name)
-      return
-    end
-    if fallback then
-      fallback()
-    end
-  end
-
-  local function lsp_buf_rename_use_priority_or_any()
-    lsp_buf_rename_use_one(function()
-      lsp_buf_rename_use_priority(function()
-        lsp_buf_rename_use_any()
-      end)
-    end)
-  end
-
-  -- thanks to https://github.com/fightingdreamer/dotfiles/blob/54bb8b90b1741f58e02e1911cb6de73d48160247/lua/nv/lua/core/opts_lsp.lua#L41
-  vim.keymap.set("n", "grn", lsp_buf_rename_use_priority_or_any, { desc = "[LSP] Rename", buffer = buffer })
-
-  vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "[LSP] Code Action", buffer = buffer })
+  vim.keymap.set("n", "gra", "<cmd>Lspsaga code_action<cr>", { desc = "[LSP] Lspsaga Code Action", buffer = buffer })
 
   vim.keymap.set("n", "glr", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
-
-  vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "[Diagnostic] Location List", buffer = buffer })
 
   vim.keymap.set("n", "]d", function()
     vim.diagnostic.jump({ count = 1, float = false })
   end, { desc = "[Diagnostic] Next", buffer = buffer })
 
-  vim.keymap.set("n", "]D", function()
+  vim.keymap.set("n", "]E", function()
     vim.diagnostic.jump({ count = 1, float = false, severity = vim.diagnostic.severity.ERROR })
   end, { desc = "[Diagnostic] Next Error  ", buffer = buffer })
 
@@ -135,42 +69,21 @@ M.lsp = function(buffer)
     vim.diagnostic.jump({ count = -1, float = false })
   end, { desc = "[Diagnostic] Prev", buffer = buffer })
 
-  vim.keymap.set("n", "[D", function()
+  vim.keymap.set("n", "[E", function()
     vim.diagnostic.jump({ count = -1, float = false, severity = vim.diagnostic.severity.ERROR })
   end, { desc = "[Diagnostic] Prev Error  ", buffer = buffer })
-
-  local goto_preview = require("goto-preview")
 
   vim.keymap.set(
     "n",
     "glpd",
-    goto_preview.goto_preview_definition,
-    { desc = "[LSP] Goto Preview Definition", buffer = buffer }
+    "<cmd>Lspsaga peek_definition<cr>",
+    { desc = "[LSP] Lspsaga Peek Definition", buffer = buffer }
   )
   vim.keymap.set(
     "n",
     "glpt",
-    goto_preview.goto_preview_type_definition,
-    { desc = "[LSP] Goto Preview Type Definition", buffer = buffer }
-  )
-  vim.keymap.set(
-    "n",
-    "glpi",
-    goto_preview.goto_preview_implementation,
-    { desc = "[LSP] Goto Preview Implementation", buffer = buffer }
-  )
-  vim.keymap.set("n", "glP", goto_preview.close_all_win, { desc = "[LSP] Goto Preview Close All Win", buffer = buffer })
-  vim.keymap.set(
-    "n",
-    "glpr",
-    goto_preview.goto_preview_references,
-    { desc = "[LSP] Goto Preview References", buffer = buffer }
-  )
-  vim.keymap.set(
-    "n",
-    "glpq",
-    goto_preview.close_all_win,
-    { desc = "[LSP] Goto Preview Close All Win", buffer = buffer }
+    "<cmd>Lspsaga peek_type_definition<cr>",
+    { desc = "[LSP] Lspsaga Peek Type Definition", buffer = buffer }
   )
 end
 

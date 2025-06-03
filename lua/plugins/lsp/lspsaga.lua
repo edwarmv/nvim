@@ -6,10 +6,10 @@ return {
   config = function()
     require("lspsaga").setup({
       ui = {
-        border = vim.o.winborder,
+        border = defaults.border,
       },
       lightbulb = {
-        enable = false,
+        enable = true,
         sign = false,
         debounce = defaults.lsp_debounce,
       },
@@ -42,8 +42,4 @@ return {
       },
     })
   end,
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-tree/nvim-web-devicons",
-  },
 }

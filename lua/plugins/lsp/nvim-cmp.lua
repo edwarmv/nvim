@@ -7,15 +7,14 @@ local function has_words_before()
 end
 
 return {
-  "iguanacucumber/magazine.nvim",
-  name = "nvim-cmp",
+  "hrsh7th/nvim-cmp",
   enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     -- "zbirenbaum/copilot.lua",
-    { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
-    { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
-    { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-cmdline",
     "https://codeberg.org/FelipeLema/cmp-async-path",
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     -- {
