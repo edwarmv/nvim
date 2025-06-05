@@ -6,7 +6,8 @@ return {
     "folke/lazydev.nvim",
     "L3MON4D3/LuaSnip",
   },
-  version = "*",
+  -- version = "*",
+  build = "cargo build --release",
   opts = {
     keymap = {
       preset = "super-tab",
@@ -15,6 +16,7 @@ return {
           cmp.show({ providers = { "snippets" } })
         end,
       },
+      ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
     },
     appearance = {
       kind_icons = {
@@ -69,10 +71,14 @@ return {
           max_width = math.floor(vim.o.columns / 4),
         },
       },
+      trigger = {
+        show_on_backspace = true,
+      },
       menu = {
         max_height = 6,
         border = "none",
       },
     },
+    signature = { enabled = true },
   },
 }
