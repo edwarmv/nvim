@@ -153,6 +153,7 @@ return {
         -- { name = "luasnip" },
         { name = "mini_snippets" },
         { name = "async_path", option = { show_hidden_files_by_default = true } },
+      }, {
         { name = "buffer" },
       }),
       formatting = {
