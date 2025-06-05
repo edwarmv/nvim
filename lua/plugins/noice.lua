@@ -1,6 +1,6 @@
 return {
   "folke/noice.nvim",
-  enabled = false,
+  enabled = true,
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
@@ -57,8 +57,6 @@ return {
     presets = {
       long_message_to_split = true,
       bottom_search = true,
-      command_palette = true,
-      inc_rename = false,
     },
   },
 }
