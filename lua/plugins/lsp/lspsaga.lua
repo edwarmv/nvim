@@ -10,7 +10,8 @@ return {
       },
       lightbulb = {
         enable = true,
-        sign = false,
+        sign = true,
+        virtual_text = false,
         debounce = defaults.lsp_debounce,
       },
       symbol_in_winbar = {
