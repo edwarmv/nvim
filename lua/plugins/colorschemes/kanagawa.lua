@@ -13,6 +13,9 @@ return {
         ["@markup.link"] = { link = "Special" },
         htmlLink = { link = "Special" },
         FlashBackdrop = { fg = theme.syn.comment },
+        IlluminatedWordText = { link = "LspReferenceText" },
+        IlluminatedWordRead = { link = "LspReferenceRead" },
+        IlluminatedWordWrite = { link = "LspReferenceWrite" },
       }
     end,
   },
