@@ -2,7 +2,7 @@ return {
   "gbprod/yanky.nvim",
   event = "VimEnter",
   dependencies = {
-    "kkharji/sqlite.lua",
+    -- "kkharji/sqlite.lua",
     -- {
     --   "gbprod/cutlass.nvim",
     --   opts = {
@@ -15,9 +15,9 @@ return {
   },
   config = function()
     require("yanky").setup({
-      ring = {
-        storage = "sqlite",
-      },
+      -- ring = {
+      --   storage = "sqlite",
+      -- },
       picker = {
         select = {
           action = require("yanky.picker").actions.set_register(""),
