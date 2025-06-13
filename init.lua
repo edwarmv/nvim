@@ -1,7 +1,7 @@
 vim.deprecate = function() end
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.o.winborder = "rounded"
+vim.o.winborder = "none"
 
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer

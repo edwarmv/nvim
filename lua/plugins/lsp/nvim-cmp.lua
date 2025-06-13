@@ -11,7 +11,7 @@ return {
   enabled = true,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
-    -- "zbirenbaum/copilot.lua",
+    "zbirenbaum/copilot.lua",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-cmdline",
@@ -87,8 +87,8 @@ return {
         ["<c-f>"] = cmp.mapping(function(fallback)
           if cmp.visible_docs() then
             cmp.scroll_docs(4)
-          -- elseif require("copilot.suggestion").is_visible() then
-          --   require("copilot.suggestion").accept()
+          elseif require("copilot.suggestion").is_visible() then
+            require("copilot.suggestion").accept()
           else
             fallback()
           end
