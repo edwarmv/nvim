@@ -15,7 +15,7 @@ return {
       suggestion = {
         auto_trigger = true,
         keymap = {
-          accept = nil,
+          accept = "<tab>",
         },
       },
     },

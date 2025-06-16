@@ -16,6 +16,6 @@ return {
     "nvim-cmp", -- autocompletion for avante commands and mentions
     "echasnovski/mini.icons",
     -- "github/copilot.vim",
-    "MeanderingProgrammer/render-markdown.nvim",
+    -- "MeanderingProgrammer/render-markdown.nvim",
   },
 }

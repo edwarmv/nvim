@@ -72,7 +72,7 @@ return {
   },
   {
     "sphamba/smear-cursor.nvim",
-    enabled = true,
+    enabled = false,
     opts = {
       legacy_computing_symbols_support = true,
     },

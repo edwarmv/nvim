@@ -8,7 +8,7 @@ end
 
 return {
   "hrsh7th/nvim-cmp",
-  enabled = true,
+  enabled = false,
   event = { "InsertEnter", "CmdlineEnter" },
   dependencies = {
     "zbirenbaum/copilot.lua",

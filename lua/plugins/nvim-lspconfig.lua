@@ -3,15 +3,15 @@ return {
   event = "VeryLazy",
   depependencies = {
     -- "saghen/blink.cmp",
-    "cmp-nvim-lsp",
+    -- "cmp-nvim-lsp",
   },
   config = function()
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    capabilities.workspace = {
-      didChangeWatchedFiles = {
-        dynamicRegistration = true,
-      },
-    }
+    -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- capabilities.workspace = {
+    --   didChangeWatchedFiles = {
+    --     dynamicRegistration = true,
+    --   },
+    -- }
     -- local capabilities = require("blink.cmp").get_lsp_capabilities({
     --   workspace = {
     --     didChangeWatchedFiles = {
@@ -19,9 +19,9 @@ return {
     --     },
     --   },
     -- })
-    vim.lsp.config("*", {
-      capabilities = capabilities,
-    })
+    -- vim.lsp.config("*", {
+    --   capabilities = capabilities,
+    -- })
   end,
   -- requires = { "editorconfig/editorconfig-vim" },
 }
