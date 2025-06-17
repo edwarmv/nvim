@@ -54,23 +54,6 @@ return {
     end,
   },
   {
-    "nanozuki/tabby.nvim",
-    opts = {
-      option = {
-        tab_name = {
-          override = function(tabid)
-            local customTabName = vim.fn["TabooTabName"](tabid)
-            if customTabName == "" then
-              return nil
-            end
-
-            return customTabName
-          end,
-        },
-      },
-    },
-  },
-  {
     "sphamba/smear-cursor.nvim",
     enabled = false,
     opts = {

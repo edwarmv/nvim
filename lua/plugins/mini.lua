@@ -42,8 +42,14 @@ return {
             lang_patterns = lang_patterns,
           }),
         },
+        mappings = {
+          expand = "",
+          jump_next = "",
+          jump_prev = "",
+          stop = "<C-c>",
+        },
       })
-      MiniSnippets.start_lsp_server()
+      -- MiniSnippets.start_lsp_server()
       local make_stop = function()
         local au_opts = { pattern = "*:n", once = true }
         au_opts.callback = function()
@@ -93,19 +99,19 @@ return {
       },
     },
   },
-  {
-    "echasnovski/mini.completion",
-    version = false,
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "snacks_picker_input", "sagarename" },
-        callback = function()
-          vim.b.minicompletion_disable = true
-        end,
-      })
-    end,
-    opts = {},
-  },
+  -- {
+  --   "echasnovski/mini.completion",
+  --   version = false,
+  --   init = function()
+  --     vim.api.nvim_create_autocmd("FileType", {
+  --       pattern = { "snacks_picker_input", "sagarename" },
+  --       callback = function()
+  --         vim.b.minicompletion_disable = true
+  --       end,
+  --     })
+  --   end,
+  --   opts = {},
+  -- },
   -- {
   --   "echasnovski/mini.notify",
   --   version = false,

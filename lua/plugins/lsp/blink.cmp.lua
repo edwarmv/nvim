@@ -1,6 +1,6 @@
 return {
   "saghen/blink.cmp",
-  enabled = false,
+  enabled = true,
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
@@ -59,7 +59,6 @@ return {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         lsp = {
           opts = { tailwind_color_icon = "■" },
-          fallbacks = {},
         },
       },
     },
