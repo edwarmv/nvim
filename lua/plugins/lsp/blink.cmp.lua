@@ -79,5 +79,16 @@ return {
       },
     },
     signature = { enabled = true },
+    fuzzy = {
+      sorts = {
+        "exact",
+        "score",
+        "sort_text",
+      },
+      prebuilt_binaries = {
+        download = false,
+        ignore_version_mismatch = true,
+      },
+    },
   },
 }
