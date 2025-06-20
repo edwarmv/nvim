@@ -20,7 +20,7 @@ return {
   },
   keys = {
     {
-      "s",
+      "<leader>s",
       mode = { "n", "x", "o" },
       function()
         -- default options: exact mode, multi window, all directions, with a backdrop
@@ -29,16 +29,8 @@ return {
       desc = "Flash",
     },
     {
-      "S",
-      mode = { "n", "o" },
-      function()
-        require("flash").jump({ continue = true })
-      end,
-      desc = "Flash - Continue last search",
-    },
-    {
-      "Z",
-      mode = { "x" },
+      "<leader>S",
+      mode = { "n", "o", "x" },
       function()
         require("flash").jump({ continue = true })
       end,
