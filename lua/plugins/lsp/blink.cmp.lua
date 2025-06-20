@@ -59,6 +59,7 @@ return {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         lsp = {
           opts = { tailwind_color_icon = "■" },
+          fallbacks = {},
         },
       },
     },
@@ -84,10 +85,6 @@ return {
         "exact",
         "score",
         "sort_text",
-      },
-      prebuilt_binaries = {
-        download = false,
-        ignore_version_mismatch = true,
       },
     },
   },
