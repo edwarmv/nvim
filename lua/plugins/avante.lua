@@ -15,7 +15,7 @@ return {
     --- The below dependencies are optional,
     "nvim-cmp", -- autocompletion for avante commands and mentions
     "echasnovski/mini.icons",
-    -- "github/copilot.vim",
     -- "MeanderingProgrammer/render-markdown.nvim",
+    -- "zbirenbaum/copilot.lua",
   },
 }
