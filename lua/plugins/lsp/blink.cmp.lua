@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 return {
   "saghen/blink.cmp",
   enabled = true,
@@ -59,7 +61,6 @@ return {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         lsp = {
           opts = { tailwind_color_icon = "■" },
-          fallbacks = {},
         },
       },
     },
@@ -79,7 +80,12 @@ return {
         border = "none",
       },
     },
-    signature = { enabled = true },
+    signature = {
+      enabled = true,
+      window = {
+        border = defaults.border,
+      },
+    },
     fuzzy = {
       sorts = {
         "exact",
