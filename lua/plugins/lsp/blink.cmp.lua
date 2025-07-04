@@ -6,18 +6,14 @@ return {
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
-    "L3MON4D3/LuaSnip",
+    -- "L3MON4D3/LuaSnip",
   },
   -- version = "*",
   build = "cargo build --release",
   opts = {
     keymap = {
       preset = "super-tab",
-      ["<M-space>"] = {
-        function(cmp)
-          cmp.show({ providers = { "snippets" } })
-        end,
-      },
+      ["<C-y>"] = { "select_and_accept", "fallback" },
       ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
     },
     appearance = {
@@ -61,6 +57,7 @@ return {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         lsp = {
           opts = { tailwind_color_icon = "■" },
+          fallbacks = {},
         },
       },
     },
