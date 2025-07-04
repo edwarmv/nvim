@@ -7,7 +7,7 @@ return {
     version = "*",
     build = "./install --bin",
   },
-  enabled = false,
+  enabled = true,
   ft = "qf",
   opts = {
     auto_enable = true,
