@@ -76,6 +76,12 @@ return {
         max_height = 6,
         border = "none",
       },
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = false,
+        },
+      },
     },
     signature = {
       enabled = true,

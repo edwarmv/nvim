@@ -58,9 +58,12 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "grn", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Lspsaga Rename", buffer = buffer })
 
-  vim.keymap.set({ "n", "x" }, "gra", function()
-    require("tiny-code-action").code_action()
-  end, { desc = "[LSP] Lspsaga Code Action", buffer = buffer })
+  vim.keymap.set(
+    { "n", "x" },
+    "gra",
+    "<cmd>Lspsaga code_action<cr>",
+    { desc = "[LSP] Lspsaga Code Action", buffer = buffer }
+  )
 
   vim.keymap.set("n", "glr", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
