@@ -14,7 +14,7 @@ return {
     keymap = {
       preset = "super-tab",
       ["<C-y>"] = { "select_and_accept", "fallback" },
-      ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+      -- ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
     },
     appearance = {
       kind_icons = {
@@ -84,7 +84,7 @@ return {
       },
     },
     signature = {
-      enabled = true,
+      enabled = false,
       window = {
         border = defaults.border,
       },
