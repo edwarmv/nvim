@@ -1,3 +1,5 @@
+local defaults = require("config.defaults")
+
 local languages = {
   "typescript",
   "javascript",
@@ -13,8 +15,8 @@ return {
       "jay-babu/mason-nvim-dap.nvim",
       dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
       opts = {
-        automatic_installation = true,
-        ensure_installed = { "js-debug-adapter", "python" },
+        automatic_installation = false,
+        ensure_installed = { "js-debug-adapter" },
         handlers = {}, -- sets up dap in the predefined manner
       },
     },
@@ -23,10 +25,15 @@ return {
       dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         -- stylua: ignore
         keys = {
-          { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-          { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
+          { "<leader>du", function() require("dapui").toggle() end, desc = "Dap UI" },
+          { "<leader>dU", function() require("dapui").toggle({ reset = true }) end, desc = "Dap UI - Reset layout" },
+          { "<leader>de", function() require("dapui").eval(nil, { enter = true }) end, desc = "Eval", mode = { "n", "v" } },
         },
-      opts = {},
+      opts = {
+        floating = {
+          border = defaults.border,
+        },
+      },
       config = function(_, opts)
         local dap = require("dap")
         local dapui = require("dapui")
@@ -41,14 +48,6 @@ return {
           dapui.close()
         end
       end,
-    },
-    -- {
-    --   "LiadOz/nvim-dap-repl-highlights",
-    --   opts = {},
-    -- },
-    {
-      "theHamsta/nvim-dap-virtual-text",
-      opts = {},
     },
   },
   -- stylua: ignore
@@ -91,7 +90,7 @@ return {
 
     local dap = require("dap")
 
-    dap.adapters.debugpy = {
+    dap.adapters.python = {
       type = "executable",
       command = "./venv/bin/python",
       args = {
