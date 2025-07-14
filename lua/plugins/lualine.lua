@@ -51,8 +51,8 @@ return {
   },
   opts = {
     options = {
-      section_separators = { left = "", right = "" },
-      component_separators = { left = "", right = "" },
+      section_separators = "",
+      component_separators = { left = "⟩", right = "⟨" },
       globalstatus = true,
       always_divide_middle = true,
     },
@@ -76,16 +76,31 @@ return {
             return ""
           end,
         },
-        { "diff", source = diff_source, padding = { left = 0, right = 1 } },
+        { "diff", source = diff_source },
         {
           conflict_count,
           color = function()
             return { fg = utils.get_hl("Error").fg }
           end,
-          padding = { left = 0, right = 1 },
         },
       },
       lualine_c = {
+        {
+          get_filename,
+          color = function()
+            local has_erros = false
+            if vim.fn.mode() ~= "i" then
+              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+            end
+
+            return {
+              fg = has_erros and utils.get_hl("Error").fg
+                or vim.bo.modified and vim.g.terminal_color_2
+                or utils.get_hl("lualine_c_normal").fg,
+              gui = vim.bo.modified and "italic" or "none",
+            }
+          end,
+        },
         "aerial",
       },
       lualine_x = {
@@ -99,69 +114,20 @@ return {
             hint = icons.diagnostics.hint,
           },
           update_in_insert = false,
-          padding = { left = 0, right = 1 },
         },
-        { "filetype", padding = { left = 0, right = 1 } },
+        "filetype",
         {
           macro,
           color = function()
             return { fg = vim.g.terminal_color_3 }
           end,
-          padding = { left = 0, right = 1 },
         },
-        { "searchcount", padding = { left = 0, right = 1 } },
-        { "selectioncount", padding = { left = 0, right = 1 } },
-        -- { "zoom#statusline", padding = { left = 0, right = 1 } },
-        { "ObsessionStatus", padding = { left = 0, right = 1 } },
+        "searchcount",
+        "selectioncount",
+        "ObsessionStatus",
       },
       lualine_y = { "progress" },
       lualine_z = { "location" },
-    },
-    winbar = {
-      lualine_c = {
-        { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-        {
-          get_filename,
-          color = function()
-            local has_erros = false
-            if vim.fn.mode() ~= "i" then
-              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
-            end
-
-            return {
-              fg = has_erros and utils.get_hl("Error").fg
-                or vim.bo.modified and vim.g.terminal_color_2
-                or utils.get_hl("lualine_c_normal").fg,
-              bg = utils.get_hl("lualine_c_normal").bg,
-              gui = vim.bo.modified and "italic" or "none",
-            }
-          end,
-          padding = { left = 0, right = 1 },
-        },
-      },
-    },
-    inactive_winbar = {
-      lualine_c = {
-        { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-        {
-          get_filename,
-          color = function()
-            local has_erros = false
-            if vim.fn.mode() ~= "i" then
-              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
-            end
-
-            return {
-              fg = has_erros and utils.get_hl("Error").fg
-                or vim.bo.modified and vim.g.terminal_color_2
-                or utils.get_hl("lualine_c_inactive").fg,
-              bg = utils.get_hl("lualine_c_inactive").bg,
-              gui = vim.bo.modified and "italic" or "none",
-            }
-          end,
-          padding = { left = 0, right = 1 },
-        },
-      },
     },
     extensions = {
       "aerial",
