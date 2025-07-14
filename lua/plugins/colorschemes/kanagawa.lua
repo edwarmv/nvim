@@ -1,5 +1,6 @@
 return {
   "rebelot/kanagawa.nvim",
+  build = ":KanagawaCompile",
   lazy = false,
   priority = 1000,
   opts = {
