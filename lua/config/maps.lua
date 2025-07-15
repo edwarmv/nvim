@@ -17,19 +17,9 @@ M.lsp = function(buffer)
     { desc = "[LSP - Glance] Implementations", buffer = buffer }
   )
 
-  vim.keymap.set(
-    "n",
-    "<c-w>d",
-    "<cmd>Lspsaga show_line_diagnostics<cr>",
-    { desc = "[LSP - Saga] Show line diagnostics", buffer = buffer }
-  )
-
-  vim.keymap.set(
-    "n",
-    "<c-w><c-d>",
-    "<cmd>Lspsaga show_cursor_diagnostics<cr>",
-    { desc = "[LSP - Saga] Show cursor diagnostics", buffer = buffer }
-  )
+  vim.keymap.set("n", "<c-w>d", function()
+    vim.diagnostic.open_float({ border = defaults.border })
+  end, { desc = "[LSP] Show line diagnostics", buffer = buffer })
 
   vim.keymap.set(
     "n",
