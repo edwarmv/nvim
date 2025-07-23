@@ -101,7 +101,6 @@ return {
             }
           end,
         },
-        "aerial",
       },
       lualine_x = {
         {
