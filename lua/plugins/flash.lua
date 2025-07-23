@@ -20,7 +20,7 @@ return {
   },
   keys = {
     {
-      "<leader>s",
+      "s",
       mode = { "n", "x", "o" },
       function()
         -- default options: exact mode, multi window, all directions, with a backdrop
@@ -29,8 +29,16 @@ return {
       desc = "Flash",
     },
     {
-      "<leader>S",
-      mode = { "n", "o", "x" },
+      "S",
+      mode = { "n", "o" },
+      function()
+        require("flash").jump({ continue = true })
+      end,
+      desc = "Flash - Continue last search",
+    },
+    {
+      "Z",
+      mode = { "x" },
       function()
         require("flash").jump({ continue = true })
       end,
@@ -61,7 +69,7 @@ return {
       desc = "Treesitter Search",
     },
     {
-      "<leader>k",
+      "gk",
       mode = { "n", "x", "o" },
       function()
         require("flash").jump({
@@ -73,7 +81,7 @@ return {
       desc = "Jump to a line",
     },
     {
-      "<leader>j",
+      "gj",
       mode = { "n", "x", "o" },
       function()
         require("flash").jump({
