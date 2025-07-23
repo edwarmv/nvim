@@ -53,6 +53,6 @@ return {
       vim.keymap.set("n", "<leader>tR", "<cmd>TabooReset<cr>", { desc = "Reset Tab Name" })
     end,
   },
-  -- "wsdjeg/vim-fetch",
+  -- better gf gF,
   { "HawkinsT/pathfinder.nvim" },
 }
