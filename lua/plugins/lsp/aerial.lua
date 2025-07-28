@@ -1,16 +1,23 @@
+local defaults = require("config.defaults")
+
 return {
   "stevearc/aerial.nvim",
+  event = "LspAttach",
   opts = {
     backends = { "lsp", "treesitter", "markdown", "man" },
     attach_mode = "global",
-    on_attach = function(bufnr)
-      vim.keymap.set("n", "<leader><leader>s", "<cmd>AerialToggle<CR><cmd>wincmd =<cr>", { buffer = bufnr })
-    end,
     show_guides = true,
     float = {
-      border = vim.o.winborder,
+      border = defaults.border,
     },
     filter_kind = false,
+    nav = {
+      border = defaults.border,
+    },
+  },
+  keys = {
+    { "<leader>ss", "<cmd>AerialToggle<cr>" },
+    { "<leader>sn", "<cmd>AerialNavToggle<cr>" },
   },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
