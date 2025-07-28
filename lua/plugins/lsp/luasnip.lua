@@ -1,6 +1,6 @@
 return {
   "L3MON4D3/LuaSnip",
-  enabled = false,
+  enabled = true,
   dependencies = {
     "rafamadriz/friendly-snippets",
     {
@@ -12,18 +12,43 @@ return {
   build = "make install_jsregexp",
   config = function()
     local ls = require("luasnip")
+    local types = require("luasnip.util.types")
+    vim.api.nvim_set_hl(0, "LuasnipInsertNodeUnvisited", { underline = true })
+    vim.api.nvim_set_hl(0, "LuasnipChoiceNodeUnvisited", { underline = true })
+    ls.setup({
+      -- Update text in insert mode
+      update_events = { "TextChanged", "TextChangedI" },
+      -- Delete snippet session
+      region_check_events = "CursorMoved",
+      -- Check if the current snippet was deleted.
+      delete_check_events = { "TextChanged" },
+      -- Display a cursor-like placeholder in unvisited nodes
+      -- of the snippet.
+      ext_opts = {
+        [types.insertNode] = {
+          unvisited = {
+            virt_text = { { "•", "Conceal" } },
+            virt_text_pos = "inline",
+          },
+        },
+        [types.exitNode] = {
+          unvisited = {
+            virt_text = { { "∎", "Conceal" } },
+            virt_text_pos = "inline",
+          },
+        },
+        [types.choiceNode] = {
+          active = {
+            virt_text = { { "(snippet) choice node", "LspInlayHint" } },
+          },
+        },
+      },
+    })
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.env.HOME .. "/.config/nvim/snippets" })
-    local types = require("luasnip.util.types")
-    vim.api.nvim_set_hl(0, "LuasnipInsertNodePassive", { underdotted = true })
-    vim.api.nvim_set_hl(0, "LuasnipChoiceNodePassive", { underdotted = true })
-    ls.setup({
-      update_events = { "TextChanged", "TextChangedI", "TextChangedP" },
-      region_check_events = { "CursorHold", "InsertLeave" },
-      delete_check_events = { "TextChangedI", "InsertEnter" },
-    })
 
     ls.filetype_extend("typescript", { "javascript" })
+    ls.filetype_extend("astro", { "javascript" })
 
     vim.keymap.set({ "i", "s" }, "<C-c>", function()
       if ls.choice_active() then

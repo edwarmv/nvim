@@ -6,7 +6,8 @@ return {
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
-    -- "L3MON4D3/LuaSnip",
+    "L3MON4D3/LuaSnip",
+    -- "echasnovski/mini.snippets"
   },
   -- version = "*",
   build = "cargo build --release",
@@ -14,6 +15,12 @@ return {
     keymap = {
       preset = "super-tab",
       ["<C-y>"] = { "select_and_accept", "fallback" },
+      ["<Tab>"] = {
+        "select_and_accept",
+        "snippet_forward",
+        "fallback",
+      },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
       -- ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
     },
     appearance = {
@@ -46,7 +53,7 @@ return {
       },
     },
     snippets = {
-      preset = "mini_snippets",
+      preset = "luasnip",
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
@@ -56,7 +63,7 @@ return {
       providers = {
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         lsp = {
-          opts = { tailwind_color_icon = "■" },
+          opts = { tailwind_color_icon = "" },
           fallbacks = {},
         },
       },
