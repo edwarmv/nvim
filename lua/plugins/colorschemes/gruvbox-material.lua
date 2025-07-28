@@ -3,7 +3,8 @@ return {
   lazy = false,
   priority = 1000,
   init = function()
-    vim.g.gruvbox_material_better_performance = true
+    vim.g.gruvbox_material_better_performance = 1
+    vim.g.gruvbox_material_float_style = "dim"
 
     vim.api.nvim_create_autocmd("ColorScheme", {
       group = vim.api.nvim_create_augroup("custom_highlights_gruvboxmaterial", {}),
