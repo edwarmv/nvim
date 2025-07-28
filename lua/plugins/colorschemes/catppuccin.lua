@@ -2,38 +2,30 @@ return {
   "catppuccin/nvim",
   name = "catppuccin",
   priority = 1000,
-  opts = {
-    dim_inactive = {
-      enabled = true, -- dims the background color of inactive window
-      shade = "dark",
-      percentage = 0.15, -- percentage of the shade to apply to the inactive window
-    },
-    flavour = "macchiato",
-    integrations = {
-      mason = true,
-      flash = true,
-      gitsigns = true,
-      hop = true,
-      neotree = true,
-      noice = true,
-      cmp = true,
-      navic = {
+  config = function()
+    local utils = require("catppuccin.utils.colors")
+    require("catppuccin").setup({
+      term_colors = true,
+      dim_inactive = {
         enabled = true,
-        custom_bg = "NONE", -- "lualine" will set background to mantle
       },
-      notify = true,
-      semantic_tokens = true,
-      treesitter = true,
-      telescope = {
-        enabled = true,
-        -- style = "nvchad"
+      custom_highlights = function(colors)
+        return {
+          ExtraWhitespace = { fg = colors.red, bg = utils.darken(colors.red, 0.15, colors.base) },
+        }
+      end,
+      auto_integrations = true,
+      integrations = {
+        native_lsp = {
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+            ok = { "undercurl" },
+          },
+        },
       },
-      lsp_trouble = true,
-      vimwiki = true,
-      which_key = true,
-    },
-  },
-  config = function(_, opts)
-    require("catppuccin").setup(opts)
+    })
   end,
 }
