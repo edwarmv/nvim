@@ -64,7 +64,6 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldenable = true
 vim.opt.foldcolumn = "1"
-vim.opt.foldtext = ""
 vim.opt.fillchars = {
   foldopen = "▾",
   foldclose = "▸",
@@ -100,7 +99,6 @@ vim.api.nvim_create_autocmd({ "TabLeave" }, {
   command = "let g:lasttab = tabpagenr()",
 })
 vim.keymap.set("n", "<leader>tt", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc = "Last Tab" })
-vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
 vim.keymap.set("i", "<c-l>", "<c-f>")
 vim.keymap.set("i", "<s-tab>", "<c-d>")
 vim.keymap.set("n", "<c-w>z", ":resize | vertical resize<CR>")

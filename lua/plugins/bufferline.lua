@@ -2,13 +2,12 @@ local defaults = require("config.defaults")
 
 return {
   "akinsho/bufferline.nvim",
-  enabled = false,
+  enabled = true,
   event = "VimEnter",
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
       show_buffer_close_icons = false,
-      -- style_preset = bufferline.style_preset.minimal, -- or ,
       show_close_icon = false,
       separator_style = "thin",
       diagnostics = "nvim_lsp",
