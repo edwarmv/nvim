@@ -5,6 +5,11 @@ return {
   opts = {
     hint = "floating-letter",
     show_prompt = false,
+    filter_rules = {
+      bo = {
+        buftype = {},
+      },
+    },
   },
   keys = {
     {
