@@ -78,7 +78,7 @@ return {
         },
       },
       lualine_c = {
-        -- "aerial",
+        "aerial",
       },
       lualine_x = {
         {
