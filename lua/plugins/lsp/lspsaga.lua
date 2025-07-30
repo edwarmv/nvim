@@ -9,7 +9,7 @@ return {
         border = defaults.border,
       },
       lightbulb = {
-        enable = true,
+        enable = false,
         sign = false,
         virtual_text = true,
         debounce = defaults.lsp_debounce,
