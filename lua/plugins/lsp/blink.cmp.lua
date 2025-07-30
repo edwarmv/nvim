@@ -6,8 +6,7 @@ return {
   lazy = false, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
-    "L3MON4D3/LuaSnip",
-    -- "echasnovski/mini.snippets"
+    "rafamadriz/friendly-snippets",
   },
   -- version = "*",
   build = "cargo build --release",
@@ -52,9 +51,6 @@ return {
         TypeParameter = "",
       },
     },
-    snippets = {
-      preset = "luasnip",
-    },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
       per_filetype = {
@@ -65,6 +61,14 @@ return {
         lsp = {
           opts = { tailwind_color_icon = "" },
           fallbacks = {},
+        },
+        snippets = {
+          opts = {
+            extended_filetypes = {
+              typescript = { "javascript" },
+              astro = { "javascript" },
+            },
+          },
         },
       },
     },
@@ -94,13 +98,6 @@ return {
       enabled = false,
       window = {
         border = defaults.border,
-      },
-    },
-    fuzzy = {
-      sorts = {
-        "exact",
-        "score",
-        "sort_text",
       },
     },
   },
