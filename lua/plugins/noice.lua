@@ -54,6 +54,48 @@ return {
       --   },
       -- },
     },
+    routes = {
+      -- {
+      --   filter = {
+      --     event = "notify",
+      --     kind = "warn",
+      --   },
+      --   opts = { skip = true },
+      -- },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "lua_error",
+        },
+        opts = { skip = true },
+      },
+      -- {
+      --   filter = {
+      --     event = "msg_show",
+      --     any = {
+      --       { find = "deprecated" },
+      --     },
+      --   },
+      --   opts = { skip = true },
+      -- },
+      -- {
+      --   filter = {
+      --     event = "msg_show",
+      --     kind = "",
+      --   },
+      --   opts = { skip = true },
+      -- },
+      -- {
+      --   filter = {
+      --     event = "notify",
+      --     kind = "warn",
+      --     cond = function(message)
+      --       return message.opts.title == "Neogit"
+      --     end,
+      --   },
+      --   opts = { skip = true },
+      -- },
+    },
     presets = {
       long_message_to_split = true,
       bottom_search = true,
