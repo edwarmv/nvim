@@ -33,6 +33,9 @@ M.lsp = function(buffer)
 
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
+  vim.keymap.set("n", "gs", function()
+    require("aerial").snacks_picker()
+  end, { desc = "[LSP] Document Symbol", buffer = buffer })
 
   vim.keymap.set("n", "K", function()
     vim.lsp.buf.hover({ border = defaults.border })
@@ -42,7 +45,7 @@ M.lsp = function(buffer)
 
   vim.keymap.set({ "n", "i", "s" }, "<c-s>", function()
     vim.lsp.buf.signature_help({ border = defaults.border })
-  end, { desc = "[LSP] Signature Help" })
+  end, { desc = "[LSP] Signature Help", buffer = buffer })
 
   -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
@@ -85,6 +88,11 @@ M.lsp = function(buffer)
     "<cmd>Lspsaga peek_type_definition<cr>",
     { desc = "[LSP] Lspsaga Peek Type Definition", buffer = buffer }
   )
+
+  -- Toggle LSP inlay hints for the current buffer.
+  vim.keymap.set("n", "gh", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end, { desc = "[LSP] Toggle Inlay Hints", buffer = buffer })
 end
 
 local group = vim.api.nvim_create_augroup("LspMappings", { clear = false })
@@ -93,6 +101,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(event)
     M.lsp(event.buf)
+    vim.lsp.document_color.enable(true, event.buf, { style = " " })
   end,
 })
 
