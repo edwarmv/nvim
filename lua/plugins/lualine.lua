@@ -68,6 +68,13 @@ return {
         {
           "b:gitsigns_head",
           icon = "",
+          fmt = function(value)
+            if value ~= "" then
+              local max_width = vim.o.columns * 1 / 6
+              return string.len(value) <= max_width and value or string.sub(value, 1, max_width) .. "…"
+            end
+            return ""
+          end,
         },
         { "diff", source = diff_source },
         {
@@ -78,7 +85,22 @@ return {
         },
       },
       lualine_c = {
-        "aerial",
+        {
+          get_filename,
+          color = function()
+            local has_erros = false
+            if vim.fn.mode() ~= "i" then
+              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+            end
+
+            return {
+              fg = has_erros and utils.get_hl("Error").fg
+                or vim.bo.modified and vim.g.terminal_color_2
+                or utils.get_hl("lualine_c_normal").fg,
+              gui = vim.bo.modified and "italic" or "none",
+            }
+          end,
+        },
       },
       lualine_x = {
         {
