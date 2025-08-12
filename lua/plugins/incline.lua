@@ -1,5 +1,6 @@
 return {
   "b0o/incline.nvim",
+  enabled = false,
   event = "VeryLazy",
   dependencies = {
     "echasnovski/mini.icons",
