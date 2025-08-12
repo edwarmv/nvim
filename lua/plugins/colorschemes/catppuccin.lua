@@ -5,6 +5,11 @@ return {
   config = function()
     local utils = require("catppuccin.utils.colors")
     require("catppuccin").setup({
+      flavour = "auto",
+      background = {
+        light = "latte",
+        dark = "frappe",
+      },
       term_colors = true,
       dim_inactive = {
         enabled = true,

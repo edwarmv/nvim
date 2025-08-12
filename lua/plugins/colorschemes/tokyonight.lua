@@ -1,5 +1,6 @@
 return {
   "folke/tokyonight.nvim",
+  enabled = false,
   opts = {
     plugins = { markdown = true },
     on_highlights = function(hl, c)
