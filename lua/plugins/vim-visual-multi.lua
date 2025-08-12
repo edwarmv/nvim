@@ -11,6 +11,8 @@ return {
     vim.g.VM_maps = {
       ["Goto Next"] = "]]",
       ["Goto Prev"] = "[[",
+      ["Add Cursor up"] = "<up>",
+      ["Add Cursor Down"] = "<down>",
     }
 
     vim.api.nvim_create_autocmd("User", {
