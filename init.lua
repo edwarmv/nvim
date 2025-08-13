@@ -166,4 +166,4 @@ vim.api.nvim_create_autocmd("FileType", {
 
 require("config")
 
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("rose-pine")
