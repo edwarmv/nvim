@@ -10,12 +10,14 @@ return {
         endpoint = "http://localhost:1234/v1",
         model = "openai/gpt-oss-20b",
         extra_request_body = {
-          max_completion_tokens = 4096,
-          max_tokens = 4096,
+          max_completion_tokens = 131072,
+          max_tokens = 131072,
         },
       },
     },
-    hints = { enabled = false },
+    selection = {
+      enabled = false,
+    },
   },
   build = "make",
   dependencies = {
