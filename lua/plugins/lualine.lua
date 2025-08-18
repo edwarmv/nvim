@@ -46,6 +46,7 @@ end
 
 return {
   "nvim-lualine/lualine.nvim",
+  enabled = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
@@ -55,10 +56,10 @@ return {
       component_separators = { left = "⟩", right = "⟨" },
       globalstatus = true,
       always_divide_middle = true,
-    },
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
+      disabled_filetypes = {
+        statusline = {},
+        winbar = { "dap-view", "dap-repl" },
+      },
     },
     sections = {
       lualine_a = {
@@ -76,44 +77,45 @@ return {
             return ""
           end,
         },
-        { "diff", source = diff_source },
-        {
-          conflict_count,
-          color = function()
-            return { fg = utils.get_hl("Error").fg }
-          end,
-        },
+        -- { "diff", source = diff_source },
+        -- {
+        --   conflict_count,
+        --   color = function()
+        --     return { fg = utils.get_hl("Error").fg }
+        --   end,
+        -- },
       },
       lualine_c = {
-        {
-          get_filename,
-          color = function()
-            local has_erros = false
-            if vim.fn.mode() ~= "i" then
-              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
-            end
-
-            return {
-              fg = has_erros and utils.get_hl("Error").fg
-                or vim.bo.modified and vim.g.terminal_color_2
-                or utils.get_hl("lualine_c_normal").fg,
-              gui = vim.bo.modified and "italic" or "none",
-            }
-          end,
-        },
+        "aerial",
+        -- {
+        --   get_filename,
+        --   color = function()
+        --     local has_erros = false
+        --     if vim.fn.mode() ~= "i" then
+        --       has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+        --     end
+        --
+        --     return {
+        --       fg = has_erros and utils.get_hl("Error").fg
+        --         or vim.bo.modified and vim.g.terminal_color_2
+        --         or utils.get_hl("lualine_c_normal").fg,
+        --       gui = vim.bo.modified and "italic" or "none",
+        --     }
+        --   end,
+        -- },
       },
       lualine_x = {
-        {
-          "diagnostics",
-          sources = { "nvim_diagnostic" },
-          symbols = {
-            error = icons.diagnostics.error,
-            warn = icons.diagnostics.warn,
-            info = icons.diagnostics.info,
-            hint = icons.diagnostics.hint,
-          },
-          update_in_insert = false,
-        },
+        -- {
+        --   "diagnostics",
+        --   sources = { "nvim_diagnostic" },
+        --   symbols = {
+        --     error = icons.diagnostics.error,
+        --     warn = icons.diagnostics.warn,
+        --     info = icons.diagnostics.info,
+        --     hint = icons.diagnostics.hint,
+        --   },
+        --   update_in_insert = false,
+        -- },
         "filetype",
         {
           macro,
@@ -127,6 +129,77 @@ return {
       },
       lualine_y = { "progress" },
       lualine_z = { "location" },
+    },
+    winbar = {
+      lualine_c = {
+        { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        {
+          get_filename,
+          color = function()
+            local has_erros = false
+            if vim.fn.mode() ~= "i" then
+              has_erros = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR }) > 0
+            end
+
+            return {
+              fg = has_erros and utils.get_hl("Error").fg
+                or vim.bo.modified and vim.g.terminal_color_2
+                or utils.get_hl("lualine_c_normal").fg,
+              bg = utils.get_hl("lualine_c_normal").bg,
+              gui = vim.bo.modified and "italic" or "none",
+            }
+          end,
+        },
+        { "diff", source = diff_source },
+        {
+          conflict_count,
+          color = function()
+            return { fg = utils.get_hl("Error").fg }
+          end,
+        },
+        {
+          "diagnostics",
+          sources = { "nvim_diagnostic" },
+          symbols = {
+            error = icons.diagnostics.error,
+            warn = icons.diagnostics.warn,
+            info = icons.diagnostics.info,
+            hint = icons.diagnostics.hint,
+          },
+          update_in_insert = false,
+        },
+      },
+    },
+    inactive_winbar = {
+      lualine_c = {
+        { "filetype", colored = false, icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        {
+          get_filename,
+          color = function()
+            return {
+              fg = utils.get_hl("lualine_c_inactive").fg,
+              bg = utils.get_hl("lualine_c_inactive").bg,
+              gui = vim.bo.modified and "italic" or "none",
+            }
+          end,
+        },
+        { "diff", source = diff_source, colored = false },
+        {
+          conflict_count,
+        },
+        {
+          "diagnostics",
+          colored = false,
+          sources = { "nvim_diagnostic" },
+          symbols = {
+            error = icons.diagnostics.error,
+            warn = icons.diagnostics.warn,
+            info = icons.diagnostics.info,
+            hint = icons.diagnostics.hint,
+          },
+          update_in_insert = false,
+        },
+      },
     },
     extensions = {
       "aerial",
