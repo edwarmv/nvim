@@ -76,23 +76,58 @@ M.lsp = function(buffer)
     vim.diagnostic.jump({ count = -1, float = false, severity = vim.diagnostic.severity.ERROR })
   end, { desc = "[Diagnostic] Prev Error  ", buffer = buffer })
 
-  vim.keymap.set(
-    "n",
-    "glpd",
-    "<cmd>Lspsaga peek_definition<cr>",
-    { desc = "[LSP] Lspsaga Peek Definition", buffer = buffer }
-  )
-  vim.keymap.set(
-    "n",
-    "glpt",
-    "<cmd>Lspsaga peek_type_definition<cr>",
-    { desc = "[LSP] Lspsaga Peek Type Definition", buffer = buffer }
-  )
+  -- vim.keymap.set(
+  --   "n",
+  --   "glpd",
+  --   "<cmd>Lspsaga peek_definition<cr>",
+  --   { desc = "[LSP] Lspsaga Peek Definition", buffer = buffer }
+  -- )
+  -- vim.keymap.set(
+  --   "n",
+  --   "glpt",
+  --   "<cmd>Lspsaga peek_type_definition<cr>",
+  --   { desc = "[LSP] Lspsaga Peek Type Definition", buffer = buffer }
+  -- )
 
   -- Toggle LSP inlay hints for the current buffer.
   vim.keymap.set("n", "gh", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
   end, { desc = "[LSP] Toggle Inlay Hints", buffer = buffer })
+
+  local goto_preview = require("goto-preview")
+
+  vim.keymap.set(
+    "n",
+    "glpd",
+    goto_preview.goto_preview_definition,
+    { desc = "[LSP] Goto Preview Definition", buffer = buffer }
+  )
+  vim.keymap.set(
+    "n",
+    "glpt",
+    goto_preview.goto_preview_type_definition,
+    { desc = "[LSP] Goto Preview Type Definition", buffer = buffer }
+  )
+  vim.keymap.set(
+    "n",
+    "glpi",
+    goto_preview.goto_preview_implementation,
+    { desc = "[LSP] Goto Preview Implementation", buffer = buffer }
+  )
+  vim.keymap.set("n", "glP", goto_preview.close_all_win, { desc = "[LSP] Goto Preview Close All Win", buffer = buffer })
+  -- Only set if you have telescope installed
+  vim.keymap.set(
+    "n",
+    "glpr",
+    goto_preview.goto_preview_references,
+    { desc = "[LSP] Goto Preview References", buffer = buffer }
+  )
+  vim.keymap.set(
+    "n",
+    "glpq",
+    goto_preview.close_all_win,
+    { desc = "[LSP] Goto Preview Close All Win", buffer = buffer }
+  )
 end
 
 local group = vim.api.nvim_create_augroup("LspMappings", { clear = false })
