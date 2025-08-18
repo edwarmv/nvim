@@ -53,6 +53,12 @@ return {
       vim.keymap.set("n", "<leader>tR", "<cmd>TabooReset<cr>", { desc = "Reset Tab Name" })
     end,
   },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {
+      legacy_computing_symbols_support = true,
+    },
+  },
   -- better gf gF,
   { "HawkinsT/pathfinder.nvim" },
 }
