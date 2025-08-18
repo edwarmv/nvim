@@ -6,6 +6,16 @@ return {
       strategies = {
         chat = {
           adapter = "gpt-oss",
+          keymaps = {
+            clear = {
+              modes = {
+                n = "gX",
+              },
+              index = 6,
+              callback = "keymaps.clear",
+              description = "Clear Chat",
+            },
+          },
         },
         inline = {
           adapter = "gemini",
