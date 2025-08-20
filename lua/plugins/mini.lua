@@ -29,6 +29,7 @@ return {
   },
   {
     "echasnovski/mini.diff",
+    event = "VeryLazy",
     opts = {
       view = { style = "number" },
       mappings = {
