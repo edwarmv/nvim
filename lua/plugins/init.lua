@@ -10,6 +10,7 @@ return {
   },
   "tpope/vim-obsession",
   "tpope/vim-unimpaired",
+  "tpope/vim-abolish",
   "b0o/SchemaStore.nvim",
   "neoclide/jsonc.vim",
   { "NMAC427/guess-indent.nvim", name = "guess-indent", opts = {} },
@@ -55,9 +56,7 @@ return {
   },
   {
     "sphamba/smear-cursor.nvim",
-    opts = {
-      legacy_computing_symbols_support = true,
-    },
+    opts = {},
   },
   -- better gf gF,
   { "HawkinsT/pathfinder.nvim" },
