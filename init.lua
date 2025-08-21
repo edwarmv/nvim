@@ -104,8 +104,6 @@ vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
 vim.keymap.set("i", "<c-l>", "<c-f>")
 vim.keymap.set("i", "<s-tab>", "<c-d>")
 vim.keymap.set("n", "<c-w>z", ":resize | vertical resize<CR>")
-vim.keymap.set({ "n", "x" }, "gy", '"+y')
-vim.keymap.set({ "n", "x" }, "gp", '"+p')
 
 local defaults = require("config.defaults")
 local icons = defaults.icons
