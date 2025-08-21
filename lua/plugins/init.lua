@@ -16,12 +16,6 @@ return {
   { "NMAC427/guess-indent.nvim", name = "guess-indent", opts = {} },
   { "chrisbra/csv.vim", ft = "csv" },
   -- { "chrisbra/recover.vim" },
-  -- {
-  --   init = function()
-  --     vim.g.user_emmet_leader_key = "<m-e>"
-  --   end,
-  --   "mattn/emmet-vim",
-  -- },
   {
     "godlygeek/tabular",
   },
