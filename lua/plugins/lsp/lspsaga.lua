@@ -2,7 +2,6 @@ local defaults = require("config.defaults")
 
 return {
   "nvimdev/lspsaga.nvim",
-  enabled = true,
   config = function()
     require("lspsaga").setup({
       ui = {
