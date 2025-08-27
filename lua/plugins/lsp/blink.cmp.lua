@@ -2,11 +2,11 @@ local defaults = require("config.defaults")
 
 return {
   "saghen/blink.cmp",
-  enabled = true,
-  lazy = false, -- lazy loading handled internally
+  lazy = true, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
-    "rafamadriz/friendly-snippets",
+    "echasnovski/mini.snippets",
+    -- "rafamadriz/friendly-snippets",
   },
   -- version = "*",
   build = "cargo build --release",
@@ -72,12 +72,13 @@ return {
         },
       },
     },
+    snippets = { preset = "mini_snippets" },
     completion = {
       documentation = {
+        auto_show_delay_ms = 200,
         auto_show = true,
         window = {
           border = "padded",
-          max_width = math.floor(vim.o.columns / 4),
         },
       },
       trigger = {
@@ -98,6 +99,14 @@ return {
       enabled = false,
       window = {
         border = defaults.border,
+      },
+    },
+    fuzzy = {
+      implementation = "rust",
+      sorts = {
+        "exact",
+        "score",
+        "sort_text",
       },
     },
   },
