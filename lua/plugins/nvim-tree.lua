@@ -103,7 +103,7 @@ return {
         },
       },
       update_focused_file = {
-        enable = true,
+        enable = false,
       },
       hijack_netrw = true,
       hijack_directories = {
