@@ -58,7 +58,7 @@ return {
       always_divide_middle = true,
       disabled_filetypes = {
         statusline = {},
-        winbar = { "dap-view", "dap-repl" },
+        winbar = { "dap-view", "dap-repl", "snacks_layout_box", "qf" },
       },
     },
     sections = {
@@ -132,7 +132,14 @@ return {
     },
     winbar = {
       lualine_c = {
-        { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        {
+          function()
+            return " "
+          end,
+          separator = "",
+          padding = 0,
+        },
+        { "filetype", icon_only = true, separator = "", padding = 0 },
         {
           get_filename,
           color = function()
@@ -149,6 +156,7 @@ return {
               gui = vim.bo.modified and "italic" or "none",
             }
           end,
+          padding = { left = 0, right = 1 },
         },
         { "diff", source = diff_source },
         {
@@ -172,7 +180,14 @@ return {
     },
     inactive_winbar = {
       lualine_c = {
-        { "filetype", colored = false, icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        {
+          function()
+            return " "
+          end,
+          separator = "",
+          padding = 0,
+        },
+        { "filetype", colored = false, icon_only = true, separator = "", padding = 0 },
         {
           get_filename,
           color = function()
@@ -182,6 +197,7 @@ return {
               gui = vim.bo.modified and "italic" or "none",
             }
           end,
+          padding = { left = 0, right = 1 },
         },
         { "diff", source = diff_source, colored = false },
         {
