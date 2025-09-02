@@ -116,6 +116,7 @@ return {
     { "<leader>fld", function() Snacks.picker.diagnostics() end, desc = "FZF - Document Diagnostics" },
     { "<leader>fgl", function() Snacks.picker.git_log() end, desc = "Git Log" },
     { "<leader>fgs", function() Snacks.picker.git_status() end, desc = "Git Status" },
+     { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo" },
   },
   -- stylua: ignore end
 }
