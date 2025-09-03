@@ -2,11 +2,11 @@ local defaults = require("config.defaults")
 
 return {
   "saghen/blink.cmp",
+  enabled = true,
   lazy = true, -- lazy loading handled internally
   dependencies = {
     "folke/lazydev.nvim",
-    "echasnovski/mini.snippets",
-    -- "rafamadriz/friendly-snippets",
+    "L3MON4D3/LuaSnip",
   },
   -- version = "*",
   build = "cargo build --release",
@@ -72,13 +72,13 @@ return {
         },
       },
     },
-    snippets = { preset = "mini_snippets" },
+    snippets = { preset = "luasnip" },
     completion = {
       documentation = {
         auto_show_delay_ms = 200,
         auto_show = true,
         window = {
-          border = "padded",
+          border = "none",
         },
       },
       trigger = {
