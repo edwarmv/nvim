@@ -8,6 +8,8 @@ return {
     highlight_groups = {
       ExtraWhitespace = { fg = "love", bg = "love", blend = 20 },
       ["@markup.link.label"] = {},
+      LuasnipInsertNodePassive = { bg = "gold", blend = 20 },
+      LuasnipChoiceNodePassive = { bg = "gold", blend = 20 },
     },
   },
 }
