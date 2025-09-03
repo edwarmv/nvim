@@ -28,23 +28,13 @@ return {
       },
     },
     picker = {
-      layout = {
-        preset = "vscode",
-      },
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
         },
       },
-      layouts = {
-        vscode = {
-          layout = {
-            backdrop = true,
-          },
-          -- preview = true,
-        },
-      },
       win = {
+        preview = { wo = { number = false, relativenumber = false, signcolumn = "no", foldcolumn = "0" } },
         input = {
           keys = {
             ["<a-m>"] = nil,
@@ -82,12 +72,6 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    require("snacks").setup(opts)
-    require("snacks.picker.core.preview")
-    vim.api.nvim_del_autocmd(vim.api.nvim_create_augroup("snacks.picker.preview.wo", {}))
-    Snacks.toggle.option("signcolumn", { on = "yes:1", off = "no", name = "signcolumn" }):map("yoS")
-  end,
   -- stylua: ignore start
   keys = {
     -- { "<c-\\>", function() Snacks.terminal.toggle() end, desc = "Toggle Term" },
@@ -112,11 +96,11 @@ return {
     { "<leader>fm", function() Snacks.picker.marks() end, desc = "FZF - Marks" },
     { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "FZF - Keymaps" },
     { "<leader>fc", function() Snacks.picker.commands() end, desc = "FZF - Commands" },
-    { "<leader>fls", function() Snacks.picker.lsp_symbols() end, desc = "FZF - LSP Document Symbols" },
-    { "<leader>fld", function() Snacks.picker.diagnostics() end, desc = "FZF - Document Diagnostics" },
+    { "<leader>fd", function() Snacks.picker.diagnostics_buffer() end, desc = "FZF - Buffer Diagnostics" },
+    { "<leader>fD", function() Snacks.picker.diagnostics() end, desc = "FZF - Diagnostics" },
     { "<leader>fgl", function() Snacks.picker.git_log() end, desc = "Git Log" },
     { "<leader>fgs", function() Snacks.picker.git_status() end, desc = "Git Status" },
-     { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo" },
+    { "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Todo" },
   },
   -- stylua: ignore end
 }
