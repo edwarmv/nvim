@@ -13,7 +13,7 @@ return {
   },
   keys = {
     {
-      "<tab>",
+      "gW",
       function()
         local _, picked_window_id = pcall(require("window-picker").pick_window)
         local cur_winid = vim.fn.win_getid()
