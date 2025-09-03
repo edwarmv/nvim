@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.o.winborder = "none"
 
+vim.o.clipboard = "unnamedplus"
+vim.opt.sessionoptions:remove({ "blank", "folds", "help" })
 vim.o.completeopt = "menu,menuone,noselect,fuzzy,nosort"
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.o.cursorline = true -- Enable highlighting of the current line
