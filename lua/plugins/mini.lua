@@ -53,17 +53,6 @@ return {
     },
   },
   -- {
-  --   "echasnovski/mini.notify",
-  --   version = false,
-  --   config = function()
-  --     require("mini.notify").setup({
-  --       lsp_progress = { enable = false },
-  --       { window = { config = { border = defaults.border } } },
-  --     })
-  --     vim.notify = require("mini.notify").make_notify
-  --   end,
-  -- },
-  -- {
   --   "echasnovski/mini.files",
   --   version = false,
   --   main = "mini.files",
