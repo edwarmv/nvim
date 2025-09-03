@@ -116,7 +116,6 @@ return {
         --   },
         --   update_in_insert = false,
         -- },
-        "filetype",
         {
           macro,
           color = function()
@@ -126,6 +125,7 @@ return {
         "searchcount",
         "selectioncount",
         "ObsessionStatus",
+        "filetype",
       },
       lualine_y = { "progress" },
       lualine_z = { "location" },
