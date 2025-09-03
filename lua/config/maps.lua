@@ -21,16 +21,6 @@ M.lsp = function(buffer)
     vim.diagnostic.open_float({ border = defaults.border })
   end, { desc = "[LSP] Show line diagnostics", buffer = buffer })
 
-  vim.keymap.set(
-    "n",
-    "glfr",
-    "<cmd>Lspsaga finder ref<cr>",
-    { desc = "[LSP - Saga] Finder References", buffer = buffer }
-  )
-  vim.keymap.set("n", "glF", "<cmd>Lspsaga finder<cr>", { desc = "[LSP - Saga] Finder", buffer = buffer })
-  vim.keymap.set("n", "glI", "<cmd>Lspsaga incoming_calls<cr>", { desc = "[LSP] Incoming Calls", buffer = buffer })
-  vim.keymap.set("n", "glO", "<cmd>Lspsaga outgoing_calls<cr>", { desc = "[LSP] Outgoing Calls", buffer = buffer })
-
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[LSP] Declaration", buffer = buffer })
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[LSP] Definition", buffer = buffer })
   vim.keymap.set("n", "gs", function()
@@ -49,14 +39,9 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
-  vim.keymap.set("n", "grn", "<cmd>Lspsaga rename<cr>", { desc = "[LSP] Lspsaga Rename", buffer = buffer })
-
-  vim.keymap.set(
-    { "n", "x" },
-    "gra",
-    "<cmd>Lspsaga code_action<cr>",
-    { desc = "[LSP] Lspsaga Code Action", buffer = buffer }
-  )
+  vim.keymap.set("n", "grn", function()
+    require("config.utils.rename").lsp_buf_rename_use_priority_or_any()
+  end, { desc = "[LSP] Rename", buffer = buffer })
 
   vim.keymap.set("n", "glr", vim.lsp.buf.references, { desc = "[LSP] References", buffer = buffer })
 
@@ -75,19 +60,6 @@ M.lsp = function(buffer)
   vim.keymap.set("n", "[E", function()
     vim.diagnostic.jump({ count = -1, float = false, severity = vim.diagnostic.severity.ERROR })
   end, { desc = "[Diagnostic] Prev Error  ", buffer = buffer })
-
-  -- vim.keymap.set(
-  --   "n",
-  --   "glpd",
-  --   "<cmd>Lspsaga peek_definition<cr>",
-  --   { desc = "[LSP] Lspsaga Peek Definition", buffer = buffer }
-  -- )
-  -- vim.keymap.set(
-  --   "n",
-  --   "glpt",
-  --   "<cmd>Lspsaga peek_type_definition<cr>",
-  --   { desc = "[LSP] Lspsaga Peek Type Definition", buffer = buffer }
-  -- )
 
   -- Toggle LSP inlay hints for the current buffer.
   vim.keymap.set("n", "gh", function()
