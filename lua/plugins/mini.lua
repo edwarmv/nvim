@@ -1,5 +1,3 @@
-local defaults = require("config.defaults")
-
 return {
   {
     "echasnovski/mini.icons",
