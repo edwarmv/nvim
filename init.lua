@@ -3,8 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.o.winborder = "none"
 
-vim.o.clipboard = "unnamedplus"
-vim.opt.sessionoptions:remove({ "blank", "folds", "help" })
+vim.opt.sessionoptions:remove({ "blank", "folds", "help", "terminal" })
 vim.o.completeopt = "menu,menuone,noselect,fuzzy,nosort"
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.o.cursorline = true -- Enable highlighting of the current line
@@ -46,13 +45,6 @@ vim.o.colorcolumn = "80"
 vim.o.breakindent = true
 vim.o.showbreak = "↪"
 vim.o.termguicolors = true
-
-vim.keymap.set({ "n", "v" }, "k", function()
-  return vim.v.count > 0 and "k" or "gk"
-end, { expr = true, desc = "k or gk" })
-vim.keymap.set({ "n", "v" }, "j", function()
-  return vim.v.count > 0 and "j" or "gj"
-end, { expr = true, desc = "j or gj" })
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
