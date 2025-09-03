@@ -3,6 +3,7 @@ return {
   event = "BufReadPre",
   depependencies = {
     "saghen/blink.cmp",
+    -- "hrsh7th/nvim-ix",
     -- "cmp-nvim-lsp",
   },
   config = function()
@@ -13,17 +14,23 @@ return {
     --   },
     -- }
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(), {
-      workspace = {
-        didChangeWatchedFiles = {
-          dynamicRegistration = true,
+    capabilities = vim.tbl_deep_extend(
+      "force",
+      capabilities,
+      require("blink.cmp").get_lsp_capabilities(),
+      -- require("ix").get_capabilities(),
+      {
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = true,
+          },
+          fileOperations = {
+            didRename = true,
+            willRename = true,
+          },
         },
-        fileOperations = {
-          didRename = true,
-          willRename = true,
-        },
-      },
-    })
+      }
+    )
     vim.lsp.config("*", {
       capabilities = capabilities,
     })
