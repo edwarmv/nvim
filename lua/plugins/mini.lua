@@ -16,10 +16,13 @@ return {
   {
     "echasnovski/mini.indentscope",
     init = function()
-      vim.api.nvim_create_autocmd("TermOpen", {
-        desc = "Disable 'mini.indentscope' in terminal buffer",
-        callback = function()
-          vim.b.miniindentscope_disable = true
+      vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter" }, {
+        desc = "Disable 'mini.indentscope' when buftype is ''",
+        callback = function(args)
+          local bufnr = args.buf or vim.fn.expand("<abuf>")
+          if vim.bo[bufnr].buftype ~= "" then
+            vim.b.miniindentscope_disable = true
+          end
         end,
       })
     end,
