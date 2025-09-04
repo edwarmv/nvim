@@ -1,5 +1,5 @@
 return {
-  "folke/snacks.nvim",
+  "edwarmv/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {

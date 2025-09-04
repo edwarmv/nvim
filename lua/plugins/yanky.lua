@@ -11,7 +11,7 @@ return {
     --     exclude = { "ns", "nS", "xs", "xS" },
     --   },
     -- },
-    "folke/snacks.nvim",
+    "snacks.nvim",
   },
   opts = {
     ring = {
