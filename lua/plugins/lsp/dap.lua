@@ -8,48 +8,8 @@ local languages = {
 }
 
 return {
-  "mfussenegger/nvim-dap",
-  recommended = true,
-  dependencies = {
-    {
-      "jay-babu/mason-nvim-dap.nvim",
-      dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-      opts = {
-        automatic_installation = false,
-        ensure_installed = { "js-debug-adapter" },
-        handlers = {}, -- sets up dap in the predefined manner
-      },
-    },
-    {
-      "rcarriga/nvim-dap-ui",
-      dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
-        -- stylua: ignore
-        keys = {
-          { "<leader>du", function() require("dapui").toggle() end, desc = "Dap UI" },
-          { "<leader>dU", function() require("dapui").toggle({ reset = true }) end, desc = "Dap UI - Reset layout" },
-          { "<leader>de", function() require("dapui").eval(nil, { enter = true }) end, desc = "Eval", mode = { "n", "v" } },
-        },
-      opts = {
-        floating = {
-          border = defaults.border,
-        },
-      },
-      config = function(_, opts)
-        local dap = require("dap")
-        local dapui = require("dapui")
-        dapui.setup(opts)
-        dap.listeners.before.attach.dapui_config = function()
-          dapui.open()
-        end
-        dap.listeners.before.launch.dapui_config = function()
-          dapui.open()
-        end
-        dap.listeners.before.event_terminated.dapui_config = function()
-          dapui.close()
-        end
-      end,
-    },
-  },
+  {
+    "mfussenegger/nvim-dap",
   -- stylua: ignore
   keys = {
     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Breakpoint Condition" },
@@ -70,64 +30,111 @@ return {
     { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
   },
-  config = function()
-    vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+    config = function()
+      vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-    for name, sign in pairs(require("config.defaults").icons.dap) do
-      sign = type(sign) == "table" and sign or { sign }
-      vim.fn.sign_define(
-        "Dap" .. name,
-        { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
-      )
-    end
+      for name, sign in pairs(require("config.defaults").icons.dap) do
+        sign = type(sign) == "table" and sign or { sign }
+        vim.fn.sign_define(
+          "Dap" .. name,
+          { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
+        )
+      end
 
-    -- setup dap config by VsCode launch.json file
-    local vscode = require("dap.ext.vscode")
-    local json = require("plenary.json")
-    vscode.json_decode = function(str)
-      return vim.json.decode(json.json_strip_comments(str))
-    end
+      -- setup dap config by VsCode launch.json file
+      local vscode = require("dap.ext.vscode")
+      local json = require("plenary.json")
+      vscode.json_decode = function(str)
+        return vim.json.decode(json.json_strip_comments(str))
+      end
 
-    local dap = require("dap")
+      local dap = require("dap")
 
-    dap.adapters.python = {
-      type = "executable",
-      command = "./venv/bin/python",
-      args = {
-        "-m",
-        "debugpy.adapter",
-      },
-    }
-
-    for _, adapterType in ipairs({ "node", "chrome", "msedge" }) do
-      local pwaType = "pwa-" .. adapterType
-
-      dap.adapters[pwaType] = {
-        type = "server",
-        host = "localhost",
-        port = "${port}",
-        executable = {
-          command = "node",
-          args = {
-            vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-            "${port}",
-          },
+      dap.adapters.python = {
+        type = "executable",
+        command = "./venv/bin/python",
+        args = {
+          "-m",
+          "debugpy.adapter",
         },
       }
 
-      -- this allow us to handle launch.json configurations
-      -- which specify type as "node" or "chrome" or "msedge"
-      dap.adapters[adapterType] = function(cb, config)
-        local nativeAdapter = dap.adapters[pwaType]
+      for _, adapterType in ipairs({ "node", "chrome", "msedge" }) do
+        local pwaType = "pwa-" .. adapterType
 
-        config.type = pwaType
+        dap.adapters[pwaType] = {
+          type = "server",
+          host = "localhost",
+          port = "${port}",
+          executable = {
+            command = "node",
+            args = {
+              vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+              "${port}",
+            },
+          },
+        }
 
-        if type(nativeAdapter) == "function" then
-          nativeAdapter(cb, config)
-        else
-          cb(nativeAdapter)
+        -- this allow us to handle launch.json configurations
+        -- which specify type as "node" or "chrome" or "msedge"
+        dap.adapters[adapterType] = function(cb, config)
+          local nativeAdapter = dap.adapters[pwaType]
+
+          config.type = pwaType
+
+          if type(nativeAdapter) == "function" then
+            nativeAdapter(cb, config)
+          else
+            cb(nativeAdapter)
+          end
         end
       end
-    end
-  end,
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+    opts = {
+      automatic_installation = false,
+      ensure_installed = { "js-debug-adapter" },
+      handlers = {}, -- sets up dap in the predefined manner
+    },
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
+      -- stylua: ignore
+      keys = {
+        { "<leader>du", function() require("dapui").toggle() end, desc = "Dap UI" },
+        { "<leader>dU", function() require("dapui").toggle({ reset = true }) end, desc = "Dap UI - Reset layout" },
+        { "<leader>de", function() require("dapui").eval(nil, { enter = true }) end, desc = "Eval", mode = { "n", "v" } },
+      },
+    opts = {
+      floating = {
+        border = defaults.border,
+      },
+    },
+    config = function(_, opts)
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup(opts)
+      dap.listeners.before.attach.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated.dapui_config = function()
+        dapui.close()
+      end
+    end,
+  },
+  {
+    "LiadOz/nvim-dap-repl-highlights",
+    opts = {},
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    opts = {},
+  },
 }
