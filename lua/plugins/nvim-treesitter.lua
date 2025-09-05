@@ -50,6 +50,7 @@ return {
         "astro",
         "rust",
         "xml",
+        "dap_repl",
       },
       highlight = {
         enable = true,
