@@ -6,11 +6,6 @@ return {
       "echasnovski/mini.icons",
     },
     opts = {
-      default_file_explorer = false,
-      -- win_options = {
-      --   signcolumn = "yes:2",
-      --   number = false,
-      -- },
       view_options = {
         show_hidden = true,
       },
@@ -19,11 +14,4 @@ return {
       { "<leader>o", "<cmd>Oil<cr>", desc = "Oil" },
     },
   },
-  -- {
-  --   "refractalize/oil-git-status.nvim",
-  --   dependencies = {
-  --     "stevearc/oil.nvim",
-  --   },
-  --   opts = {},
-  -- },
 }
