@@ -28,13 +28,14 @@ return {
       },
     },
     picker = {
+      preview_no_winopts = true,
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
         },
       },
       win = {
-        preview = { wo = { number = false, relativenumber = false, signcolumn = "no", foldcolumn = "0" } },
+        preview = { minimal = true },
         input = {
           keys = {
             ["<a-m>"] = nil,
@@ -85,8 +86,9 @@ return {
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer", },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
     --- FZF
+    { "<leader>F", function() Snacks.picker() end, desc = "Snacks Picker" },
     { "<leader>fe", function() Snacks.picker.explorer() end, desc = "FZF - Explorer" },
-    { "<leader>ff", function() Snacks.picker.files() end, desc = "FZF - Files" },
+    { "<leader>ff", function() Snacks.picker.smart() end, desc = "FZF - Files" },
     { "<leader>fF", function() Snacks.picker.files({ cwd = vim.fn.expand("%:p:h") }) end, desc = "FZF - Files Relative Path", },
     { "<leader>fo", function() Snacks.picker.recent() end, desc = "FZF - Files History" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "FZF - Buffers", },
@@ -101,6 +103,7 @@ return {
     { "<leader>fgl", function() Snacks.picker.git_log() end, desc = "Git Log" },
     { "<leader>fgs", function() Snacks.picker.git_status() end, desc = "Git Status" },
     { "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Todo" },
+    { "<leader>f/", function() Snacks.picker.lines() end, desc = "Lines" },
   },
   -- stylua: ignore end
 }
