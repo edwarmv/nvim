@@ -1,5 +1,5 @@
 return {
-  "edwarmv/snacks.nvim",
+  "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {
@@ -28,14 +28,27 @@ return {
       },
     },
     picker = {
-      preview_no_winopts = true,
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
         },
       },
       win = {
-        preview = { minimal = true },
+        preview = {
+          minimal = true,
+          on_close = function()
+            local buftype = vim.bo.buftype
+            if buftype == "terminal" then
+              vim.wo.number = false
+              vim.wo.signcolumn = "no"
+              vim.wo.foldcolumn = "0"
+            else
+              vim.wo.number = true
+              vim.wo.signcolumn = "yes:1"
+              vim.wo.foldcolumn = "1"
+            end
+          end,
+        },
         input = {
           keys = {
             ["<a-m>"] = nil,
