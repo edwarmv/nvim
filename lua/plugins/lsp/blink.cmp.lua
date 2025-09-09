@@ -2,10 +2,10 @@ local defaults = require("config.defaults")
 
 return {
   "saghen/blink.cmp",
+  branch = "rework-frecency",
   enabled = true,
   lazy = true, -- lazy loading handled internally
   dependencies = {
-    "folke/lazydev.nvim",
     "L3MON4D3/LuaSnip",
   },
   -- version = "*",
@@ -21,6 +21,15 @@ return {
       },
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
       -- ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+      ["<C-space>"] = {
+        function(cmp)
+          cmp.show({ providers = { "lsp", "path", "snippets", "buffer" } })
+        end,
+      },
+      ["<M-space>"] = {
+        "show_documentation",
+        "hide_documentation",
+      },
     },
     appearance = {
       kind_icons = {
@@ -53,11 +62,7 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
-      per_filetype = {
-        lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
-      },
       providers = {
-        lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         lsp = {
           opts = { tailwind_color_icon = "" },
           fallbacks = {},
