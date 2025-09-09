@@ -67,7 +67,7 @@ return {
       renderer = {
         root_folder_label = false,
         indent_markers = {
-          enable = false,
+          enable = true,
         },
         icons = {
           web_devicons = {
