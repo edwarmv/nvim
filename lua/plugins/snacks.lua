@@ -1,5 +1,5 @@
 return {
-  "folke/snacks.nvim",
+  "edwarmv/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {
@@ -35,13 +35,14 @@ return {
       },
       win = {
         preview = {
-          minimal = true,
+          preview = { wo = { number = true, relativenumber = false, signcolumn = "no", foldcolumn = "0" } },
           on_close = function()
             local buftype = vim.bo.buftype
             if buftype == "terminal" then
               vim.wo.number = false
               vim.wo.signcolumn = "no"
               vim.wo.foldcolumn = "0"
+              vim.wo.list = false
             else
               vim.wo.number = true
               vim.wo.signcolumn = "yes:1"
