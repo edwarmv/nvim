@@ -17,11 +17,6 @@ return {
     ring = {
       storage = "sqlite",
     },
-    -- picker = {
-    --   select = {
-    --     action = require("yanky.picker").actions.set_register(""),
-    --   },
-    -- },
   },
   keys = {
     {
