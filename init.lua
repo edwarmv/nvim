@@ -32,7 +32,7 @@ vim.opt.spelloptions:append("noplainbuffer")
 vim.o.splitbelow = true -- Put new windows below current
 vim.o.splitkeep = "screen"
 vim.o.splitright = true -- Put new windows right of current
-vim.o.tabstop = 2 -- Number of spaces tabs count for
+vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.shiftwidth = 2 -- Size of an indent
 vim.o.timeoutlen = 500
 vim.o.undofile = true
@@ -63,9 +63,10 @@ vim.opt.fillchars = {
   diff = "╱",
 }
 vim.opt.listchars = {
-  -- multispace = "⋅",
-  trail = "⋅",
-  tab = "-->",
+  multispace = "⋅",
+  trail = "⋅", -- ·
+  tab = "→⋅",
+  eol = "↵",
 }
 
 -- =========================================================
