@@ -1,5 +1,18 @@
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "term://*",
+  callback = function()
+    local buftype = vim.bo.buftype
+    if buftype == "terminal" then
+      vim.wo.number = false
+      vim.wo.signcolumn = "no"
+      vim.wo.foldcolumn = "0"
+      vim.wo.list = false
+    end
+  end,
+})
 return {
-  "edwarmv/snacks.nvim",
+  "antonrogov/snacks.nvim",
+  branch = "preview-no-winopts",
   priority = 1000,
   lazy = false,
   opts = {
@@ -18,7 +31,7 @@ return {
     rename = { enabled = true },
     scratch = { enabled = true },
     indent = {
-      enabled = true,
+      enabled = false,
       indent = {
         char = "▏",
       },
@@ -28,28 +41,13 @@ return {
       },
     },
     picker = {
+      preview_no_winopts = true,
       formatters = {
         file = {
           filename_first = true, -- display filename before the file path
         },
       },
       win = {
-        preview = {
-          preview = { wo = { number = true, relativenumber = false, signcolumn = "no", foldcolumn = "0" } },
-          on_close = function()
-            local buftype = vim.bo.buftype
-            if buftype == "terminal" then
-              vim.wo.number = false
-              vim.wo.signcolumn = "no"
-              vim.wo.foldcolumn = "0"
-              vim.wo.list = false
-            else
-              vim.wo.number = true
-              vim.wo.signcolumn = "yes:1"
-              vim.wo.foldcolumn = "1"
-            end
-          end,
-        },
         input = {
           keys = {
             ["<a-m>"] = nil,
@@ -102,7 +100,8 @@ return {
     --- FZF
     { "<leader>F", function() Snacks.picker() end, desc = "Snacks Picker" },
     { "<leader>fe", function() Snacks.picker.explorer() end, desc = "FZF - Explorer" },
-    { "<leader>ff", function() Snacks.picker.smart() end, desc = "FZF - Files" },
+    { "<leader>fs", function() Snacks.picker.smart() end, desc = "FZF - Smart" },
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "FZF - Files" },
     { "<leader>fF", function() Snacks.picker.files({ cwd = vim.fn.expand("%:p:h") }) end, desc = "FZF - Files Relative Path", },
     { "<leader>fo", function() Snacks.picker.recent() end, desc = "FZF - Files History" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "FZF - Buffers", },
