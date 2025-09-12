@@ -67,14 +67,6 @@ return {
           opts = { tailwind_color_icon = "" },
           fallbacks = {},
         },
-        snippets = {
-          opts = {
-            extended_filetypes = {
-              typescript = { "javascript" },
-              astro = { "javascript" },
-            },
-          },
-        },
       },
     },
     snippets = { preset = "luasnip" },
