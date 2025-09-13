@@ -1,15 +1,3 @@
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "term://*",
-  callback = function()
-    local buftype = vim.bo.buftype
-    if buftype == "terminal" then
-      vim.wo.number = false
-      vim.wo.signcolumn = "no"
-      vim.wo.foldcolumn = "0"
-      vim.wo.list = false
-    end
-  end,
-})
 return {
   "antonrogov/snacks.nvim",
   branch = "preview-no-winopts",
