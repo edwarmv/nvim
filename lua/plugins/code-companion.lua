@@ -21,21 +21,23 @@ return {
           adapter = "gemini",
         },
       },
-      adapters = {
-        ["gpt-oss"] = function()
-          return require("codecompanion.adapters").extend("openai_compatible", {
-            env = {
-              url = "http://localhost:1234", -- optional: default value is ollama url http://127.0.0.1:11434
-              chat_url = "/v1/chat/completions", -- optional: default value, override if different
-              models_endpoint = "/v1/models", -- optional: attaches to the end of the URL to form the endpoint to retrieve models
-            },
-            schema = {
-              model = {
-                default = "openai/gpt-oss-20b", -- define llm model to be used
+      http = {
+        adapters = {
+          ["gpt-oss"] = function()
+            return require("codecompanion.adapters").extend("openai_compatible", {
+              env = {
+                url = "http://localhost:1234", -- optional: default value is ollama url http://127.0.0.1:11434
+                chat_url = "/v1/chat/completions", -- optional: default value, override if different
+                models_endpoint = "/v1/models", -- optional: attaches to the end of the URL to form the endpoint to retrieve models
               },
-            },
-          })
-        end,
+              schema = {
+                model = {
+                  default = "openai/gpt-oss-20b", -- define llm model to be used
+                },
+              },
+            })
+          end,
+        },
       },
     }
   end,
