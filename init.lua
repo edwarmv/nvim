@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.o.winborder = "none"
 
-vim.opt.sessionoptions:remove({ "blank", "folds", "help", "terminal" })
+vim.opt.sessionoptions:remove({ "blank", "folds", "help" })
 vim.o.completeopt = "menu,menuone,noselect,fuzzy,nosort"
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.o.cursorline = true -- Enable highlighting of the current line
@@ -63,10 +63,10 @@ vim.opt.fillchars = {
   diff = "╱",
 }
 vim.opt.listchars = {
-  multispace = "⋅",
+  -- multispace = "⋅",
   trail = "⋅", -- ·
-  tab = "→⋅",
-  eol = "↵",
+  tab = "  ",
+  -- eol = "↵",
 }
 
 -- =========================================================
@@ -86,13 +86,13 @@ vim.keymap.set("n", "<leader>tm", function()
   vim.ui.input({ prompt = "Enter The Tab Index: " }, function(tab_index)
     vim.cmd("tabmove" .. tab_index)
   end)
-end)
+end, { desc = "Tab Move" })
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>")
 vim.api.nvim_create_autocmd({ "TabLeave" }, {
   command = "let g:lasttab = tabpagenr()",
 })
-vim.keymap.set("n", "<leader>tt", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc = "Last Tab" })
+vim.keymap.set("n", "<leader>tl", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc = "Last Tab" })
 vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
 vim.keymap.set("i", "<c-l>", "<c-f>")
 vim.keymap.set("i", "<s-tab>", "<c-d>")
