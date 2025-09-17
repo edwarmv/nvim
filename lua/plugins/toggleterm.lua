@@ -2,21 +2,8 @@ local defaults = require("config.defaults")
 
 return {
   "akinsho/toggleterm.nvim",
-  enabled = true,
+  lazy = false,
   init = function()
-    vim.api.nvim_create_user_command("FTerm", function(opts)
-      vim.fn.execute(opts.count .. "ToggleTerm direction=float")
-    end, { count = true })
-    vim.api.nvim_create_user_command("VTerm", function(opts)
-      vim.fn.execute(opts.count .. "ToggleTerm direction=vertical")
-    end, { count = true })
-    vim.api.nvim_create_user_command("STerm", function(opts)
-      vim.fn.execute(opts.count .. "ToggleTerm direction=horizontal")
-    end, { count = true })
-    vim.api.nvim_create_user_command("TTerm", function(opts)
-      vim.fn.execute(opts.count .. "ToggleTerm direction=tab")
-    end, { count = true })
-
     function _G.set_terminal_keymaps()
       local esc_timer
       vim.keymap.set("t", "<esc>", function(self)
@@ -41,14 +28,6 @@ return {
       end
     end,
     open_mapping = [[<c-\>]],
-    highlights = {
-      NormalFloat = {
-        link = "Normal",
-      },
-      FloatBorder = {
-        link = "FloatBorder",
-      },
-    },
     direction = "float", -- 'vertical' | 'horizontal' | 'window' | 'float',
     shade_terminals = false,
     float_opts = {
@@ -61,6 +40,40 @@ return {
         local height = math.floor(vim.o.lines * 0.7)
         return height
       end,
+    },
+  },
+  keys = {
+    {
+      "<leader>tf",
+      function()
+        local count = vim.v.count1
+        vim.fn.execute(count .. "ToggleTerm direction=float")
+      end,
+      desc = "ToggleTerm - Float",
+    },
+    {
+      "<leader>tv",
+      function()
+        local count = vim.v.count1
+        vim.fn.execute(count .. "ToggleTerm direction=vertical")
+      end,
+      desc = "ToggleTerm - Vertical",
+    },
+    {
+      "<leader>ts",
+      function()
+        local count = vim.v.count1
+        vim.fn.execute(count .. "ToggleTerm direction=horizontal")
+      end,
+      desc = "ToggleTerm - Horizontal",
+    },
+    {
+      "<leader>tt",
+      function()
+        local count = vim.v.count1
+        vim.fn.execute(count .. "ToggleTerm direction=tab")
+      end,
+      desc = "ToggleTerm - Tab",
     },
   },
 }
