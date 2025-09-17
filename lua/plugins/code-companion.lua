@@ -21,8 +21,8 @@ return {
           adapter = "gemini",
         },
       },
-      http = {
-        adapters = {
+      adapters = {
+        http = {
           ["gpt-oss"] = function()
             return require("codecompanion.adapters").extend("openai_compatible", {
               env = {
