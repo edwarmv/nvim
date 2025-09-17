@@ -2,7 +2,6 @@ local defaults = require("config.defaults")
 
 return {
   "saghen/blink.cmp",
-  branch = "rework-frecency",
   enabled = true,
   lazy = true, -- lazy loading handled internally
   dependencies = {
