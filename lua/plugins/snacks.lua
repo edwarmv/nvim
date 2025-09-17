@@ -1,6 +1,5 @@
 return {
-  "antonrogov/snacks.nvim",
-  branch = "preview-no-winopts",
+  "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {
@@ -19,7 +18,7 @@ return {
     rename = { enabled = true },
     scratch = { enabled = true },
     indent = {
-      enabled = false,
+      enabled = true,
       indent = {
         char = "▏",
       },

@@ -15,7 +15,6 @@ return {
   },
   {
     "echasnovski/mini.indentscope",
-    enabled = false,
     init = function()
       vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter" }, {
         desc = "Disable 'mini.indentscope' when buftype is ''",
