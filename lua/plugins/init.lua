@@ -36,5 +36,10 @@ return {
     },
   },
   -- better gf gF,
-  { "HawkinsT/pathfinder.nvim" },
+  {
+    "HawkinsT/pathfinder.nvim",
+    opts = {
+      open_mode = "tab split",
+    },
+  },
 }
