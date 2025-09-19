@@ -5,7 +5,7 @@ return {
   enabled = true,
   lazy = true, -- lazy loading handled internally
   dependencies = {
-    "L3MON4D3/LuaSnip",
+    "echasnovski/mini.snippets",
   },
   -- version = "*",
   build = "cargo build --release",
@@ -20,15 +20,6 @@ return {
       },
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
       -- ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
-      ["<C-space>"] = {
-        function(cmp)
-          cmp.show({ providers = { "lsp", "path", "snippets", "buffer" } })
-        end,
-      },
-      ["<M-space>"] = {
-        "show_documentation",
-        "hide_documentation",
-      },
     },
     appearance = {
       kind_icons = {
@@ -68,13 +59,13 @@ return {
         },
       },
     },
-    snippets = { preset = "luasnip" },
+    snippets = { preset = "mini_snippets" },
     completion = {
       documentation = {
         auto_show_delay_ms = 200,
         auto_show = true,
         window = {
-          border = "none",
+          border = "padded",
         },
       },
       trigger = {
@@ -83,6 +74,9 @@ return {
       menu = {
         max_height = 6,
         border = "none",
+        draw = {
+          padding = 0,
+        },
       },
       list = {
         selection = {
@@ -95,14 +89,6 @@ return {
       enabled = false,
       window = {
         border = defaults.border,
-      },
-    },
-    fuzzy = {
-      implementation = "rust",
-      sorts = {
-        "exact",
-        "score",
-        "sort_text",
       },
     },
   },
