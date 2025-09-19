@@ -104,11 +104,11 @@ return {
     "rcarriga/nvim-dap-ui",
     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
       -- stylua: ignore
-      keys = {
-        { "<leader>du", function() require("dapui").toggle() end, desc = "Dap UI" },
-        { "<leader>dU", function() require("dapui").toggle({ reset = true }) end, desc = "Dap UI - Reset layout" },
-        { "<leader>de", function() require("dapui").eval(nil, { enter = true }) end, desc = "Eval", mode = { "n", "v" } },
-      },
+    keys = {
+      { "<leader>du", function() require("dapui").toggle() end, desc = "Dap UI" },
+      { "<leader>dU", function() require("dapui").toggle({ reset = true }) end, desc = "Dap UI - Reset layout" },
+      { "<leader>de", function() require("dapui").eval(nil, { enter = true }) end, desc = "Eval", mode = { "n", "v" } },
+    },
     opts = {
       floating = {
         border = defaults.border,
