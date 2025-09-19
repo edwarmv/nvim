@@ -57,8 +57,8 @@ return {
       globalstatus = true,
       always_divide_middle = true,
       disabled_filetypes = {
-        statusline = {},
-        winbar = { "", "dap-view", "dap-repl", "snacks_layout_box", "qf", "neo-tree", "toggleterm" },
+        statusline = { "snacks_dashboard" },
+        winbar = { "", "dap-view", "dap-repl", "snacks_layout_box", "qf", "neo-tree", "toggleterm", "snacks_dashboard" },
       },
     },
     sections = {
