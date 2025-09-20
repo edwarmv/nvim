@@ -71,7 +71,7 @@ return {
           icon = "",
           fmt = function(value)
             if value ~= "" then
-              local max_width = vim.o.columns * 1 / 6
+              local max_width = vim.o.columns * 1 / 4
               return string.len(value) <= max_width and value or string.sub(value, 1, max_width) .. "…"
             end
             return ""
