@@ -14,21 +14,6 @@ return {
     end,
   },
   {
-    "echasnovski/mini.indentscope",
-    init = function()
-      vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter" }, {
-        desc = "Disable 'mini.indentscope' when buftype is ''",
-        callback = function(args)
-          local bufnr = args.buf or vim.fn.expand("<abuf>")
-          if vim.bo[bufnr].buftype ~= "" then
-            vim.b.miniindentscope_disable = true
-          end
-        end,
-      })
-    end,
-    opts = { symbol = "▏" },
-  },
-  {
     "echasnovski/mini.diff",
     event = "VeryLazy",
     opts = {
@@ -99,5 +84,20 @@ return {
       local opts = { pattern = "MiniSnippetsSessionStart", callback = make_stop }
       vim.api.nvim_create_autocmd("User", opts)
     end,
+  },
+  {
+    "echasnovski/mini.indentscope",
+    init = function()
+      vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter" }, {
+        desc = "Disable 'mini.indentscope' when buftype is ''",
+        callback = function(args)
+          local bufnr = args.buf or vim.fn.expand("<abuf>")
+          if vim.bo[bufnr].buftype ~= "" then
+            vim.b.miniindentscope_disable = true
+          end
+        end,
+      })
+    end,
+    opts = { symbol = "▏" },
   },
 }
