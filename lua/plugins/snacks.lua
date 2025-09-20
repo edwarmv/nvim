@@ -70,6 +70,11 @@ return {
           winhighlight = "NormalFloat:Normal",
         },
       },
+      dashboard = {
+        wo = {
+          foldcolumn = "0",
+        },
+      },
     },
   },
   -- stylua: ignore start
