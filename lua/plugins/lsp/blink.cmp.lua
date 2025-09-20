@@ -91,5 +91,12 @@ return {
         border = defaults.border,
       },
     },
+    fuzzy = {
+      sorts = {
+        "exact",
+        "score",
+        "sort_text",
+      },
+    },
   },
 }
