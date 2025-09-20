@@ -1,8 +1,10 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown", "Avante", "codecompanion" },
     opts = {
+      completion = {
+        blink = { enabled = true },
+      },
       file_types = { "markdown", "Avante", "codecompanion" },
       overrides = {
         buftype = {
