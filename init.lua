@@ -2,7 +2,6 @@ vim.deprecate = function() end
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.o.winborder = "none"
-
 vim.opt.sessionoptions:remove({ "blank", "folds", "help" })
 vim.o.completeopt = "menu,menuone,noselect,fuzzy,nosort"
 vim.o.confirm = true -- Confirm to save changes before exiting modified buffer
@@ -66,6 +65,7 @@ vim.opt.listchars = {
   -- multispace = "⋅",
   trail = "⋅", -- ·
   tab = "  ",
+  -- tab = "→⋅",
   -- eol = "↵",
 }
 
