@@ -111,7 +111,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(event)
     M.lsp(event.buf)
-    vim.lsp.document_color.enable(true, event.buf, { style = " " })
+    vim.lsp.document_color.enable(false, event.buf, { style = " " })
   end,
 })
 
