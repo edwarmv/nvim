@@ -42,6 +42,10 @@ M.lsp = function(buffer)
 
   -- vim.keymap.set("n", "glT", vim.lsp.buf.type_definition, { desc = "[LSP] Type Definition", buffer = buffer })
 
+  vim.keymap.set("n", "gra", function()
+    require("tiny-code-action").code_action()
+  end, { desc = "[LSP] Code Action", buffer = buffer })
+
   vim.keymap.set("n", "grn", function()
     require("config.utils.rename").lsp_buf_rename_use_priority_or_any()
   end, { desc = "[LSP] Rename", buffer = buffer })
