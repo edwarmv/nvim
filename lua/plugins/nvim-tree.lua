@@ -62,7 +62,7 @@ return {
           padding = 0,
         },
         signcolumn = "yes",
-        side = "right",
+        side = "left",
       },
       renderer = {
         root_folder_label = false,
