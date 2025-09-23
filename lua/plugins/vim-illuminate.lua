@@ -1,5 +1,3 @@
-local defaults = require("config.defaults")
-
 return {
   "RRethy/vim-illuminate",
   config = function()
@@ -11,8 +9,6 @@ return {
         "treesitter",
         "regex",
       },
-      -- delay: delay in milliseconds
-      delay = defaults.lsp_debounce,
       -- filetype_overrides: filetype specific overrides.
       -- The keys are strings to represent the filetype while the values are tables that
       -- supports the same keys passed to .configure except for filetypes_denylist and filetypes_allowlist
