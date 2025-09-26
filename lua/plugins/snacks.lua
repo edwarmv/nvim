@@ -10,6 +10,7 @@ return {
         git_hl = true,
       },
     },
+    dashboard = { enabled = true },
     bigfile = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
