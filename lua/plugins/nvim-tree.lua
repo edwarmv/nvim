@@ -62,7 +62,7 @@ return {
           padding = 0,
         },
         signcolumn = "yes",
-        side = "left",
+        side = "right",
       },
       renderer = {
         root_folder_label = false,
@@ -104,7 +104,7 @@ return {
         },
       },
       update_focused_file = {
-        enable = false,
+        enable = true,
       },
       hijack_netrw = true,
       hijack_directories = {
