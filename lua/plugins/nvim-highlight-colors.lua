@@ -6,7 +6,7 @@ return {
     enable_tailwind = true,
     exclude_filetypes = {
       "blink-cmp-menu",
-      -- "blink-cmp-documentation",
+      "blink-cmp-documentation",
     },
   },
 }
