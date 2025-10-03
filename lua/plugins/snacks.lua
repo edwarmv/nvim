@@ -4,13 +4,12 @@ return {
   lazy = false,
   opts = {
     statuscolumn = {
-      enabled = false,
+      enabled = true,
       folds = {
         open = true,
         git_hl = true,
       },
     },
-    dashboard = { enabled = true },
     bigfile = { enabled = true },
     notifier = { enabled = true },
     quickfile = { enabled = true },
