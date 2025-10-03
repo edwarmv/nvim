@@ -57,8 +57,8 @@ vim.opt.foldtext = ""
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.fillchars = {
-  foldopen = "▾",
-  foldclose = "▸",
+  foldopen = "▶",
+  foldclose = "▼",
   diff = "╱",
 }
 vim.opt.listchars = {
@@ -93,7 +93,6 @@ vim.api.nvim_create_autocmd({ "TabLeave" }, {
   command = "let g:lasttab = tabpagenr()",
 })
 vim.keymap.set("n", "<leader>tl", ":exe 'tabn '.g:lasttab<cr>", { silent = true, desc = "Last Tab" })
-vim.opt.tabline = [[%{%v:lua.require("config.tabline").draw()%}]]
 vim.keymap.set("i", "<c-l>", "<c-f>")
 vim.keymap.set("i", "<s-tab>", "<c-d>")
 vim.keymap.set("n", "<c-w>z", ":resize | vertical resize<CR>")
@@ -102,7 +101,7 @@ local defaults = require("config.defaults")
 local icons = defaults.icons
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
