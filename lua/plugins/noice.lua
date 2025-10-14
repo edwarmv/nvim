@@ -32,15 +32,15 @@ return {
         },
         opts = { skip = true },
       },
-      -- {
-      --   filter = {
-      --     event = "msg_show",
-      --     any = {
-      --       { find = "deprecated" },
-      --     },
-      --   },
-      --   opts = { skip = true },
-      -- },
+      {
+        filter = {
+          event = "msg_show",
+          any = {
+            { find = "deprecated" },
+          },
+        },
+        opts = { skip = true },
+      },
     },
   },
 }
