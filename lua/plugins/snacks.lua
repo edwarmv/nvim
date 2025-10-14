@@ -3,15 +3,11 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    statuscolumn = {
-      enabled = true,
-      folds = {
-        open = true,
-        git_hl = true,
-      },
-    },
     bigfile = { enabled = true },
-    notifier = { enabled = true },
+    notifier = {
+      enabled = true,
+      top_down = false,
+    },
     quickfile = { enabled = true },
     input = { enabled = true },
     zen = { enabled = true },
@@ -23,7 +19,7 @@ return {
         char = "▏",
       },
       scope = {
-        enabled = false,
+        enabled = true,
         char = "▏",
       },
     },
