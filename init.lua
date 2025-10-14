@@ -67,7 +67,7 @@ vim.o.signcolumn     = 'yes:1'    -- Always show signcolumn (less flicker)
 vim.o.splitbelow     = true       -- Horizontal splits will be below
 vim.o.splitkeep      = 'screen'   -- Reduce scroll during window split
 vim.o.splitright     = true       -- Vertical splits will be to the right
-vim.o.winborder      = 'rounded'  -- Use border in floating windows
+vim.o.winborder      = 'none'  -- Use border in floating windows
 vim.o.wrap           = false      -- Don't visually wrap lines (toggle with \w)
 vim.o.confirm        = true       -- Confirm to save changes before exiting modified buffer
 vim.o.showbreak      = "↪"
@@ -75,7 +75,7 @@ vim.o.showbreak      = "↪"
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 
 -- Special UI symbols. More is set via 'mini.basics' later.
-vim.o.fillchars = 'eob: ,fold:╌,foldopen:▼,foldclose:▶,diff:╱,foldinner: ,foldsep: '
+vim.o.fillchars = 'eob: ,fold:╌,foldopen:▾,foldclose:▸,diff:╱,foldinner: ,foldsep: '
 vim.o.listchars = 'extends:…,nbsp:␣,precedes:…,tab:> ,trail:⋅'
 
 -- Folds (see `:h fold-commands`, `:h zM`, `:h zR`, `:h zA`, `:h zj`)
