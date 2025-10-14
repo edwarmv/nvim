@@ -53,7 +53,7 @@ return {
         },
       },
     },
-    snippets = { preset = "mini_snippets" },
+    snippets = { preset = "luasnip" },
     completion = {
       documentation = {
         auto_show_delay_ms = 200,
@@ -75,7 +75,7 @@ return {
       },
       list = {
         selection = {
-          preselect = false,
+          preselect = true,
           auto_insert = false,
         },
       },
