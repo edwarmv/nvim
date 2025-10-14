@@ -20,7 +20,7 @@ return {
       },
     },
     presets = {
-      command_palette = true,
+      command_palette = false,
       long_message_to_split = true,
       bottom_search = true,
     },
