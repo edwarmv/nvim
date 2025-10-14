@@ -14,6 +14,7 @@ return {
       BlinkCmpDocBorder = { fg = "highlight_high", bg = "highlight_low" },
       PmenuSel = { fg = "none", bg = "overlay" },
       BufferLineTabSelected = { fg = "text", bg = "base" },
+      FlashBackdrop = { fg = "subtle" },
     },
   },
 }
