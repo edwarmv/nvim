@@ -2,9 +2,6 @@ return {
   "stevearc/quicker.nvim",
   ft = "qf",
   opts = {
-    follow = {
-      enabled = true,
-    },
     keys = {
       {
         ">",
