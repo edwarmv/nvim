@@ -24,5 +24,23 @@ return {
       long_message_to_split = true,
       bottom_search = true,
     },
+    routes = {
+      {
+        filter = {
+          event = "msg_show",
+          kind = "lua_error",
+        },
+        opts = { skip = true },
+      },
+      -- {
+      --   filter = {
+      --     event = "msg_show",
+      --     any = {
+      --       { find = "deprecated" },
+      --     },
+      --   },
+      --   opts = { skip = true },
+      -- },
+    },
   },
 }
