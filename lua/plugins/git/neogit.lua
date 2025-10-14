@@ -9,9 +9,9 @@ return {
   opts = {
     disable_signs = false,
     signs = {
-      hunk = { "▶", "▼" },
-      item = { "▶", "▼" },
-      section = { "▶", "▼" },
+      hunk = { "▸", "▾" },
+      item = { "▸", "▾" },
+      section = { "▸", "▾" },
     },
     graph_style = "unicode",
   },
