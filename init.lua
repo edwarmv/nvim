@@ -38,10 +38,10 @@ vim.g.maplocalleader             = "\\"
 
 vim.o.mouse                      = 'a'            -- Enable mouse
 vim.o.mousescroll                = 'ver:25,hor:6' -- Customize mouse scroll
-vim.o.switchbuf                  = 'usetab'       -- Use already opened buffers when switching
 vim.o.undofile                   = true           -- Enable persistent undo
 vim.o.timeoutlen                 = 500
 vim.o.termguicolors              = true
+vim.o.cmdheight                  = 0
 vim.g.markdown_recommended_style = 0              -- Fix markdown indentation settings
 
 vim.o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
@@ -51,25 +51,25 @@ vim.cmd('filetype plugin indent on')
 if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
 
 -- UI =========================================================================
-vim.o.breakindent    = true       -- Indent wrapped lines to match line start
-vim.o.breakindentopt = 'list:-1'  -- Add padding for lists (if 'wrap' is set)
-vim.o.colorcolumn    = '+1'       -- Draw column on the right of maximum width
-vim.o.cursorline     = true       -- Enable current line highlighting
-vim.o.linebreak      = true       -- Wrap lines at 'breakat' (if 'wrap' is set)
-vim.o.list           = true       -- Show helpful text indicators
-vim.o.number         = true       -- Show line numbers
+vim.o.breakindent    = true        -- Indent wrapped lines to match line start
+vim.o.breakindentopt = 'list:-1'   -- Add padding for lists (if 'wrap' is set)
+vim.o.colorcolumn    = '+1'        -- Draw column on the right of maximum width
+vim.o.cursorline     = true        -- Enable current line highlighting
+vim.o.linebreak      = true        -- Wrap lines at 'breakat' (if 'wrap' is set)
+vim.o.list           = true        -- Show helpful text indicators
+vim.o.number         = true        -- Show line numbers
 vim.o.numberwidth    = 1
-vim.o.pumheight      = 10         -- Make popup menu smaller
-vim.o.ruler          = false      -- Don't show cursor coordinates
-vim.o.shortmess      = 'ICFOSWaco' -- Disable some built-in completion messages
-vim.o.showmode       = false      -- Don't show mode in command line
-vim.o.signcolumn     = 'yes:1'    -- Always show signcolumn (less flicker)
-vim.o.splitbelow     = true       -- Horizontal splits will be below
-vim.o.splitkeep      = 'screen'   -- Reduce scroll during window split
-vim.o.splitright     = true       -- Vertical splits will be to the right
-vim.o.winborder      = 'none'  -- Use border in floating windows
-vim.o.wrap           = false      -- Don't visually wrap lines (toggle with \w)
-vim.o.confirm        = true       -- Confirm to save changes before exiting modified buffer
+vim.o.pumheight      = 10          -- Make popup menu smaller
+vim.o.ruler          = false       -- Don't show cursor coordinates
+vim.o.shortmess      = 'ICFOSsWacotT' -- Disable some built-in completion messages
+vim.o.showmode       = false       -- Don't show mode in command line
+vim.o.signcolumn     = 'yes:1'     -- Always show signcolumn (less flicker)
+vim.o.splitbelow     = true        -- Horizontal splits will be below
+vim.o.splitkeep      = 'screen'    -- Reduce scroll during window split
+vim.o.splitright     = true        -- Vertical splits will be to the right
+vim.o.winborder      = 'none'      -- Use border in floating windows
+vim.o.wrap           = false       -- Don't visually wrap lines (toggle with \w)
+vim.o.confirm        = true        -- Confirm to save changes before exiting modified buffer
 vim.o.showbreak      = "↪"
 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
