@@ -1,57 +1,32 @@
 return {
   "folke/flash.nvim",
   event = "VeryLazy",
-  opts = {
-    modes = {
-      search = {
-        enabled = false,
-      },
-    },
-    label = {
-      rainbow = {
-        enabled = false,
-      },
-    },
-    prompt = {
-      win_config = {
-        border = "none",
-      },
-    },
-  },
+  opts = {},
   keys = {
     {
       "s",
       mode = { "n", "x", "o" },
       function()
-        -- default options: exact mode, multi window, all directions, with a backdrop
         require("flash").jump()
       end,
       desc = "Flash",
     },
     {
-      "S",
-      mode = { "n", "o" },
+      "Z",
+      mode = { "n", "x", "o" },
       function()
-        require("flash").jump({ continue = true })
+        require("flash").treesitter()
       end,
-      desc = "Flash - Continue last search",
+      desc = "Flash Treesitter",
     },
     {
-      "Z",
-      mode = { "x" },
+      "<c-s-s>",
+      mode = { "n", "x", "o" },
       function()
         require("flash").jump({ continue = true })
       end,
       desc = "Flash - Continue last search",
     },
-    -- {
-    --   "S",
-    --   mode = { "n", "o", "x" },
-    --   function()
-    --     require("flash").treesitter()
-    --   end,
-    --   desc = "Flash Treesitter",
-    -- },
     {
       "r",
       mode = "o",
@@ -91,6 +66,14 @@ return {
         })
       end,
       desc = "Jump to a line",
+    },
+    {
+      "<c-s>",
+      mode = { "c" },
+      function()
+        require("flash").toggle()
+      end,
+      desc = "Toggle Flash Search",
     },
   },
 }
