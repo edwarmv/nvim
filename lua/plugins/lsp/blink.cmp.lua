@@ -64,19 +64,12 @@ return {
       },
       trigger = {
         show_on_backspace = true,
+        show_on_backspace_in_keyword = true,
       },
       menu = {
-        max_height = 6,
         border = "none",
         draw = {
           padding = 1,
-          treesitter = { "lsp" },
-        },
-      },
-      list = {
-        selection = {
-          preselect = true,
-          auto_insert = false,
         },
       },
     },
