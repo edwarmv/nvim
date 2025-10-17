@@ -110,8 +110,8 @@ local group = vim.api.nvim_create_augroup("LspMappings", { clear = false })
 vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(event)
-    M.lsp(event.buf)
     vim.lsp.document_color.enable(false, event.buf, { style = " " })
+    M.lsp(event.buf)
   end,
 })
 
