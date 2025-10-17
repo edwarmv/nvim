@@ -3,22 +3,6 @@ local defaults = require("config.defaults")
 return {
   "akinsho/toggleterm.nvim",
   lazy = false,
-  init = function()
-    function _G.set_terminal_keymaps()
-      local esc_timer
-      vim.keymap.set("t", "<esc>", function(self)
-        esc_timer = esc_timer or (vim.uv or vim.loop).new_timer()
-        if esc_timer:is_active() then
-          esc_timer:stop()
-          vim.cmd("stopinsert")
-        else
-          esc_timer:start(200, 0, function() end)
-          return "<esc>"
-        end
-      end, { buffer = 0, expr = true, desc = "Double escape to normal mode" })
-    end
-    vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-  end,
   opts = {
     size = function(term)
       if term.direction == "horizontal" then
@@ -27,13 +11,13 @@ return {
         return math.floor(vim.o.columns / 3)
       end
     end,
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<c-`>]],
     direction = "float", -- 'vertical' | 'horizontal' | 'window' | 'float',
     shade_terminals = false,
     float_opts = {
       border = defaults.border,
       width = function(_term)
-        local width = math.floor(vim.o.columns * 0.7)
+        local width = math.floor(vim.o.columns * 0.75)
         return width
       end,
       height = function(_term)
