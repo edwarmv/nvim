@@ -8,6 +8,9 @@ return {
     messages = {
       view_search = false,
     },
+    popupmenu = {
+      enabled = false,
+    },
     lsp = {
       progress = {
         enabled = false,
@@ -20,7 +23,7 @@ return {
       },
     },
     presets = {
-      command_palette = false,
+      command_palette = true,
       long_message_to_split = true,
       bottom_search = true,
     },
