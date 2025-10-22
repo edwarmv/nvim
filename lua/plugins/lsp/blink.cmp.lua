@@ -51,6 +51,9 @@ return {
           opts = { tailwind_color_icon = "" },
           fallbacks = {},
         },
+        buffer = {
+          max_items = 5,
+        },
       },
     },
     snippets = { preset = "luasnip" },
@@ -70,6 +73,7 @@ return {
         border = "none",
         draw = {
           padding = 1,
+          treesitter = { "lsp" },
         },
       },
     },
