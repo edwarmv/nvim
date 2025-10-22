@@ -1,7 +1,5 @@
 vim.keymap.set("i", "<c-b>", "<left>")
 vim.keymap.set("i", "<c-f>", "<right>")
-vim.keymap.set("i", "<c-n>", "<down>")
-vim.keymap.set("i", "<c-p>", "<up>")
 vim.keymap.set("c", "<c-a>", "<c-b>")
 vim.keymap.set("c", "<c-l>", "<c-f>")
 vim.keymap.set("c", "<c-b>", "<left>")
