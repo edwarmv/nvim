@@ -85,6 +85,8 @@ return {
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer", },
     { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
+    { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete All Bufferss Except The Current One", },
+    { "<leader>ba", function() Snacks.bufdelete.all() end, desc = "Delete All Bufferss", },
     --- FZF
     { "<leader>F", function() Snacks.picker() end, desc = "Snacks Picker" },
     { "<leader>fe", function() Snacks.picker.explorer() end, desc = "FZF - Explorer" },
@@ -101,10 +103,28 @@ return {
     { "<leader>fc", function() Snacks.picker.commands() end, desc = "FZF - Commands" },
     { "<leader>fd", function() Snacks.picker.diagnostics_buffer() end, desc = "FZF - Buffer Diagnostics" },
     { "<leader>fD", function() Snacks.picker.diagnostics() end, desc = "FZF - Diagnostics" },
-    { "<leader>fgl", function() Snacks.picker.git_log() end, desc = "Git Log" },
-    { "<leader>fgs", function() Snacks.picker.git_status() end, desc = "Git Status" },
     { "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Todo" },
     { "<leader>f/", function() Snacks.picker.lines() end, desc = "Lines" },
+    { "<leader><leader>fr", function() Snacks.picker.resume() end, desc = "Resume" },
+    -- git
+    { "<leader>fgb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
+    { "<leader>fgl", function() Snacks.picker.git_log() end, desc = "Git Log" },
+    { "<leader>fgL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },
+    { "<leader>fgs", function() Snacks.picker.git_status() end, desc = "Git Status" },
+    { "<leader>fgS", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
+    { "<leader>fgd", function() Snacks.picker.git_diff() end, desc = "Git Diff (Hunks)" },
+    { "<leader>fgf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+    -- LSP
+    { "<leader>fld", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
+    { "<leader>flD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration" },
+    { "<leader>flr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+    { "<leader>flI", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation" },
+    { "<leader>fly", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+    { "<leader>flai", function() Snacks.picker.lsp_incoming_calls() end, desc = "C[a]lls Incoming" },
+    { "<leader>flao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
+    { "<leader>fls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+    { "<leader>flS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+
   },
   -- stylua: ignore end
 }
