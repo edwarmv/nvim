@@ -2,7 +2,7 @@ return {
   "gbprod/yanky.nvim",
   event = "VimEnter",
   dependencies = {
-    "kkharji/sqlite.lua",
+    -- "kkharji/sqlite.lua",
     -- {
     --   "gbprod/cutlass.nvim",
     --   opts = {
@@ -15,12 +15,12 @@ return {
   },
   opts = {
     ring = {
-      storage = "sqlite",
+      storage = "shada",
     },
   },
   keys = {
     {
-      "<leader>y",
+      "<leader>fy",
       function()
         Snacks.picker.yanky()
       end,
