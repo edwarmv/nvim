@@ -8,6 +8,15 @@ return {
       enabled = true,
       top_down = false,
     },
+    dashboard = { enabled = false },
+    statuscolumn = {
+      enabled = false,
+      folds = {
+        open = true,
+        git_hl = true,
+      },
+    },
+    scroll = { enabled = false },
     quickfile = { enabled = true },
     input = { enabled = true },
     zen = { enabled = true },
@@ -84,9 +93,9 @@ return {
     { "<leader>Z", function() Snacks.zen.zoom() end, desc = "Toggle Zoom", },
     { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
     { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer", },
-    { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
-    { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete All Bufferss Except The Current One", },
-    { "<leader>ba", function() Snacks.bufdelete.all() end, desc = "Delete All Bufferss", },
+    { "<leader>bdd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
+    { "<leader>bdo", function() Snacks.bufdelete.other() end, desc = "Delete All Bufferss Except The Current One", },
+    { "<leader>bda", function() Snacks.bufdelete.all() end, desc = "Delete All Bufferss", },
     --- FZF
     { "<leader>F", function() Snacks.picker() end, desc = "Snacks Picker" },
     { "<leader>fe", function() Snacks.picker.explorer() end, desc = "FZF - Explorer" },
@@ -124,7 +133,32 @@ return {
     { "<leader>flao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
     { "<leader>fls", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     { "<leader>flS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
-
   },
   -- stylua: ignore end
+  init = function()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "VeryLazy",
+      callback = function()
+        -- Setup some globals for debugging (lazy-loaded)
+        _G.dd = function(...)
+          Snacks.debug.inspect(...)
+        end
+        _G.bt = function()
+          Snacks.debug.backtrace()
+        end
+
+        -- Override print to use snacks for `:=` command
+        if vim.fn.has("nvim-0.11") == 1 then
+          vim._print = function(_, ...)
+            dd(...)
+          end
+        else
+          vim.print = _G.dd
+        end
+
+        -- Create some toggle mappings
+        Snacks.toggle.option("scrollbind", { name = "Scrollbind" }):map("yoS")
+      end,
+    })
+  end,
 }
