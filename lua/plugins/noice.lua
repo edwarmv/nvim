@@ -1,5 +1,6 @@
 return {
   "folke/noice.nvim",
+  enabled = true,
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
@@ -7,9 +8,6 @@ return {
   opts = {
     messages = {
       view_search = false,
-    },
-    popupmenu = {
-      enabled = false,
     },
     lsp = {
       progress = {
@@ -23,7 +21,6 @@ return {
       },
     },
     presets = {
-      command_palette = true,
       long_message_to_split = true,
       bottom_search = true,
     },
