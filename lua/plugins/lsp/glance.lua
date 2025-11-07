@@ -1,17 +1,20 @@
 return {
   "dnlhc/glance.nvim",
-  event = "VimEnter",
-  config = function()
+  cmd = "Glance",
+  opts = function()
     local glance = require("glance")
     local actions = glance.actions
 
-    glance.setup({
+    return {
       preview_win_opts = {
         wrap = false,
       },
+      detached = function(winid)
+        return true
+      end,
       folds = {
-        fold_closed = "▸",
-        fold_open = "▾",
+        fold_closed = "▶",
+        fold_open = "▼",
       },
       indent_lines = {
         enable = false,
@@ -26,6 +29,6 @@ return {
           ["<c-t>"] = actions.jump_tab,
         },
       },
-    })
+    }
   end,
 }
