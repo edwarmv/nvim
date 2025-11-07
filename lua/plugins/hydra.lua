@@ -7,8 +7,7 @@ return {
     Hydra({
       config = {
         hint = {
-          type = "window",
-          offset = -1,
+          type = "statusline",
         },
         -- on_enter = function()
         --   vim.cmd("IBLDisable")
@@ -32,8 +31,7 @@ return {
     Hydra({
       config = {
         hint = {
-          type = "window",
-          offset = -1,
+          type = "statusline",
         },
         timeout = false,
       },
