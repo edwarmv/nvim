@@ -3,16 +3,14 @@ local defaults = require("config.defaults")
 return {
   "saghen/blink.cmp",
   build = "cargo build --release",
+  enabled = true,
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+  },
   opts = {
     keymap = {
-      preset = "super-tab",
+      preset = "enter",
       ["<C-y>"] = { "select_and_accept", "fallback" },
-      ["<Tab>"] = {
-        "select_and_accept",
-        "snippet_forward",
-        "fallback",
-      },
-      ["<S-Tab>"] = { "snippet_backward", "fallback" },
       ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
     },
     appearance = {
@@ -51,12 +49,19 @@ return {
           opts = { tailwind_color_icon = "" },
           fallbacks = {},
         },
+        snippets = {
+          opts = {
+            extended_filetypes = {
+              typescript = { "javascript" },
+              astro = { "javascript" },
+            },
+          },
+        },
         buffer = {
           max_items = 5,
         },
       },
     },
-    snippets = { preset = "luasnip" },
     completion = {
       documentation = {
         auto_show_delay_ms = 200,
@@ -76,6 +81,11 @@ return {
           treesitter = { "lsp" },
         },
       },
+      list = {
+        selection = {
+          auto_insert = false,
+        },
+      },
     },
     signature = {
       enabled = true,
@@ -83,13 +93,16 @@ return {
         border = defaults.border,
       },
     },
+    cmdline = {
+      enabled = false,
+    },
     fuzzy = {
       sorts = {
         "exact",
         "score",
+        "kind",
         "sort_text",
         "label",
-        "kind",
       },
     },
   },
