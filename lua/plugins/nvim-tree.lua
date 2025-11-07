@@ -3,7 +3,7 @@ local icons = defaults.icons
 
 return {
   "nvim-tree/nvim-tree.lua",
-  enabled = true,
+  enabled = false,
   dependencies = {
     "b0o/nvim-tree-preview.lua",
     "s1n7ax/nvim-window-picker",

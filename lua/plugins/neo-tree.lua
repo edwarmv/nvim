@@ -1,7 +1,7 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
@@ -21,6 +21,7 @@ return {
           ["s"] = false,
           ["S"] = false,
           ["t"] = false,
+          ["z"] = false,
           ["h"] = function(state)
             local node = state.tree:get_node()
             if node.type == "directory" and node:is_expanded() then
@@ -41,6 +42,16 @@ return {
           end,
         },
       },
+      filesystem = {
+        filtered_items = {
+          visible = true,
+        },
+      },
+      default_component_configs = {
+        name = {
+          highlight_opened_files = true,
+        },
+      },
     },
     keys = {
       {
@@ -50,7 +61,7 @@ return {
       },
       {
         "<leader>E",
-        "<cmd>Neotree toggle reveal<cr>",
+        "<cmd>Neotree reveal<cr>",
         desc = "Neotree - Reveal",
       },
     },
