@@ -35,6 +35,10 @@ return {
       { mode = { "n", "x" }, "z*", "<Plug>(asterisk-z*)" },
     },
   },
+  -- {
+  --   "sphamba/smear-cursor.nvim",
+  --   opts = {},
+  -- },
   -- better gf gF,
   {
     "HawkinsT/pathfinder.nvim",
