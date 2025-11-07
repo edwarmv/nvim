@@ -13,6 +13,11 @@ vim.keymap.set("n", "<leader>tm", function()
 end, { desc = "Tab Move" })
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<cr>")
 vim.keymap.set("n", "<leader>to", "<cmd>tabonly<cr>")
+vim.keymap.set("n", "<leader>tO", function()
+  vim.cmd("tabonly")
+  vim.cmd("only")
+  Snacks.bufdelete.other()
+end)
 vim.api.nvim_create_autocmd({ "TabLeave" }, {
   command = "let g:lasttab = tabpagenr()",
 })
@@ -20,3 +25,5 @@ vim.keymap.set("n", "<leader>tl", ":exe 'tabn '.g:lasttab<cr>", { silent = true,
 vim.keymap.set("i", "<c-l>", "<c-f>")
 vim.keymap.set("i", "<s-tab>", "<c-d>")
 vim.keymap.set("n", "<c-w>z", ":resize | vertical resize<CR>")
+vim.keymap.set({ "n", "x" }, "<leader>y", '"+y')
+vim.keymap.set({ "n", "x" }, "<leader>p", '"+p')
