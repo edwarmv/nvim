@@ -41,10 +41,13 @@ vim.o.mousescroll                = 'ver:25,hor:6' -- Customize mouse scroll
 vim.o.undofile                   = true           -- Enable persistent undo
 vim.o.timeoutlen                 = 500
 vim.o.termguicolors              = true
+vim.o.sidescroll                 = 0
+vim.o.sidescrolloff              = 1
 vim.o.cmdheight                  = 0
 vim.g.markdown_recommended_style = 0              -- Fix markdown indentation settings
+vim.opt.sessionoptions:remove({ "blank", "help" })
 
-vim.o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
+-- vim.o.shada = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
 
 -- Enable all filetype plugins and syntax (if not enabled, for better startup)
 vim.cmd('filetype plugin indent on')
@@ -55,7 +58,7 @@ vim.o.breakindent    = true        -- Indent wrapped lines to match line start
 vim.o.breakindentopt = 'list:-1'   -- Add padding for lists (if 'wrap' is set)
 vim.o.colorcolumn    = '+1'        -- Draw column on the right of maximum width
 vim.o.cursorline     = true        -- Enable current line highlighting
-vim.o.linebreak      = true        -- Wrap lines at 'breakat' (if 'wrap' is set)
+vim.o.linebreak      = false       -- Wrap lines at 'breakat' (if 'wrap' is set)
 vim.o.list           = true        -- Show helpful text indicators
 vim.o.number         = true        -- Show line numbers
 vim.o.numberwidth    = 1
@@ -75,7 +78,7 @@ vim.o.showbreak      = "↪"
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 
 -- Special UI symbols. More is set via 'mini.basics' later.
-vim.o.fillchars = 'eob: ,fold:╌,foldopen:▾,foldclose:▸,diff:╱,foldinner: ,foldsep: '
+vim.o.fillchars = 'eob: ,fold:╌,foldopen:▼,foldclose:▶,diff:╱,foldinner: ,foldsep: '
 vim.o.listchars = 'extends:…,nbsp:␣,precedes:…,tab:> ,trail:⋅'
 
 -- Folds (see `:h fold-commands`, `:h zM`, `:h zR`, `:h zA`, `:h zj`)
